@@ -9,6 +9,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
-    <TestComponent text="Howdy"/>
+    <div><NavBar /></div>
+    <div class="rounded-lg container bg-gray-500"><TestComponent text="Howdy"/></div>
 </body>
 </html>
