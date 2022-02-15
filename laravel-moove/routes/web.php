@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExampleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,9 @@ Route::get('/', function () {
 });
 
 Route::get('/moove', function () {
-    return view('react-test');
+    return view('react-test', $data = [
+        'message' => 'I was added to the view (blade) by a controller!'
+    ]);
 });
+
+Route::get('/example', [ExampleController::class, 'index']);

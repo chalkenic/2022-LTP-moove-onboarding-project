@@ -11,7 +11,7 @@
 </head>
 <body>
     <div><NavBar /></div>
-    <div class="rounded-lg font-mono container text-white p-8 flex mx-auto bg-gray-500"><p>I am part of the blade template...</p></div>
-    <div><TestComponent text="And I am a react component!" /></div>
+    <div class="rounded-lg font-mono container text-white p-8 flex mx-auto bg-gray-500"><p>Blade element says: {{$message}}</p></div>
+    <div class="rounded-lg font-mono container text-white p-8 flex mx-auto mt-4 bg-gray-500"><TestComponent text="And I am a react component!" /></div>
 </body>
 </html>
