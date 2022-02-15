@@ -1,14 +1,10 @@
 import ReactDOM from "react-dom"
 import React from "react";
 
-const TestComponent = () => {
+const TestComponent = ({ text }) => {
     return (
-        <div>TestComponent</div>
+        <div>Test component says: {text}</div>
     )
-}
-
-if (document.getElementById('TestComponent')) {
-    ReactDOM.render(<TestComponent />, document.getElementById('TestComponent'));
 }
 
 export default TestComponent

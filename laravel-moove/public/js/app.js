@@ -2165,10 +2165,19 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_components_TestComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./react/components/TestComponent */ "./resources/js/react/components/TestComponent.js");
+/* harmony import */ var _react_ReactRenderer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./react/ReactRenderer */ "./resources/js/react/ReactRenderer.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // React components
 
 
 
+
+
+var components = [{
+  name: "TestComponent",
+  component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_react_components_TestComponent__WEBPACK_IMPORTED_MODULE_0__["default"], null)
+}];
+new _react_ReactRenderer__WEBPACK_IMPORTED_MODULE_1__["default"](components).renderAll();
 
 /***/ }),
 
@@ -2203,6 +2212,104 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/react/ReactRenderer.js":
+/*!*********************************************!*\
+  !*** ./resources/js/react/ReactRenderer.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ReactRenderer)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+
+
+
+var ReactRenderer = /*#__PURE__*/function () {
+  // Thanks Joe Czubiak for this awesome React helper!
+  // https://joeczubiak.com/laravel-plus-react/
+  function ReactRenderer(components) {
+    _classCallCheck(this, ReactRenderer);
+
+    this.components = components;
+  }
+
+  _createClass(ReactRenderer, [{
+    key: "renderAll",
+    value: function renderAll() {
+      for (var componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
+        // Use this to render React components in divs using the id. Ex, <div id="MySimpleComponent"></div>
+        // let container = document.getElementById(this.components[componentIndex].name);
+        // Use this to render React components using the name as the tag. Ex, <MySimpleComponent></MySimpleComponent>
+        var containers = document.getElementsByTagName(this.components[componentIndex].name);
+
+        if (containers && containers.length > 0) {
+          for (var i = containers.length - 1; i >= 0; i--) {
+            var props = this.getPropsFromAttributes(containers[i]);
+            var element = this.components[componentIndex].component;
+
+            if (props !== null) {
+              element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.cloneElement(element, props);
+            }
+
+            react_dom__WEBPACK_IMPORTED_MODULE_1__.render(element, containers[i]);
+          }
+        }
+      }
+    } // Turns the dom element's attributes into an object to use as props.
+
+  }, {
+    key: "getPropsFromAttributes",
+    value: function getPropsFromAttributes(container) {
+      var props = {};
+
+      if (container.attributes.length > 0) {
+        for (var attributeIndex = 0; attributeIndex < container.attributes.length; attributeIndex++) {
+          var attribute = container.attributes[attributeIndex];
+
+          if (this.hasJsonStructure(attribute.value)) {
+            props[attribute.name] = JSON.parse(attribute.value);
+          } else {
+            props[attribute.name] = attribute.value;
+          }
+        }
+
+        return props;
+      }
+
+      return null;
+    }
+  }, {
+    key: "hasJsonStructure",
+    value: function hasJsonStructure(str) {
+      if (typeof str !== 'string') return false;
+
+      try {
+        var result = JSON.parse(str);
+        var type = Object.prototype.toString.call(result);
+        return type === '[object Object]' || type === '[object Array]';
+      } catch (err) {
+        return false;
+      }
+    }
+  }]);
+
+  return ReactRenderer;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/react/components/TestComponent.js":
 /*!********************************************************!*\
   !*** ./resources/js/react/components/TestComponent.js ***!
@@ -2219,13 +2326,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var TestComponent = function TestComponent() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null, "TestComponent");
+var TestComponent = function TestComponent(_ref) {
+  var text = _ref.text;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null, "Test component says: ", text);
 };
-
-if (document.getElementById('TestComponent')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_0__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(TestComponent, null), document.getElementById('TestComponent'));
-}
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TestComponent);
 
