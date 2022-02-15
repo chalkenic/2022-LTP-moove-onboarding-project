@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/moove', function () {
-    return 'Hello, from Laravel <3';
+    return view('react-test');
 });

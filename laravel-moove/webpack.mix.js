@@ -12,18 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .react()
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
-
-mix.webpackConfig({
-    resolve: {
-        alias: {
-            'react': path.resolve('node_modules/react'),
-            'react-dom': path.resolve('node_modules/react-dom'),
-            'components': path.resolve('resources/js/react/components'),
-            'pages': path.resolve('resources/js/src/pages'),
-            'layout': path.resolve('resources/js/src/layout'),
-        },
-    },
-});
