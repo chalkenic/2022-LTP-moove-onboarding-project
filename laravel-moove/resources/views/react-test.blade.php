@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>React Test</title>
 
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
     <div><NavBar /></div>
-    <div class="rounded-lg container bg-gray-500"><TestComponent text="Howdy"/></div>
+    <div class="rounded-lg font-mono container text-white p-8 flex mx-auto bg-gray-500"><p>I am part of the blade template...</p></div>
+    <div><TestComponent text="And I am a react component!" /></div>
 </body>
 </html>
