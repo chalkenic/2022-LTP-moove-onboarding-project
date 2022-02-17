@@ -54,7 +54,7 @@
                                 Password again
                             </label>
                     <div class="">
-                        <input id="password" name="password_confirmation" type="password" class="@error('password') border-red-500 @enderror bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                        <input id="password_confirmation" name="password_confirmation" type="password" class="@error('password') border-red-500 @enderror bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                     </div>
                 </div>
                 <div class="mt-8">
