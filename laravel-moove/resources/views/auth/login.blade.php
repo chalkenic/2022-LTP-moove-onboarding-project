@@ -1,5 +1,7 @@
 @extends('layouts.head')
-
+@section('title')
+<title>moove - login</title>
+@endsection('title')
 @section('content')
 <!-- Component by Harrishash
     https://tailwindcomponents.com/component/free-tailwind-css-sign-in-component

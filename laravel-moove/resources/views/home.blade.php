@@ -1,5 +1,7 @@
 @extends('layouts.head')
-
+@section('title')
+<title>moove - home</title>
+@endsection('title')
 @section('content')
 <div class="rounded-lg font-mono container text-white p-8 flex mx-auto mt-4 bg-gray-500">
     <ul>

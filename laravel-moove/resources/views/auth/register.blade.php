@@ -1,5 +1,7 @@
 @extends('layouts.head')
-
+@section('title')
+<title>moove - register</title>
+@endsection('title')
 @section('content')
 <div class="flex justify-center">
     <div class="w-4/12 bg-white p-6 rounded-lg">
