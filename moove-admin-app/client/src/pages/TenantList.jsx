@@ -10,23 +10,23 @@ import ListItemText from "@mui/material/ListItemText";
 import TenantApplication from './TenantApplication';
 
 
+export const tenants = [
+    {id: 0, fName: "Rob", lName: "Robson"},
+    {id: 1, fName: "John", lName: "Johnson"},
+    {id: 2, fName: "Bobby", lName:  "Bobbs"},
+    {id: 3, fName: "Sam", lName: "Samuels"}
+];
 
 
 const TenantList = () => {
 
-    const tenants = [
-        {name: "Rob Robson"},
-        {name: "John Johnson"},
-        {name: "Bobby Bobbs"},
-        {name: "Sam Samuels"}
-    ];
-
+    
     return (
         <List>
             <div>
             <h1>Tenant List Page</h1>
             {tenants.map(tenant => (
-                <ListItem onClick={event => window.location.href='/tenantApplication'}>{tenant.name}</ListItem>
+                <ListItem onClick={event => window.location.href=`/tenantApplication/${tenant.id}`}>{tenant.fName} {tenant.lName}</ListItem>
             ))}
             </div>
         </List>

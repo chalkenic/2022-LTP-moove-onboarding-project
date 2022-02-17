@@ -22,7 +22,7 @@ const AppRoutes = (props) => {
         >
         </Route>
         <Route
-          path="/TenantApplication"
+          path="/tenantApplication/:id"
           element={<TenantApplication setCurrentPage={setCurrentPage} />}
         >
         </Route>

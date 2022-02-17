@@ -7,12 +7,20 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import TenantList from './TenantList'
+import {tenants} from './TenantList'
+import {useParams} from 'react-router-dom';
 
 
 const TenantApplication = () => {
+   
+    const { id } = useParams();
+
+    
+
     return(
-        <h1>Tenant Application Page</h1>
+        <h1>Tenant Application Page</h1>,
+
+        <h2>{tenants[id].fName} {tenants[id].lName}</h2>
     ) 
 }
 
