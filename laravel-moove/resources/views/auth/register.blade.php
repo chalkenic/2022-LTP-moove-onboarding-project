@@ -3,45 +3,65 @@
 <title>moove - register</title>
 @endsection('title')
 @section('content')
-<div class="flex justify-center">
-    <div class="w-4/12 bg-white p-6 rounded-lg">
-        <h1 class="text-5xl font-medium leading-tight mt-0 mb-8">Register</h1>
+<div class="h-screen bg-gradient-to-tl from-yellow-200 to-indigo-900 w-full py-16 px-4">
+    <form action="{{route('register')}}" method="post">
+        @csrf
+        <div class="flex flex-col items-center justify-center">
+            <div class="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
+                <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Create a moove account</p>
+                <p tabindex="0" class="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500">By signing up, you agree to our <a href="#" class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer">privacy policy</a>
+                and <a href="#" class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer">terms and conditions.</a></p>
+                <div class="w-full flex items-center justify-between py-5">
 
-        <form action="{{route('register')}}" method="post">
-            @csrf
-            <div class="mb-4">
-                <label for="name" class="sr-only">Name</label>
-                <input type="text" name="name" value="{{old('name')}}" id="name" placeholder="Your name" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('name') border-red-500 @enderror">
-                @error('name')
+                </div>
+                <div>
+                    <label for="name" class="text-sm font-medium leading-none text-gray-800">
+                                Your name
+                            </label>
+                    <input aria-labelledby="name" name="name" value="{{old('name')}}" type="text" class="@error('name') border-red-500 @enderror bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                    @error('name')
                     <div class="text-red-500 mt-2 text-sm">
                         {{$message}}
                     </div>
-                @enderror
-            </div>
-            <div class="mb-4">
-                <label for="email" class="sr-only">Email</label>
-                <input type="email" name="email" value="{{old('email')}}" id="email" placeholder="Your email" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('email') border-red-500 @enderror">
-                @error('email')
-                <div class="text-red-500 mt-2 text-sm">
-                    {{$message}}
+                    @enderror
                 </div>
-            @enderror
-            </div>
-            <div class="mb-4">
-                <label for="password" class="sr-only">Password</label>
-                <input type="password" name="password" id="password" placeholder="Your password" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('password') border-red-500 @enderror">
-                @error('password')
-                <div class="text-red-500 mt-2 text-sm">
-                    {{$message}}
+                <div>
+                    <label for="email" class="text-sm font-medium leading-none text-gray-800">
+                                Your email
+                            </label>
+                    <input aria-labelledby="email" name="email" value="{{old('email')}}" type="email" class="@error('email') border-red-500 @enderror bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                    @error('email')
+                    <div class="text-red-500 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
-            @enderror
+                <div>
+                    <label for="password" class="text-sm font-medium leading-none text-gray-800">
+                                Password
+                            </label>
+                    <div class="">
+                        <input id="password" name="password" type="password" class="@error('password') border-red-500 @enderror bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                        @error('password')
+                        <div class="text-red-500 mt-2 text-sm">
+                            {{$message}}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+                <div>
+                    <label for="password_confirmation" class="text-sm font-medium leading-none text-gray-800">
+                                Password again
+                            </label>
+                    <div class="">
+                        <input id="password" name="password_confirmation" type="password" class="@error('password') border-red-500 @enderror bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <button role="button" type="submit" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">Create Account</button>
+                </div>
             </div>
-            <div class="mb-4">
-                <label for="password_confirmation" class="sr-only">Password again</label>
-                <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Your password again" class="bg-gray-100 border-2 w-full p-4 rounded-lg">
-            </div>
-            <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Register</button> 
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 @endsection

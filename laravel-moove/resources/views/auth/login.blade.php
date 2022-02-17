@@ -15,7 +15,7 @@
                         <div class="bg-red-500 p-2 rounded-lg mb-6 text-white text-center">{{session('status')}}</div>
                     @endif
                     <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Login to your account</p>
-                    <p tabindex="0" class="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500">Dont have an account? <a href="{{route('register')}}" class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer"> Sign up here</a></p>
+                    <p tabindex="0" class="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500">Don't have an account? <a href="{{route('register')}}" class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer"> Sign up here</a></p>
                     <div class="w-full flex items-center justify-between py-5">
                         <!-- SSO/OAuth could go here? -->
                     </div>
