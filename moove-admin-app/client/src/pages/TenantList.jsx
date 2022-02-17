@@ -7,6 +7,9 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import TenantApplication from './TenantApplication';
+
+
 
 
 const TenantList = () => {
@@ -21,8 +24,9 @@ const TenantList = () => {
     return (
         <List>
             <div>
+            <h1>Tenant List Page</h1>
             {tenants.map(tenant => (
-                <ListItem>{tenant.name}</ListItem>
+                <ListItem onClick={event => window.location.href='/tenantApplication'}>{tenant.name}</ListItem>
             ))}
             </div>
         </List>

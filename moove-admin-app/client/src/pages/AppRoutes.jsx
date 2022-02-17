@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "../components/navBar/NavBar";
 import Dashboard from "./Dashboard";
 import TenantList from './TenantList';
+import TenantApplication from './TenantApplication'
 
 const AppRoutes = (props) => {
   const [currentPage, setCurrentPage] = useState("");
@@ -18,6 +19,11 @@ const AppRoutes = (props) => {
         <Route
           path="/list"
           element={<TenantList setCurrentPage={setCurrentPage} />}
+        >
+        </Route>
+        <Route
+          path="/TenantApplication"
+          element={<TenantApplication setCurrentPage={setCurrentPage} />}
         >
         </Route>
       </Routes>
