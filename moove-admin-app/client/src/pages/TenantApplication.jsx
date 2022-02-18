@@ -15,12 +15,19 @@ const TenantApplication = () => {
    
     const { id } = useParams();
 
-    
 
     return(
+        <div>
+
         <h1>Tenant Application Page</h1>,
 
-        <h2>{tenants[id].fName} {tenants[id].lName}</h2>
+        <h2>First Name: {tenants[id].fName}</h2>
+        <h2>Last Name: {tenants[id].lName}</h2>
+        <h2>Email: {tenants[id].email}</h2>
+
+        <Button>Approve</Button>
+        <Button>Deny</Button>
+        </div>
     ) 
 }
 
