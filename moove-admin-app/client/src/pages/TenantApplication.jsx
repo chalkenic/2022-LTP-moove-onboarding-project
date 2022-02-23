@@ -15,20 +15,21 @@ const TenantApplication = () => {
    
     const { id } = useParams();
 
-
     return(
-        <div>
 
-        <h1>Tenant Application Page</h1>,
+        <Box component="span" sx={{ p: 1 }}>
 
-        <h2>First Name: {tenants[id].fName}</h2>
-        <h2>Last Name: {tenants[id].lName}</h2>
-        <h2>Email: {tenants[id].email}</h2>
+            <h1>Tenant Application Page</h1>
 
-        <Button>Approve</Button>
-        <Button>Deny</Button>
-        </div>
+            <h2>First Name: {tenants[id].fName}</h2>
+            <h2>Last Name: {tenants[id].lName}</h2>
+            <h2>Email: {tenants[id].email}</h2>
+
+            <Button>Approve</Button>                                 
+            <Button>Deny</Button>
+
+        </Box>
     ) 
-}
+}                                             
 
 export default TenantApplication;
