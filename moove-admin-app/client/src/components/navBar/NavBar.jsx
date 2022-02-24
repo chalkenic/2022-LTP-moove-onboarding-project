@@ -59,11 +59,11 @@ const NavBar = ({ currentPage, navigationColor }) => {
   };
 
   return (
-    //Custom App bar
-
+    //Custom App bar styling.
     <AppNavBarCustom navColor={navColorChoice}>
       <Grid container alignItems={"center"} justifyContent={"space-between"}>
         <>
+          {/* moove image. */}
           <Box sx={{ display: "flex" }}>
             <img
               alt="moove logo"
@@ -71,9 +71,11 @@ const NavBar = ({ currentPage, navigationColor }) => {
               src={`${process.env.PUBLIC_URL}/static/images/moove_logo_nobg.png`}
             />
           </Box>
+          {/* Navigation header */}
           <Box sx={{ display: "flex" }}>
             <NavBarHeader name={navigationColor} />
           </Box>
+          {/* Navigation buttons */}
           <Box sx={{ display: { xs: "none", md: "inline-block" } }}>
             {pages.map((page) => {
               console.log(page);

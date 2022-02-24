@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+// TEMPORARY PAGE.
 const Test = ({ setCurrentPage }) => {
   useEffect(() => {
     setCurrentPage("Test");

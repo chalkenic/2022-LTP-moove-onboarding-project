@@ -4,6 +4,7 @@ import NavBar from "../components/navBar/NavBar";
 import Dashboard from "./Dashboard";
 import Test from "./Test";
 
+// TEMPORARY ROUTING. WILL BE REMOVED UPON LARAVEL TRANSFER.
 const AppRoutes = (props) => {
   const [currentPage, setCurrentPage] = useState("");
 

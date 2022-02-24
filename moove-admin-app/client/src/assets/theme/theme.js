@@ -22,16 +22,24 @@ const secondaryText = process.env.REACT_APP_TEXT_SECONDARY
   ? process.env.REACT_APP_TEXT_SECONDARY
   : "#1b1b00";
 
+// Link to black text within theme.
 const darkText = "#000";
+
+// Tenant colours (also referenced above) that dictate how a tenant's dashboard will look.
 const tenantColors = {
   main: "#ffc618",
   light: "#ffd34b",
   dark: "#4c3f16",
   darker: "#241e0b",
 };
+
+// Landlord colours that dictate how a Landlord's dashboard will look.
 const landlordColors = { main: "#0B41DC", light: "#265bf4  ", dark: "#041A58" };
+
+// Admin user colours that dictate how an Admin's dashboard will look.
 const adminColors = { main: "#7a0a43", light: "#943a68", dark: "#4b0629" };
 
+// Dictate custom theme using colours declared.
 const AppTheme = createTheme({
   palette: {
     text: {
@@ -90,6 +98,7 @@ const AppTheme = createTheme({
         },
       },
     },
+    // Custom Navigation bar given colours depending on choice made within.
     AppNavBar: {
       styleOverrides: {
         root: {
@@ -107,7 +116,7 @@ const AppTheme = createTheme({
         },
       },
     },
-
+    // Custom Buttons on Nav bar given colours depending on choice made within.
     ButtonNav: {
       styleOverrides: {
         root: {

@@ -1,3 +1,6 @@
+// File handles all texts shown within navigation bar to keep jsx component clean
+// and promote separation of concerns.
+
 export var navTextAdmin = [
   {
     id: 1,
@@ -102,42 +105,3 @@ export var navTextLandlord = [
     type: "link",
   },
 ];
-
-// [
-//   {
-//     id: 1,
-//     name: navTextAdmin.dashboard.name,
-//     selected: navTextAdmin.dashboard.selected,
-//     link: navTextAdmin.dashboard.link,
-//     type: navTextAdmin.dashboard.type,
-//   },
-//   {
-//     id: 2,
-//     name: navTextAdmin.allProperties.name,
-//     selected: navTextAdmin.allProperties.selected,
-//     link: navTextAdmin.allProperties.link,
-//     type: navTextAdmin.allProperties.type,
-//   },
-//   {
-//     id: 3,
-//     name: navTextAdmin.applications.name,
-//     selected: navTextAdmin.applications.selected,
-//     link: navTextAdmin.applications.link,
-//     type: navTextAdmin.applications.type,
-//   },
-//   {
-//     id: 4,
-//     name: navTextAdmin.viewings.name,
-//     selected: navTextAdmin.viewings.selected,
-//     link: navTextAdmin.viewings.link,
-//     type: navTextAdmin.viewings.type,
-//   },
-//   // { id: 5, name: "Reviews", selected: false, link: "/", type: "link" },
-//   {
-//     id: 5,
-//     name: navTextAdmin.users.name,
-//     selected: navTextAdmin.users.selected,
-//     link: navTextAdmin.users.link,
-//     type: navTextAdmin.users.type,
-//   },
-// ];

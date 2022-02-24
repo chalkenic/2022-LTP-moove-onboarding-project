@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Box } from "@mui/system";
 
+// TEMPORARY PAGE.
 const Dashboard = ({ setCurrentPage }) => {
   useEffect(() => {
     setCurrentPage("Dashboard");
