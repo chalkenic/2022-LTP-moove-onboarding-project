@@ -50,6 +50,9 @@
                     <div class="mt-8">
                         <button role="button" type="submit" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">Login</button>
                     </div>
+                    <div class="mt-6 text-sm">
+                        <a href="{{route('password.request')}}" class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer">Forgot Password</a>
+                    </div>
                 </div>
             </div>
         </form>
