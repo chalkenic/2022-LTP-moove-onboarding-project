@@ -22,11 +22,22 @@ const secondaryText = process.env.REACT_APP_TEXT_SECONDARY
   ? process.env.REACT_APP_TEXT_SECONDARY
   : "#1b1b00";
 
+const darkText = "#000";
+const tenantColors = {
+  main: "#ffc618",
+  light: "#ffd34b",
+  dark: "#4c3f16",
+  darker: "#241e0b",
+};
+const landlordColors = { main: "#00e070", light: "#47FFA3", dark: "#00944a" };
+const adminColors = { main: "#7a0a43", light: "#943a68", dark: "#4b0629" };
+
 const AppTheme = createTheme({
   palette: {
     text: {
       primary: primaryText,
       secondary: secondaryText,
+      dark: darkText,
     },
 
     primary: {
@@ -44,13 +55,22 @@ const AppTheme = createTheme({
     },
 
     admin: {
-      main: "#7a0a43",
-      light: "#BD85A2",
-      dark: "#240314",
+      main: adminColors.main,
+      light: adminColors.light,
+      dark: adminColors.dark,
     },
 
-    tenant: { main: "#ffc618", light: "#ffd34b", dark: "#4c3f16" },
-    landlord: { main: "#14FF8A", light: "#47FFA3", dark: "#04331b" },
+    tenant: {
+      main: tenantColors.main,
+      light: tenantColors.light,
+      dark: tenantColors.dark,
+      darker: tenantColors.darker,
+    },
+    landlord: {
+      main: landlordColors.main,
+      light: landlordColors.light,
+      dark: landlordColors.dark,
+    },
   },
   components: {
     MuiTypography: {
@@ -73,15 +93,55 @@ const AppTheme = createTheme({
     AppNavBar: {
       styleOverrides: {
         root: {
-          color: "#000",
-          backgroundColor: "#ffc618",
+          color: primaryText,
+          backgroundColor: tenantColors.main,
         },
 
-        primary: {
-          color: "#fff",
-          backgroundColor: "#7a0a43",
+        admin: {
+          color: primaryText,
+          backgroundColor: adminColors.main,
         },
-        secondary: { color: "#000", backgroundColor: "#14FF8A" },
+        landlord: {
+          color: primaryText,
+          backgroundColor: landlordColors.main,
+        },
+      },
+    },
+
+    ButtonNav: {
+      styleOverrides: {
+        root: {
+          color: darkText,
+          backgroundColor: tenantColors.light,
+          border: `1px solid ` + tenantColors.light,
+          "&:hover": {
+            border: "1px solid #000",
+            color: primaryText,
+            backgroundColor: tenantColors.dark,
+          },
+        },
+
+        admin: {
+          color: primaryText,
+          backgroundColor: adminColors.light,
+          border: `1px solid ` + adminColors.light,
+          "&:hover": {
+            border: "1px solid #000",
+            color: primaryText,
+            backgroundColor: adminColors.dark,
+          },
+        },
+        landlord: {
+          color: darkText,
+          backgroundColor: landlordColors.light,
+          border: `1px solid ` + landlordColors.light,
+
+          "&:hover": {
+            border: "1px solid #000",
+            color: primaryText,
+            backgroundColor: landlordColors.dark,
+          },
+        },
       },
     },
   },

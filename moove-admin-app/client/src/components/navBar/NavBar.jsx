@@ -8,51 +8,24 @@ import {
   navTextTenant,
   navTextLandlord,
 } from "../../assets/texts/NavTexts";
+import NavBarHeader from "../headers/NavBarHeader";
 
-const NavBar = ({ theme, currentPage }) => {
-  const [color, setColor] = useState("primary");
+const NavBar = ({ currentPage, navigationColor }) => {
+  const [navColorChoice, setNavColor] = useState(navigationColor);
+  let navOptions = "";
+
+  if (navigationColor === "admin") {
+    navOptions = navTextAdmin;
+  } else if (navigationColor === "landlord") {
+    navOptions = navTextLandlord;
+  } else {
+    navOptions = navTextTenant;
+  }
 
   const navigate = useNavigate();
 
   // Pages on navbar. Selected parameter for determining which page user currently on.
-  const [pages, setPages] = useState([
-    {
-      id: 1,
-      name: navTextAdmin.dashboard.name,
-      selected: navTextAdmin.dashboard.selected,
-      link: navTextAdmin.dashboard.link,
-      link: navTextAdmin.dashboard.type,
-    },
-    {
-      id: 2,
-      name: navTextAdmin.allProperties.name,
-      selected: navTextAdmin.allProperties.selected,
-      link: navTextAdmin.allProperties.link,
-      link: navTextAdmin.allProperties.type,
-    },
-    {
-      id: 3,
-      name: navTextAdmin.applications.name,
-      selected: navTextAdmin.applications.selected,
-      link: navTextAdmin.applications.link,
-      link: navTextAdmin.applications.type,
-    },
-    {
-      id: 4,
-      name: navTextAdmin.viewings.name,
-      selected: navTextAdmin.viewings.selected,
-      link: navTextAdmin.viewings.link,
-      link: navTextAdmin.viewings.type,
-    },
-    // { id: 5, name: "Reviews", selected: false, link: "/", type: "link" },
-    {
-      id: 5,
-      name: navTextAdmin.users.name,
-      selected: navTextAdmin.users.selected,
-      link: navTextAdmin.users.link,
-      link: navTextAdmin.users.type,
-    },
-  ]);
+  const [pages, setPages] = useState(navOptions);
 
   // Source current page from parent, assign true value to state within navbar.
   useEffect(() => {
@@ -88,17 +61,40 @@ const NavBar = ({ theme, currentPage }) => {
   return (
     //Custom App bar
 
-    <AppNavBarCustom>
+    <AppNavBarCustom navColor={navColorChoice}>
       <Grid container alignItems={"center"} justifyContent={"space-between"}>
         <>
-          <Box sx={{ display: { xs: "none", md: "block" } }}>
+          <Box sx={{ display: "flex" }}>
+            <img
+              alt="moove logo"
+              style={{ height: "40px" }}
+              src={`${process.env.PUBLIC_URL}/static/images/moove_logo_nobg.png`}
+            />
+          </Box>
+          <Box sx={{ display: "flex" }}>
+            <NavBarHeader name={navigationColor} />
+          </Box>
+          <Box sx={{ display: { xs: "none", md: "inline-block" } }}>
             {pages.map((page) => {
+              console.log(page);
               return (
                 <>
                   {page.selected ? (
-                    <ButtonNavCustom>{page.name}</ButtonNavCustom>
+                    <ButtonNavCustom
+                      to={page.link}
+                      navColor={navColorChoice}
+                      key={page.key}
+                    >
+                      {page.name}
+                    </ButtonNavCustom>
                   ) : (
-                    <ButtonNavCustom>{page.name}</ButtonNavCustom>
+                    <ButtonNavCustom
+                      to={page.link}
+                      navColor={navColorChoice}
+                      key={page.key}
+                    >
+                      {page.name}
+                    </ButtonNavCustom>
                   )}
                 </>
               );

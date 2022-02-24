@@ -2,7 +2,7 @@ import React from "react";
 import { AppBar } from "@mui/material";
 import AppTheme from "../../assets/theme/theme";
 import { ThemeProvider } from "@emotion/react";
-import {  styled, useTheme } from "@mui/system";
+import { styled, useTheme } from "@mui/system";
 
 const AppNavBar = styled(AppBar, {
   shouldForwardProp: (prop) =>
@@ -11,8 +11,8 @@ const AppNavBar = styled(AppBar, {
   slot: "Root",
   overridesResolver: (props, styles) => [
     styles.root,
-    props.color === "primary" && styles.primary,
-    props.color === "secondary" && styles.secondary,
+    props.color === "admin" && styles.admin,
+    props.color === "landlord" && styles.landlord,
   ],
 })(({ theme }) => ({
   padding: "20px 40px",
@@ -27,7 +27,7 @@ const AppNavBarCustom = (props) => {
   const theme = useTheme(AppTheme);
   return (
     <ThemeProvider theme={theme}>
-      <AppNavBar color="primary">{props.children}</AppNavBar>
+      <AppNavBar color={props.navColor}>{props.children}</AppNavBar>
     </ThemeProvider>
   );
 };
