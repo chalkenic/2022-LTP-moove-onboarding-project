@@ -2,6 +2,12 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AppNavBarCustom from "./AppNavBar";
+import ButtonNavCustom from "../buttons/ButtonNav";
+import {
+  navTextAdmin,
+  navTextTenant,
+  navTextLandlord,
+} from "../../assets/texts/NavTexts";
 
 const NavBar = ({ theme, currentPage }) => {
   const [color, setColor] = useState("primary");
@@ -10,24 +16,42 @@ const NavBar = ({ theme, currentPage }) => {
 
   // Pages on navbar. Selected parameter for determining which page user currently on.
   const [pages, setPages] = useState([
-    { id: 1, name: "Dashboard", selected: false, link: "/", type: "link" },
-    { id: 2, name: "All Properties", selected: false, link: "/", type: "link" },
+    {
+      id: 1,
+      name: navTextAdmin.dashboard.name,
+      selected: navTextAdmin.dashboard.selected,
+      link: navTextAdmin.dashboard.link,
+      link: navTextAdmin.dashboard.type,
+    },
+    {
+      id: 2,
+      name: navTextAdmin.allProperties.name,
+      selected: navTextAdmin.allProperties.selected,
+      link: navTextAdmin.allProperties.link,
+      link: navTextAdmin.allProperties.type,
+    },
     {
       id: 3,
-      name: "Tenancy Applications",
-      selected: false,
-      link: "/",
-      type: "link",
+      name: navTextAdmin.applications.name,
+      selected: navTextAdmin.applications.selected,
+      link: navTextAdmin.applications.link,
+      link: navTextAdmin.applications.type,
     },
     {
       id: 4,
-      name: "Viewing Arrangements",
-      selected: false,
-      link: "/",
-      type: "link",
+      name: navTextAdmin.viewings.name,
+      selected: navTextAdmin.viewings.selected,
+      link: navTextAdmin.viewings.link,
+      link: navTextAdmin.viewings.type,
     },
     // { id: 5, name: "Reviews", selected: false, link: "/", type: "link" },
-    { id: 6, name: "Users", selected: false, link: "/", type: "link" },
+    {
+      id: 5,
+      name: navTextAdmin.users.name,
+      selected: navTextAdmin.users.selected,
+      link: navTextAdmin.users.link,
+      link: navTextAdmin.users.type,
+    },
   ]);
 
   // Source current page from parent, assign true value to state within navbar.
@@ -72,15 +96,14 @@ const NavBar = ({ theme, currentPage }) => {
               return (
                 <>
                   {page.selected ? (
-                    <Button>{page.name}</Button>
+                    <ButtonNavCustom>{page.name}</ButtonNavCustom>
                   ) : (
-                    <Button>{page.name}</Button>
+                    <ButtonNavCustom>{page.name}</ButtonNavCustom>
                   )}
                 </>
               );
             })}
           </Box>
-          <Typography>Hello?</Typography>
         </>
       </Grid>
     </AppNavBarCustom>

@@ -1,13 +1,13 @@
 import React from "react";
-import { AppBar } from "@mui/material";
+import { Button } from "@mui/material";
 import AppTheme from "../../assets/theme/theme";
 import { ThemeProvider } from "@emotion/react";
-import {  styled, useTheme } from "@mui/system";
+import { styled, useTheme } from "@mui/system";
 
-const AppNavBar = styled(AppBar, {
+const ButtonNav = styled(Button, {
   shouldForwardProp: (prop) =>
     prop !== "color" && prop !== "variant" && prop !== "sx",
-  name: "AppNavBar",
+  name: "ButtonNavCustom",
   slot: "Root",
   overridesResolver: (props, styles) => [
     styles.root,
@@ -15,20 +15,24 @@ const AppNavBar = styled(AppBar, {
     props.color === "secondary" && styles.secondary,
   ],
 })(({ theme }) => ({
-  padding: "20px 40px",
-  display: "flex",
-  alignContent: "center",
-  justifyContent: "space-between",
-  color: theme.palette.text.primary,
+  padding: "10px 25px",
+  borderRadius: "12px !important",
+  marginRight: "5px !important",
+  fontSize: "11px !important",
+  color: theme.palette.text.secondary,
+  "&:hover": {
+    color: theme.palette.text.primary,
+    backgroundColor: theme.palette.primary.dark,
+  },
   backgroundColor: theme.palette.primary.main,
 }));
 
-const AppNavBarCustom = (props) => {
+const ButtonNavCustom = (props) => {
   const theme = useTheme(AppTheme);
   return (
     <ThemeProvider theme={theme}>
-      <AppNavBar color="primary">{props.children}</AppNavBar>
+      <ButtonNav>{props.children}</ButtonNav>
     </ThemeProvider>
   );
 };
-export default AppNavBarCustom;
+export default ButtonNavCustom;

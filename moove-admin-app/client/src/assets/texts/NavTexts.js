@@ -1,17 +1,36 @@
-export var navTextLeftUpper = {
-  drawerHome: "Home",
-  drawer1: "View documents",
-  drawer2: "View tenants",
-  drawer3: "Calendar",
+export var navTextAdmin = {
+  dashboard: {
+    name: "Dashboard",
+    selected: false,
+    link: "/",
+    type: "link",
+  },
+  allProperties: {
+    name: "All Properties",
+    selected: false,
+    link: "/",
+    type: "link",
+  },
+  applications: {
+    name: "Tenancy Applications",
+    selected: false,
+    link: "/",
+    type: "link",
+  },
+  viewings: {
+    name: "Viewings",
+    selected: false,
+    link: "/",
+    type: "link",
+  },
+  users: {
+    name: "Users",
+    selected: false,
+    link: "/",
+    type: "link",
+  },
 };
 
-export var navTextLeftLower = {
-  drawer4: "View Applications",
-  drawer5: "View Application Progress",
-  drawerLogout: "Logout",
-};
+export var navTextTenant = {};
 
-export var navTextNavigation = {
-  navButton: "Menu",
-  anchor: "left",
-};
+export var navTextLandlord = {};

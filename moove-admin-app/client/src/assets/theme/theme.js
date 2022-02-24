@@ -42,6 +42,15 @@ const AppTheme = createTheme({
       default: secondaryColor,
       paper: secondaryColor,
     },
+
+    admin: {
+      main: "#7a0a43",
+      light: "#BD85A2",
+      dark: "#240314",
+    },
+
+    tenant: { main: "#ffc618", light: "#ffd34b", dark: "#4c3f16" },
+    landlord: { main: "#14FF8A", light: "#47FFA3", dark: "#04331b" },
   },
   components: {
     MuiTypography: {
@@ -59,6 +68,20 @@ const AppTheme = createTheme({
         root: {
           marginLeft: 0,
         },
+      },
+    },
+    AppNavBar: {
+      styleOverrides: {
+        root: {
+          color: "#000",
+          backgroundColor: "#ffc618",
+        },
+
+        primary: {
+          color: "#fff",
+          backgroundColor: "#7a0a43",
+        },
+        secondary: { color: "#000", backgroundColor: "#14FF8A" },
       },
     },
   },
