@@ -20,6 +20,7 @@ const AppNavBar = styled(AppBar, {
   alignContent: "center",
   justifyContent: "space-between",
   color: theme.palette.text.primary,
+  sticky: "top",
   backgroundColor: theme.palette.primary.main,
 }));
 

@@ -9,7 +9,7 @@ const NavBarHeader = (props) => {
   const dashboardTitle = capitalizeFirstLetter(props.name);
 
   return (
-    <Typography variant="h4" color={props.name === "admin" ? "#fff" : "#000"}>
+    <Typography variant="h4" color={props.name === "" ? "#000" : "#fff"}>
       {dashboardTitle ? dashboardTitle : "Tenant"} Dashboard
     </Typography>
   );

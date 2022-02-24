@@ -29,7 +29,7 @@ const tenantColors = {
   dark: "#4c3f16",
   darker: "#241e0b",
 };
-const landlordColors = { main: "#00e070", light: "#47FFA3", dark: "#00944a" };
+const landlordColors = { main: "#0B41DC", light: "#265bf4  ", dark: "#041A58" };
 const adminColors = { main: "#7a0a43", light: "#943a68", dark: "#4b0629" };
 
 const AppTheme = createTheme({
@@ -132,7 +132,7 @@ const AppTheme = createTheme({
           },
         },
         landlord: {
-          color: darkText,
+          color: primaryText,
           backgroundColor: landlordColors.light,
           border: `1px solid ` + landlordColors.light,
 
