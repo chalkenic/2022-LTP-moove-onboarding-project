@@ -1,4 +1,4 @@
-import { Theme, createTheme } from "@mui/material/styles";
+import { createTheme } from "@mui/material";
 
 // Colors used match in line with moove's theme on original MVP.
 const primaryColor = "#ffc618";
@@ -8,7 +8,7 @@ const primaryLightColor = process.env.REACT_APP_SECONDARY_COLOR
 
 const secondaryColor = process.env.REACT_APP_SECONDARY_COLOR
   ? process.env.REACT_APP_SECONDARY_COLOR
-  : "ff87bc";
+  : "#ff87bc";
 
 const ternaryColor = process.env.REACT_APP_TERNARY_COLOR
   ? process.env.REACT_APP_TERNARY_COLOR
