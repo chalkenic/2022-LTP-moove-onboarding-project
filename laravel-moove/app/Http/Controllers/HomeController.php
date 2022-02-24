@@ -12,10 +12,10 @@ class HomeController extends Controller
             if (auth()->user()->role === 'TENANT') {
                 return view('tenant.tenant-home');
             } else if (auth()->user()->role === 'ADMIN') {
-                return view('admin.admin-home', ['users' => User::all()]);
+                return redirect()->route('admin.home');
             }
-        } else {
-            return view('home');
         }
+
+        return view('home');
     }
 }

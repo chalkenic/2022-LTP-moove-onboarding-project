@@ -31,6 +31,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant-home');
+Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
 
 // Admin routes
 Route::post('/admin/set/{id}/{role}', [AdminController::class, 'setRole'])->name('admin.setrole');
