@@ -7,10 +7,10 @@ use App\Models\User;
 class AdminController extends Controller
 {
 
-    public function setAdmin($id) {
+    public function setRole($id, $role) {
         if (auth()->user()) {
             if(auth()->user()->role === 'ADMIN') {
-                User::where(['id' => $id])->update(['role' => 'ADMIN']);
+                User::where(['id' => $id])->update(['role' => $role]);
                 return redirect('/');
             } else {
                 return view('home');
