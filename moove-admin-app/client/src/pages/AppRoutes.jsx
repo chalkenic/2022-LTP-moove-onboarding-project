@@ -10,7 +10,7 @@ const AppRoutes = (props) => {
 
   return (
     <BrowserRouter>
-      <NavBar theme={props.theme} navigationColor="admin" />
+      <NavBar theme={props.theme} navigationColor="landlord" />
       <Routes>
         <Route
           path="/"

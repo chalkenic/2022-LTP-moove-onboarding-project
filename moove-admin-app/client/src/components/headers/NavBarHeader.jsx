@@ -8,7 +8,7 @@ const NavBarHeader = (props) => {
 
   return (
     // Text of title differs depending on background colour used for different dashboards.
-    <Typography variant="h4" color={props.name === "" ? "#000" : "#fff"}>
+    <Typography variant="h4" color={props.name === "" | props.name === "tenant" ? "#000" : "#fff"}>
       {dashboardTitle ? dashboardTitle : "Tenant"} Dashboard
     </Typography>
   );
