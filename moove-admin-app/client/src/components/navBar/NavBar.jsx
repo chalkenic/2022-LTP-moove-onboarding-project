@@ -1,108 +1,110 @@
-import react, { Fragment, useState } from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import HomeIcon from "@mui/icons-material/Home";
-import LogoutIcon from "@mui/icons-material/Logout";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import { Box, Button, Grid, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import AppNavBarCustom from "./AppNavBar";
+import ButtonNavCustom from "../buttons/ButtonNav";
+import {
+  navTextAdmin,
+  navTextTenant,
+  navTextLandlord,
+} from "../../assets/texts/NavTexts";
+import NavBarHeader from "../headers/NavBarHeader";
 
-import * as NavText from "../../assets/texts/NavTexts";
+const NavBar = ({ currentPage, navigationColor }) => {
+  const [navColorChoice, setNavColor] = useState(navigationColor);
+  let navOptions = "";
 
-const NavBar = (props) => {
-  const [state, setState] = useState({
-    left: false,
-  });
+  if (navigationColor === "admin") {
+    navOptions = navTextAdmin;
+  } else if (navigationColor === "landlord") {
+    navOptions = navTextLandlord;
+  } else {
+    navOptions = navTextTenant;
+  }
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
+  const navigate = useNavigate();
+
+  // Pages on navbar. Selected parameter for determining which page user currently on.
+  const [pages, setPages] = useState(navOptions);
+
+  // Source current page from parent, assign true value to state within navbar.
+  useEffect(() => {
+    let pagesUnselected = pages;
+
+    // Reset all current pages before calculation.
+    for (let index = 0; index < pages.length; index++) {
+      pagesUnselected[index].selected = false;
     }
 
-    setState({ ...state, [anchor]: open });
+    // Filter out any page that does not match current page.
+    const tempPages = pagesUnselected.filter(
+      (value) => value.name !== currentPage
+    );
+    // Collect any remaining value from array and confirm matches current page.
+    const tempPage = pagesUnselected.find(
+      (value) => value.name === currentPage
+    );
+
+    // If page exists, set as current page and push back into array state.
+    if (tempPage) {
+      tempPage.selected = true;
+      tempPages.push(tempPage);
+      tempPages.sort((a, b) => (a.id > b.id ? 1 : -1));
+      setPages(tempPages);
+    }
+  }, [currentPage]);
+
+  const handleCloseNavMenu = (link) => {
+    navigate(link);
   };
 
-  const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {[
-          NavText.navTextLeftUpper.drawerHome,
-          NavText.navTextLeftUpper.drawer1,
-          NavText.navTextLeftUpper.drawer2,
-          NavText.navTextLeftUpper.drawer3,
-        ].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index === 0 ? (
-                <HomeIcon />
-              ) : (
+  return (
+    //Custom App bar styling.
+    <AppNavBarCustom navColor={navColorChoice}>
+      <Grid container alignItems={"center"} justifyContent={"space-between"}>
+        <>
+          {/* moove image. */}
+          <Box sx={{ display: "flex" }}>
+            <img
+              alt="moove logo"
+              style={{ height: "40px" }}
+              src={`${process.env.PUBLIC_URL}/static/images/moove_logo_nobg.png`}
+            />
+          </Box>
+          {/* Navigation header */}
+          <Box sx={{ display: "flex" }}>
+            <NavBarHeader name={navigationColor} />
+          </Box>
+          {/* Navigation buttons */}
+          <Box sx={{ display: { xs: "none", md: "inline-block" } }}>
+            {pages.map((page) => {
+              console.log(page);
+              return (
                 <>
-                  {index === 3 ? (
-                    <CalendarTodayIcon />
+                  {page.selected ? (
+                    <ButtonNavCustom
+                      to={page.link}
+                      navColor={navColorChoice}
+                      key={page.key}
+                    >
+                      {page.name}
+                    </ButtonNavCustom>
                   ) : (
-                    <> {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</>
+                    <ButtonNavCustom
+                      to={page.link}
+                      navColor={navColorChoice}
+                      key={page.key}
+                    >
+                      {page.name}
+                    </ButtonNavCustom>
                   )}
                 </>
-              )}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {[
-          NavText.navTextLeftLower.drawer4,
-          NavText.navTextLeftLower.drawer5,
-          NavText.navTextLeftLower.drawerLogout,
-        ].map((text, index, arr) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {arr.length - 1 === index ? (
-                <LogoutIcon />
-              ) : (
-                <>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</>
-              )}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  return (
-    <div>
-      {/* {["left"].map((anchor) => ( */}
-      <Fragment key={NavText.navTextNavigation.anchor}>
-        <Button onClick={toggleDrawer(NavText.navTextNavigation.anchor, true)}>
-          {NavText.navTextNavigation.navButton}
-        </Button>
-        <Drawer
-          anchor={NavText.navTextNavigation.anchor}
-          open={state[NavText.navTextNavigation.anchor]}
-          onClose={toggleDrawer(NavText.navTextNavigation.anchor, false)}
-        >
-          {list(NavText.navTextNavigation.anchor)}
-        </Drawer>
-      </Fragment>
-      {/* ))} */}
-    </div>
+              );
+            })}
+          </Box>
+        </>
+      </Grid>
+    </AppNavBarCustom>
   );
 };
-
 export default NavBar;
