@@ -5,7 +5,7 @@ const TenantForm = ({ setCurrentPage }) => {
   useEffect(() => {
     setCurrentPage("TenantForm");
   });
-  return <TenantCheckForm currentPage={currentPage}/>;
+  return <div><TenantCheckForm/></div>;
 };
 
 export default TenantForm;
