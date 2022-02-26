@@ -10,9 +10,13 @@ const AppRoutes = (props) => {
     <BrowserRouter>
       <NavBar currentPage={currentPage} />
       <Routes>
-        <Route
+      <Route
           path="/"
           element={<Dashboard setCurrentPage={setCurrentPage} />}
+        ></Route>
+        <Route
+          path="/tenantCheckForm"
+          element={<TenantCheckForm setCurrentPage={setCurrentPage} />}
         ></Route>
       </Routes>
     </BrowserRouter>
