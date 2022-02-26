@@ -14,7 +14,6 @@ export default function App() {
       <input type="tel" placeholder="Mobile number" {...register("Mobile number", {required: true, minLength: 6, maxLength: 12})} />
       <input type="url" placeholder="Driving License/Passport" {...register("Driving License/Passport", {required: true})} />
       <input type="url" placeholder="Student ID" {...register("Student ID", {})} />
-
       <input type="submit" />
     </form>
   );
