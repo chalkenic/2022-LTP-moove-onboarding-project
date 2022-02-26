@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 
-const TenantCheckForm = ({ setCurrentPage }) => {
+const TenantForm = ({ setCurrentPage }) => {
   useEffect(() => {
-    setCurrentPage("TenantCheckForm");
+    setCurrentPage("TenantForm");
   });
   return <div></div>;
 };
 
-export default TenantCheckForm;
+export default TenantForm;
