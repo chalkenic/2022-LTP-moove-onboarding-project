@@ -1,20 +1,76 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Button } from '@mui/material';
+import { Checkbox } from '@mui/material';
+import { FormControlLabel } from '@mui/material';
+import { Controller } from "react-hook-form";
+import { TextField } from '@mui/material';
 
 export default function TenantCheckForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      textField: "",
+      checkbox: false
+    }
+  });
   const onSubmit = data => console.log(data);
-  console.log(errors);
-  
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" placeholder="First name" {...register("First name", {required: true, maxLength: 80})} />
-      <input type="text" placeholder="Last name" {...register("Last name", {required: true, maxLength: 100})} />
-      <input type="text" placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
-      <input type="tel" placeholder="Mobile number" {...register("Mobile number", {required: true, minLength: 6, maxLength: 12})} />
-      <input type="url" placeholder="Driving License/Passport" {...register("Driving License/Passport", {required: true})} />
-      <input type="url" placeholder="Student ID" {...register("Student ID", {})} />
-      <input type="submit" />
+      <Controller
+        control={control}
+        name="fNameField"
+        render={({ field }) => (
+          <TextField {...field} label="First Name" />
+        )}
+      />
+      <Controller
+        control={control}
+        name="sNameField"
+        render={({ field }) => (
+          <TextField {...field} label="Surname" />
+        )}
+      />
+      <Controller
+        control={control}
+        name="emailField"
+        render={({ field }) => (
+          <TextField {...field} label="Email" />
+        )}
+      />
+      <Controller
+        control={control}
+        name="telephoneField"
+        render={({ field }) => (
+          <TextField {...field} label="Phone Number" />
+        )}
+      />
+      <Controller
+        control={control}
+        name="gIDField"
+        render={({ field: { value, onChange } }) => (
+          // Checkbox accepts its value as `checked`
+          // so we need to connect the props here
+          <FormControlLabel
+            control={<Checkbox checked={value} onChange={onChange} />}
+            label="Driving License/Passport"
+          />
+        )}
+      />
+      <Controller
+        control={control}
+        name="sIDField"
+        render={({ field: { value, onChange } }) => (
+          // Checkbox accepts its value as `checked`
+          // so we need to connect the props here
+          <FormControlLabel
+            control={<Checkbox checked={value} onChange={onChange} />}
+            label="Student ID"
+          />
+        )}
+      />
+      <Button type="submit" variant="contained" color="primary">
+        Submit
+      </Button>
     </form>
   );
 }
