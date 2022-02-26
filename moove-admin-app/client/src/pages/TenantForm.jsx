@@ -7,4 +7,4 @@ const TenantCheckForm = ({ setCurrentPage }) => {
   return <div></div>;
 };
 
-export default Dashboard;
+export default TenantCheckForm;
