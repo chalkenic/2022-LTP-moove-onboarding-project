@@ -6,9 +6,9 @@ const TenantForm = ({ setCurrentPage }) => {
     setCurrentPage("TenantForm");
   });
   
-  return <div style={{backgroundColor:'white', display: 'flex',  justifyContent:'center', alignItems:'center', width: '900px',
-  height: '400px'}}>
-  <TenantCheckForm/>
+  return <div style={{backgroundColor:'yellow', display: 'flex',  justifyContent:'center', alignItems:'center',
+  }}>
+  <div style={{backgroundColor:'white', display: 'flex',  justifyContent:'center', alignItems:'center', width: '700px',height:'400px'}}><TenantCheckForm/></div>
 </div>
 };
 
