@@ -9,11 +9,6 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
-@auth
-@if (auth()->user()->role === 'TENANT')
-    <div><NavBar /></div>
-@endif
-@endauth
 @yield('content')
 </body>
 </html>

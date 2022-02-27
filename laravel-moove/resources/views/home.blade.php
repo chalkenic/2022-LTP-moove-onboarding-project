@@ -11,6 +11,11 @@
         <li>
             <a href={{route('login')}}>Login</a>
         </li>
+        <li>
+            <div>
+                <TestComponent text="Howdy" />
+            </div>
+        </li>
     </ul>
 </div>
 @endsection
