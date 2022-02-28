@@ -30,10 +30,10 @@ const TenantList = () => {
             <div>
             <h1>Tenant List Page</h1>
             {tenants.map(tenant => (
-                <ListItem onClick={event => window.location.href=`/tenantApplication/${tenant.id}`}>{tenant.fName} {tenant.lName}</ListItem>
+                <ListItem className="list-item" onClick={event => window.location.href=`/tenantApplication/${tenant.id}`}>{tenant.fName} {tenant.lName}</ListItem>
             ))}
             </div>
-        </List>
+        </List> 
     );
 }
 
