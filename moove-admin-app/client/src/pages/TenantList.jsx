@@ -23,7 +23,6 @@ export const tenants = [
 //Returns list of tenants
 
 const TenantList = () => {
-
     
     return (
         <List>

@@ -12,7 +12,6 @@ import { useParams } from "react-router-dom";
 import ViewPdf from './ViewPdf';
 
 
-<<<<<<< HEAD
 
 const TenantApplication = () => {
   const { id } = useParams();
@@ -35,27 +34,3 @@ const TenantApplication = () => {
 };
 
 export default TenantApplication;
-=======
-const TenantApplication = () => {
-   
-    const { id } = useParams();
-
-    return(
-
-        <Box component="span" sx={{ p: 1 }}>
-
-            <h1>Tenant Application Page</h1>
-
-            <h2>First Name: {tenants[id].fName}</h2>
-            <h2>Last Name: {tenants[id].lName}</h2>
-            <h2>Email: {tenants[id].email}</h2>
-
-            <Button>Approve</Button>                                 
-            <Button>Deny</Button>
-
-        </Box>
-    ) 
-}                                             
-
-export default TenantApplication;
->>>>>>> 57c635a49893847c8a705d8720d7ec7748bc66ab
