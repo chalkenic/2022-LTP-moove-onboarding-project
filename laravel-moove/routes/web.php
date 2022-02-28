@@ -30,7 +30,7 @@ Route::post('/reset-password', [ResetPasswordController::class, 'store'])->middl
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Tenant routes
-Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant-home');
+Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
 
 // Admin routes

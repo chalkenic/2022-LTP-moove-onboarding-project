@@ -29,7 +29,7 @@ class AuthTest extends TestCase
         $tenant = User::factory()->create(['role' => 'TENANT']);
         Auth::login($tenant);
         
-        $response = $this->get('/');
+        $response = $this->followingRedirects()->get('/');
         $response->assertStatus(200)
             ->assertViewIs('tenant.tenant-home');
     }
@@ -41,7 +41,7 @@ class AuthTest extends TestCase
         $admin = User::factory()->create(['role' => 'ADMIN']);
         Auth::login($admin);
         
-        $response = $this->get('/');
+        $response = $this->followingRedirects()->get('/');
         $response->assertStatus(200)
             ->assertViewIs('admin.admin-home');
     }
