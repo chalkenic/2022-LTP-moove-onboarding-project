@@ -42,6 +42,14 @@ export var navTextAdmin = [
     link: "/",
     type: "link",
   },
+  {
+    id: 1,
+    key: "page_logout",
+    name: "Logout",
+    selected: false,
+    link: "/logout",
+    type: "link",
+  },
 ];
 
 export var navTextTenant = [
@@ -67,6 +75,14 @@ export var navTextTenant = [
     name: "Tenant 3",
     selected: false,
     link: "/test",
+    type: "link",
+  },
+  {
+    id: 4,
+    key: "page_logout",
+    name: "Logout",
+    selected: false,
+    link: "/logout",
     type: "link",
   },
 ];
@@ -97,11 +113,19 @@ export var navTextLandlord = [
     type: "link",
   },
   {
-    id: 3,
+    id: 4,
     key: "page_applications",
     name: "landlord 4",
     selected: false,
     link: "/test",
+    type: "link",
+  },
+  {
+    id: 3,
+    key: "page_logout",
+    name: "Logout",
+    selected: false,
+    link: "/logout",
     type: "link",
   },
 ];

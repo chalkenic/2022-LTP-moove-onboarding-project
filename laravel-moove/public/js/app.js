@@ -12040,6 +12040,13 @@ var navTextAdmin = [{
   selected: false,
   link: "/",
   type: "link"
+}, {
+  id: 1,
+  key: "page_logout",
+  name: "Logout",
+  selected: false,
+  link: "/logout",
+  type: "link"
 }];
 var navTextTenant = [{
   id: 1,
@@ -12061,6 +12068,13 @@ var navTextTenant = [{
   name: "Tenant 3",
   selected: false,
   link: "/test",
+  type: "link"
+}, {
+  id: 4,
+  key: "page_logout",
+  name: "Logout",
+  selected: false,
+  link: "/logout",
   type: "link"
 }];
 var navTextLandlord = [{
@@ -12085,11 +12099,18 @@ var navTextLandlord = [{
   link: "/test",
   type: "link"
 }, {
-  id: 3,
+  id: 4,
   key: "page_applications",
   name: "landlord 4",
   selected: false,
   link: "/test",
+  type: "link"
+}, {
+  id: 3,
+  key: "page_logout",
+  name: "Logout",
+  selected: false,
+  link: "/logout",
   type: "link"
 }];
 
@@ -12288,13 +12309,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _assets_theme_theme__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/theme/theme */ "./resources/js/react/assets/theme/theme.js");
-/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @emotion/react */ "./node_modules/@emotion/react/dist/emotion-element-699e6908.browser.esm.js");
-/* harmony import */ var _mui_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/system */ "./node_modules/@mui/system/esm/styled.js");
-/* harmony import */ var _mui_system__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/system */ "./node_modules/@mui/system/esm/useTheme.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _assets_theme_theme__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/theme/theme */ "./resources/js/react/assets/theme/theme.js");
+/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @emotion/react */ "./node_modules/@emotion/react/dist/emotion-element-699e6908.browser.esm.js");
+/* harmony import */ var _mui_system__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/system */ "./node_modules/@mui/system/esm/styled.js");
+/* harmony import */ var _mui_system__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/system */ "./node_modules/@mui/system/esm/useTheme.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -12303,7 +12327,7 @@ __webpack_require__.r(__webpack_exports__);
 // Custom Mui button that contains overrides depending on color prop provided on declaration.
 
 
-var ButtonNav = (0,_mui_system__WEBPACK_IMPORTED_MODULE_3__["default"])(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+var ButtonNav = (0,_mui_system__WEBPACK_IMPORTED_MODULE_4__["default"])(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
   shouldForwardProp: function shouldForwardProp(prop) {
     return prop !== "color" && prop !== "variant" && prop !== "sx";
   },
@@ -12329,10 +12353,10 @@ var ButtonNav = (0,_mui_system__WEBPACK_IMPORTED_MODULE_3__["default"])(_mui_mat
 });
 
 var ButtonNavCustom = function ButtonNavCustom(props) {
-  var theme = (0,_mui_system__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_theme_theme__WEBPACK_IMPORTED_MODULE_1__["default"]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_emotion_react__WEBPACK_IMPORTED_MODULE_6__.a, {
+  var theme = (0,_mui_system__WEBPACK_IMPORTED_MODULE_6__["default"])(_assets_theme_theme__WEBPACK_IMPORTED_MODULE_2__["default"]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_emotion_react__WEBPACK_IMPORTED_MODULE_7__.a, {
     theme: theme,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ButtonNav, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(ButtonNav, {
       color: props.navColor,
       children: props.children
     })
@@ -12600,13 +12624,13 @@ var NavBar = function NavBar(_ref) {
             },
             children: pages.map(function (page) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-                children: page.selected ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                children: page.key !== "page_logout" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
                   to: page.link,
                   navColor: navColorChoice,
                   children: page.name
                 }, page.key) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                  to: page.link,
                   navColor: navColorChoice,
+                  onClick: page.link,
                   children: page.name
                 }, page.key)
               });

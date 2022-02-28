@@ -81,7 +81,24 @@ const NavBar = ({ text, currentPage }) => {
             {pages.map((page) => {
               return (
                 <>
-                  {page.selected ? (
+
+                {page.key !== "page_logout" ? (                    
+                <ButtonNavCustom
+                      to={page.link}
+                      navColor={navColorChoice}
+                      key={page.key}
+                    >
+                      {page.name}
+                    </ButtonNavCustom>) : (                    
+                    <ButtonNavCustom
+                      navColor={navColorChoice}
+                      key={page.key}
+                      onClick={page.link}
+                    >
+                      {page.name}
+                    </ButtonNavCustom>)}
+                
+                  {/* {page.selected ? (
                     <ButtonNavCustom
                       to={page.link}
                       navColor={navColorChoice}
@@ -97,7 +114,7 @@ const NavBar = ({ text, currentPage }) => {
                     >
                       {page.name}
                     </ButtonNavCustom>
-                  )}
+                  )} */}
                 </>
               );
             })}
