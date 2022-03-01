@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use App\Models\User;
+namespace App\Http\Controllers\Admin;
 
 class AdminController extends Controller
 {
@@ -12,11 +10,12 @@ class AdminController extends Controller
     }
 
     public function index() {
-        return view('admin.admin-home', ['users' => User::all()]);
+        return view('admin.admin-home');
     }
 
+    // Put this in UserConvertController
     public function setRole($id, $role) {
-        User::where(['id' => $id])->update(['role' => $role]);
+        // User::where(['id' => $id])->update(['role' => $role]);
         return redirect('/');
     }
 

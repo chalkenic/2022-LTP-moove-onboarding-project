@@ -6,7 +6,8 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserConvertController;
 use App\Http\Controllers\Tenant\TenantController;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
@@ -32,7 +33,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
-Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
 
 // Admin routes
+Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
+Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
 Route::post('/admin/set/{id}/{role}', [AdminController::class, 'setRole'])->name('admin.setrole');
