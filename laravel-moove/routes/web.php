@@ -20,6 +20,7 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
+Route::get('/logout', [LogoutController::class, 'store'])->name('logoutReact');
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 Route::get('/forgot-password', [ForgottenPasswordController::class, 'index'])->name('password.request');
 Route::post('/forgot-password', [ForgottenPasswordController::class, 'store'])->name('password.email');

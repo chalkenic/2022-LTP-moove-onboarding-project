@@ -13,6 +13,8 @@ class HomeController extends Controller
                 return redirect()->route('tenant.home');
             } else if (auth()->user()->role === 'ADMIN') {
                 return redirect()->route('admin.home');
+            } else if (auth()->user()->role === 'LANDLORD') {
+                return redirect()->route('landlord.home');
             }
         }
 

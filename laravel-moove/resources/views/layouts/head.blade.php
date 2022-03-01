@@ -7,13 +7,14 @@
     @yield('title')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script>var csrf_token = '<?php echo csrf_token(); ?>'; </script>
 </head>
 <body>
 @auth
-@if (auth()->user()->role === 'TENANT')
-    <div><NavBar /></div>
-@endif
-@endauth
+    <div>
+    <NavBar text="{{auth()->user()->role}}"/>
+    </div>
+    @endauth
 @yield('content')
 </body>
 </html>
