@@ -9,7 +9,7 @@ const NavBarHeader = ({colorName}) => {
   return (
     // Text of title differs depending on background colour used for different dashboards.
     <Typography variant="h4" color={colorName === "" | colorName === "tenant" ? "#000" : "#fff"}>
-      {dashboardTitle ?? "Tenant"} Dashboard
+      {dashboardTitle ?? "Tenant"}
     </Typography>
   );
 };

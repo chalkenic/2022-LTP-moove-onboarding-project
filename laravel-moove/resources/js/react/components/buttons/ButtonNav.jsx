@@ -16,8 +16,8 @@ const ButtonNav = styled(Button, {
   // Colours sourced from App's main theme.
   overridesResolver: (props, styles) => [
     styles.root,
-    props.color === "admin" && styles.admin,
-    props.color === "landlord" && styles.landlord,
+    props.color === "ADMIN" && styles.admin,
+    props.color === "LANDLORD" && styles.landlord,
   ],
 })(({ theme }) => ({
   // Default colours (Moove Yellow) if no colour provided.

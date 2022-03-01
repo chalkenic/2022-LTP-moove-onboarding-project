@@ -16,9 +16,9 @@ const NavBar = ({ text, currentPage }) => {
 
 
 
-  if (text === "admin") {
+  if (text === "ADMIN") {
     navOptions = navTextAdmin;
-  } else if (text === "landlord") {
+  } else if (text === "LANDLORD") {
     navOptions = navTextLandlord;
   } else {
     navOptions = navTextTenant;
@@ -88,14 +88,17 @@ const NavBar = ({ text, currentPage }) => {
                       navColor={navColorChoice}
                       key={page.key}
                     >
-                      {page.name}
+                          <button href={page.link}>{page.name}</button>
                     </ButtonNavCustom>) : (                    
                     <ButtonNavCustom
                       navColor={navColorChoice}
                       key={page.key}
                       onClick={page.link}
                     >
-                      {page.name}
+                        <form method="POST" class="inline" action={page.link}>
+                          <input type="hidden" name="_token" value={csrf_token} />
+                          <button>{page.name}</button>
+                        </form>
                     </ButtonNavCustom>)}
                 
                   {/* {page.selected ? (

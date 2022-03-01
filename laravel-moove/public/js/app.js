@@ -12335,7 +12335,7 @@ var ButtonNav = (0,_mui_system__WEBPACK_IMPORTED_MODULE_4__["default"])(_mui_mat
   slot: "Root",
   // Colours sourced from App's main theme.
   overridesResolver: function overridesResolver(props, styles) {
-    return [styles.root, props.color === "admin" && styles.admin, props.color === "landlord" && styles.landlord];
+    return [styles.root, props.color === "ADMIN" && styles.admin, props.color === "LANDLORD" && styles.landlord];
   }
 })(function (_ref) {
   var theme = _ref.theme;
@@ -12394,10 +12394,10 @@ var NavBarHeader = function NavBarHeader(_ref) {
   return (
     /*#__PURE__*/
     // Text of title differs depending on background colour used for different dashboards.
-    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
       variant: "h4",
       color: colorName === "" | colorName === "tenant" ? "#000" : "#fff",
-      children: [dashboardTitle !== null && dashboardTitle !== void 0 ? dashboardTitle : "Tenant", " Dashboard"]
+      children: dashboardTitle !== null && dashboardTitle !== void 0 ? dashboardTitle : "Tenant"
     })
   );
 };
@@ -12457,7 +12457,7 @@ var AppNavBar = (0,_mui_system__WEBPACK_IMPORTED_MODULE_3__["default"])(_mui_mat
   slot: "Root",
   // Colours sourced from App's main theme.
   overridesResolver: function overridesResolver(props, styles) {
-    return [styles.root, props.color === "admin" && styles.admin, props.color === "landlord" && styles.landlord];
+    return [styles.root, props.color === "ADMIN" && styles.admin, props.color === "LANDLORD" && styles.landlord];
   }
 })(function (_ref) {
   var theme = _ref.theme;
@@ -12542,9 +12542,9 @@ var NavBar = function NavBar(_ref) {
 
   var navOptions = "";
 
-  if (text === "admin") {
+  if (text === "ADMIN") {
     navOptions = _assets_texts_NavTexts__WEBPACK_IMPORTED_MODULE_3__.navTextAdmin;
-  } else if (text === "landlord") {
+  } else if (text === "LANDLORD") {
     navOptions = _assets_texts_NavTexts__WEBPACK_IMPORTED_MODULE_3__.navTextLandlord;
   } else {
     navOptions = _assets_texts_NavTexts__WEBPACK_IMPORTED_MODULE_3__.navTextTenant;
@@ -12627,11 +12627,25 @@ var NavBar = function NavBar(_ref) {
                 children: page.key !== "page_logout" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
                   to: page.link,
                   navColor: navColorChoice,
-                  children: page.name
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                    href: page.link,
+                    children: page.name
+                  })
                 }, page.key) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
                   navColor: navColorChoice,
                   onClick: page.link,
-                  children: page.name
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
+                    method: "POST",
+                    "class": "inline",
+                    action: page.link,
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                      type: "hidden",
+                      name: "_token",
+                      value: csrf_token
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                      children: page.name
+                    })]
+                  })
                 }, page.key)
               });
             })
