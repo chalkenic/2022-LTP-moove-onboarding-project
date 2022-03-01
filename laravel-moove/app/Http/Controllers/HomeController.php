@@ -12,7 +12,9 @@ class HomeController extends Controller
                 return view('tenant.tenant-home');
             } else if (auth()->user()->role === 'ADMIN') {
                 return view('admin.admin-home');
-            }
+            } else if (auth()->user()->role === 'LANDLORD') {
+                return view('landlord.landlord-home');
+            } 
         } else {
             return view('home');
         }
