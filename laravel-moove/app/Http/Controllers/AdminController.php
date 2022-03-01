@@ -8,12 +8,7 @@ class AdminController extends Controller
 {
 
     public function __construct() {
-        if (auth()->user()) {
-            if (auth()->user()->role != 'ADMIN') {
-                return view('home');
-            }
-        }
-        return view('home');
+        $this->middleware(['admin']);
     }
 
     public function index() {
