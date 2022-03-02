@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserConvertController extends Controller
@@ -13,5 +14,32 @@ class UserConvertController extends Controller
 
     public function index() {
         return view('admin.admin-convert-users');
+    }
+
+    public function update(Request $request) {
+        $request->validate([
+            'email' => 'required'
+        ]);
+
+        if (User::where('email', $request->email)->exists()) {
+            // TODO: Once applications are modelled,
+            // check that the user doesn't have any
+            // active.
+            // Doesn't check if the user is already admin;
+            // is this a big deal? Not sure.
+            User::where('email', $request->email)->first()->update(
+                [
+                    'role' => 'ADMIN'
+                ]
+                );
+            
+            return view('admin.admin-convert-users', [
+                'success' => 'Successfully converted user'
+            ]);
+        } else {
+            return back()->withErrors([
+                'email' => 'Couldn\'t find a user with that email'
+            ]);
+        }
     }
 }

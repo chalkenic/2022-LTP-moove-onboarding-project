@@ -20,8 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'store']);
-Route::get('/logout', [LogoutController::class, 'store'])->name('logoutReact');
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 Route::get('/forgot-password', [ForgottenPasswordController::class, 'index'])->name('password.request');
 Route::post('/forgot-password', [ForgottenPasswordController::class, 'store'])->name('password.email');
@@ -37,4 +35,4 @@ Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.hom
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
-Route::post('/admin/set/{id}/{role}', [AdminController::class, 'setRole'])->name('admin.setrole');
+Route::put('/convert-user', [UserConvertController::class, 'update']);
