@@ -10,7 +10,7 @@ const AppRoutes = (props) => {
     <BrowserRouter>
       <NavBar currentPage={currentPage} />
       <Routes>
-      <Route
+        <Route
           path="/"
           element={<Dashboard setCurrentPage={setCurrentPage} />}
         ></Route>
