@@ -26,10 +26,14 @@ Route::post('/forgot-password', [ForgottenPasswordController::class, 'store'])->
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'index'])->name('password.reset');
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->middleware('guest')->name('password.update');
 
+
 // General routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant-home');
+Route::get('/tenant-test', function() {
+    return view('tenant.tenant-test');
+    });
 
 // Admin routes

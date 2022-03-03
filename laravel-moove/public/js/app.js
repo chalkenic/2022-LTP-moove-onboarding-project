@@ -12053,30 +12053,31 @@ var navTextTenant = [{
   key: "page_home",
   name: "tenant 1",
   selected: false,
-  link: "/",
+  link: "/tenant-test",
   type: "link"
 }, {
   id: 2,
   key: "page_properties",
   name: "Tenant 2",
   selected: false,
-  link: "/",
+  link: "/tenant-test",
   type: "link"
 }, {
   id: 3,
   key: "page_applications",
   name: "Tenant 3",
   selected: false,
-  link: "/test",
+  link: "/tenant-test",
   type: "link"
-}, {
-  id: 4,
-  key: "page_logout",
-  name: "Logout",
-  selected: false,
-  link: "/logout",
-  type: "link"
-}];
+} // {
+//   id: 4,
+//   key: "page_logout",
+//   name: "Logout",
+//   selected: false,
+//   link: "",
+//   type: "link",
+// },
+];
 var navTextLandlord = [{
   id: 1,
   key: "page_home",
@@ -12323,6 +12324,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
  // Handles all buttons that appear within navigation bar.
 // Custom Mui button that contains overrides depending on color prop provided on declaration.
 
@@ -12358,6 +12360,9 @@ var ButtonNavCustom = function ButtonNavCustom(props) {
     theme: theme,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(ButtonNav, {
       color: props.navColor,
+      href: props.href,
+      disabled: props.disabled,
+      onClick: props.onClick,
       children: props.children
     })
   });
@@ -12615,40 +12620,34 @@ var NavBar = function NavBar(_ref) {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_headers_NavBarHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
               colorName: text
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
             sx: {
               display: {
                 xs: "none",
                 md: "flex"
               }
             },
-            children: pages.map(function (page) {
+            children: [pages.map(function (page) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-                children: page.key !== "page_logout" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                  to: page.link,
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  href: page.link,
                   navColor: navColorChoice,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-                    href: page.link,
-                    children: page.name
-                  })
-                }, page.key) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                  navColor: navColorChoice,
-                  onClick: page.link,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
-                    method: "POST",
-                    "class": "inline",
-                    action: page.link,
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-                      type: "hidden",
-                      name: "_token",
-                      value: csrf_token
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-                      children: page.name
-                    })]
-                  })
+                  children: page.name
                 }, page.key)
               });
-            })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
+              method: "POST",
+              action: "/logout",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                type: "hidden",
+                name: "_token",
+                value: csrf_token
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                type: "submit",
+                className: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg",
+                children: "Logout"
+              })]
+            })]
           })]
         })
       })

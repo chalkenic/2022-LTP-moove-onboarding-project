@@ -58,7 +58,7 @@ export var navTextTenant = [
     key: "page_home",
     name: "tenant 1",
     selected: false,
-    link: "/",
+    link: "/tenant-test",
     type: "link",
   },
   {
@@ -66,7 +66,7 @@ export var navTextTenant = [
     key: "page_properties",
     name: "Tenant 2",
     selected: false,
-    link: "/",
+    link: "/tenant-test",
     type: "link",
   },
   {
@@ -74,17 +74,17 @@ export var navTextTenant = [
     key: "page_applications",
     name: "Tenant 3",
     selected: false,
-    link: "/test",
+    link: "/tenant-test",
     type: "link",
   },
-  {
-    id: 4,
-    key: "page_logout",
-    name: "Logout",
-    selected: false,
-    link: "/logout",
-    type: "link",
-  },
+  // {
+  //   id: 4,
+  //   key: "page_logout",
+  //   name: "Logout",
+  //   selected: false,
+  //   link: "",
+  //   type: "link",
+  // },
 ];
 
 export var navTextLandlord = [

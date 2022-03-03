@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import AppTheme from "../../assets/theme/theme";
 import { ThemeProvider } from "@emotion/react";
 import { styled, useTheme } from "@mui/system";
+import { Link } from "react-router-dom";
 
 // Handles all buttons that appear within navigation bar.
 
@@ -39,7 +40,7 @@ const ButtonNavCustom = (props) => {
   const theme = useTheme(AppTheme);
   return (
     <ThemeProvider theme={theme}>
-      <ButtonNav color={props.navColor} >{props.children}</ButtonNav>
+      <ButtonNav color={props.navColor} href={props.href} disabled={props.disabled} onClick ={props.onClick} >{props.children}</ButtonNav>
     </ThemeProvider>
   );
 };

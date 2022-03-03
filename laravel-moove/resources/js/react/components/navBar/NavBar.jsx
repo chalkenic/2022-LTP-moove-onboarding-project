@@ -81,25 +81,32 @@ const NavBar = ({ text, currentPage }) => {
             {pages.map((page) => {
               return (
                 <>
-
-                {page.key !== "page_logout" ? (                    
+                <ButtonNavCustom
+                  href={page.link}
+                  navColor={navColorChoice}
+                  key={page.key}
+                >
+                  {page.name}
+                </ButtonNavCustom>
+                {/* {page.key !== "page_logout" ? (                    
                 <ButtonNavCustom
                       to={page.link}
                       navColor={navColorChoice}
                       key={page.key}
                     >
-                          <button href={page.link}>{page.name}</button>
+
+                    {page.name}
                     </ButtonNavCustom>) : (                    
                     <ButtonNavCustom
                       navColor={navColorChoice}
                       key={page.key}
-                      onClick={page.link}
+                      to={page.link}
                     >
-                        <form method="POST" class="inline" action={page.link}>
+                        <form method="POST"  action={page.link}>
                           <input type="hidden" name="_token" value={csrf_token} />
-                          <button>{page.name}</button>
+                          {page.name}
                         </form>
-                    </ButtonNavCustom>)}
+                    </ButtonNavCustom>)} */}
                 
                   {/* {page.selected ? (
                     <ButtonNavCustom
@@ -121,6 +128,10 @@ const NavBar = ({ text, currentPage }) => {
                 </>
               );
             })}
+                                      <form method="POST"  action="/logout">
+                          <input type="hidden" name="_token" value={csrf_token} />
+                          <button type="submit" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">Logout</button>
+                        </form>
           </Box>
         </>
       </Grid>
