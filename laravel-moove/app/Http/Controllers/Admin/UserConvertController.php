@@ -13,7 +13,7 @@ class UserConvertController extends Controller
     }
 
     public function index() {
-        return view('admin.admin-convert-users');
+        return view('admin.admin-convert-user');
     }
 
     public function update(Request $request) {
@@ -33,7 +33,7 @@ class UserConvertController extends Controller
                 ]
                 );
             
-            return view('admin.admin-convert-users', [
+            return view('admin.admin-convert-user', [
                 'success' => 'Successfully converted user'
             ]);
         } else {

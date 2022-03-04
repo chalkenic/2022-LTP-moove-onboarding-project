@@ -39,7 +39,7 @@ export var navTextAdmin = [
     key: "page_users",
     name: "Convert Users",
     selected: false,
-    link: "/convert-users",
+    link: "/convert-user",
     type: "link",
   },
   {

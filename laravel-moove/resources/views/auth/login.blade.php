@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('layouts.auth-head')
 @section('title')
 <title>moove - login</title>
 @endsection('title')
