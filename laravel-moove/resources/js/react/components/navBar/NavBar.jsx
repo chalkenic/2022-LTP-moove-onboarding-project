@@ -11,9 +11,10 @@ import {makeStyles} from '@mui/styles';
 
 const useStyles = makeStyles(() => ({
   root: {
-    // borderRadius: '5px !important',
-    fontWeight: 'bold',
-    marginRight: '2px !important',
+    padding: '8px 25px !important',
+    fontWeight: 'bold !important',
+    borderRadius: '5px !important',
+    marginRight: '5px !important',
     backgroundColor: `${AppTheme.palette.logout.light} !important`,
     color: `${AppTheme.palette.logout.dark} !important`,
     '&:hover': {

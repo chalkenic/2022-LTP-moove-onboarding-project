@@ -12942,13 +12942,6 @@ var navTextAdmin = [{
   selected: false,
   link: "/",
   type: "link"
-}, {
-  id: 1,
-  key: "page_logout",
-  name: "Logout",
-  selected: false,
-  link: "/logout",
-  type: "link"
 }];
 var navTextTenant = [{
   id: 1,
@@ -13007,13 +13000,6 @@ var navTextLandlord = [{
   name: "landlord 4",
   selected: false,
   link: "/test",
-  type: "link"
-}, {
-  id: 3,
-  key: "page_logout",
-  name: "Logout",
-  selected: false,
-  link: "/logout",
   type: "link"
 }];
 
@@ -13454,9 +13440,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var useStyles = (0,_mui_styles__WEBPACK_IMPORTED_MODULE_8__["default"])(function () {
   return {
     root: {
-      // borderRadius: '5px !important',
-      fontWeight: 'bold',
-      marginRight: '2px !important',
+      padding: '8px 25px !important',
+      fontWeight: 'bold !important',
+      borderRadius: '5px !important',
+      marginRight: '5px !important',
       backgroundColor: "".concat(_assets_theme_theme__WEBPACK_IMPORTED_MODULE_6__["default"].palette.logout.light, " !important"),
       color: "".concat(_assets_theme_theme__WEBPACK_IMPORTED_MODULE_6__["default"].palette.logout.dark, " !important"),
       '&:hover': {
