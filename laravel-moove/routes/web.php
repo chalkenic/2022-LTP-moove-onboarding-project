@@ -37,3 +37,6 @@ Route::get('/tenant-test', function() {
     });
 
 // Admin routes
+
+// Landlord routes
+Route::get('/landlord-home', [LandLordController::class, 'index'])-> name('landlord-home');
