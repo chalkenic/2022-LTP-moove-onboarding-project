@@ -4,14 +4,20 @@ import { Button } from '@mui/material';
 import AppTheme from '../../assets/theme/theme';
 import { ThemeProvider } from '@emotion/react';
 import { styled, useTheme } from '@mui/system';
-import { Link } from 'react-router-dom';
+import { HashRouter, Route, Link } from 'react-router-dom';
 
 // Handles all buttons that appear within navigation bar.
 
 // Custom Mui button that contains overrides depending on color prop provided on declaration.
 const ButtonNav = styled(Button, {
-	shouldForwardProp: (prop) =>
-		prop !== 'color' && prop !== 'variant' && prop !== 'sx' && prop !== 'href' && prop !== 'to' && prop !== 'type',
+	shouldForwardProp: (props) =>
+		props !== 'color' &&
+		props !== 'variant' &&
+		props !== 'sx' &&
+		props !== 'href' &&
+		props !== 'to' &&
+		props !== 'type' &&
+		props !== 'key',
 	name: 'ButtonNav',
 	slot: 'Root',
 	// Colours sourced from App's main theme.
@@ -33,15 +39,17 @@ const ButtonNav = styled(Button, {
 }));
 
 const ButtonNavCustom = (props) => {
+
 	const theme = useTheme(AppTheme);
 	return (
 		<ThemeProvider theme={theme}>
 			<ButtonNav
 				color={props.navColor}
-				href={props.href}
+				// href={props.page.link}
 				disabled={props.disabled}
-				type={props.type}
-				onClick={props.onClick}
+				type={props.page.type}
+				to={props.page.to}
+				key={props.page.key}
 			>
 				{props.children}
 			</ButtonNav>

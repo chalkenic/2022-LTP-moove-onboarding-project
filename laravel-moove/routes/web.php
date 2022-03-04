@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Tenant\TenantController;
+use App\Http\Controllers\Tenant\LandLordController;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -40,3 +41,6 @@ Route::get('/tenant-test', function() {
 
 // Landlord routes
 Route::get('/landlord-home', [LandLordController::class, 'index'])-> name('landlord-home');
+Route::get('/landlord-properties', function() {
+    return view('landlord.landlord-properties');
+});

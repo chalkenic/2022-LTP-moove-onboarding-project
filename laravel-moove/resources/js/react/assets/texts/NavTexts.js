@@ -93,7 +93,7 @@ export var navTextLandlord = [
     key: "page_properties",
     name: "My Properties",
     selected: false,
-    link: "/",
+    link: "/landlord-properties",
     type: "link",
   },
   {
@@ -101,15 +101,15 @@ export var navTextLandlord = [
     key: "page_applications",
     name: "My Calendar",
     selected: false,
-    link: "/test",
+    link: "/landlord-properties",
     type: "link",
   },
   {
     id: 4,
-    key: "page_applications",
+    key: "page_messages",
     name: "Messages(*)",
     selected: false,
-    link: "/test",
+    link: "/landlord-properties",
     type: "link",
   },
 ];

@@ -12985,21 +12985,21 @@ var navTextLandlord = [{
   key: "page_properties",
   name: "My Properties",
   selected: false,
-  link: "/",
+  link: "/landlord-properties",
   type: "link"
 }, {
   id: 3,
   key: "page_applications",
   name: "My Calendar",
   selected: false,
-  link: "/test",
+  link: "/landlord-properties",
   type: "link"
 }, {
   id: 4,
-  key: "page_applications",
+  key: "page_messages",
   name: "Messages(*)",
   selected: false,
-  link: "/test",
+  link: "/landlord-properties",
   type: "link"
 }];
 
@@ -13226,8 +13226,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ButtonNav = (0,_mui_system__WEBPACK_IMPORTED_MODULE_4__["default"])(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
-  shouldForwardProp: function shouldForwardProp(prop) {
-    return prop !== 'color' && prop !== 'variant' && prop !== 'sx' && prop !== 'href' && prop !== 'to' && prop !== 'type';
+  shouldForwardProp: function shouldForwardProp(props) {
+    return props !== 'color' && props !== 'variant' && props !== 'sx' && props !== 'href' && props !== 'to' && props !== 'type' && props !== 'key';
   },
   name: 'ButtonNav',
   slot: 'Root',
@@ -13255,13 +13255,13 @@ var ButtonNavCustom = function ButtonNavCustom(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_emotion_react__WEBPACK_IMPORTED_MODULE_7__.a, {
     theme: theme,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(ButtonNav, {
-      color: props.navColor,
-      href: props.href,
+      color: props.navColor // href={props.page.link}
+      ,
       disabled: props.disabled,
-      type: props.type,
-      onClick: props.onClick,
+      type: props.page.type,
+      to: props.page.to,
       children: props.children
-    })
+    }, props.page.key)
   });
 };
 
@@ -13437,6 +13437,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var useStyles = (0,_mui_styles__WEBPACK_IMPORTED_MODULE_8__["default"])(function () {
   return {
     root: {
@@ -13457,12 +13458,6 @@ var useStyles = (0,_mui_styles__WEBPACK_IMPORTED_MODULE_8__["default"])(function
 var NavBar = function NavBar(_ref) {
   var text = _ref.text,
       currentPage = _ref.currentPage;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(text),
-      _useState2 = _slicedToArray(_useState, 2),
-      navColorChoice = _useState2[0],
-      setNavColor = _useState2[1];
-
   var classes = useStyles();
   var navOptions = '';
 
@@ -13475,10 +13470,10 @@ var NavBar = function NavBar(_ref) {
   } // Pages on navbar. Selected parameter for determining which page user currently on.
 
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(navOptions),
-      _useState4 = _slicedToArray(_useState3, 2),
-      pages = _useState4[0],
-      setPages = _useState4[1]; // Source current page from parent, assign true value to state within navbar.
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(navOptions),
+      _useState2 = _slicedToArray(_useState, 2),
+      pages = _useState2[0],
+      setPages = _useState2[1]; // Source current page from parent, assign true value to state within navbar.
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -13515,7 +13510,7 @@ var NavBar = function NavBar(_ref) {
     /*#__PURE__*/
     //Custom App bar styling.
     (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_AppNavBarCustom__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      navColor: navColorChoice,
+      navColor: text,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], {
         container: true,
         alignItems: 'center',
@@ -13547,11 +13542,14 @@ var NavBar = function NavBar(_ref) {
           },
           children: [pages.map(function (page) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
                 href: page.link,
-                navColor: navColorChoice,
-                children: page.name
-              }, page.key)
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  page: page,
+                  navColor: text,
+                  children: page.name
+                }, page.key)
+              })
             });
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
             method: "POST",

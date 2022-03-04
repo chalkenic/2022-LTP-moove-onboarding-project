@@ -1,4 +1,4 @@
-import { Box, Button, Grid,  Typography, useTheme } from '@mui/material';
+import { Box, Button, Grid, Typography, useTheme } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import AppNavBar from './AppNavBarCustom';
 import ButtonNavCustom from '../buttons/ButtonNav';
@@ -7,25 +7,25 @@ import NavBarHeader from '../headers/NavBarHeader';
 import mooveLogo from '../../assets/images/moove_logo_nobg.png';
 import AppTheme from '../../assets/theme/theme';
 import { purple } from '@mui/material/colors';
-import {makeStyles} from '@mui/styles';
+import { makeStyles } from '@mui/styles';
+import { NavLink, Router } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
-  root: {
-    padding: '8px 25px !important',
-    fontWeight: 'bold !important',
-    borderRadius: '5px !important',
-    marginRight: '5px !important',
-    backgroundColor: `${AppTheme.palette.logout.light} !important`,
-    color: `${AppTheme.palette.logout.dark} !important`,
-    '&:hover': {
-      backgroundColor: `${AppTheme.palette.logout.dark} !important`,
-      color: `${AppTheme.palette.logout.light} !important`,
-    },
-  }
-}))
+	root: {
+		padding: '8px 25px !important',
+		fontWeight: 'bold !important',
+		borderRadius: '5px !important',
+		marginRight: '5px !important',
+		backgroundColor: `${AppTheme.palette.logout.light} !important`,
+		color: `${AppTheme.palette.logout.dark} !important`,
+		'&:hover': {
+			backgroundColor: `${AppTheme.palette.logout.dark} !important`,
+			color: `${AppTheme.palette.logout.light} !important`
+		}
+	}
+}));
 
 const NavBar = ({ text, currentPage }) => {
-	const [ navColorChoice, setNavColor ] = useState(text);
 	const classes = useStyles();
 	let navOptions = '';
 
@@ -72,25 +72,27 @@ const NavBar = ({ text, currentPage }) => {
 
 	return (
 		//Custom App bar styling.
-		<AppNavBar navColor={navColorChoice}>
+		<AppNavBar navColor={text}>
 			<Grid container alignItems={'center'} justifyContent={'space-between'}>
-					{/* moove image. */}
-					<Box sx={{ display: 'flex' }}>
-						<img alt="moove logo" style={{ height: '40px' }} src={mooveLogo} />
-					</Box>
-					{/* Navigation header */}
-					<Box sx={{ display: 'flex' }}>
-						<NavBarHeader colorName={text} />
-					</Box>
-					{/* Navigation buttons */}
-					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-						{pages.map((page) => {
-							return (
-								<div>
-									<ButtonNavCustom href={page.link} navColor={navColorChoice} key={page.key}>
+				{/* moove image. */}
+				<Box sx={{ display: 'flex' }}>
+					<img alt="moove logo" style={{ height: '40px' }} src={mooveLogo} />
+				</Box>
+				{/* Navigation header */}
+				<Box sx={{ display: 'flex' }}>
+					<NavBarHeader colorName={text} />
+				</Box>
+				{/* Navigation buttons */}
+				<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+					{pages.map((page) => {
+						return (
+							<div>
+								<a href={page.link}>
+									<ButtonNavCustom page={page} navColor={text} key={page.key}>
 										{page.name}
 									</ButtonNavCustom>
-									{/* {page.key !== "page_logout" ? (                    
+								</a>
+								{/* {page.key !== "page_logout" ? (                    
                 <ButtonNavCustom
                       to={page.link}
                       navColor={navColorChoice}
@@ -110,7 +112,7 @@ const NavBar = ({ text, currentPage }) => {
                         </form>
                     </ButtonNavCustom>)} */}
 
-									{/* {page.selected ? (
+								{/* {page.selected ? (
                     <ButtonNavCustom
                       to={page.link}
                       navColor={navColorChoice}
@@ -127,19 +129,16 @@ const NavBar = ({ text, currentPage }) => {
                       {page.name}
                     </ButtonNavCustom>
                   )} */}
-								</div>
-							);
-						})}
-						<form method="POST" action="/logout">
-							<input type="hidden" name="_token" value={csrf_token} />
-							<Button
-								type="submit" className={classes.root}
-
-							>
-								Logout
-							</Button>
-						</form>
-					</Box>
+							</div>
+						);
+					})}
+					<form method="POST" action="/logout">
+						<input type="hidden" name="_token" value={csrf_token} />
+						<Button type="submit" className={classes.root}>
+							Logout
+						</Button>
+					</form>
+				</Box>
 			</Grid>
 		</AppNavBar>
 	);
