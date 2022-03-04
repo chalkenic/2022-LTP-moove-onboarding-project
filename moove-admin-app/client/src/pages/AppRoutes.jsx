@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "../components/navBar/NavBar";
+import CalendlyTestPage from "./CalendlyTestPage";
 import Dashboard from "./Dashboard";
 import Test from "./Test";
 
@@ -18,7 +19,7 @@ const AppRoutes = (props) => {
         ></Route>
         <Route
           path="/test"
-          element={<Test setCurrentPage={setCurrentPage} />}
+          element={<CalendlyTestPage setCurrentPage={setCurrentPage} />}
         ></Route>
       </Routes>
     </BrowserRouter>
