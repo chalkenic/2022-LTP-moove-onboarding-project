@@ -12,7 +12,17 @@ class ApplicationController extends Controller
         $this->middleware(['tenant']);
     }
 
+    /**
+     * Show the application
+     */
     public function index(Request $request) {
         return view('tenant.application');
+    }
+
+    /**
+     * Show the application creation form
+     */
+    public function create(Request $request) {
+        return view('tenant.start-application');
     }
 }

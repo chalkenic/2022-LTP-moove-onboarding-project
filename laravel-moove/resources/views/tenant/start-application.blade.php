@@ -4,6 +4,6 @@
 @endsection
 @section('content')
 <div>
-    Show the tenant's existing application.
+    Start an application!
 </div>
 @endsection

@@ -34,6 +34,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
 Route::get('/application', [ApplicationController::class, 'index'])->name('tenant.application');
+Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
 
 
 // Admin routes

@@ -4,8 +4,11 @@
 @endsection
 @section('content')
 <div>
-    Logic to determine whether an application has been started or not.
-    Link to start or continue an application... <a href="{{route('tenant.application')}}">link</a>
+    @if($hasStartedApplication)
+    Continue your application process. <a href={{route('tenant.application')}}>Click here</a>
+    @else
+    Begin your application process. <a href={{route('tenant.start-application')}}>Click here</a>
+    @endif
 </div>
     <form method="POST" class="inline" action="{{route('logout')}}">
         @csrf
