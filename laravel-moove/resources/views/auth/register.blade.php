@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('layouts.auth-head')
 @section('title')
 <title>moove - register</title>
 @endsection('title')

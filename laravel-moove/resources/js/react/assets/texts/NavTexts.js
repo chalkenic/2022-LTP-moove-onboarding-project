@@ -37,9 +37,9 @@ export var navTextAdmin = [
   {
     id: 5,
     key: "page_users",
-    name: "admin 5",
+    name: "Convert Users",
     selected: false,
-    link: "/",
+    link: "/convert-user",
     type: "link",
   },
   {
