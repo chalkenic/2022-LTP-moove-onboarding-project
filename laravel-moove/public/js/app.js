@@ -13335,14 +13335,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var PropertyCard = function PropertyCard(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    container: true,
     item: true,
-    xs: 12,
+    xs: 10,
     sx: {
       maxWidth: '350px'
     },
-    alignItems: 'center',
-    direction: 'row',
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
       elevation: 20,
       sx: {
@@ -13597,21 +13594,21 @@ var Property = function Property(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
     container: true,
     alignItems: 'center',
+    sx: {
+      paddingTop: '20px !important',
+      paddingBottom: '20px !important',
+      paddingLeft: '20px !important'
+    },
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
       item: true,
-      xs: 4,
-      md: 4,
+      xs: 6,
+      md: 6,
       justifyContent: 'center',
-      sx: {
-        paddingTop: '40px !important',
-        paddingBottom: '40px !important',
-        paddingLeft: '10px !important'
-      },
       children: "image goes here"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
       item: true,
-      xs: 7,
-      md: 7,
+      xs: 5,
+      md: 5,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
         variant: "h6",
         align: "center",
@@ -13622,23 +13619,27 @@ var Property = function Property(props) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
       item: true,
-      xs: 11,
+      xs: 12,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
         variant: "body1",
         align: "center",
         sx: {
-          fontWeight: 700
+          fontWeight: 700,
+          marginTop: 2
         },
         children: props.property.pDescription
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
       item: true,
-      xs: 11,
+      xs: 12,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
         variant: "body1",
         align: "center",
         sx: {
-          fontWeight: 700
+          fontWeight: 700,
+          marginInline: 4,
+          marginTop: 5,
+          marginBottom: 2
         },
         children: _assets_texts_LandlordTexts__WEBPACK_IMPORTED_MODULE_1__.LandlordPropsTexts.propertyTenantTitle
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -13960,8 +13961,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cards_PropertyCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../cards/PropertyCard */ "./resources/js/react/cards/PropertyCard.jsx");
 /* harmony import */ var _components_landlord_Property__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/landlord/Property */ "./resources/js/react/components/landlord/Property.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -13972,29 +13971,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var LandlordProperties = function LandlordProperties(props) {
-  var _jsx2;
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    container: true,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_headers_LandlordHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], (_jsx2 = {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_headers_LandlordHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
       container: true,
-      justifyContent: 'center',
-      item: true,
-      xs: 12,
-      spacing: 2
-    }, _defineProperty(_jsx2, "justifyContent", 'center'), _defineProperty(_jsx2, "alignItems", "center"), _defineProperty(_jsx2, "children", _assets_texts_LandlordTexts__WEBPACK_IMPORTED_MODULE_0__.DUMMY_PROPERTIES.map(function (propertyItem) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        item: true,
-        sm: 6,
-        md: 4,
-        alignItems: 'center',
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_cards_PropertyCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_landlord_Property__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            property: propertyItem
-          })
+      justifyContent: "center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        container: true,
+        itemxs: 12,
+        justifyContent: "center",
+        alignItems: "center",
+        spacing: 2,
+        sx: {
+          paddingLeft: {
+            xs: '10px',
+            sm: '20px',
+            md: '20px'
+          }
+        },
+        style: {
+          width: '100vw',
+          overflow: 'hidden'
+        },
+        children: _assets_texts_LandlordTexts__WEBPACK_IMPORTED_MODULE_0__.DUMMY_PROPERTIES.map(function (propertyItem) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            item: true,
+            container: true,
+            md: 4,
+            sm: 6,
+            xs: 12,
+            spacing: 2,
+            justifyContent: "center",
+            alignItems: 'center',
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_cards_PropertyCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_landlord_Property__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                property: propertyItem
+              })
+            })
+          }, propertyItem.pName);
         })
-      }, propertyItem.pName);
-    })), _jsx2))]
+      })
+    })]
   });
 };
 

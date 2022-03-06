@@ -7,20 +7,32 @@ import Property from '../components/landlord/Property';
 
 const LandlordProperties = (props) => {
 	return (
-		<Grid container>
+		<div>
 			<LandlordHeader />
-			<Grid container justifyContent={'center'}  item xs={12} spacing={2} justifyContent={'center'} alignItems="center">
-				{DUMMY_PROPERTIES.map((propertyItem) => {
-					return (
-						<Grid key={propertyItem.pName} item sm={6} md={4}alignItems={'center'}>
-							<PropertyCard>
-								<Property property={propertyItem} />
-							</PropertyCard>
-						</Grid>
-					);
-				})}
+
+			<Grid container justifyContent="center">
+				<Grid
+					container
+					itemxs={12}
+					justifyContent="center"
+					alignItems="center"
+					spacing={2}
+					sx={{ paddingLeft: { xs: '10px', sm: '20px', md: '20px' } }}
+					style={{ width: '100vw', overflow: 'hidden' }}
+				>
+					{/* <Grid container justifyContent={'center'}  item xs={12} > */}
+					{DUMMY_PROPERTIES.map((propertyItem) => {
+						return (
+							<Grid key={propertyItem.pName} item container md={4} sm={6} xs={12} spacing={2} justifyContent="center" alignItems={'center'}>
+								<PropertyCard>
+									<Property property={propertyItem} />
+								</PropertyCard>
+							</Grid>
+						);
+					})}
+				</Grid>
 			</Grid>
-		</Grid>
+		</div>
 	);
 };
 
