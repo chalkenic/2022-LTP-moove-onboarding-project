@@ -9,8 +9,12 @@ class Application extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user'
+    ];
+
     public function user() {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function files() {

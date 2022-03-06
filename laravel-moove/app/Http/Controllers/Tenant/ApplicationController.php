@@ -23,6 +23,22 @@ class ApplicationController extends Controller
      * Show the application creation form
      */
     public function create(Request $request) {
+        if (auth()->user()->application) {
+            return redirect('/application');
+        }
         return view('tenant.start-application');
+    }
+
+    /**
+     * Intialise an application and bind it to
+     * the logged in tenant
+     */
+    public function store(Request $request) {
+        if (auth()->user()->application) {
+            return redirect('/application');
+        }
+        auth()->user()->application()->create();
+
+        return view('tenant.application');
     }
 }
