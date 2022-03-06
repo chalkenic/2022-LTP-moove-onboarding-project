@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Typography, useTheme } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import AppNavBar from './AppNavBarCustom';
 import ButtonNavCustom from '../buttons/ButtonNav';
@@ -6,9 +6,7 @@ import { navTextAdmin, navTextTenant, navTextLandlord } from '../../assets/texts
 import NavBarHeader from '../headers/NavBarHeader';
 import mooveLogo from '../../assets/images/moove_logo_nobg.png';
 import AppTheme from '../../assets/theme/theme';
-import { purple } from '@mui/material/colors';
 import { makeStyles } from '@mui/styles';
-import { NavLink, Router } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
 	root: {
@@ -26,6 +24,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const NavBar = ({ text, currentPage }) => {
+  // const [currentPage, setCurrentPage] = useState({})
 	const classes = useStyles();
 	let navOptions = '';
 

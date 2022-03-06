@@ -16,5 +16,8 @@
     </div>
     @endauth
 @yield('content')
+
+@include('footer')
+<script src="/js/app.js"></script>
 </body>
 </html>

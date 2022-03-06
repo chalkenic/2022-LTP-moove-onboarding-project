@@ -5,14 +5,8 @@
 @section('content')
 <div>
 
-
-    <div>
-    <span> PROPERTIES PAGE</span>
-
-</div>
-    <form method="POST" class="inline" action="{{route('logout')}}">
-        @csrf
-        <button class="bg-red-500 rounded text-white p-2">Logout</button>
-    </form>
+@auth
+@endauth
+<LandlordProperties />
 </div>
 @endsection
