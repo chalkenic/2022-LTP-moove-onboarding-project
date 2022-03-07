@@ -8,10 +8,14 @@
 </div>
 
 <div class="max-w-sm mx-auto py-8">
-    <form action="/" method="post" enctype="multipart/form-data">
-        <input type="file" name="image" id="image">
+    <form action="{{route('tenant.upload')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="file" id="file">
         <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 p-4" type="submit">Upload</button>
     </form>
+    @error('file')
+    <span class="text-red-500">{{$message}}</span>
+    @enderror
 </div>
 <span>You have uploaded the below files to support your application so far:</span>
 <div class="">
@@ -54,7 +58,7 @@
                                 bg-gray-500
                                 "
                                 >
-                                Uploaded at
+                                Uploaded
                              </th>
                              <th
                                 class="
