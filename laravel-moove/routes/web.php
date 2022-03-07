@@ -31,7 +31,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
 
 // Landlord routes
-Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord-home');
+Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
 Route::get('/landlord-properties', function() {
     return view('landlord.landlord-properties');
 });
