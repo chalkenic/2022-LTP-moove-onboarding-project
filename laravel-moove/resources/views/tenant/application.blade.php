@@ -17,6 +17,7 @@
     <span class="text-red-500">{{$message}}</span>
     @enderror
 </div>
+@if(isset($currentFiles))
 <span>You have uploaded the below files to support your application so far:</span>
 <div class="">
     <section class="bg-white py-8">
@@ -130,4 +131,5 @@
         </div>
      </section>
 </div>
+@endif
 @endsection
