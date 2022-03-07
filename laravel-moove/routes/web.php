@@ -9,11 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserConvertController;
 use App\Http\Controllers\Tenant\TenantController;
-use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
+use App\Http\Controllers\Landlord\LandlordController;
 use Illuminate\Support\Facades\Route;
 
 // Auth routes
@@ -27,11 +23,18 @@ Route::post('/forgot-password', [ForgottenPasswordController::class, 'store'])->
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'index'])->name('password.reset');
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->middleware('guest')->name('password.update');
 
+
 // General routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
+
+// Landlord routes
+Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord-home');
+Route::get('/landlord-properties', function() {
+    return view('landlord.landlord-properties');
+});
 
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
