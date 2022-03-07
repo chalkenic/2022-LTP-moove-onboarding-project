@@ -30,10 +30,9 @@ class FileUploadTest extends TestCase
         $postApplication->assertViewIs('tenant.application');
 
         // Upload a file
-        $uploadPost = $this->post('/tenant-upload', [
+        $this->post('/tenant-upload', [
             'file' => UploadedFile::fake()->create('my_document.pdf')
         ]);
-
         Storage::assertExists('files/'.$tenant->id.'/my_document.pdf');
     }
 }

@@ -9,9 +9,7 @@ class Application extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user'
-    ];
+    protected $guarded = [];
 
     public function user() {
         return $this->belongsTo(User::class);

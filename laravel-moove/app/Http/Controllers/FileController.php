@@ -23,10 +23,15 @@ class FileController extends Controller
 
         // Limitation of PHP, grumble grumble
         $filenameArr = explode("/", $path);
+        $filename = end($filenameArr);
+
+        if (File::where('filename', $filename)) {
+            $filename = $filename.' (1)';
+        }
         
         auth()->user()->application->files()->save(
             new File([
-                'filename' => end($filenameArr),
+                'filename' => $filename,
                 'url' => 'https://a-cloud-location/filename.jpg'
             ])
         );
