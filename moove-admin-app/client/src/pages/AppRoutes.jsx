@@ -7,7 +7,6 @@ import Test from "./Test";
 // TEMPORARY ROUTING. WILL BE REMOVED UPON LARAVEL TRANSFER.
 const AppRoutes = (props) => {
   const [currentPage, setCurrentPage] = useState("");
-
   return (
     <BrowserRouter>
       <NavBar theme={props.theme} navigationColor="landlord" />
