@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Tenant;
 
 use App\Http\Controllers\Controller;
+use App\Models\File;
 use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
@@ -16,7 +17,13 @@ class ApplicationController extends Controller
      * Show the application
      */
     public function index(Request $request) {
-        return view('tenant.application');
+        // Get the files that are associated with
+        // this application
+        $files = File::where('application_id', auth()->user()->application)->get();
+        return view(
+            'tenant.application', [
+                'currentFiles' => $files
+            ]);
     }
 
     /**
