@@ -43,6 +43,9 @@ Route::get('/landlord-properties', function() {
     return view('landlord.landlord-properties');
 });
 
+// Landlord routes
+Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
+
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
