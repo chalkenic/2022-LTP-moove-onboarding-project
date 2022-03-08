@@ -33,6 +33,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
 
+// Landlord routes
+Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
+
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
