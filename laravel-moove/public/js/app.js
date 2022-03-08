@@ -12770,8 +12770,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_pages_LandlordProperties__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./react/pages/LandlordProperties */ "./resources/js/react/pages/LandlordProperties.jsx");
 /* harmony import */ var _react_components_landlord_Property__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./react/components/landlord/Property */ "./resources/js/react/components/landlord/Property.jsx");
 /* harmony import */ var _js_react_cards_PropertyCard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../js/react/cards/PropertyCard */ "./resources/js/react/cards/PropertyCard.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _react_components_forms_CalendlyComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./react/components/forms/CalendlyComponent */ "./resources/js/react/components/forms/CalendlyComponent.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // React components
+
 
 
 
@@ -12788,31 +12790,34 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // React 
 
 var components = [{
   name: "TestComponent",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_react_components_TestComponent__WEBPACK_IMPORTED_MODULE_0__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_TestComponent__WEBPACK_IMPORTED_MODULE_0__["default"], {})
 }, {
   name: "NavBar",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_react_components_navBar_NavBar__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_navBar_NavBar__WEBPACK_IMPORTED_MODULE_3__["default"], {})
 }, {
   name: 'NavBarHeader',
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_react_components_headers_NavBarHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_headers_NavBarHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {})
 }, {
   name: "ButtonNavCustom",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_react_components_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_5__["default"], {})
 }, {
   name: "AppNavBar",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_react_components_navBar_AppNavBarCustom__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_navBar_AppNavBarCustom__WEBPACK_IMPORTED_MODULE_6__["default"], {})
 }, {
   name: "Dashboard",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_react_pages_Dashboard__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_pages_Dashboard__WEBPACK_IMPORTED_MODULE_7__["default"], {})
 }, {
   name: "LandlordProperties",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_react_pages_LandlordProperties__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_pages_LandlordProperties__WEBPACK_IMPORTED_MODULE_8__["default"], {})
 }, {
   name: "Property",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_react_components_landlord_Property__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_landlord_Property__WEBPACK_IMPORTED_MODULE_9__["default"], {})
 }, {
   name: "PropertyCard",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_js_react_cards_PropertyCard__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_js_react_cards_PropertyCard__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+}, {
+  name: "CalendlyComponent",
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_forms_CalendlyComponent__WEBPACK_IMPORTED_MODULE_11__["default"], {})
 }];
 new _react_ReactRenderer__WEBPACK_IMPORTED_MODULE_1__["default"](components).renderAll();
 
@@ -13461,6 +13466,35 @@ var ButtonNavCustom = function ButtonNavCustom(props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonNavCustom);
+
+/***/ }),
+
+/***/ "./resources/js/react/components/forms/CalendlyComponent.jsx":
+/*!*******************************************************************!*\
+  !*** ./resources/js/react/components/forms/CalendlyComponent.jsx ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CalendlyBooking)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-calendly'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function CalendlyBooking() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "CalendlyBooking",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-calendly'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+      url: "https://calendly.com/moove-booking/30min"
+    })
+  });
+}
+;
 
 /***/ }),
 
