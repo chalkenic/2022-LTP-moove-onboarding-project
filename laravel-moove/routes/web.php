@@ -16,6 +16,9 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 // General routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/tenantList', function () {
+    return view('admin.admin-tenant-list');
+});
 
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant-home');
