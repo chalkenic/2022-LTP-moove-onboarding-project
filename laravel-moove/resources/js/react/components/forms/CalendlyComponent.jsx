@@ -3,8 +3,11 @@ import { InlineWidget } from "react-calendly";
 
 export default function CalendlyBooking(){
   return (
+    <div>
     <div className="CalendlyBooking">
       <InlineWidget url="https://calendly.com/moove-booking/30min" />
     </div>
+          <h1>hi</h1>
+          </div>
   );
 };

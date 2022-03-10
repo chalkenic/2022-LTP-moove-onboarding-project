@@ -13486,12 +13486,17 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 
 
 
+
 function CalendlyBooking() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "CalendlyBooking",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-calendly'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
-      url: "https://calendly.com/moove-booking/30min"
-    })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "CalendlyBooking",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-calendly'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+        url: "https://calendly.com/moove-booking/30min"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+      children: "hi"
+    })]
   });
 }
 ;
