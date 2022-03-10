@@ -12389,17 +12389,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 function CalendlyBooking() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "CalendlyBooking",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_calendly__WEBPACK_IMPORTED_MODULE_1__.InlineWidget, {
-        url: "https://calendly.com/moove-booking/30min"
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-      children: "hi"
-    })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "CalendlyBooking",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_calendly__WEBPACK_IMPORTED_MODULE_1__.InlineWidget, {
+      url: "https://calendly.com/moove-booking/30min"
+    })
   });
 }
 ;
