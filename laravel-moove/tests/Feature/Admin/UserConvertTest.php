@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Admin;
 
+use App\Models\Application;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -43,10 +44,6 @@ class UserConvertTest extends TestCase
      */
     public function admin_can_convert_a_tenant_to_admin()
     {
-        // This test needs to be updated once the application
-        // process is modelled, to make sure there are no
-        // active applications for the tenant before conversion
-        
         $admin = User::factory()->create(['role' => 'ADMIN']);
         $userToConvert = User::factory()->create(['role' => 'TENANT']);
         Auth::login($admin);
@@ -59,5 +56,52 @@ class UserConvertTest extends TestCase
             ->assertViewIs('admin.admin-convert-user')
             ->assertSee('Successfully converted user');
 
+    }
+
+    /**
+     * @test
+     */
+    public function cannot_convert_user_with_open_application()
+    {
+        $admin = User::factory()->create(['role' => 'ADMIN']);
+        $userToConvert = User::factory()->create(['role' => 'TENANT']);
+        $userToConvert->application()->create();
+        
+        Auth::login($admin);
+
+        $response = $this->put('/convert-user', [
+            'email' => $userToConvert->email
+        ]);
+
+        $response->assertStatus(302)
+            ->assertSessionHasErrors();
+            
+        $this->assertEquals(
+            session('errors')->get('email')[0],
+            'Cannot convert a user with an active application'
+        );
+    }
+
+        /**
+     * @test
+     */
+    public function cannot_convert_user_who_is_already_admin()
+    {
+        $admin = User::factory()->create(['role' => 'ADMIN']);
+        $userToConvert = User::factory()->create(['role' => 'ADMIN']);
+        
+        Auth::login($admin);
+
+        $response = $this->put('/convert-user', [
+            'email' => $userToConvert->email
+        ]);
+
+        $response->assertStatus(302)
+            ->assertSessionHasErrors();
+            
+        $this->assertEquals(
+            session('errors')->get('email')[0],
+            'That user is already an Admin!'
+        );
     }
 }

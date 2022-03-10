@@ -17,17 +17,32 @@ class UserConvertController extends Controller
     }
 
     public function update(Request $request) {
+        // Swap the 2 below to use strict moove email validation
+        // $emailValidation = 'required|regex:/(.*)moove\.to$/i';
+        $emailValidation = 'required';
+
         $request->validate([
-            'email' => 'required'
+            'email' => $emailValidation
         ]);
 
-        if (User::where('email', $request->email)->exists()) {
-            // TODO: Once applications are modelled,
-            // check that the user doesn't have any
-            // active.
-            // Doesn't check if the user is already admin;
-            // is this a big deal? Not sure.
-            User::where('email', $request->email)->first()->update(
+        $userToConvert = User::where('email', $request->email)->first();
+
+        if ($userToConvert) {
+            if ($userToConvert->application) {
+                if ($userToConvert->application->approved !== 1) {
+                    return back()->withErrors([
+                        'email' => 'Cannot convert a user with an active application'
+                    ]);
+                }
+            }
+
+            if ($userToConvert->role === 'ADMIN') {
+                return back()->withErrors([
+                    'email' => 'That user is already an Admin!'
+                ]);
+            }
+            
+            $userToConvert->update(
                 [
                     'role' => 'ADMIN'
                 ]
