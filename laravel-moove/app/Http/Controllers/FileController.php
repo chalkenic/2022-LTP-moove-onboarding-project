@@ -25,8 +25,8 @@ class FileController extends Controller
         $filenameArr = explode("/", $path);
         $filename = end($filenameArr);
 
-        if (File::where('filename', $filename)) {
-            $filename = $filename.' (1)';
+        if (File::where('filename', $filename)->exists()) {
+            $filename = $filename.' (duplicate)';
         }
         
         auth()->user()->application->files()->save(
