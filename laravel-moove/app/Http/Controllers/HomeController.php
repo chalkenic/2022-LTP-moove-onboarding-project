@@ -16,9 +16,6 @@ class HomeController extends Controller
             } else if (auth()->user()->role === 'ADMIN') {
                 return redirect()->route('admin.home');
             } else if (auth()->user()->role === 'LANDLORD') {
-                JavaScript::put([
-                    'name' => auth()->user()->name
-                ]);
                 return redirect()->route('landlord.home');
             } 
         } else {

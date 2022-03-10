@@ -8,6 +8,8 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserConvertController;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\Tenant\ApplicationController;
 use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\Landlord\LandlordController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +31,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
+Route::get('/application', [ApplicationController::class, 'index'])->name('tenant.application');
+Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
+Route::post('/start-application', [ApplicationController::class, 'store']);
+Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
 
 // Landlord routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
