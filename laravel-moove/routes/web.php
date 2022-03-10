@@ -20,6 +20,10 @@ Route::get('/tenantList', function () {
     return view('admin.admin-tenant-list');
 });
 
+Route::get('/test', function() {
+    return view('admin.admin-test');
+});
+
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant-home');
 

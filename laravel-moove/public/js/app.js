@@ -16679,8 +16679,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_ReactRenderer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./react/ReactRenderer */ "./resources/js/react/ReactRenderer.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _react_components_NavBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./react/components/NavBar */ "./resources/js/react/components/NavBar.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _react_components_TenantList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./react/components/TenantList */ "./resources/js/react/components/TenantList.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // React components
+
 
 
 
@@ -16690,10 +16692,13 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // React 
 
 var components = [{
   name: "TestComponent",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_react_components_TestComponent__WEBPACK_IMPORTED_MODULE_0__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_react_components_TestComponent__WEBPACK_IMPORTED_MODULE_0__["default"], {})
 }, {
   name: "NavBar",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_react_components_NavBar__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_react_components_NavBar__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+}, {
+  name: "TenantList",
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_react_components_TenantList__WEBPACK_IMPORTED_MODULE_4__["default"], {})
 }];
 new _react_ReactRenderer__WEBPACK_IMPORTED_MODULE_1__["default"](components).renderAll();
 
@@ -17000,6 +17005,72 @@ var NavBar = function NavBar(props) {
 
 /***/ }),
 
+/***/ "./resources/js/react/components/TenantList.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/react/components/TenantList.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "tenants": () => (/* binding */ tenants),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _mui_material_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/List */ "./node_modules/@mui/material/List/List.js");
+/* harmony import */ var _mui_material_ListItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/ListItem */ "./node_modules/@mui/material/ListItem/ListItem.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+ //A temporary list of tenants to use as dummy data
+
+
+
+var tenants = [{
+  id: 0,
+  fName: "Rob",
+  lName: "Robson",
+  email: "rob@hotmail.com"
+}, {
+  id: 1,
+  fName: "John",
+  lName: "Johnson",
+  email: "john@hotmail.com"
+}, {
+  id: 2,
+  fName: "Bobby",
+  lName: "Bobbs",
+  email: "bob@gmail.com"
+}, {
+  id: 3,
+  fName: "Sam",
+  lName: "Samuels",
+  email: "sam@protonmail.gov"
+}]; //Returns list of tenants
+
+var TenantList = function TenantList(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_material_List__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+        children: "Tenant List Page"
+      }), tenants.map(function (tenant) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_mui_material_ListItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          className: "list-item",
+          onClick: function onClick(event) {
+            return window.location.href = "/tenantApplication/".concat(tenant.id);
+          },
+          children: [tenant.fName, " ", tenant.lName]
+        });
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TenantList);
+
+/***/ }),
+
 /***/ "./resources/js/react/components/TestComponent.js":
 /*!********************************************************!*\
   !*** ./resources/js/react/components/TestComponent.js ***!
@@ -17016,10 +17087,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 var TestComponent = function TestComponent(_ref) {
   var text = _ref.text;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    children: ["Test component says: ", text]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+      children: "Test Component"
+    })
   });
 };
 
