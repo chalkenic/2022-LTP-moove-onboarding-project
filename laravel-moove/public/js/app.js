@@ -13033,6 +13033,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "navTextTenant": () => (/* binding */ navTextTenant),
 /* harmony export */   "navTextLandlord": () => (/* binding */ navTextLandlord)
 /* harmony export */ });
+var _ref;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 // File handles all texts shown within navigation bar to keep jsx component clean
 // and promote separation of concerns.
 var navTextAdmin = [{
@@ -13071,11 +13075,18 @@ var navTextAdmin = [{
   link: "/convert-user",
   type: "link"
 }, {
-  id: 5,
+  id: 6,
   key: "page_tenants",
   name: "Tenants",
   selected: false,
   link: "/admin-tenants",
+  type: "link"
+}, {
+  id: 7,
+  key: "page_logout",
+  name: "Logout",
+  selected: false,
+  link: "/logout",
   type: "link"
 }];
 var navTextTenant = [{
@@ -13097,17 +13108,22 @@ var navTextTenant = [{
   key: "page_applications",
   name: "Tenant 3",
   selected: false,
-  link: "/tenant-test",
+  link: "/test",
   type: "link"
-} // {
-//   id: 4,
-//   key: "page_logout",
-//   name: "Logout",
-//   selected: false,
-//   link: "",
-//   type: "link",
-// },
-];
+}, {
+  id: 4,
+  key: "book_appointment",
+  name: "Book Appointment",
+  selected: false,
+  link: "/bookapt",
+  type: "link"
+}, (_ref = {
+  id: 5,
+  key: "page_logout",
+  name: "Logout",
+  selected: false,
+  link: "/logout"
+}, _defineProperty(_ref, "link", "/tenant-test"), _defineProperty(_ref, "type", "link"), _ref)];
 var navTextLandlord = [{
   id: 1,
   key: "page_home",
@@ -13486,17 +13502,12 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 
 
 
-
 function CalendlyBooking() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "CalendlyBooking",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-calendly'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
-        url: "https://calendly.com/moove-booking/30min"
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-      children: "hi"
-    })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "CalendlyBooking",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-calendly'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+      url: "https://calendly.com/moove-booking/30min"
+    })
   });
 }
 ;
