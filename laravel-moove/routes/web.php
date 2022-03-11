@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserConvertController;
 use App\Http\Controllers\Tenant\TenantController;
+use App\Http\Controllers\Tenant\TenantAptController;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -32,6 +33,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
+Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
 
 // Landlord routes
 Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
