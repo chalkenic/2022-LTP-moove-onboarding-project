@@ -8,6 +8,7 @@ import NavBar from './react/components/navBar/NavBar';
 import NavBarHeader from './react/components/headers/NavBarHeader';
 import ButtonNavCustom from './react/components/buttons/ButtonNav';
 import AppNavBar from './react/components/navBar/AppNavBarCustom';
+import TenancyForm from './react/components/forms/TenantCheckForm';
 
 const components = [
     {
@@ -29,6 +30,10 @@ const components = [
     {
         name: "AppNavBar",
         component: <AppNavBar />
+    },
+    {
+        name: "TenancyForm",
+        component: <TenancyForm />
     }
 
 
