@@ -43,9 +43,8 @@ Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landl
 Route::get('/landlord-properties', function() {
     return view('landlord.landlord-properties');
 });
-Route::get('/landlord-tenant-list', function() {
-    return view('landlord.landlord-tenant-list');
-});
+Route::get('/landlord-tenant-list', [LandlordController::class, 'tenantList'])-> name('landlord.landlord-tenant-list');
+Route::get('/landlord-tenant-application', [LandlordController::class, 'tenantApplication'])-> name('landlord.landlord-tenant-application');
 
 
 // Admin routes

@@ -4,8 +4,7 @@ require('./bootstrap');
 import TestComponent from './react/components/TestComponent';
 import ReactRenderer from './react/ReactRenderer';
 import React from 'react';
-import TenantList from './react/components/TenantList';
-
+import TenantList from './react/components/landlord/TenantList';
 import NavBar from './react/components/navBar/NavBar';
 import NavBarHeader from './react/components/headers/NavBarHeader';
 import ButtonNavCustom from './react/components/buttons/ButtonNav';
@@ -14,6 +13,8 @@ import Dashboard from './react/pages/Dashboard';
 import LandlordProperties from './react/pages/LandlordProperties';
 import Property from './react/components/landlord/Property';
 import PropertyCard from '../js/react/cards/PropertyCard';
+import TenantApplication from './react/components/landlord/TenantApplication';
+
 
 const components = [
     {
@@ -26,7 +27,7 @@ const components = [
     },
     {
         name: "TenantList",
-        component: <TenantList />,
+        component: <TenantList />
     },
     {
         name: 'NavBarHeader',
@@ -48,7 +49,6 @@ const components = [
         name: "LandlordProperties",
         component: <LandlordProperties/>
     },
-
     {
         name: "Property",
         component: <Property/>
@@ -56,7 +56,12 @@ const components = [
     {
         name: "PropertyCard",
         component: <PropertyCard/>
+    },
+    {
+        name: "TenantApplication",
+        component: <TenantApplication />
     }
+
 
 
 ]
