@@ -11,6 +11,7 @@
                 <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Create a moove account</p>
                 <p tabindex="0" class="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500">By signing up, you agree to our <a href="#" class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer">privacy policy</a>
                 and <a href="#" class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer">terms and conditions.</a></p>
+                <p tabindex="0" class="focus:outline-none text-sm mt-2 font-medium leading-none text-gray-500">Already got an account? <a href={{route('login')}}>Login</a></p>
                 <div class="w-full flex items-center justify-between py-5">
 
                 </div>

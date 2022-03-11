@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { Box } from "@mui/system";
 
 // TEMPORARY PAGE.
-const Dashboard = ({ setCurrentPage }) => {
-  useEffect(() => {
-    setCurrentPage("Dashboard");
-  });
+const Dashboard = (props) => {
+  // useEffect(() => {
+  //   setCurrentPage("Dashboard");
+  // });
   return (
     <Box>
-      <div>Hello World</div>;
+      <div>{ window.test }{ window.name }</div>
     </Box>
   );
 };

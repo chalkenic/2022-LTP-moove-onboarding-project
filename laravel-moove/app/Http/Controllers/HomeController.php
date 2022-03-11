@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use JavaScript;
 
 class HomeController extends Controller
 {
@@ -15,9 +17,9 @@ class HomeController extends Controller
                 return redirect()->route('admin.home');
             } else if (auth()->user()->role === 'LANDLORD') {
                 return redirect()->route('landlord.home');
+            } 
+        } else {
+            return view('home');
             }
         }
-
-        return view('home');
     }
-}

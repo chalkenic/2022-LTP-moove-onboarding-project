@@ -6491,6 +6491,24 @@ function styled(tag, options) {
 
 /***/ }),
 
+/***/ "./node_modules/@mui/system/esm/Box/Box.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@mui/system/esm/Box/Box.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _createBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createBox */ "./node_modules/@mui/system/esm/createBox.js");
+
+const Box = (0,_createBox__WEBPACK_IMPORTED_MODULE_0__["default"])();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Box);
+
+/***/ }),
+
 /***/ "./node_modules/@mui/system/esm/borders.js":
 /*!*************************************************!*\
   !*** ./node_modules/@mui/system/esm/borders.js ***!
@@ -11830,8 +11848,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_components_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./react/components/buttons/ButtonNav */ "./resources/js/react/components/buttons/ButtonNav.jsx");
 /* harmony import */ var _react_components_navBar_AppNavBarCustom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./react/components/navBar/AppNavBarCustom */ "./resources/js/react/components/navBar/AppNavBarCustom.jsx");
 /* harmony import */ var _react_components_forms_CalendlyComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./react/components/forms/CalendlyComponent */ "./resources/js/react/components/forms/CalendlyComponent.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _react_pages_Dashboard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./react/pages/Dashboard */ "./resources/js/react/pages/Dashboard.jsx");
+/* harmony import */ var _react_pages_LandlordProperties__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./react/pages/LandlordProperties */ "./resources/js/react/pages/LandlordProperties.jsx");
+/* harmony import */ var _react_components_landlord_Property__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./react/components/landlord/Property */ "./resources/js/react/components/landlord/Property.jsx");
+/* harmony import */ var _js_react_cards_PropertyCard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../js/react/cards/PropertyCard */ "./resources/js/react/cards/PropertyCard.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // React components
+
+
+
+
 
 
 
@@ -11845,22 +11871,34 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // React 
 
 var components = [{
   name: "TestComponent",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_react_components_TestComponent__WEBPACK_IMPORTED_MODULE_0__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_TestComponent__WEBPACK_IMPORTED_MODULE_0__["default"], {})
 }, {
   name: "NavBar",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_react_components_navBar_NavBar__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_navBar_NavBar__WEBPACK_IMPORTED_MODULE_3__["default"], {})
 }, {
   name: 'NavBarHeader',
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_react_components_headers_NavBarHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_headers_NavBarHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {})
 }, {
   name: "ButtonNavCustom",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_react_components_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_5__["default"], {})
 }, {
   name: "AppNavBar",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_react_components_navBar_AppNavBarCustom__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_navBar_AppNavBarCustom__WEBPACK_IMPORTED_MODULE_6__["default"], {})
 }, {
   name: "CalendlyComponent",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_react_components_forms_CalendlyComponent__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_forms_CalendlyComponent__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+}, {
+  name: "Dashboard",
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_pages_Dashboard__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+}, {
+  name: "LandlordProperties",
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_pages_LandlordProperties__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+}, {
+  name: "Property",
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_react_components_landlord_Property__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+}, {
+  name: "PropertyCard",
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_js_react_cards_PropertyCard__WEBPACK_IMPORTED_MODULE_11__["default"], {})
 }];
 new _react_ReactRenderer__WEBPACK_IMPORTED_MODULE_1__["default"](components).renderAll();
 
@@ -11995,6 +12033,74 @@ var ReactRenderer = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./resources/js/react/assets/texts/LandlordTexts.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/react/assets/texts/LandlordTexts.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DUMMY_PROPERTIES": () => (/* binding */ DUMMY_PROPERTIES),
+/* harmony export */   "LandlordPropsLandingTitle": () => (/* binding */ LandlordPropsLandingTitle),
+/* harmony export */   "LandlordPropsTexts": () => (/* binding */ LandlordPropsTexts)
+/* harmony export */ });
+var DUMMY_PROPERTIES = [{
+  id: 'p1',
+  pName: '26 Woodville Road',
+  pDescription: 'Lorem Ipsum',
+  pLocation: '?',
+  pTenants: [{
+    name: 'Terry Tibbs'
+  }, {
+    name: 'Harry strums'
+  }],
+  ppm: 800.01
+}, {
+  id: 'p2',
+  pName: '63 Court Road',
+  pDescription: 'Lorem Ipsum',
+  pLocation: 'Butetown',
+  pTenants: [{
+    name: 'Terry Tibbs'
+  }, {
+    name: 'Harry strums'
+  }],
+  ppm: 800.01
+}, {
+  id: 'p3',
+  pName: '69 weird avenue',
+  pDescription: 'Lorem ipsum',
+  pLocation: 'Splott',
+  pTenants: [{
+    name: 'Terry Tibbs'
+  }, {
+    name: 'Harry strums'
+  }],
+  ppm: 800.01
+}, {
+  id: 'p4',
+  pName: 'Abacwys',
+  pDescription: 'Lorem Ipsum',
+  pLocation: 'heath',
+  pTenants: [{
+    name: 'Terry Tibbs'
+  }, {
+    name: 'Harry strums'
+  }],
+  ppm: 800.01
+}];
+var LandlordPropsLandingTitle = {
+  title: 'Your properties',
+  content: 'Lorem Ipsum'
+};
+var LandlordPropsTexts = {
+  propertyTenantTitle: 'Current Tenants'
+};
+
+/***/ }),
+
 /***/ "./resources/js/react/assets/texts/NavTexts.js":
 /*!*****************************************************!*\
   !*** ./resources/js/react/assets/texts/NavTexts.js ***!
@@ -12008,6 +12114,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "navTextTenant": () => (/* binding */ navTextTenant),
 /* harmony export */   "navTextLandlord": () => (/* binding */ navTextLandlord)
 /* harmony export */ });
+var _ref;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 // File handles all texts shown within navigation bar to keep jsx component clean
 // and promote separation of concerns.
 var navTextAdmin = [{
@@ -12045,27 +12155,20 @@ var navTextAdmin = [{
   selected: false,
   link: "/convert-user",
   type: "link"
-}, {
-  id: 1,
-  key: "page_logout",
-  name: "Logout",
-  selected: false,
-  link: "/logout",
-  type: "link"
 }];
 var navTextTenant = [{
   id: 1,
   key: "page_home",
   name: "tenant 1",
   selected: false,
-  link: "/",
+  link: "/tenant-test",
   type: "link"
 }, {
   id: 2,
   key: "page_properties",
   name: "Tenant 2",
   selected: false,
-  link: "/",
+  link: "/tenant-test",
   type: "link"
 }, {
   id: 3,
@@ -12081,50 +12184,66 @@ var navTextTenant = [{
   selected: false,
   link: "/book-appointment",
   type: "link"
-}, {
+}, (_ref = {
   id: 5,
   key: "page_logout",
   name: "Logout",
   selected: false,
-  link: "/logout",
-  type: "link"
-}];
+  link: "/logout"
+}, _defineProperty(_ref, "link", "/tenant-test"), _defineProperty(_ref, "type", "link"), _ref)];
 var navTextLandlord = [{
   id: 1,
   key: "page_home",
-  name: "landlord 1",
+  name: "Dashboard",
   selected: false,
-  link: "/",
+  link: "/landlord-home",
   type: "link"
 }, {
   id: 2,
   key: "page_properties",
-  name: "landlord 2",
+  name: "Properties",
   selected: false,
-  link: "/",
+  link: "/landlord-properties",
   type: "link"
 }, {
   id: 3,
   key: "page_applications",
-  name: "landlord 3",
+  name: "My Calendar",
   selected: false,
-  link: "/test",
+  link: "/landlord-properties",
   type: "link"
 }, {
   id: 4,
-  key: "page_applications",
-  name: "landlord 4",
+  key: "page_messages",
+  name: "Messages(*)",
   selected: false,
-  link: "/test",
-  type: "link"
-}, {
-  id: 3,
-  key: "page_logout",
-  name: "Logout",
-  selected: false,
-  link: "/logout",
+  link: "/landlord-properties",
   type: "link"
 }];
+
+/***/ }),
+
+/***/ "./resources/js/react/assets/theme/StylesBase.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/react/assets/theme/StylesBase.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '@mui/styles'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+var useSylesBase = Object(function webpackMissingModule() { var e = new Error("Cannot find module '@mui/styles'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(function (theme) {
+  return Object(function webpackMissingModule() { var e = new Error("Cannot find module '@mui/styles'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+    landlordPropertiesHeader: {
+      position: 'relative'
+    }
+  });
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useSylesBase);
 
 /***/ }),
 
@@ -12169,6 +12288,10 @@ var adminColors = {
   main: "#7a0a43",
   light: "#943a68",
   dark: "#4b0629"
+};
+var logoutColors = {
+  light: '#fff',
+  dark: '#000'
 }; // Dictate custom theme using colours declared.
 
 var AppTheme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_0__["default"])({
@@ -12205,6 +12328,10 @@ var AppTheme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_0__["default"])({
       main: landlordColors.main,
       light: landlordColors.light,
       dark: landlordColors.dark
+    },
+    logout: {
+      light: logoutColors.light,
+      dark: logoutColors.dark
     }
   },
   components: {
@@ -12283,6 +12410,46 @@ var AppTheme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_0__["default"])({
 
 /***/ }),
 
+/***/ "./resources/js/react/cards/PropertyCard.jsx":
+/*!***************************************************!*\
+  !*** ./resources/js/react/cards/PropertyCard.jsx ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var PropertyCard = function PropertyCard(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    item: true,
+    xs: 10,
+    sx: {
+      maxWidth: '350px'
+    },
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      elevation: 20,
+      sx: {
+        height: 300,
+        marginBlock: 5,
+        borderRadius: 5
+      },
+      children: props.children
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PropertyCard);
+
+/***/ }),
+
 /***/ "./resources/js/react/components/TestComponent.js":
 /*!********************************************************!*\
   !*** ./resources/js/react/components/TestComponent.js ***!
@@ -12335,29 +12502,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
  // Handles all buttons that appear within navigation bar.
 // Custom Mui button that contains overrides depending on color prop provided on declaration.
 
 
 var ButtonNav = (0,_mui_system__WEBPACK_IMPORTED_MODULE_4__["default"])(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
-  shouldForwardProp: function shouldForwardProp(prop) {
-    return prop !== "color" && prop !== "variant" && prop !== "sx";
+  shouldForwardProp: function shouldForwardProp(props) {
+    return props !== 'color' && props !== 'variant' && props !== 'sx' && props !== 'href' && props !== 'to' && props !== 'type' && props !== 'key';
   },
-  name: "ButtonNav",
-  slot: "Root",
+  name: 'ButtonNav',
+  slot: 'Root',
   // Colours sourced from App's main theme.
   overridesResolver: function overridesResolver(props, styles) {
-    return [styles.root, props.color === "ADMIN" && styles.admin, props.color === "LANDLORD" && styles.landlord];
+    return [styles.root, props.color === 'ADMIN' && styles.admin, props.color === 'LANDLORD' && styles.landlord];
   }
 })(function (_ref) {
   var theme = _ref.theme;
   return {
     // Default colours (Moove Yellow) if no colour provided.
-    padding: "10px 25px",
-    borderRadius: "12px !important",
-    marginRight: "5px !important",
-    fontSize: "11px !important",
-    "&:hover": {
+    padding: '10px 25px',
+    borderRadius: '12px !important',
+    marginRight: '5px !important',
+    fontSize: '11px !important',
+    '&:hover': {
       backgroundColor: theme.palette.primary.dark
     },
     backgroundColor: theme.palette.primary.main
@@ -12369,9 +12537,13 @@ var ButtonNavCustom = function ButtonNavCustom(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_emotion_react__WEBPACK_IMPORTED_MODULE_7__.a, {
     theme: theme,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(ButtonNav, {
-      color: props.navColor,
+      color: props.navColor // href={props.page.link}
+      ,
+      disabled: props.disabled,
+      type: props.page.type,
+      to: props.page.to,
       children: props.children
-    })
+    }, props.page.key)
   });
 };
 
@@ -12405,6 +12577,59 @@ function CalendlyBooking() {
   });
 }
 ;
+
+/***/ }),
+
+/***/ "./resources/js/react/components/headers/LandlordHeader.jsx":
+/*!******************************************************************!*\
+  !*** ./resources/js/react/components/headers/LandlordHeader.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _assets_theme_theme__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/theme/theme */ "./resources/js/react/assets/theme/theme.js");
+/* harmony import */ var _mui_system__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/system */ "./node_modules/@mui/system/esm/useTheme.js");
+/* harmony import */ var _assets_theme_StylesBase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/theme/StylesBase */ "./resources/js/react/assets/theme/StylesBase.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _assets_texts_LandlordTexts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/texts/LandlordTexts */ "./resources/js/react/assets/texts/LandlordTexts.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var LandlordHeader = function LandlordHeader() {
+  var theme = (0,_mui_system__WEBPACK_IMPORTED_MODULE_4__["default"])(_assets_theme_theme__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  var classesBase = (0,_assets_theme_StylesBase__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    item: true,
+    xs: 12,
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    style: {
+      marginTop: 5
+    },
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      color: theme.palette.text.dark,
+      sx: {
+        fontWeight: 800,
+        marginTop: 5
+      },
+      textAlign: "center",
+      variant: "h4",
+      children: _assets_texts_LandlordTexts__WEBPACK_IMPORTED_MODULE_2__.LandlordPropsLandingTitle.title
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LandlordHeader);
 
 /***/ }),
 
@@ -12462,6 +12687,101 @@ __webpack_require__.r(__webpack_exports__);
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+/***/ }),
+
+/***/ "./resources/js/react/components/landlord/Property.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/react/components/landlord/Property.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _assets_texts_LandlordTexts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/texts/LandlordTexts */ "./resources/js/react/assets/texts/LandlordTexts.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var Property = function Property(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    container: true,
+    alignItems: 'center',
+    sx: {
+      paddingTop: '20px !important',
+      paddingBottom: '20px !important',
+      paddingLeft: '20px !important'
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      item: true,
+      xs: 6,
+      md: 6,
+      justifyContent: 'center',
+      children: "image goes here"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      item: true,
+      xs: 5,
+      md: 5,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        variant: "h6",
+        align: "center",
+        sx: {
+          fontWeight: 700
+        },
+        children: props.property.pName
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      item: true,
+      xs: 12,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        variant: "body1",
+        align: "center",
+        sx: {
+          fontWeight: 700,
+          marginTop: 2
+        },
+        children: props.property.pDescription
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      item: true,
+      xs: 12,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        variant: "body1",
+        align: "center",
+        sx: {
+          fontWeight: 700,
+          marginInline: 4,
+          marginTop: 5,
+          marginBottom: 2
+        },
+        children: _assets_texts_LandlordTexts__WEBPACK_IMPORTED_MODULE_1__.LandlordPropsTexts.propertyTenantTitle
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        container: true,
+        direction: 'column',
+        children: props.property.pTenants.map(function (tenant) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            item: true,
+            xs: 6,
+            align: "center",
+            children: tenant.name
+          }, tenant.name);
+        })
+      })]
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Property);
 
 /***/ }),
 
@@ -12540,15 +12860,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _AppNavBarCustom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppNavBarCustom */ "./resources/js/react/components/navBar/AppNavBarCustom.jsx");
 /* harmony import */ var _buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../buttons/ButtonNav */ "./resources/js/react/components/buttons/ButtonNav.jsx");
 /* harmony import */ var _assets_texts_NavTexts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/texts/NavTexts */ "./resources/js/react/assets/texts/NavTexts.js");
 /* harmony import */ var _headers_NavBarHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../headers/NavBarHeader */ "./resources/js/react/components/headers/NavBarHeader.jsx");
 /* harmony import */ var _assets_images_moove_logo_nobg_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/images/moove_logo_nobg.png */ "./resources/js/react/assets/images/moove_logo_nobg.png");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _assets_theme_theme__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/theme/theme */ "./resources/js/react/assets/theme/theme.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '@mui/styles'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -12572,30 +12895,43 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var useStyles = Object(function webpackMissingModule() { var e = new Error("Cannot find module '@mui/styles'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(function () {
+  return {
+    root: {
+      padding: '8px 25px !important',
+      fontWeight: 'bold !important',
+      borderRadius: '5px !important',
+      marginRight: '5px !important',
+      backgroundColor: "".concat(_assets_theme_theme__WEBPACK_IMPORTED_MODULE_6__["default"].palette.logout.light, " !important"),
+      color: "".concat(_assets_theme_theme__WEBPACK_IMPORTED_MODULE_6__["default"].palette.logout.dark, " !important"),
+      '&:hover': {
+        backgroundColor: "".concat(_assets_theme_theme__WEBPACK_IMPORTED_MODULE_6__["default"].palette.logout.dark, " !important"),
+        color: "".concat(_assets_theme_theme__WEBPACK_IMPORTED_MODULE_6__["default"].palette.logout.light, " !important")
+      }
+    }
+  };
+});
+
 var NavBar = function NavBar(_ref) {
   var text = _ref.text,
       currentPage = _ref.currentPage;
+  // const [currentPage, setCurrentPage] = useState({})
+  var classes = useStyles();
+  var navOptions = '';
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(text),
-      _useState2 = _slicedToArray(_useState, 2),
-      navColorChoice = _useState2[0],
-      setNavColor = _useState2[1];
-
-  var navOptions = "";
-
-  if (text === "ADMIN") {
+  if (text === 'ADMIN') {
     navOptions = _assets_texts_NavTexts__WEBPACK_IMPORTED_MODULE_3__.navTextAdmin;
-  } else if (text === "LANDLORD") {
+  } else if (text === 'LANDLORD') {
     navOptions = _assets_texts_NavTexts__WEBPACK_IMPORTED_MODULE_3__.navTextLandlord;
   } else {
     navOptions = _assets_texts_NavTexts__WEBPACK_IMPORTED_MODULE_3__.navTextTenant;
   } // Pages on navbar. Selected parameter for determining which page user currently on.
 
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(navOptions),
-      _useState4 = _slicedToArray(_useState3, 2),
-      pages = _useState4[0],
-      setPages = _useState4[1]; // Source current page from parent, assign true value to state within navbar.
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(navOptions),
+      _useState2 = _slicedToArray(_useState, 2),
+      pages = _useState2[0],
+      setPages = _useState2[1]; // Source current page from parent, assign true value to state within navbar.
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -12631,73 +12967,177 @@ var NavBar = function NavBar(_ref) {
   return (
     /*#__PURE__*/
     //Custom App bar styling.
-    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AppNavBarCustom__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      navColor: navColorChoice,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_AppNavBarCustom__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      navColor: text,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], {
         container: true,
-        alignItems: "center",
-        justifyContent: "space-between",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
-            sx: {
-              display: "flex"
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          sx: {
+            display: 'flex'
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+            alt: "moove logo",
+            style: {
+              height: '40px'
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-              alt: "moove logo",
-              style: {
-                height: "40px"
-              },
-              src: _assets_images_moove_logo_nobg_png__WEBPACK_IMPORTED_MODULE_5__["default"]
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
-            sx: {
-              display: "flex"
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_headers_NavBarHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
-              colorName: text
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
-            sx: {
-              display: {
-                xs: "none",
-                md: "flex"
-              }
-            },
-            children: pages.map(function (page) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-                children: page.key !== "page_logout" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                  to: page.link,
-                  navColor: navColorChoice,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-                    href: page.link,
-                    children: page.name
-                  })
-                }, page.key) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                  navColor: navColorChoice,
-                  onClick: page.link,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
-                    method: "POST",
-                    "class": "inline",
-                    action: page.link,
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-                      type: "hidden",
-                      name: "_token",
-                      value: csrf_token
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-                      children: page.name
-                    })]
-                  })
+            src: _assets_images_moove_logo_nobg_png__WEBPACK_IMPORTED_MODULE_5__["default"]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          sx: {
+            display: 'flex'
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_headers_NavBarHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            colorName: text
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          sx: {
+            display: {
+              xs: 'none',
+              md: 'flex'
+            }
+          },
+          children: [pages.map(function (page) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+                href: page.link,
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  page: page,
+                  navColor: text,
+                  children: page.name
                 }, page.key)
-              });
-            })
+              })
+            });
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
+            method: "POST",
+            action: "/logout",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+              type: "hidden",
+              name: "_token",
+              value: csrf_token
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], {
+              type: "submit",
+              className: classes.root,
+              children: "Logout"
+            })]
           })]
-        })
+        })]
       })
     })
   );
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavBar);
+
+/***/ }),
+
+/***/ "./resources/js/react/pages/Dashboard.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/react/pages/Dashboard.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _mui_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/system */ "./node_modules/@mui/system/esm/Box/Box.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+ // TEMPORARY PAGE.
+
+
+
+
+var Dashboard = function Dashboard(props) {
+  // useEffect(() => {
+  //   setCurrentPage("Dashboard");
+  // });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_system__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: [window.test, window.name]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dashboard);
+
+/***/ }),
+
+/***/ "./resources/js/react/pages/LandlordProperties.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/react/pages/LandlordProperties.jsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _assets_texts_LandlordTexts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/texts/LandlordTexts */ "./resources/js/react/assets/texts/LandlordTexts.js");
+/* harmony import */ var _components_headers_LandlordHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/headers/LandlordHeader */ "./resources/js/react/components/headers/LandlordHeader.jsx");
+/* harmony import */ var _cards_PropertyCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../cards/PropertyCard */ "./resources/js/react/cards/PropertyCard.jsx");
+/* harmony import */ var _components_landlord_Property__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/landlord/Property */ "./resources/js/react/components/landlord/Property.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+
+var LandlordProperties = function LandlordProperties(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_headers_LandlordHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      container: true,
+      justifyContent: "center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        container: true,
+        itemxs: 12,
+        justifyContent: "center",
+        alignItems: "center",
+        spacing: 2,
+        sx: {
+          paddingLeft: {
+            xs: '10px',
+            sm: '20px',
+            md: '20px'
+          }
+        },
+        style: {
+          width: '100vw',
+          overflow: 'hidden'
+        },
+        children: _assets_texts_LandlordTexts__WEBPACK_IMPORTED_MODULE_0__.DUMMY_PROPERTIES.map(function (propertyItem) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            item: true,
+            container: true,
+            md: 4,
+            sm: 6,
+            xs: 12,
+            spacing: 2,
+            justifyContent: "center",
+            alignItems: 'center',
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_cards_PropertyCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_landlord_Property__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                property: propertyItem
+              })
+            })
+          }, propertyItem.pName);
+        })
+      })
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LandlordProperties);
 
 /***/ }),
 
