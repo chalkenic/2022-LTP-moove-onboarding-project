@@ -4,7 +4,6 @@ require('./bootstrap');
 import TestComponent from './react/components/TestComponent';
 import ReactRenderer from './react/ReactRenderer';
 import React from 'react';
-import NavBar from './react/components/NavBar';
 import TenantList from './react/components/TenantList';
 
 import NavBar from './react/components/navBar/NavBar';
