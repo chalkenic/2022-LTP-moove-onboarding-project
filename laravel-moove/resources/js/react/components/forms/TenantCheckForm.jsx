@@ -9,7 +9,7 @@ import AddIcon from "@mui/icons-material/Add";
 // Component that contains Tenancy Form to be completed by users
 // In the case of errors, please retry 'npm install react-hook-form'
 
-export default function TenantCheckForm() {
+export default function TenancyForm() {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       textField: "",
