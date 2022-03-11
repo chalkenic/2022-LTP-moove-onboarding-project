@@ -5,13 +5,14 @@ import Dashboard from "./Dashboard";
 import TenantList from "./TenantList";
 import TenantApplication from "./TenantApplication";
 import ViewPdf from "./ViewPdf";
+import Test from "./Test";
 
+// TEMPORARY ROUTING. WILL BE REMOVED UPON LARAVEL TRANSFER.
 const AppRoutes = (props) => {
   const [currentPage, setCurrentPage] = useState("");
-
   return (
     <BrowserRouter>
-      <NavBar currentPage={currentPage} />
+      <NavBar theme={props.theme} navigationColor="landlord" />
       <Routes>
         <Route
           path="/"
@@ -28,6 +29,8 @@ const AppRoutes = (props) => {
         <Route
           path="/pdf"
           element={<ViewPdf setCurrentPage={setCurrentPage} />}
+          path="/test"
+          element={<Test setCurrentPage={setCurrentPage} />}
         ></Route>
       </Routes>
     </BrowserRouter>
