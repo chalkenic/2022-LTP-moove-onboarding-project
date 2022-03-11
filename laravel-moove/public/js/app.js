@@ -12079,7 +12079,7 @@ var navTextTenant = [{
   key: "book_appointment",
   name: "Book Appointment",
   selected: false,
-  link: "/bookapt",
+  link: "/book-appointment",
   type: "link"
 }, {
   id: 5,
