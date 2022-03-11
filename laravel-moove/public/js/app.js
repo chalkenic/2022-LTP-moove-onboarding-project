@@ -12076,6 +12076,13 @@ var navTextTenant = [{
   type: "link"
 }, {
   id: 4,
+  key: "book_appointment",
+  name: "Book Appointment",
+  selected: false,
+  link: "/bookapt",
+  type: "link"
+}, {
+  id: 5,
   key: "page_logout",
   name: "Logout",
   selected: false,
