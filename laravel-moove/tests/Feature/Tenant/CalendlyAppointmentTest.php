@@ -23,7 +23,7 @@ class CalendlyAppoinmentTest extends TestCase
 
         $response = $this->get('/book-appointment');
         $response->assertStatus(200)
-            ->assertViewIs('tenant.bookapt');
+            ->assertViewIs('tenant.tenant-bookapt');
     }
 
 
