@@ -1,6 +1,6 @@
 @extends('layouts.head')
 @section('title')
-<title>moove - book appointment</title>
+<title>moove - apply for tenancy</title>
 @endsection
 @section('content')
 <div>

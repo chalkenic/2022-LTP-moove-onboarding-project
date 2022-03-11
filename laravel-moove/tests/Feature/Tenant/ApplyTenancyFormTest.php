@@ -25,6 +25,4 @@ class ApplyTenancyFormTest extends TestCase
         $response->assertStatus(200)
             ->assertViewIs('tenant.tenant-apply-tenancy');
     }
-
-
 }
