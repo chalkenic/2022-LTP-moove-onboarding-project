@@ -39,7 +39,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
 Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
-Route::get('/apply-tenancy', [TenantAptController::class, 'index'])->name('tenant.apply-tenancy');
+Route::get('/apply-tenancy', [TenantApplyController::class, 'index'])->name('tenant.apply-tenancy');
 
 // Landlord routes
 Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
