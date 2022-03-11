@@ -79,6 +79,14 @@ export var navTextTenant = [
   },
   {
     id: 5,
+    key: "apply_tenancy",
+    name: "Apply for Tenancy",
+    selected: false,
+    link: "/apply-tenancy",
+    type: "link",
+  },
+  {
+    id: 6,
     key: "page_logout",
     name: "Logout",
     selected: false,
