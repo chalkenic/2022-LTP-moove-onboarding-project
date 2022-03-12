@@ -1,6 +1,6 @@
 @extends('layouts.head')
 @section('content')
 <div>
-<TenantApplication />
+<TenantApplication id="{{$id}}" />
 </div>
 @endsection

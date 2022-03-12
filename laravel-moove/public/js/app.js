@@ -14023,6 +14023,13 @@ var navTextAdmin = [{
   selected: false,
   link: "/convert-user",
   type: "link"
+}, {
+  id: 6,
+  key: "page_tenants",
+  name: "Tenant List",
+  selected: false,
+  link: "/admin-tenant-list",
+  type: "link"
 }];
 var navTextTenant = [{
   id: 1,
@@ -14636,23 +14643,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _mui_material_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/Button */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _TenantList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TenantList */ "./resources/js/react/components/landlord/TenantList.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _mui_material_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/Button */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+ //import { tenants } from "./TenantList";
 
 
 
 
+var tenants = [{
+  id: 0,
+  fName: "Rob",
+  lName: "Robson",
+  email: "rob@hotmail.com"
+}, {
+  id: 1,
+  fName: "John",
+  lName: "Johnson",
+  email: "john@hotmail.com"
+}, {
+  id: 2,
+  fName: "Bobby",
+  lName: "Bobbs",
+  email: "bob@gmail.com"
+}, {
+  id: 3,
+  fName: "Sam",
+  lName: "Samuels",
+  email: "sam@protonmail.gov"
+}];
 
-
-
-var TenantApplication = function TenantApplication() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+var TenantApplication = function TenantApplication(_ref) {
+  var id = _ref.id;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
       children: "Tenant Application Page"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
+      children: ["First Name: ", tenants[id].fName]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
+      children: ["Last Name: ", tenants[id].lName]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
+      children: ["Email: ", tenants[id].email]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_material_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
       children: "Approve"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_material_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_material_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
       children: "Deny"
     })]
   });
@@ -14706,7 +14740,7 @@ var tenants = [{
   email: "sam@protonmail.gov"
 }]; //Returns list of tenants
 
-var TenantList = function TenantList(props) {
+var TenantList = function TenantList() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_material_List__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
@@ -14715,7 +14749,7 @@ var TenantList = function TenantList(props) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_mui_material_ListItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
           className: "list-item",
           onClick: function onClick(event) {
-            return window.location.href = "/tenantApplication/".concat(tenant.id);
+            return window.location.href = "/admin-tenant-application/".concat(tenant.id);
           },
           children: [tenant.fName, " ", tenant.lName]
         });

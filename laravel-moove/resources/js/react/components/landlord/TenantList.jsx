@@ -16,7 +16,7 @@ export const tenants = [
 
 //Returns list of tenants
 
-const TenantList = (props) => {
+const TenantList = () => {
 
     return (
         
@@ -24,7 +24,7 @@ const TenantList = (props) => {
             <div>
             <h1>Tenant List Page</h1>
             {tenants.map(tenant => (
-                <ListItem className="list-item" onClick={event => window.location.href=`/tenantApplication/${tenant.id}`}>{tenant.fName} {tenant.lName}</ListItem>
+                <ListItem className="list-item" onClick={event => window.location.href=`/admin-tenant-application/${tenant.id}`}>{tenant.fName} {tenant.lName}</ListItem>
             ))}
             </div>
         </List> 
