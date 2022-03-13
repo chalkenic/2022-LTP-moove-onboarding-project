@@ -9,6 +9,7 @@ import NavBar from './react/components/navBar/NavBar';
 import NavBarHeader from './react/components/headers/NavBarHeader';
 import ButtonNavCustom from './react/components/buttons/ButtonNav';
 import AppNavBar from './react/components/navBar/AppNavBarCustom';
+import CalendlyBooking from './react/components/forms/CalendlyComponent';
 import Dashboard from './react/pages/Dashboard';
 import LandlordProperties from './react/pages/LandlordProperties';
 import Property from './react/components/landlord/Property';
@@ -40,6 +41,10 @@ const components = [
     {
         name: "AppNavBar",
         component: <AppNavBar />
+    },
+    {
+        name:"CalendlyComponent",
+        component:<CalendlyBooking/>
     },
     {
         name: "Dashboard",

@@ -74,17 +74,26 @@ export var navTextTenant = [
     key: "page_applications",
     name: "Tenant 3",
     selected: false,
+    link: "/test",
+    type: "link",
+  },
+  {
+    id: 4,
+    key: "book_appointment",
+    name: "Book Appointment",
+    selected: false,
+    link: "/book-appointment",
+    type: "link",
+  },
+  {
+    id: 5,
+    key: "page_logout",
+    name: "Logout",
+    selected: false,
+    link: "/logout",
     link: "/tenant-test",
     type: "link",
   },
-  // {
-  //   id: 4,
-  //   key: "page_logout",
-  //   name: "Logout",
-  //   selected: false,
-  //   link: "",
-  //   type: "link",
-  // },
 ];
 
 export var navTextLandlord = [
