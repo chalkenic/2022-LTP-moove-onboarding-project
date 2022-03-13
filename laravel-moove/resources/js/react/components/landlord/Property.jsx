@@ -1,8 +1,11 @@
 import { Grid, Typography } from '@mui/material';
 import { property } from 'lodash';
+import { useState } from 'react';
 import * as LandlordTexts from '../../assets/texts/LandlordTexts';
 
 const Property = (props) => {
+
+	const tenants = Array.from(props.property.tenants);
 	return (
 		<Grid container alignItems={'center'} sx={{ paddingTop: '20px !important', paddingBottom: '20px !important', paddingLeft: '20px !important' }}>
 			<Grid
@@ -15,15 +18,22 @@ const Property = (props) => {
 			</Grid>
 			<Grid item xs={5} md={5}>
 				<Typography variant="h6" align="center" sx={{ fontWeight: 700 }}>
-					{props.property.pName}
+					{props.property.name}
 				</Typography>
 			</Grid>
 			<Grid item xs={12}>
 				<Typography variant="body1" align="center" sx={{ fontWeight: 700, marginTop: 2 }}>
-					{props.property.pDescription}
+					{props.property.location}
 				</Typography>
 			</Grid>
-
+			{tenants.map((tenant, key)=> {
+				return (
+<div>
+					<Typography variant="h4">tenant {tenant},  number {key}</Typography>
+					</div>
+				)
+			})}
+{/* 
 			<Grid item xs={12}>
 				<Typography variant="body1" align="center" sx={{ fontWeight: 700, marginInline: 4, marginTop: 5, marginBottom: 2 }} >
 					{LandlordTexts.LandlordPropsTexts.propertyTenantTitle}
@@ -37,7 +47,7 @@ const Property = (props) => {
 						);
 					})}
 				</Grid>
-			</Grid>
+			</Grid> */}
 		</Grid>
 	);
 };

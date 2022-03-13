@@ -6,6 +6,8 @@ import PropertyCard from '../cards/PropertyCard';
 import Property from '../components/landlord/Property';
 
 const LandlordProperties = (props) => {
+
+	const properties = window.properties;
 	return (
 		<div>
 			<LandlordHeader />
@@ -21,11 +23,11 @@ const LandlordProperties = (props) => {
 					style={{ width: '100vw', overflow: 'hidden' }}
 				>
 					{/* <Grid container justifyContent={'center'}  item xs={12} > */}
-					{DUMMY_PROPERTIES.map((propertyItem) => {
+					{properties.map((property) => {
 						return (
-							<Grid key={propertyItem.pName} item container md={4} sm={6} xs={12} spacing={2} justifyContent="center" alignItems={'center'}>
+							<Grid key={property.name} item container md={4} sm={6} xs={12} spacing={2} justifyContent="center" alignItems={'center'}>
 								<PropertyCard>
-									<Property property={propertyItem} />
+									<Property property={property} />
 								</PropertyCard>
 							</Grid>
 						);
