@@ -1,9 +1,9 @@
 @extends('layouts.head')
 @section('title')
-<title>Admin Tenant Application</title>
+<title>Admin Tenant List</title>
 @endsection
 @section('content')
 <div>
-<TenantList />
+<TenantApplication id={{$id}} />
 </div>
 @endsection
