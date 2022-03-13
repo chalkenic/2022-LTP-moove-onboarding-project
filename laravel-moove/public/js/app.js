@@ -13710,7 +13710,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_components_TestComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./react/components/TestComponent */ "./resources/js/react/components/TestComponent.js");
 /* harmony import */ var _react_ReactRenderer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./react/ReactRenderer */ "./resources/js/react/ReactRenderer.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _react_components_landlord_TenantList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./react/components/landlord/TenantList */ "./resources/js/react/components/landlord/TenantList.jsx");
+/* harmony import */ var _react_components_admin_TenantList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./react/components/admin/TenantList */ "./resources/js/react/components/admin/TenantList.jsx");
 /* harmony import */ var _react_components_navBar_NavBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./react/components/navBar/NavBar */ "./resources/js/react/components/navBar/NavBar.jsx");
 /* harmony import */ var _react_components_headers_NavBarHeader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./react/components/headers/NavBarHeader */ "./resources/js/react/components/headers/NavBarHeader.jsx");
 /* harmony import */ var _react_components_buttons_ButtonNav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./react/components/buttons/ButtonNav */ "./resources/js/react/components/buttons/ButtonNav.jsx");
@@ -13719,7 +13719,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_pages_LandlordProperties__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./react/pages/LandlordProperties */ "./resources/js/react/pages/LandlordProperties.jsx");
 /* harmony import */ var _react_components_landlord_Property__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./react/components/landlord/Property */ "./resources/js/react/components/landlord/Property.jsx");
 /* harmony import */ var _js_react_cards_PropertyCard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../js/react/cards/PropertyCard */ "./resources/js/react/cards/PropertyCard.jsx");
-/* harmony import */ var _react_components_landlord_TenantApplication__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./react/components/landlord/TenantApplication */ "./resources/js/react/components/landlord/TenantApplication.jsx");
+/* harmony import */ var _react_components_admin_TenantApplication__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./react/components/admin/TenantApplication */ "./resources/js/react/components/admin/TenantApplication.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // React components
 
@@ -13746,7 +13746,7 @@ var components = [{
   component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_react_components_navBar_NavBar__WEBPACK_IMPORTED_MODULE_4__["default"], {})
 }, {
   name: "TenantList",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_react_components_landlord_TenantList__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_react_components_admin_TenantList__WEBPACK_IMPORTED_MODULE_3__["default"], {})
 }, {
   name: 'NavBarHeader',
   component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_react_components_headers_NavBarHeader__WEBPACK_IMPORTED_MODULE_5__["default"], {})
@@ -13770,7 +13770,7 @@ var components = [{
   component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_js_react_cards_PropertyCard__WEBPACK_IMPORTED_MODULE_11__["default"], {})
 }, {
   name: "TenantApplication",
-  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_react_components_landlord_TenantApplication__WEBPACK_IMPORTED_MODULE_12__["default"], {})
+  component: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_react_components_admin_TenantApplication__WEBPACK_IMPORTED_MODULE_12__["default"], {})
 }];
 new _react_ReactRenderer__WEBPACK_IMPORTED_MODULE_1__["default"](components).renderAll();
 
@@ -14352,6 +14352,137 @@ var TestComponent = function TestComponent(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/react/components/admin/TenantApplication.jsx":
+/*!*******************************************************************!*\
+  !*** ./resources/js/react/components/admin/TenantApplication.jsx ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _mui_material_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/Button */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+ //import { tenants } from "./TenantList";
+
+
+
+
+var tenants = [{
+  id: 0,
+  fName: "Rob",
+  lName: "Robson",
+  email: "rob@hotmail.com"
+}, {
+  id: 1,
+  fName: "John",
+  lName: "Johnson",
+  email: "john@hotmail.com"
+}, {
+  id: 2,
+  fName: "Bobby",
+  lName: "Bobbs",
+  email: "bob@gmail.com"
+}, {
+  id: 3,
+  fName: "Sam",
+  lName: "Samuels",
+  email: "sam@protonmail.gov"
+}];
+
+var TenantApplication = function TenantApplication(_ref) {
+  var id = _ref.id;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+      children: "Tenant Application Page"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
+      children: ["First Name: ", tenants[id].fName]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
+      children: ["Last Name: ", tenants[id].lName]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
+      children: ["Email: ", tenants[id].email]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_material_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      children: "Approve"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_material_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      children: "Deny"
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TenantApplication);
+
+/***/ }),
+
+/***/ "./resources/js/react/components/admin/TenantList.jsx":
+/*!************************************************************!*\
+  !*** ./resources/js/react/components/admin/TenantList.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "tenants": () => (/* binding */ tenants),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _mui_material_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/List */ "./node_modules/@mui/material/List/List.js");
+/* harmony import */ var _mui_material_ListItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/ListItem */ "./node_modules/@mui/material/ListItem/ListItem.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+ //A temporary list of tenants to use as dummy data
+
+
+
+var tenants = [{
+  id: 0,
+  fName: "Rob",
+  lName: "Robson",
+  email: "rob@hotmail.com"
+}, {
+  id: 1,
+  fName: "John",
+  lName: "Johnson",
+  email: "john@hotmail.com"
+}, {
+  id: 2,
+  fName: "Bobby",
+  lName: "Bobbs",
+  email: "bob@gmail.com"
+}, {
+  id: 3,
+  fName: "Sam",
+  lName: "Samuels",
+  email: "sam@protonmail.gov"
+}]; //Returns list of tenants
+
+var TenantList = function TenantList() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_material_List__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+        children: "Tenant List Page"
+      }), tenants.map(function (tenant) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_mui_material_ListItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          className: "list-item",
+          onClick: function onClick(event) {
+            return window.location.href = "/admin-tenant-application/".concat(tenant.id);
+          },
+          children: [tenant.fName, " ", tenant.lName]
+        });
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TenantList);
+
+/***/ }),
+
 /***/ "./resources/js/react/components/buttons/ButtonNav.jsx":
 /*!*************************************************************!*\
   !*** ./resources/js/react/components/buttons/ButtonNav.jsx ***!
@@ -14628,137 +14759,6 @@ var Property = function Property(props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Property);
-
-/***/ }),
-
-/***/ "./resources/js/react/components/landlord/TenantApplication.jsx":
-/*!**********************************************************************!*\
-  !*** ./resources/js/react/components/landlord/TenantApplication.jsx ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _mui_material_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/Button */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
- //import { tenants } from "./TenantList";
-
-
-
-
-var tenants = [{
-  id: 0,
-  fName: "Rob",
-  lName: "Robson",
-  email: "rob@hotmail.com"
-}, {
-  id: 1,
-  fName: "John",
-  lName: "Johnson",
-  email: "john@hotmail.com"
-}, {
-  id: 2,
-  fName: "Bobby",
-  lName: "Bobbs",
-  email: "bob@gmail.com"
-}, {
-  id: 3,
-  fName: "Sam",
-  lName: "Samuels",
-  email: "sam@protonmail.gov"
-}];
-
-var TenantApplication = function TenantApplication(_ref) {
-  var id = _ref.id;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-      children: "Tenant Application Page"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
-      children: ["First Name: ", tenants[id].fName]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
-      children: ["Last Name: ", tenants[id].lName]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
-      children: ["Email: ", tenants[id].email]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_material_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      children: "Approve"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_material_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      children: "Deny"
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TenantApplication);
-
-/***/ }),
-
-/***/ "./resources/js/react/components/landlord/TenantList.jsx":
-/*!***************************************************************!*\
-  !*** ./resources/js/react/components/landlord/TenantList.jsx ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "tenants": () => (/* binding */ tenants),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _mui_material_List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/List */ "./node_modules/@mui/material/List/List.js");
-/* harmony import */ var _mui_material_ListItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/ListItem */ "./node_modules/@mui/material/ListItem/ListItem.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
- //A temporary list of tenants to use as dummy data
-
-
-
-var tenants = [{
-  id: 0,
-  fName: "Rob",
-  lName: "Robson",
-  email: "rob@hotmail.com"
-}, {
-  id: 1,
-  fName: "John",
-  lName: "Johnson",
-  email: "john@hotmail.com"
-}, {
-  id: 2,
-  fName: "Bobby",
-  lName: "Bobbs",
-  email: "bob@gmail.com"
-}, {
-  id: 3,
-  fName: "Sam",
-  lName: "Samuels",
-  email: "sam@protonmail.gov"
-}]; //Returns list of tenants
-
-var TenantList = function TenantList() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_material_List__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-        children: "Tenant List Page"
-      }), tenants.map(function (tenant) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_mui_material_ListItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          className: "list-item",
-          onClick: function onClick(event) {
-            return window.location.href = "/admin-tenant-application/".concat(tenant.id);
-          },
-          children: [tenant.fName, " ", tenant.lName]
-        });
-      })]
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TenantList);
 
 /***/ }),
 
