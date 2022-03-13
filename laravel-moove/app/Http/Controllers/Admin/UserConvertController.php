@@ -41,6 +41,12 @@ class UserConvertController extends Controller
                     'email' => 'That user is already an Admin!'
                 ]);
             }
+
+            if ($userToConvert->role === 'LANDLORD') {
+                return back()->withErrors([
+                    'email' => 'That user isn\'t a tenant!'
+                ]);
+            }
             
             $userToConvert->update(
                 [
