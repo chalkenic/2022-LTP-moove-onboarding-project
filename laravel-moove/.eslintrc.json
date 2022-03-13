@@ -1,0 +1,14 @@
+{
+    "rules": {
+      "quotes": [ 2, "double" ]
+    },
+  
+    "overrides": [
+      {
+        "files": [ "resources/**/*.js" ],
+        "rules": {
+          "quotes": [ 2, "single" ]
+        }
+      }
+    ]
+  }
