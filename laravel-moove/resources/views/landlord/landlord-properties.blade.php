@@ -7,6 +7,7 @@
 
 @auth
 @endauth
+@csrf
 <LandlordProperties />
 </div>
 @endsection

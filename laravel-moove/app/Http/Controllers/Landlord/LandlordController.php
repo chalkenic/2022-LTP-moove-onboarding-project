@@ -10,7 +10,7 @@ class LandlordController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth']);
+        $this->middleware(['landlord']);
     }
 
     public function index() {
