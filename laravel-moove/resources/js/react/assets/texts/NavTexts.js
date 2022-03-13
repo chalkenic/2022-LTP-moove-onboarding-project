@@ -79,6 +79,14 @@ export var navTextTenant = [
   },
   {
     id: 5,
+    key: "view_tenancy_appl",
+    name: "View Tenancy Application",
+    selected: false,
+    link: "/tenancy-appl-progress",
+    type: "link",
+  },
+  {
+    id: 6,
     key: "page_logout",
     name: "Logout",
     selected: false,
