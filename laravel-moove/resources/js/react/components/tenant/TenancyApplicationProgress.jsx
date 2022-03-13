@@ -35,10 +35,15 @@ function createData(id, name, status, date) {
 const rows = [
   createData('1', "David Billus", "Application Approved", "20/2/2022"),
   createData('2', "Ben Harries", "Application Approved", "08/2/2022"),
-
 ];
 
-export default function TenancyApplicationProgress() {
+const TenancyApplicationProgress = ({rowArray}) => {
+    const rows = [];
+    for (var i = 0; i < rowArray; i++) {
+        rows.push(
+            createData(rowArray[i]),
+        )
+    } 
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -66,3 +71,4 @@ export default function TenancyApplicationProgress() {
     </TableContainer>
   );
 }
+export default TenancyApplicationProgress;
