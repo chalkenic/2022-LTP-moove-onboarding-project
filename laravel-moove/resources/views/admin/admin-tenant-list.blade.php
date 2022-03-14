@@ -4,6 +4,6 @@
 @endsection
 @section('content')
 <div>
-<TenantList />
+    <TenantList applicants="{{$applicants}}" />
 </div>
 @endsection
