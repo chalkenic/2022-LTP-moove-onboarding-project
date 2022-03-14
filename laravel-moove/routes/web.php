@@ -38,6 +38,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
 Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
+Route::get('/tenant-upload-video', function() {
+    return view('tenant.tenant-upload-video');
+});
+Route::post('/tenant-upload-video',
+'VideoController@uploadVideo')->name('tenant.tenant-upload-video');
 
 // Landlord routes
 Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
