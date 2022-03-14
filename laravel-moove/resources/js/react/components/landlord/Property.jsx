@@ -26,28 +26,22 @@ const Property = (props) => {
 					{props.property.location}
 				</Typography>
 			</Grid>
-			{tenants.map((tenant, key)=> {
-				return (
-<div>
-					<Typography variant="h4">tenant {tenant},  number {key}</Typography>
-					</div>
-				)
-			})}
-{/* 
+
+
 			<Grid item xs={12}>
-				<Typography variant="body1" align="center" sx={{ fontWeight: 700, marginInline: 4, marginTop: 5, marginBottom: 2 }} >
+				<Typography variant="body1" align="center" sx={{ fontWeight: 700, marginInline: 4, marginTop: 2, marginBottom: 1 }} >
 					{LandlordTexts.LandlordPropsTexts.propertyTenantTitle}
 				</Typography>
 				<Grid container direction={'column'}>
-					{props.property.pTenants.map((tenant) => {
+					{tenants.map((tenant) => {
 						return (
-							<Grid item xs={6} align="center" key={tenant.name}>
-								{tenant.name}
+							<Grid item xs={6} align="center" key={tenant}>
+								{tenant}
 							</Grid>
 						);
 					})}
 				</Grid>
-			</Grid> */}
+			</Grid>
 		</Grid>
 	);
 };

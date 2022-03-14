@@ -16,7 +16,11 @@ class Property extends Model
             'status'
     ];
 
-    protected $cast = [
+    protected $casts = [
         'tenants' => 'array'
     ];
+
+    public function tenancies() {
+        return $this->hasMany(Tenancy::class);
+    }
 }

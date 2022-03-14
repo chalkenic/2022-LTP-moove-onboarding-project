@@ -14,10 +14,11 @@ class PropertyController extends Controller
         // $properties = Property::get();
 
         JavaScript::put([
-            'properties' => Property::get()
+            'properties' => Property::where('user_id', auth()->user()->id)->get()
+
+            // 'tenants' => User::find()
         ]);
 
-        // $properties = Property::all()->toJson();
 
         return view('landlord.landlord-properties');
     }
@@ -27,16 +28,9 @@ class PropertyController extends Controller
         $this->validate($request, [
             'name'=> 'required', 
             'location'=>'required']);
-
-        // auth()->user()->properties()->create();
-
-        // Post::create([
-        //     'landlord_id'=> auth()->id(),
-        //     'name' => $request->name
-        // ]);
         
         $request->user()->properties()->create([
-            'landlord_id'=>auth()-id(),
+            'landlord_id'=>auth()->id(),
             'name'=> $request->name,
             'location'=> $request->location
         ]);
