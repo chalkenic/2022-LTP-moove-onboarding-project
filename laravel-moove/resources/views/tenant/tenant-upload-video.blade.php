@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1,   shrink-to-fit=no">
-<title>Video upload</title>
-</head><body><div>
-<h3>Upload a video</h3>
+@extends('layouts.head')
+
+@section('title')
+<title>Tenant Upload Video</title>
+@endsection
+@section('content')
+<div>
 <hr><form method="POST" action="{{ route('tenant.tenant-upload-video') }}" enctype="multipart/form-data" >
-{{ csrf_field() }}
+@csrf
 <div >
 <label>Title</label>
 <input type="text" name="title" placeholder="Enter Title">
-</div><div >
+</div><div>
 <label>Choose Video</label>
 <input type="file"  name="video">
-</div><hr><button type="submit" >Submit</button></form></div></body></html>
+</div><hr><button type="submit" >Submit</button></form></div>
+@endsection

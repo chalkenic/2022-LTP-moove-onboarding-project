@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use App\Video;
+use App\Models\Video;
 use Storage;
 
 
@@ -30,6 +30,6 @@ class VideoController extends Controller
         $video->video = $path;
     }
     $video->save();
-    
+
     }
 }

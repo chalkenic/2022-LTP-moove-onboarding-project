@@ -12,6 +12,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\Tenant\ApplicationController;
 use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\Tenant\TenantAptController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -41,8 +42,7 @@ Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('te
 Route::get('/tenant-upload-video', function() {
     return view('tenant.tenant-upload-video');
 });
-Route::post('/tenant-upload-video',
-'VideoController@uploadVideo')->name('tenant.tenant-upload-video');
+Route::post('/tenant-upload-video', [VideoController::class, 'uploadVideo'])->name('tenant.tenant-upload-video');
 
 // Landlord routes
 Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
