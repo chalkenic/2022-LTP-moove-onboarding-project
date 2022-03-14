@@ -13,6 +13,8 @@ import Dashboard from './react/pages/Dashboard';
 import LandlordProperties from './react/pages/LandlordProperties';
 import Property from './react/components/landlord/Property';
 import PropertyCard from '../js/react/cards/PropertyCard';
+import TenantList from '../js/react/components/admin/TenantList';
+import TenantApplication from '../js/react/components/admin/TenantApplication';
 
 const components = [
     {
@@ -55,7 +57,15 @@ const components = [
     {
         name: "PropertyCard",
         component: <PropertyCard/>
-    }
+    },
+    {
+        name: "TenantList",
+        component: <TenantList/>
+    },
+    {
+        name: "TenantApplication",
+        component: <TenantApplication/>
+    },
 
 
 ]

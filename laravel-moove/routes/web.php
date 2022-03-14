@@ -56,3 +56,9 @@ Route::get('/landlord-properties', function() {
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
 Route::put('/convert-user', [UserConvertController::class, 'update']);
+Route::get('/admin-tenant-list', function() {
+    return view('admin.admin-tenant-list');
+});
+Route::get('/admin-tenant-application/{id}', function($id) {
+    return view('admin.admin-tenant-application', ['id' => $id]);
+});
