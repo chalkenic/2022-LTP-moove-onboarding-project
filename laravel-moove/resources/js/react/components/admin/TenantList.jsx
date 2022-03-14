@@ -5,7 +5,8 @@ const TenantList = ({applicants}) => {
     return (
         <>
             <h1 className="font-bold">Tenant List Page</h1>
-            <h2>Click a tenant's name to view their application</h2>
+            <h2>{applicants.length > 0 ? 'Click a tenant\'s name to view their application'
+                : 'No tenants waiting for approval. Nice work!'}</h2>
             <List>
                 {applicants.map((tenant, key) => (
                     <a key={`a${key}`} href={`/admin-tenant-application/${tenant.id}`}>

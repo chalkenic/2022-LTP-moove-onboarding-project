@@ -1,7 +1,6 @@
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import axios from 'axios'
-import { TryRounded } from "@mui/icons-material";
 
 const TenantApplication = ({data}) => {
 
@@ -16,12 +15,12 @@ const TenantApplication = ({data}) => {
     setError(null)
 
     axios.put(data.requestRoute, {
-      id: data.id,
-      approved: TryRounded
+      id: data.tenant.id,
+      approved: true
     }).then((res) => {
       window.location.href = data.redirectRoute
     }).catch((err) => {
-      setError(err)
+      setError(err.message)
     })
   }
 
@@ -29,7 +28,7 @@ const TenantApplication = ({data}) => {
     setError(null)
 
     axios.put(data.requestRoute, {
-      id: data.id,
+      id: data.tenant.id,
       approved: false
     }).then((res) => {
       window.location.href = data.redirectRoute

@@ -47,7 +47,15 @@ class AdminApplicationController extends Controller
     }
 
     public function update(Request $request) {
-        session()->flash('status', 'Successfully did a thing');
+        $userId = $request->input('id');
+        $approved = $request->boolean('approved');
+
+        Application::where('user_id', $userId)->first()->update([
+            'is_approved' => $approved ? 1 : 2
+        ]);
+
+        session()->flash('status', $approved ? 'Application approved successfully.' : 'Application denied successfully.');
+        
         return response()->noContent();
     }
 }
