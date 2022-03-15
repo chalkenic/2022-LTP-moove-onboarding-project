@@ -28,22 +28,23 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(id, name, status, date) {
-  return { id, name, status, date};
-}
 
-const rows = [
-  createData('1', "David Billus", "Application Approved", "20/2/2022"),
-  createData('2', "Ben Harries", "Application Approved", "08/2/2022"),
+const rowData = [
+  {
+    id: '1',
+    name: 'Johnny Ive',
+    status: "Application Approved",
+    date: "20/20/2021",
+  },
+  {
+    id: '2',
+    name: 'Pippin Penner',
+    status: "Application Submitted",
+    date: "19/20/2021",
+  }
 ];
 
-const TenancyApplicationProgress = ({rowArray}) => {
-    const rows = [];
-    for (var i = 0; i < rowArray; i++) {
-        rows.push(
-            createData(rowArray[i]),
-        )
-    } 
+const TenancyApplicationProgress = () => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -56,7 +57,7 @@ const TenancyApplicationProgress = ({rowArray}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rowData.map((row) => (
             <StyledTableRow key={row.id}>
               <StyledTableCell component="th" scope="row">
                 {row.id}
