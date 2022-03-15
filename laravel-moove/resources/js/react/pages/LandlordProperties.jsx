@@ -8,6 +8,9 @@ import Property from '../components/landlord/Property';
 const LandlordProperties = (props) => {
 
 	const properties = window.properties;
+	console.log('TEST')
+	console.log(properties);
+	console.log('TESTEND')
 	return (
 		<div>
 			<LandlordHeader />

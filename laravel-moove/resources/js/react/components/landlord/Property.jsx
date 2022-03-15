@@ -5,7 +5,7 @@ import * as LandlordTexts from '../../assets/texts/LandlordTexts';
 
 const Property = (props) => {
 
-	const tenants = Array.from(props.property.tenants);
+	// const tenants = Array.from(props.property.tenants);
 	return (
 		<Grid container alignItems={'center'} sx={{ paddingTop: '20px !important', paddingBottom: '20px !important', paddingLeft: '20px !important' }}>
 			<Grid
@@ -32,7 +32,7 @@ const Property = (props) => {
 				<Typography variant="body1" align="center" sx={{ fontWeight: 700, marginInline: 4, marginTop: 2, marginBottom: 1 }} >
 					{LandlordTexts.LandlordPropsTexts.propertyTenantTitle}
 				</Typography>
-				<Grid container direction={'column'}>
+				{/* <Grid container direction={'column'}>
 					{tenants.map((tenant) => {
 						return (
 							<Grid item xs={6} align="center" key={tenant}>
@@ -40,7 +40,7 @@ const Property = (props) => {
 							</Grid>
 						);
 					})}
-				</Grid>
+				</Grid> */}
 			</Grid>
 		</Grid>
 	);

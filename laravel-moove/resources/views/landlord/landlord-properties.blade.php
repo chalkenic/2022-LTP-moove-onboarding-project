@@ -10,6 +10,5 @@
 @csrf
 <LandlordProperties/>
 
-
 </div>
 @endsection

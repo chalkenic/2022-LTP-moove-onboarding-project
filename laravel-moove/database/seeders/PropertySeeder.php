@@ -23,7 +23,6 @@ class PropertySeeder extends Seeder
             'location' => '?',
             'status' => 'occupied',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'tenants' => '1, 4'
         ]);
 
         DB::table('properties')->insert([
@@ -32,7 +31,6 @@ class PropertySeeder extends Seeder
             'location' => 'Butetown',
             'status' => 'occupied',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'tenants' => '1, 2'
         ]);
 
         DB::table('properties')->insert([
@@ -41,7 +39,6 @@ class PropertySeeder extends Seeder
             'location' => 'Splott',
             'status' => 'occupied',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'tenants' => '2, 4'
         ]);
 
         DB::table('properties')->insert([
@@ -50,7 +47,6 @@ class PropertySeeder extends Seeder
             'location' => 'Heath',
             'status' => 'occupied',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'tenants' => '2, 3'
         ]);
     }
 }

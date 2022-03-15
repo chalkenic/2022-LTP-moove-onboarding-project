@@ -11,12 +11,11 @@ class PropertyController extends Controller
 {
     public function index()
     {
-        // $properties = Property::get();
+
 
         JavaScript::put([
-            'properties' => Property::where('user_id', auth()->user()->id)->get()
+            'properties' => Property::where('user_id', auth()->user()->id)->get(),
 
-            // 'tenants' => User::find()
         ]);
 
 
@@ -30,7 +29,7 @@ class PropertyController extends Controller
             'location'=>'required']);
         
         $request->user()->properties()->create([
-            'landlord_id'=>auth()->id(),
+            'landlord_id'=>auth()-id(),
             'name'=> $request->name,
             'location'=> $request->location
         ]);
