@@ -43,6 +43,9 @@ Route::get('/tenant-upload-video', function() {
     return view('tenant.tenant-upload-video');
 });
 Route::post('/tenant-upload-video', [VideoController::class, 'uploadVideo'])->name('tenant.tenant-upload-video');
+Route::get('/tenant-get-video', function() {
+    return Storage::disk('my_files')->get('videos/XSBounjeXjfYZsuIbayAyhcXpAOcYtCzdoNGteZ7.mp4');
+});
 
 // Landlord routes
 Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
