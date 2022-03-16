@@ -15,7 +15,8 @@ class TenantController extends Controller
     public function index() {
         return view(
             'tenant.tenant-home', [
-                'hasStartedApplication' => auth()->user()->application !== null
+                'hasStartedApplication' => auth()->user()->application !== null,
+                'applicationStatus' => auth()->user()->application->is_approved ?? ''
         ]);
     }
 }
