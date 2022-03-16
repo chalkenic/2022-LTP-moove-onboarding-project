@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Popup from "reactjs-popup";
 import SignaturePad from "react-signature-canvas";
 import { Button } from "@mui/material";
-import "./signaturePadStyle.css";
+import "../../../../css/signaturePadStyle.css";
 
 function SigningComponent() {
 
@@ -27,11 +27,15 @@ function SigningComponent() {
               canvasProps={{
                 className: "signatureCanvas",
               }}
+              backgroundColor="#fff"
             />
             {/* Button to trigger save canvas image */}
-            <Button variant="contained" onClick={save}>Save</Button>
+            <div className="buttonLayout">
             <Button variant="outlined" onClick={clear}>Clear</Button>
             <Button variant="outlined" onClick={close}>Close</Button>
+            <Button variant="contained" onClick={save}>Save</Button>
+
+            </div>
           </>
         )}
       </Popup>
@@ -46,8 +50,8 @@ function SigningComponent() {
           style={{
             display: "block",
             margin: "0 auto",
-            border: "2px dotted grey",
-            width: "150px"
+            border: "3px dotted grey",
+            width: "250px"
           }}
         />
       ) : null}
