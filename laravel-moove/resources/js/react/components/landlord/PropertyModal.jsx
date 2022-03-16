@@ -2,46 +2,45 @@ import { Button, Dialog, DialogTitle, Grid, Typography } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
 import * as LandlordTexts from '../../assets/texts/LandlordTexts';
 
-const PropertyModal = ({modalOpen, state}) => {
+const PropertyModal = (props) => {
 
     // const [open, setOpen] = useState(modalOpen);
     const [scroll, setScroll] = useState("paper");
+    console.log(props.property);
+    
 
-    const handleOpen = (scrollType)=>()=>{
-        setOpen(true);
-        setScroll(scrollType);
-    }
+    // const handleOpen = (scrollType)=>()=>{
+    //     setOpen(true);
+    //     setScroll(scrollType);
+    // }
 
     const handleClose = ()=>{
-        setOpen(false);
-        state(false);
+        props.setOpen(false);
         console.log('close');
         }
 
     const descriptionElementRef = useRef(null);
-
-    useEffect(()=> {
-        if(open) {
-            const {current: descriptionElement } = descriptionElementRef;
-
-            if (descriptionElement !== null) {
-                descriptionElement.focus();
-            }
-        }
-        }, [open]);
-    
+	useEffect(()=> {
+		if(props.modalState) {
+            setScroll(props.scrollType);
+			const {current: descriptionElement} = descriptionElementRef;
+			if (descriptionElement !== null) {
+				descriptionElement.focus();
+			}
+		}
+	}, [props.modalState]);
 
 
     return(
         <div>    
-            <Dialog open={modalOpen} 
-            onClose = {handleClose  }
+            <Dialog open={props.modalState} 
+            onClose = {handleClose}
             scroll={scroll}
             aria-labelledby="scrolled-dialog-title"
             aria-describedby="scroll-dialog-description">
 
                 <DialogTitle id="scroll-dialog-title" component="div">
-                    Test
+                    {props.property.name}
                 </DialogTitle>
             </Dialog>
 

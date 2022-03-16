@@ -11,37 +11,33 @@ const LandlordProperties = (props) => {
 
 	const properties = window.properties;
 	const [open, setOpen] = useState(false);
+	const [scroll, setScroll] = useState("paper");
+	const [property, setProperty] = useState({});
+	const [clicked, setClicked] = useState(false);
 
-	const [tenants, setTenants] = useState(null);
-	const [scroll, setScroll] = useState('paper');
 
-	const setModalState = (props) =>{
-		setOpen(props);
-	}
+	// const setModalState = (props) =>{
+	// 	setOpen(props);
+	// }
 
-	const handleOpen = (scrollType, key)=>()=> {
-		console.log(key);
+	const handleOpen = (property)=> {
+		setProperty(property);
+		console.log("test", property.name);
 		setOpen(true);
-		setScroll(scrollType)
+		
 	}
 
-	const handleClose = () => {
+	const handleClose =() => {
 		setOpen(false);
+		setClicked({});
 	}
-
-	const descriptionElementRef = useRef(null);
-	useEffect(()=> {
-		if(open) {
-			const {current: descriptionElement} = descriptionElementRef;
-			if (descriptionElement !== null) {
-				descriptionElement.focus();
-			}
-		}
-	}, [open])
-
+ 
 	useEffect(() => {
+		console.log(property);
 
-	}, [tenants]);
+	}, [property]);
+
+
 	
 
 	return (
@@ -63,8 +59,9 @@ const LandlordProperties = (props) => {
 							<Grid key={key} item container md={4} sm={6} xs={12} spacing={2} justifyContent="center" alignItems={'center'}>
 								
 								<PropertyCard>
-									<CardActionArea onClick={handleOpen("paper", key)}>
-									{open && <PropertyModal open={open} onClose={handleClose} scroll = {scroll} state = {setModalState()}/>}
+								
+									<CardActionArea onClick={()=> handleOpen(property)}>
+									
 										<Property property={property} />
 									</CardActionArea>
 									
@@ -72,8 +69,10 @@ const LandlordProperties = (props) => {
 							</Grid>
 						);
 					})}
+					
 				</Grid>
 			</Grid>
+			{open && <PropertyModal modalState={open} setOpen={setOpen} onClose={handleClose} scrolltype={scroll} property={property}/>}
 		</div>
 	);
 };
