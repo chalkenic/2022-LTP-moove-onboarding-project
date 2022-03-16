@@ -14,6 +14,7 @@ use App\Http\Controllers\Tenant\ApplicationController;
 use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\Tenant\TenantAptController;
 use App\Http\Controllers\Landlord\LandlordController;
+use App\Http\Controllers\Landlord\LandlordSigningController;
 use Illuminate\Support\Facades\Route;
 
 // Auth routes
@@ -37,13 +38,14 @@ Route::get('/application', [ApplicationController::class, 'index'])->name('tenan
 Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
 Route::post('/start-application', [ApplicationController::class, 'store']);
 Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
+Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
 
 // Landlord routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
 Route::get('/landlord-properties', function() {
     return view('landlord.landlord-properties');
 });
-Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
+Route::get('/landlord-sign-tenancy', [LandlordSigningController::class, 'index'])-> name('landlord.landlord-sign-tenancy');
 
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
