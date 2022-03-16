@@ -83,51 +83,14 @@ const NavBar = ({ text, currentPage }) => {
 				</Box>
 				{/* Navigation buttons */}
 				<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-					{pages.map((page) => {
+					{pages.map((page, key) => {
 						return (
 							<div>
 								<a href={page.link}>
-									<ButtonNavCustom page={page} navColor={text} key={page.key}>
+									<ButtonNavCustom page={page} navColor={text} key={key}>
 										{page.name}
 									</ButtonNavCustom>
 								</a>
-								{/* {page.key !== "page_logout" ? (                    
-                <ButtonNavCustom
-                      to={page.link}
-                      navColor={navColorChoice}
-                      key={page.key}
-                    >
-
-                    {page.name}
-                    </ButtonNavCustom>) : (                    
-                    <ButtonNavCustom
-                      navColor={navColorChoice}
-                      key={page.key}
-                      to={page.link}
-                    >
-                        <form method="POST"  action={page.link}>
-                          <input type="hidden" name="_token" value={csrf_token} />
-                          {page.name}
-                        </form>
-                    </ButtonNavCustom>)} */}
-
-								{/* {page.selected ? (
-                    <ButtonNavCustom
-                      to={page.link}
-                      navColor={navColorChoice}
-                      key={page.key}
-                    >
-                      {page.name}
-                    </ButtonNavCustom>
-                  ) : (
-                    <ButtonNavCustom
-                      to={page.link}
-                      navColor={navColorChoice}
-                      key={page.key}
-                    >
-                      {page.name}
-                    </ButtonNavCustom>
-                  )} */}
 							</div>
 						);
 					})}

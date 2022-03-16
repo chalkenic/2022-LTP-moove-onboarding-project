@@ -1,16 +1,49 @@
-import { Grid } from '@mui/material';
+import { CardActionArea, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import { DUMMY_PROPERTIES } from '../assets/texts/LandlordTexts';
 import LandlordHeader from '../components/headers/LandlordHeader';
 import PropertyCard from '../cards/PropertyCard';
 import Property from '../components/landlord/Property';
+import { useState, useEffect, useRef } from 'react';
+import PropertyModal from '../components/landlord/PropertyModal';
 
 const LandlordProperties = (props) => {
 
 	const properties = window.properties;
-	console.log('TEST')
-	console.log(properties);
-	console.log('TESTEND')
+	const [open, setOpen] = useState(false);
+
+	const [tenants, setTenants] = useState(null);
+	const [scroll, setScroll] = useState('paper');
+
+	const setModalState = (props) =>{
+		setOpen(props);
+	}
+
+	const handleOpen = (scrollType, key)=>()=> {
+		console.log(key);
+		setOpen(true);
+		setScroll(scrollType)
+	}
+
+	const handleClose = () => {
+		setOpen(false);
+	}
+
+	const descriptionElementRef = useRef(null);
+	useEffect(()=> {
+		if(open) {
+			const {current: descriptionElement} = descriptionElementRef;
+			if (descriptionElement !== null) {
+				descriptionElement.focus();
+			}
+		}
+	}, [open])
+
+	useEffect(() => {
+
+	}, [tenants]);
+	
+
 	return (
 		<div>
 			<LandlordHeader />
@@ -25,12 +58,16 @@ const LandlordProperties = (props) => {
 					sx={{ paddingLeft: { xs: '10px', sm: '20px', md: '20px' } }}
 					style={{ width: '100vw', overflow: 'hidden' }}
 				>
-					{/* <Grid container justifyContent={'center'}  item xs={12} > */}
-					{properties.map((property) => {
+					{properties.map((property, key) => {
 						return (
-							<Grid key={property.name} item container md={4} sm={6} xs={12} spacing={2} justifyContent="center" alignItems={'center'}>
+							<Grid key={key} item container md={4} sm={6} xs={12} spacing={2} justifyContent="center" alignItems={'center'}>
+								
 								<PropertyCard>
-									<Property property={property} />
+									<CardActionArea onClick={handleOpen("paper", key)}>
+									{open && <PropertyModal open={open} onClose={handleClose} scroll = {scroll} state = {setModalState()}/>}
+										<Property property={property} />
+									</CardActionArea>
+									
 								</PropertyCard>
 							</Grid>
 						);
