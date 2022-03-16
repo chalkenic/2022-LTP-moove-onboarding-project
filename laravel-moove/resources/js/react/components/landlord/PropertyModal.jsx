@@ -67,7 +67,7 @@ const PropertyModal = (props) => {
     const descriptionElementRef = useRef(null);
     useEffect(() => {
         if (props.modalState) {
-            setScroll(props.scrollType);
+            setScroll(scroll);
             const { current: descriptionElement } = descriptionElementRef;
             if (descriptionElement !== null) {
                 descriptionElement.focus();

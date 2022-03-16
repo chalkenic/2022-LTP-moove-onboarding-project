@@ -37,6 +37,29 @@ class PropertyController extends Controller
         
 
     }
+
+    public function tenantList($id){
+        $tenants = Tenants::where('user_id','=',function($query) {
+                $query->from('tenancies')
+                    ->select('*')
+                    ->where('property_id','=',$id);
+            })
+            ->get();
+
+            if ($tenants) 
+            {
+                return response()->json([
+                    'status'=> 200,
+                    'tenants'=>$tenants
+                ]);
+            } else {
+                return response()->json([
+                    'status'=>404,
+                    'message'=> 'No Tenants found',
+                ]);
+            }
+    }
+    
  
 
     

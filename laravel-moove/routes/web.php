@@ -41,6 +41,7 @@ Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.up
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
 Route::get('/properties', [PropertyController::class, 'index'])-> name('landlord.landlord-properties');
 Route::post('properties', [PropertyController::class, 'store']); 
+Route::get('tenant-list', [PropertyController::class, 'tenantList']);
 // Route::get('/landlord-properties', function() {
 //     return view('landlord.landlord-properties');
 // });
