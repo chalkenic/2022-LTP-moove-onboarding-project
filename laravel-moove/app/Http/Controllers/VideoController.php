@@ -12,6 +12,17 @@ use Storage;
 
 class VideoController extends Controller
 {
+
+    public function index($title)
+    {
+        $video = DB::table('videos')->where('title', $title)->first();
+
+        return Storage::disk('my_files')->get($video->video);
+    }
+
+
+
+
     public function uploadVideo(Request $request)
     {
         $this->validate($request, [
