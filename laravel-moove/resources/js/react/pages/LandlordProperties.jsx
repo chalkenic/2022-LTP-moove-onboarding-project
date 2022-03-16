@@ -13,7 +13,7 @@ const LandlordProperties = (props) => {
 	const [open, setOpen] = useState(false);
 	const [scroll, setScroll] = useState("paper");
 	const [property, setProperty] = useState({});
-	const [clicked, setClicked] = useState(false);
+	const [tenants, setTenants] = useState();
 
 
 	// const setModalState = (props) =>{
@@ -29,7 +29,7 @@ const LandlordProperties = (props) => {
 
 	const handleClose =() => {
 		setOpen(false);
-		setClicked({});
+		setProperty({});
 	}
  
 	useEffect(() => {
@@ -58,13 +58,8 @@ const LandlordProperties = (props) => {
 						return (
 							<Grid key={key} item container md={4} sm={6} xs={12} spacing={2} justifyContent="center" alignItems={'center'}>
 								
-								<PropertyCard>
-								
-									<CardActionArea onClick={()=> handleOpen(property)}>
-									
-										<Property property={property} />
-									</CardActionArea>
-									
+								<PropertyCard onClick={()=> handleOpen(property)}>															
+										<Property property={property} tenants ={tenants} />		
 								</PropertyCard>
 							</Grid>
 						);
