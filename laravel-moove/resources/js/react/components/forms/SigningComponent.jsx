@@ -50,7 +50,7 @@ function SigningComponent() {
           src={imageURL}
           alt="completed signature"
           style={{
-            display: "block",
+            display: "inline",
             margin: "0 auto",
             border: "3px dotted grey",
             width: "250px"
