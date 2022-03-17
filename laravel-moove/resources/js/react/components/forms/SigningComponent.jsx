@@ -15,6 +15,7 @@ function SigningComponent() {
   return (
     <div className="App">
       <h1>Confirm Signature for Tenancy</h1>
+      <h1>Property Name:</h1>
       <Popup
         modal
         trigger={<button>Open Signature Pad</button>}
@@ -44,18 +45,21 @@ function SigningComponent() {
       {/* if our we have a non-null image url we should 
       show an image and pass our imageURL state to it*/}
       {imageURL ? (
-          <div>
-          <h1>Your signature</h1>
+          <div style={{width: 300}}>
+          <h1>Your signature</h1><br></br>
         <img
           src={imageURL}
           alt="completed signature"
           style={{
-            display: "inline",
+            position:"relative",
             margin: "0 auto",
             border: "3px dotted grey",
             width: "250px"
           }}
-        />
+        /><br></br>
+        <Button  variant="contained" color="primary">
+        Next
+      </Button>
         </div>
       ) : null}
     </div>
