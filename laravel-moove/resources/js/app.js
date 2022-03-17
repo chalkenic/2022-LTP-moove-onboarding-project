@@ -14,6 +14,7 @@ import LandlordProperties from './react/pages/LandlordProperties';
 import Property from './react/components/landlord/Property';
 import PropertyCard from '../js/react/cards/PropertyCard';
 import TenantList from '../js/react/components/admin/TenantList';
+import InviteLandlordComponent from '../js/react/components/admin/InviteLandlord';
 import TenantApplication from '../js/react/components/admin/TenantApplication';
 
 const components = [
@@ -67,6 +68,10 @@ const components = [
         component: <TenantApplication/>
     },
 
+    {
+        name:"InviteLandlordComponent",
+        component:<InviteLandlordComponent/>
+    }
 
 ]
 
