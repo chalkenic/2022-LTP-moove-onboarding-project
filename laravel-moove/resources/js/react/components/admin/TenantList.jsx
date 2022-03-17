@@ -1,35 +1,22 @@
-import React from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 
-
-
-//A temporary list of tenants to use as dummy data
-
-export const tenants = [
-    {id: 0, fName: "Rob", lName: "Robson", email: "rob@hotmail.com"},
-    {id: 1, fName: "John", lName: "Johnson", email: "john@hotmail.com"},
-    {id: 2, fName: "Bobby", lName:  "Bobbs", email: "bob@gmail.com"},
-    {id: 3, fName: "Sam", lName: "Samuels", email: "sam@protonmail.gov"}
-]
-
-
-//Returns list of tenants
-
-const TenantList = () => {
-
+const TenantList = ({applicants}) => {
     return (
-        
-        <List>
-            <div>
-            <h1>Tenant List Page</h1>
-            {tenants.map(tenant => (
-                <ListItem className="list-item" onClick={event => window.location.href=`/admin-tenant-application/${tenant.id}`}>{tenant.fName} {tenant.lName}</ListItem>
-            ))}
-            </div>
-        </List> 
-        
-        
+        <>
+            <h1 className="font-bold">Tenant List Page</h1>
+            <h2>{applicants.length > 0 ? 'Click a tenant\'s name to view their application'
+                : 'No tenants waiting for approval. Nice work!'}</h2>
+            <List>
+                {applicants.map((tenant, key) => (
+                    <a key={`a${key}`} href={`/admin-tenant-application/${tenant.id}`}>
+                        <ListItem key={key} className="list-item">
+                            <p>{tenant.name}</p>
+                        </ListItem>
+                    </a>
+                ))}
+            </List>
+        </>
     )
 }
 

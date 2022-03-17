@@ -1,9 +1,10 @@
 @extends('layouts.head')
 @section('title')
-<title>Admin Tenant Application</title>
+<title>moove - tenant list</title>
 @endsection
 @section('content')
 <div>
-<TenantList />
+    {{session('status')}}
+    <TenantList applicants="{{$applicants}}" />
 </div>
 @endsection
