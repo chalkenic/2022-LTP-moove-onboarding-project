@@ -4,6 +4,6 @@
 @endsection
 @section('content')
 <div>
-    
+    <InviteLandlordComponent/>
 </div>
 @endsection
