@@ -1,7 +1,6 @@
 require('./bootstrap');
 
 // React components
-import TestComponent from './react/components/TestComponent';
 import ReactRenderer from './react/ReactRenderer';
 import React from 'react';
 import NavBar from './react/components/navBar/NavBar';
@@ -17,10 +16,6 @@ import TenantList from '../js/react/components/admin/TenantList';
 import TenantApplication from '../js/react/components/admin/TenantApplication';
 
 const components = [
-    {
-        name: "TestComponent",
-        component: <TestComponent />,
-    },
     {
         name: "NavBar",
         component: <NavBar />
@@ -38,8 +33,8 @@ const components = [
         component: <AppNavBar />
     },
     {
-        name:"CalendlyComponent",
-        component:<CalendlyBooking/>
+        name: "CalendlyComponent",
+        component: <CalendlyBooking />
     },
     {
         name: "Dashboard",
@@ -47,24 +42,24 @@ const components = [
     },
     {
         name: "LandlordProperties",
-        component: <LandlordProperties/>
+        component: <LandlordProperties />
     },
 
     {
         name: "Property",
-        component: <Property/>
+        component: <Property />
     },
     {
         name: "PropertyCard",
-        component: <PropertyCard/>
+        component: <PropertyCard />
     },
     {
         name: "TenantList",
-        component: <TenantList/>
+        component: <TenantList />
     },
     {
         name: "TenantApplication",
-        component: <TenantApplication/>
+        component: <TenantApplication />
     },
 
 

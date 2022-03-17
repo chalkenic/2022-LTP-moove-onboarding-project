@@ -91,7 +91,6 @@ export var navTextTenant = [
     name: "Logout",
     selected: false,
     link: "/logout",
-    link: "/tenant-test",
     type: "link",
   },
 ];
