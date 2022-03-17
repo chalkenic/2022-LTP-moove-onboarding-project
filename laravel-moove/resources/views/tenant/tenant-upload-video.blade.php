@@ -9,9 +9,9 @@
 @csrf
 <div >
 <label>Title</label>
-<input type="text" name="title" value="title" placeholder="Enter Title">
+<input type="text" name="title" placeholder="Enter Title">
 </div><div>
 <label>Choose Video</label>
 <input type="file"  name="video">
-</div><hr><button type="submit", value='submit' >Submit</button></form></div>
+</div><hr><button type="submit" >Submit</button></form></div>
 @endsection
