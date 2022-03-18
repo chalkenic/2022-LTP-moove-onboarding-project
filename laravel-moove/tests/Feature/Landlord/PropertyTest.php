@@ -79,8 +79,8 @@ class PropertyTest extends TestCase
         // Confirm landlord can see their own property while assert they cannot see fake landlord's property.
         $response->assertStatus(200)
             ->assertViewIs('landlord.landlord-properties')
-            ->assertSee('ownedProp')
-            ->assertDontSee('unownedProp');
+            ->assertSee('real')
+            ->assertDontSee('fake');
 
     }
 }
