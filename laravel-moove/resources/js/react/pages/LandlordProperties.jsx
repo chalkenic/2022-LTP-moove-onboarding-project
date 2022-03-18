@@ -9,12 +9,12 @@ import PropertyModal from "../components/landlord/PropertyModal";
 import axios from "axios";
 import { data } from "autoprefixer";
 
-const LandlordProperties = (props) => {
+const LandlordProperties = () => {
     const isMounted = useRef(false);
     const properties = window.properties;
     const [open, setOpen] = useState(false);
     const [property, setProperty] = useState({});
-    const [tenants, setTenants] = useState();
+    const [tenants, setTenants] = useState([]);
     const [error, setError] = useState(null);
 
     // const setModalState = (props) =>{
@@ -23,37 +23,32 @@ const LandlordProperties = (props) => {
 
     const handleOpen = (property) => {
         setProperty(property);
-        console.log("test", property.name);
+        let propUrl = `/tenants/${property.id}`;
+        axios.get(propUrl).then(res => {
+            setTenants(res.data.tenants);
+        });
         setOpen(true);
     };
 
     const handleClose = () => {
         setOpen(false);
         setProperty({});
+        setTenants();
     };
 
-    const getTenantData = ({ id }) => {
-        axios
-            .get("/tenant-list", {
-                id: id,
-            })
-            .then((res) => {
-				const tenants = parse(res.data);
-				console.log(tenants)
-                setTenants(tenants);
-            })
-            .catch((err) => {
-                setError(err.message);
-            });
-    };
-
-    useEffect(() => {
-        if (isMounted.current) {
-            getTenantData(property.id);
-        } else {
-			isMounted.current = true;
-		}
-    }, [property]);
+    // useEffect(() => {
+    //     if (isMounted.current) {
+    //         // .then((res) => {
+    //         //     const tenants = parse(res.data);
+    //         //     setTenants(tenants);
+    //         // })
+    //         // .catch((err) => {
+    //         //     setError(err.message);
+    //         // });
+    //     } else {
+    //         isMounted.current = true;
+    //     }
+    // }, [property]);
 
     return (
         <div>
@@ -78,17 +73,15 @@ const LandlordProperties = (props) => {
                                 md={4}
                                 sm={6}
                                 xs={12}
-                                spacing={2}
                                 justifyContent="center"
                                 alignItems={"center"}
                             >
                                 <PropertyCard
-                                    onClick={() => handleOpen(property)}
+                                    onClick={() =>
+                                        handleOpen(property, tenants)
+                                    }
                                 >
-                                    <Property
-                                        property={property}
-                                        tenants={tenants}
-                                    />
+                                    <Property property={property} />
                                 </PropertyCard>
                             </Grid>
                         );
@@ -97,10 +90,12 @@ const LandlordProperties = (props) => {
             </Grid>
             {open && (
                 <PropertyModal
-                    modalState={open}
+                    open={open}
                     setOpen={setOpen}
                     onClose={handleClose}
                     property={property}
+                    tenants={tenants}
+                    setTenants={setTenants}
                 />
             )}
         </div>

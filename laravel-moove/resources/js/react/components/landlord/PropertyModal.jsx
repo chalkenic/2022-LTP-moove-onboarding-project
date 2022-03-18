@@ -55,30 +55,48 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
+export function useIsMounted() {
+    const isMounted = useRef(false);
+
+    useEffect(() => {
+        isMounted.current = true;
+        return () => (isMounted.current = false);
+    }, []);
+
+    return isMounted;
+}
+
 const PropertyModal = (props) => {
     const styles = useStyles();
 
     const [scroll, setScroll] = useState("paper");
     const handleClose = () => {
         props.setOpen(false);
-        console.log("close");
     };
 
     const descriptionElementRef = useRef(null);
     useEffect(() => {
-        if (props.modalState) {
+        if (props.open) {
             setScroll(scroll);
+
             const { current: descriptionElement } = descriptionElementRef;
             if (descriptionElement !== null) {
                 descriptionElement.focus();
             }
         }
-    }, [props.modalState]);
+    }, [props.open]);
+
+    useEffect(() => {
+        if (props.tenants !== undefined) {
+            props.setTenants(props.tenants);
+            console.log(props.tenants);
+        }
+    }, [props.tenants]);
 
     return (
         <div>
             <Dialog
-                open={props.modalState}
+                open={props.open}
                 onClose={handleClose}
                 scroll={scroll}
                 aria-labelledby="scrolled-dialog-title"
@@ -146,39 +164,51 @@ const PropertyModal = (props) => {
                             </Grid>
                         </Grid>
                         <DialogContent className={styles.dividerLight} />
-
-                        {props.tenants != null && (
-                            <Grid container xs={5}>
+                        <Grid container>
+                            <Grid item xs={12}>
                                 <DialogContent
-                                    className={styles.tenantBox}
-                                ></DialogContent>
-                                {props.tenants.map((tenant, key) => {
-                                    return (
-                                        <>
-                                        <Grid item xs={2}>
-                                            <DialogContent
-                                                component="div"
-                                                className={styles.infoText}
-                                            >
-                                                {`tenant ${key}`}
-                                            </DialogContent>
-                                        </Grid>
-                                        <Grid item xs={10}>
-                                            <DialogContent
-                                                component="div"
-                                                className={styles.infoText}
-                                            >
-                                                {tenant.name}
-                                            </DialogContent>
-                                        </Grid>
-
-                                        </>
-                                        
-                                        
-                                    );
-                                })}
+                                    id="scroll-dialog-description"
+                                    ref={descriptionElementRef}
+                                    component="div"
+                                    className={styles.headerText}
+                                    sx={{ textAlign: "center" }}
+                                >
+                                    Current Tenants
+                                </DialogContent>
                             </Grid>
-                        )}
+
+                            {props.tenants !== undefined && (
+                                <Grid item xs={12}>
+                                    {props.tenants.map((tenant, key) => {
+                                        return (
+                                            <Grid container key={key}>
+                                                <Grid item xs={2}>
+                                                    <DialogContent
+                                                        component="div"
+                                                        id="scroll-dialog-description"
+                                                        className={
+                                                            styles.infoText
+                                                        }
+                                                    >
+                                                        {key + 1}
+                                                    </DialogContent>
+                                                </Grid>
+                                                <Grid item xs={10}>
+                                                    <DialogContent
+                                                        component="div"
+                                                        className={
+                                                            styles.infoText
+                                                        }
+                                                    >
+                                                        {tenant.name}
+                                                    </DialogContent>
+                                                </Grid>
+                                            </Grid>
+                                        );
+                                    })}
+                                </Grid>
+                            )}
+                        </Grid>
                     </DialogContent>
                     {/* 
                     <Typography

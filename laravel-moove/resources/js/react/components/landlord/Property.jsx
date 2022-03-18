@@ -1,13 +1,10 @@
 import { Grid, Typography } from '@mui/material';
-import { property } from 'lodash';
-import { useState } from 'react';
-import * as LandlordTexts from '../../assets/texts/LandlordTexts';
 
 const Property = (props) => {
 
 	// const tenants = Array.from(props.property.tenants);
 	return (
-		<Grid container alignItems={'center'} sx={{ paddingTop: '40px !important', paddingLeft: '20px !important', paddingBottom: '20px !important' }}>
+		<Grid container alignItems={'center'} sx={{ paddingTop: '40px !important',  paddingBottom: '20px !important' }}>
 			<Grid
 				item
 				xs={12}
