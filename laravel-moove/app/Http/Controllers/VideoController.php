@@ -22,7 +22,7 @@ class VideoController extends Controller
         return Storage::disk('my_files')->get($video->video);
         
     }
-
+    
 
 
     public function uploadVideo(Request $request)
