@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Models\Video;
 use Storage;
+use Response;
 
 
 class VideoController extends Controller
@@ -16,13 +17,17 @@ class VideoController extends Controller
     public function index($title)
     {
 
-        
         $video = DB::table('videos')->where('title', $title)->first();
 
-        return Storage::disk('my_files')->get($video->video);
+    
+        $name = $video -> video;
+        $fileContents = Storage::disk('my_files')->get($name);
+        $response = Response::make($fileContents, 200);
+        $response->header('Content-Type', "video/mp4");
+        return $response;
         
     }
-    
+
 
 
     public function uploadVideo(Request $request)
@@ -42,6 +47,7 @@ class VideoController extends Controller
 
         $video->video = $path;
     }
+
     $video->save();
 
     }

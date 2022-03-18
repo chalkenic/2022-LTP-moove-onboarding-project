@@ -36,6 +36,7 @@ Route::post('/reset-password', [ResetPasswordController::class, 'store'])->middl
 
 // General routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/get-video/{title}', [VideoController::class, 'index']) -> name('get-video');
 
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
@@ -44,7 +45,7 @@ Route::get('/tenant-upload-video', function() {
     return view('tenant.tenant-upload-video');
 });
 Route::post('/tenant-upload-video', [VideoController::class, 'uploadVideo'])->name('tenant.tenant-upload-video');
-Route::get('/tenant-get-video/{title}', [VideoController::class, 'index']);
+
 
 
 // Landlord routes
