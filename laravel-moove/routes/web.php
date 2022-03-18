@@ -20,6 +20,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Landlord\LandlordController;
+use App\Http\Controllers\Landlord\PropertyController;
 use Illuminate\Support\Facades\Route;
 
 // Auth routes
@@ -51,10 +52,10 @@ Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.up
 
 // Landlord routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
-Route::get('/landlord-properties', function() {
-    return view('landlord.landlord-properties');
-});
-Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
+Route::get('/properties', [PropertyController::class, 'index'])-> name('landlord.landlord-properties');
+Route::post('/properties', [PropertyController::class, 'store']); 
+Route::get('/tenants/{id}', [PropertyController::class, 'tenants']);
+
 
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
