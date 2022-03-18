@@ -46,14 +46,13 @@ Route::get('/tenant-upload-video', function() {
 Route::post('/tenant-upload-video', [VideoController::class, 'uploadVideo'])->name('tenant.tenant-upload-video');
 Route::get('/tenant-get-video/{title}', [VideoController::class, 'index']);
 
+
 // Landlord routes
 Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
 Route::get('/application', [ApplicationController::class, 'index'])->name('tenant.application');
 Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
 Route::post('/start-application', [ApplicationController::class, 'store']);
 Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
-
-// Landlord routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
 Route::get('/landlord-properties', function() {
     return view('landlord.landlord-properties');

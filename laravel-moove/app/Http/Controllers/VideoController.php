@@ -15,11 +15,13 @@ class VideoController extends Controller
 
     public function index($title)
     {
+
+        
         $video = DB::table('videos')->where('title', $title)->first();
 
         return Storage::disk('my_files')->get($video->video);
+        
     }
-
 
 
 
