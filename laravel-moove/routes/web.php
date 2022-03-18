@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserConvertController;
+use App\Http\Controllers\AdminApplicationController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\Tenant\ApplicationController;
 use App\Http\Controllers\Tenant\TenantController;
@@ -53,8 +54,12 @@ Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landl
 Route::get('/landlord-properties', function() {
     return view('landlord.landlord-properties');
 });
+Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
 
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
 Route::put('/convert-user', [UserConvertController::class, 'update']);
+Route::get('/admin-tenant-list', [AdminApplicationController::class, 'index'])->name('admin-tenant-list');
+Route::get('/admin-tenant-application/{id}', [AdminApplicationController::class, 'show']);
+Route::put('/admin-change-application', [AdminApplicationController::class, 'update'])->name('admin-change-application');
