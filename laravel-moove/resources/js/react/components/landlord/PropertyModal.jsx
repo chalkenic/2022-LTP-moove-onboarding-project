@@ -1,13 +1,8 @@
-import { ClassNames } from "@emotion/react";
 import {
-    Button,
-    createTheme,
     Dialog,
     DialogContent,
-    DialogContentText,
     DialogTitle,
     Grid,
-    Typography,
 } from "@mui/material";
 import { makeStyles, ThemeProvider } from "@mui/styles";
 import { useEffect, useRef, useState } from "react";
@@ -127,7 +122,7 @@ const PropertyModal = (props) => {
                                     component="div"
                                     className={styles.headerText}
                                 >
-                                    Address
+                                    {LandlordTexts.LandlordPropsTexts.propModalTitle1}
                                 </DialogContent>
                             </Grid>
 
@@ -150,7 +145,7 @@ const PropertyModal = (props) => {
                                     component="div"
                                     className={styles.headerText}
                                 >
-                                    Status
+                                    {LandlordTexts.LandlordPropsTexts.propModalTitle2}
                                 </DialogContent>
                             </Grid>
 
@@ -173,7 +168,7 @@ const PropertyModal = (props) => {
                                     className={styles.headerText}
                                     sx={{ textAlign: "center" }}
                                 >
-                                    Current Tenants
+                                    {LandlordTexts.LandlordPropsTexts.propTenantTitle}
                                 </DialogContent>
                             </Grid>
 
