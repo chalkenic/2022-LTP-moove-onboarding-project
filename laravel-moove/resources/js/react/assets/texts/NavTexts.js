@@ -42,6 +42,14 @@ export var navTextAdmin = [
     link: "/convert-user",
     type: "link",
   },
+  {
+    id: 6,
+    key: "page_tenants",
+    name: "Tenant List",
+    selected: false,
+    link: "/admin-tenant-list",
+    type: "link",
+  },
 ];
 
 export var navTextTenant = [
@@ -66,17 +74,25 @@ export var navTextTenant = [
     key: "page_applications",
     name: "Tenant 3",
     selected: false,
-    link: "/tenant-test",
+    link: "/test",
     type: "link",
   },
-  // {
-  //   id: 4,
-  //   key: "page_logout",
-  //   name: "Logout",
-  //   selected: false,
-  //   link: "",
-  //   type: "link",
-  // },
+  {
+    id: 4,
+    key: "book_appointment",
+    name: "Book Appointment",
+    selected: false,
+    link: "/book-appointment",
+    type: "link",
+  },
+  {
+    id: 5,
+    key: "page_logout",
+    name: "Logout",
+    selected: false,
+    link: "/logout",
+    type: "link",
+  },
 ];
 
 export var navTextLandlord = [

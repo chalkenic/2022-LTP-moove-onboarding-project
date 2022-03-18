@@ -25,7 +25,7 @@ const landlordColors = { main: "#0B41DC", light: "#265bf4  ", dark: "#041A58" };
 // Admin user colours that dictate how an Admin's dashboard will look.
 const adminColors = { main: "#7a0a43", light: "#943a68", dark: "#4b0629" };
 
-const logoutColors = {light: '#fff', dark: '#000'};
+const logoutColors = { light: '#fff', dark: '#000' };
 
 // Dictate custom theme using colours declared.
 const AppTheme = createTheme({

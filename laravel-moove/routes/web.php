@@ -8,9 +8,11 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserConvertController;
+use App\Http\Controllers\AdminApplicationController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\Tenant\ApplicationController;
 use App\Http\Controllers\Tenant\TenantController;
+use App\Http\Controllers\Tenant\TenantAptController;
 use App\Http\Controllers\Landlord\LandlordController;
 use App\Http\Controllers\Landlord\PropertyController;
 use Illuminate\Support\Facades\Route;
@@ -42,12 +44,12 @@ Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landl
 Route::get('/properties', [PropertyController::class, 'index'])-> name('landlord.landlord-properties');
 Route::post('/properties', [PropertyController::class, 'store']); 
 Route::get('/tenants/{id}', [PropertyController::class, 'tenants']);
-// Route::get('/landlord-properties', function() {
-//     return view('landlord.landlord-properties');
-// });
 
 
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
 Route::put('/convert-user', [UserConvertController::class, 'update']);
+Route::get('/admin-tenant-list', [AdminApplicationController::class, 'index'])->name('admin-tenant-list');
+Route::get('/admin-tenant-application/{id}', [AdminApplicationController::class, 'show']);
+Route::put('/admin-change-application', [AdminApplicationController::class, 'update'])->name('admin-change-application');

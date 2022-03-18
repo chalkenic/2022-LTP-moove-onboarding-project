@@ -20,4 +20,5 @@ class LandlordController extends Controller
         ]);
         return view('landlord.landlord-home');
     }
+
 }
