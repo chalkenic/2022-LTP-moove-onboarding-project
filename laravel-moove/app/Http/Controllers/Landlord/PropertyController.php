@@ -13,7 +13,7 @@ use JavaScript;
 class PropertyController extends Controller
 {
 
-    public function __constract()
+    public function __construct()
     {
         $this->middleware(['landlord']);
     }

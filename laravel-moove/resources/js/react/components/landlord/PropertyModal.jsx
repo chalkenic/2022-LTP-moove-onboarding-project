@@ -84,7 +84,6 @@ const PropertyModal = (props) => {
     useEffect(() => {
         if (props.tenants !== undefined) {
             props.setTenants(props.tenants);
-            console.log(props.tenants);
         }
     }, [props.tenants]);
 

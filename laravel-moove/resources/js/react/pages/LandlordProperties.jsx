@@ -1,54 +1,35 @@
-import { CardActionArea, Grid } from "@mui/material";
-import { Box } from "@mui/system";
-import { DUMMY_PROPERTIES } from "../assets/texts/LandlordTexts";
+import {  Grid } from "@mui/material";
+
 import LandlordHeader from "../components/headers/LandlordHeader";
 import PropertyCard from "../cards/PropertyCard";
 import Property from "../components/landlord/Property";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import PropertyModal from "../components/landlord/PropertyModal";
 import axios from "axios";
-import { data } from "autoprefixer";
 
 const LandlordProperties = () => {
-    const isMounted = useRef(false);
     const properties = window.properties;
     const [open, setOpen] = useState(false);
     const [property, setProperty] = useState({});
     const [tenants, setTenants] = useState([]);
-    const [error, setError] = useState(null);
 
-    // const setModalState = (props) =>{
-    // 	setOpen(props);
-    // }
-
+    // Source all tenants relating to property on modal open.
     const handleOpen = (property) => {
         setProperty(property);
         let propUrl = `/tenants/${property.id}`;
-        axios.get(propUrl).then(res => {
+        axios.get(propUrl).then((res) => {
             setTenants(res.data.tenants);
         });
         setOpen(true);
     };
+
+    // Reset states when closing modal.
 
     const handleClose = () => {
         setOpen(false);
         setProperty({});
         setTenants();
     };
-
-    // useEffect(() => {
-    //     if (isMounted.current) {
-    //         // .then((res) => {
-    //         //     const tenants = parse(res.data);
-    //         //     setTenants(tenants);
-    //         // })
-    //         // .catch((err) => {
-    //         //     setError(err.message);
-    //         // });
-    //     } else {
-    //         isMounted.current = true;
-    //     }
-    // }, [property]);
 
     return (
         <div>
@@ -76,7 +57,7 @@ const LandlordProperties = () => {
                                 justifyContent="center"
                                 alignItems={"center"}
                             >
-                                <PropertyCard
+                                <PropertyCard name="modalClick"
                                     onClick={() =>
                                         handleOpen(property, tenants)
                                     }
