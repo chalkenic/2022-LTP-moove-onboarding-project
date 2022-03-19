@@ -66,6 +66,7 @@ const components = [
         name: "TenantApplication",
         component: <TenantApplication/>
     },
+    
 
 
 ]

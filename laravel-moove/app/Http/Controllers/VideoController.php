@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Models\Video;
 use Storage;
-use Response;
+
 
 
 class VideoController extends Controller
@@ -19,12 +19,9 @@ class VideoController extends Controller
 
         $video = DB::table('videos')->where('title', $title)->first();
 
-    
         $name = $video -> video;
-        $fileContents = Storage::disk('my_files')->get($name);
-        $response = Response::make($fileContents, 200);
-        $response->header('Content-Type', "video/mp4");
-        return $response;
+
+        return Storage::disk('my_files')->download($name);
         
     }
 

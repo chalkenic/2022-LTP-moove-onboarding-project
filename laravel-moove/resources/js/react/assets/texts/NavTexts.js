@@ -87,6 +87,14 @@ export var navTextTenant = [
   },
   {
     id: 5,
+    key: "video_upload",
+    name: "Video Upload",
+    selected: false,
+    link: "/tenant-upload-video",
+    type: "link",
+  },
+  {
+    id: 6,
     key: "page_logout",
     name: "Logout",
     selected: false,
