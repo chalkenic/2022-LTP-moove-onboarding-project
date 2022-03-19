@@ -14,12 +14,14 @@ use App\Http\Controllers\Tenant\ApplicationController;
 use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\Tenant\TenantAptController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\Tenant\TenantApplyController;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Landlord\LandlordController;
+use App\Http\Controllers\Landlord\PropertyController;
 use Illuminate\Support\Facades\Route;
 
 // Auth routes
@@ -49,6 +51,7 @@ Route::get('/tenant-upload-video', function() {
 });
 Route::post('/tenant-upload-video', [VideoController::class, 'uploadVideo'])->name('tenant.tenant-upload-video');
 
+Route::get('/apply-tenancy', [TenantApplyController::class, 'index'])->name('tenant.apply-tenancy');
 
 // Landlord routes
 Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
@@ -57,10 +60,10 @@ Route::get('/start-application', [ApplicationController::class, 'create'])->name
 Route::post('/start-application', [ApplicationController::class, 'store']);
 Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
-Route::get('/landlord-properties', function() {
-    return view('landlord.landlord-properties');
-});
-Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
+Route::get('/properties', [PropertyController::class, 'index'])-> name('landlord.landlord-properties');
+Route::post('/properties', [PropertyController::class, 'store']); 
+Route::get('/tenants/{id}', [PropertyController::class, 'tenants']);
+
 
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');

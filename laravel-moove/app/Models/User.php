@@ -52,4 +52,17 @@ class User extends Authenticatable
     public function application() {
         return $this->hasOne(Application::class);
     }
+
+    //TEMP
+
+    public function properties() {
+        return $this->hasMany(Property::class);
+    }
+
+    //ENDTEMP
+
+
+    public function tenancy() {
+        return $this->hasOne(Tenancy::class);
+    }
 }

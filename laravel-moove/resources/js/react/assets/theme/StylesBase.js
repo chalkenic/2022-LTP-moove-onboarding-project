@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from "@mui/styles";
 
-const useSylesBase = makeStyles((theme) => createStyles({
+const useSylesBase = makeStyles(() => createStyles({
     landlordPropertiesHeader: {
         position: 'relative'
     }
