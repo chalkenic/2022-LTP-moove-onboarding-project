@@ -63,12 +63,12 @@ const PropertyModal = (props) => {
 
     const [scroll, setScroll] = useState("paper");
     const handleClose = () => {
-        props.setOpen(false);
+        props.setAdd(false);
     };
 
     const descriptionElementRef = useRef(null);
     useEffect(() => {
-        if (props.open) {
+        if (props.add) {
             setScroll(scroll);
 
             const { current: descriptionElement } = descriptionElementRef;
@@ -76,18 +76,18 @@ const PropertyModal = (props) => {
                 descriptionElement.focus();
             }
         }
-    }, [props.open]);
+    }, [props.add]);
 
-    useEffect(() => {
-        if (props.tenants !== undefined) {
-            props.setTenants(props.tenants);
-        }
-    }, [props.tenants]);
+    // useEffect(() => {
+    //     if (props.tenants !== undefined) {
+    //         props.setTenants(props.tenants);
+    //     }
+    // }, [props.tenants]);
 
     return (
         <div>
             <Dialog
-                open={props.open}
+                open={props.add}
                 onClose={handleClose}
                 scroll={scroll}
                 aria-labelledby="scrolled-dialog-title"
@@ -102,7 +102,7 @@ const PropertyModal = (props) => {
                             className={styles.titleText}
                             sx={{ fontSize: "26px", fontWeight: "800" }}
                         >
-                            {props.property.name}
+                            Add property
                         </DialogTitle>
                         <DialogContent className={styles.divider} />
                     </Grid>
@@ -130,7 +130,7 @@ const PropertyModal = (props) => {
                                     component="div"
                                     className={styles.infoText}
                                 >
-                                    {props.property.location}
+                                    Cardiff Borough
                                 </DialogContent>
                             </Grid>
                         </Grid>
@@ -156,59 +156,11 @@ const PropertyModal = (props) => {
                                     component="div"
                                     className={styles.infoText}
                                 >
-                                    {props.property.status}
+                                    Property Status
                                 </DialogContent>
                             </Grid>
                         </Grid>
                         <DialogContent className={styles.dividerLight} />
-                        <Grid container>
-                            <Grid item xs={12}>
-                                <DialogContent
-                                    id="scroll-dialog-description"
-                                    ref={descriptionElementRef}
-                                    component="div"
-                                    className={styles.headerText}
-                                    sx={{ textAlign: "center" }}
-                                >
-                                    {
-                                        LandlordTexts.LandlordPropsTexts
-                                            .propTenantTitle
-                                    }
-                                </DialogContent>
-                            </Grid>
-
-                            {props.tenants !== undefined && (
-                                <Grid item xs={12}>
-                                    {props.tenants.map((tenant, key) => {
-                                        return (
-                                            <Grid container key={key}>
-                                                <Grid item xs={2}>
-                                                    <DialogContent
-                                                        component="div"
-                                                        id="scroll-dialog-description"
-                                                        className={
-                                                            styles.infoText
-                                                        }
-                                                    >
-                                                        {key + 1}
-                                                    </DialogContent>
-                                                </Grid>
-                                                <Grid item xs={10}>
-                                                    <DialogContent
-                                                        component="div"
-                                                        className={
-                                                            styles.infoText
-                                                        }
-                                                    >
-                                                        {tenant.name}
-                                                    </DialogContent>
-                                                </Grid>
-                                            </Grid>
-                                        );
-                                    })}
-                                </Grid>
-                            )}
-                        </Grid>
                     </DialogContent>
                 </Grid>
             </Dialog>
@@ -218,9 +170,9 @@ const PropertyModal = (props) => {
 
 PropertyModal.propTypes = {
     tenants: PropTypes.array,
-    setTenants: PropTypes.any,
-    open: PropTypes.bool,
-    setOpen: PropTypes.any,
+    setTenants: PropTypes.array,
+    add: PropTypes.bool,
+    setAdd: PropTypes.bool,
     property: PropTypes.object,
 };
 

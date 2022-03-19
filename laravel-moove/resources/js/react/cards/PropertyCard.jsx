@@ -10,7 +10,7 @@ const PropertyCard = ({ onClick, children }) => {
                 xs={11}
                 display="flex"
                 justifyContent="center"
-                sx={{ maxWidth: "350px" }}
+                sx={{ minWidth: {xs: "150px", md: '145px'} }}
             >
                 <CardActionArea
                     sx={{ height: 200, marginBlock: 3, borderRadius: 5 }}

@@ -44,3 +44,9 @@ export var LandlordPropsTexts = {
 	propTenantTitle: 'Current Tenants',
 
 };
+
+export var LandlordAddPropsTexts = {
+    addModalTitle1: "Add a property",
+    addModalTitle2: "Address",
+	addMOdalTitle3: "Occupied?",
+};

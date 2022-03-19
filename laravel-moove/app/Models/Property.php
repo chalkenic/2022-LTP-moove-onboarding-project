@@ -13,7 +13,8 @@ class Property extends Model
             'landlord_id',
             'name',
             'location',
-            'status'
+            'status',
+            'verified',
     ];
 
     protected $casts = [
