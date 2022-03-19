@@ -1,14 +1,27 @@
-import { Grid, Paper } from '@mui/material';
+import { Grid, Card, CardActionArea } from "@mui/material";
+import PropertyModal from "../components/landlord/PropertyModal";
 
 const PropertyCard = (props) => {
-	return (
-		<Grid item xs={10} sx={{ maxWidth: '350px' }}>
-			<Paper elevation={20} sx={{ height: 300, marginBlock: 5, borderRadius: 5 }}>
-                
-				{props.children}
-			</Paper>
-		</Grid>
-	);
+    return (
+        <div>
+            <Grid
+                item
+                xs={11}
+                display="flex"
+                justifyContent="center"
+                sx={{ maxWidth: "350px" }}
+            >
+                <CardActionArea
+                    sx={{ height: 200, marginBlock: 3, borderRadius: 5 }}
+                    onClick={props.onClick}
+                >
+                    <Card elevation={10} sx={{ height: 200, borderRadius: 5 }}>
+                        {props.children}
+                    </Card>
+                </CardActionArea>
+            </Grid>
+        </div>
+    );
 };
 
 export default PropertyCard;

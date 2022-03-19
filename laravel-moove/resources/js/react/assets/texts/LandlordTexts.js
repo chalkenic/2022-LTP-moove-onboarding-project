@@ -39,5 +39,8 @@ export var LandlordPropsLandingTitle = {
 };
 
 export var LandlordPropsTexts = {
-	propertyTenantTitle: 'Current Tenants'
+	propModalTitle1: 'Address',
+	propModalTitle2: 'Status',
+	propTenantTitle: 'Current Tenants',
+
 };
