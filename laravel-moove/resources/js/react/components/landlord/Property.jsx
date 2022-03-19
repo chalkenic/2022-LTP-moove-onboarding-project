@@ -1,9 +1,17 @@
+import React from 'react';
 import { Grid, Typography } from "@mui/material";
+import PropTypes from "prop-types";
 
 /*
 	Handle presentation of data on summary property card component.
 */
-const Property = (props) => {
+
+
+const Property = ({property}) => {
+
+    
+
+
     return (
         <Grid
             container
@@ -22,11 +30,18 @@ const Property = (props) => {
                     align="center"
                     sx={{ fontWeight: 700 }}
                 >
-                    {props.property.name}
+                    {property.name}
                 </Typography>
             </Grid>
         </Grid>
     );
+    
 };
+
+Property.propTypes = {
+    property: PropTypes.object
+}
+
+
 
 export default Property;

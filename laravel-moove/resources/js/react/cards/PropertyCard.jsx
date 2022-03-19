@@ -1,7 +1,8 @@
+import React from "react";
 import { Grid, Card, CardActionArea } from "@mui/material";
-import PropertyModal from "../components/landlord/PropertyModal";
+import PropTypes from "prop-types";
 
-const PropertyCard = (props) => {
+const PropertyCard = ({ onClick, children }) => {
     return (
         <div>
             <Grid
@@ -13,15 +14,20 @@ const PropertyCard = (props) => {
             >
                 <CardActionArea
                     sx={{ height: 200, marginBlock: 3, borderRadius: 5 }}
-                    onClick={props.onClick}
+                    onClick={onClick}
                 >
                     <Card elevation={10} sx={{ height: 200, borderRadius: 5 }}>
-                        {props.children}
+                        {children}
                     </Card>
                 </CardActionArea>
             </Grid>
         </div>
     );
+};
+
+PropertyCard.propTypes = {
+    onClick: PropTypes.any,
+    children: PropTypes.any,
 };
 
 export default PropertyCard;

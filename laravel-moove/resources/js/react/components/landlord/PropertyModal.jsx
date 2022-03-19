@@ -1,13 +1,10 @@
-import {
-    Dialog,
-    DialogContent,
-    DialogTitle,
-    Grid,
-} from "@mui/material";
-import { makeStyles, ThemeProvider } from "@mui/styles";
+import React from "react";
+import { Dialog, DialogContent, DialogTitle, Grid } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { useEffect, useRef, useState } from "react";
 import * as LandlordTexts from "../../assets/texts/LandlordTexts";
 import AppTheme from "../../assets/theme/theme";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
     titleText: {
@@ -121,7 +118,10 @@ const PropertyModal = (props) => {
                                     component="div"
                                     className={styles.headerText}
                                 >
-                                    {LandlordTexts.LandlordPropsTexts.propModalTitle1}
+                                    {
+                                        LandlordTexts.LandlordPropsTexts
+                                            .propModalTitle1
+                                    }
                                 </DialogContent>
                             </Grid>
 
@@ -144,7 +144,10 @@ const PropertyModal = (props) => {
                                     component="div"
                                     className={styles.headerText}
                                 >
-                                    {LandlordTexts.LandlordPropsTexts.propModalTitle2}
+                                    {
+                                        LandlordTexts.LandlordPropsTexts
+                                            .propModalTitle2
+                                    }
                                 </DialogContent>
                             </Grid>
 
@@ -167,7 +170,10 @@ const PropertyModal = (props) => {
                                     className={styles.headerText}
                                     sx={{ textAlign: "center" }}
                                 >
-                                    {LandlordTexts.LandlordPropsTexts.propTenantTitle}
+                                    {
+                                        LandlordTexts.LandlordPropsTexts
+                                            .propTenantTitle
+                                    }
                                 </DialogContent>
                             </Grid>
 
@@ -204,39 +210,18 @@ const PropertyModal = (props) => {
                             )}
                         </Grid>
                     </DialogContent>
-                    {/* 
-                    <Typography
-                        variant="body1"
-                        align="center"
-                        sx={{ fontWeight: 700, marginTop: 2 }}
-                    ></Typography> */}
-
-                    {/* <Typography
-                        variant="body1"
-                        align="center"
-                        sx={{
-                            fontWeight: 700,
-                            marginInline: 4,
-                            marginTop: 2,
-                            marginBottom: 1,
-                        }}
-                    >
-                        {LandlordTexts.LandlordPropsTexts.propertyTenantTitle}
-                    </Typography> */}
-                    {/* < container direction={'column'}>
-					{tenants.map((tenant) => {
-						return (
-							<Grid item xs={6} align="center" key={tenant}>
-								{tenant}
-							</Grid>
-						);
-					})}
-				// </
-                Grid> */}
                 </Grid>
             </Dialog>
         </div>
     );
+};
+
+PropertyModal.propTypes = {
+    tenants: PropTypes.array,
+    setTenants: PropTypes.array,
+    open: PropTypes.bool,
+    setOpen: PropTypes.bool,
+    property: PropTypes.object,
 };
 
 export default PropertyModal;

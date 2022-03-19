@@ -3,7 +3,7 @@ import {  Grid } from "@mui/material";
 import LandlordHeader from "../components/headers/LandlordHeader";
 import PropertyCard from "../cards/PropertyCard";
 import Property from "../components/landlord/Property";
-import { useState } from "react";
+import React, { useState } from "react";
 import PropertyModal from "../components/landlord/PropertyModal";
 import axios from "axios";
 
