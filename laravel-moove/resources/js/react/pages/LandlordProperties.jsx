@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 import LandlordHeader from "../components/headers/LandlordHeader";
 import PropertyCard from "../cards/PropertyCard";
@@ -7,6 +7,8 @@ import React, { useState } from "react";
 import PropertyModal from "../components/landlord/PropertyModal";
 import PropertyAddModal from "../components/landlord/PropertyAddModal";
 import axios from "axios";
+import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp";
+import { Box } from "@mui/system";
 
 const LandlordProperties = () => {
     const properties = window.properties;
@@ -93,7 +95,28 @@ const LandlordProperties = () => {
                         <PropertyCard
                             onClick={() => handleAdd(property, tenants)}
                         >
-                            test
+                            <Typography
+                                variant="h6"
+                                paddingTop="20px"
+                                align="center"
+                                sx={{ fontWeight: 700 }}
+                            >
+                                New Property
+                            </Typography>
+                            <div
+                                style={{
+                                    position: "absolute",
+                                    left: "50%",
+                                    top: "50%",
+                                    transform: "translate(-50%, -30%",
+                                }}
+                            >
+                                <AddCircleOutlineSharpIcon
+                                    color="success"
+                                    align="center"
+                                    sx={{ fontSize: 80 }}
+                                />
+                            </div>
                         </PropertyCard>
                     </Grid>
                 </Grid>
