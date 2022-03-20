@@ -17,4 +17,8 @@
 <label>Choose Video</label>
 <input type="file"  name="video">
 </div><hr><button type="submit" >Submit</button></form></div>
+<div>
+<br />
+<a href="{{ route('get-video') }}" >Uploaded Videos</href>
+</div>
 @endsection
