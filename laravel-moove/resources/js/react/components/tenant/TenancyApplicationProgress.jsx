@@ -46,6 +46,12 @@ const rowData = [
 
 const TenancyApplicationProgress = () => {
   return (
+    <div>
+  <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20,width:'100%',backgroundColor:'white',padding:4,border:"1px solid grey",marginBottom:"4px"}}>
+    <div>"image" 80 May Street</div>
+    <div>Status: Requires additional forms</div>
+    <div>View Property</div>
+  </div>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -70,6 +76,7 @@ const TenancyApplicationProgress = () => {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 }
 export default TenancyApplicationProgress;
