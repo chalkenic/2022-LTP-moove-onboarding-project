@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div>
-    <h1>View My Application</h1>
+<Typography variant="h1">View my Application</Typography>
     <TenancyApplicationProgress/>
 </div>
 @endsection
