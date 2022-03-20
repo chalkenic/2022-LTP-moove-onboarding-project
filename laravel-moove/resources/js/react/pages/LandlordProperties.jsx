@@ -1,15 +1,19 @@
-import {  Grid } from "@mui/material";
+import { useCallback, Grid, Typography } from "@mui/material";
 
 import LandlordHeader from "../components/headers/LandlordHeader";
 import PropertyCard from "../cards/PropertyCard";
 import Property from "../components/landlord/Property";
-import { useState } from "react";
+import React, { useState } from "react";
 import PropertyModal from "../components/landlord/PropertyModal";
+import PropertyAddModal from "../components/landlord/PropertyAddModal";
 import axios from "axios";
+import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp";
+import { Box } from "@mui/system";
 
 const LandlordProperties = () => {
     const properties = window.properties;
     const [open, setOpen] = useState(false);
+    const [add, setAdd] = useState(false);
     const [property, setProperty] = useState({});
     const [tenants, setTenants] = useState([]);
 
@@ -23,11 +27,16 @@ const LandlordProperties = () => {
         setOpen(true);
     };
 
+    const handleAdd = () => {
+        setAdd(true);
+    };
+
     // Reset states when closing modal.
 
     const handleClose = () => {
         setOpen(false);
-        setProperty({});
+        setAdd(false);
+        setProperty();
         setTenants();
     };
 
@@ -57,7 +66,8 @@ const LandlordProperties = () => {
                                 justifyContent="center"
                                 alignItems={"center"}
                             >
-                                <PropertyCard name="modalClick"
+                                <PropertyCard
+                                    name="modalClick"
                                     onClick={() =>
                                         handleOpen(property, tenants)
                                     }
@@ -67,6 +77,43 @@ const LandlordProperties = () => {
                             </Grid>
                         );
                     })}
+
+                    <Grid
+                        item
+                        container
+                        md={4}
+                        sm={6}
+                        xs={12}
+                        justifyContent="center"
+                        alignItems={"center"}
+                    >
+                        <PropertyCard
+                            onClick={() => handleAdd(property, tenants)}
+                        >
+                            <Typography
+                                variant="h6"
+                                paddingTop="20px"
+                                align="center"
+                                sx={{ fontWeight: 700 }}
+                            >
+                                New Property
+                            </Typography>
+                            <div
+                                style={{
+                                    position: "absolute",
+                                    left: "50%",
+                                    top: "50%",
+                                    transform: "translate(-50%, -30%",
+                                }}
+                            >
+                                <AddCircleOutlineSharpIcon
+                                    color="success"
+                                    align="center"
+                                    sx={{ fontSize: 80 }}
+                                />
+                            </div>
+                        </PropertyCard>
+                    </Grid>
                 </Grid>
             </Grid>
             {open && (
@@ -77,6 +124,14 @@ const LandlordProperties = () => {
                     property={property}
                     tenants={tenants}
                     setTenants={setTenants}
+                />
+            )}
+            {add && (
+                <PropertyAddModal
+                    add={add}
+                    setAdd={setAdd}
+                    onClose={handleClose}
+                    setProperty={setProperty}
                 />
             )}
         </div>

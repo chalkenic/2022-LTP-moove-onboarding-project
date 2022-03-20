@@ -3,6 +3,7 @@ import { AppBar } from "@mui/material";
 import AppTheme from "../../assets/theme/theme";
 import { ThemeProvider } from "@emotion/react";
 import { styled, useTheme } from "@mui/system";
+import PropTypes from "prop-types";
 
 // handles all navigation bar layouts for users.
 const AppNavBar = styled(AppBar, {
@@ -26,12 +27,17 @@ const AppNavBar = styled(AppBar, {
   backgroundColor: theme.palette.primary.main,
 }));
 
-const AppNavBarCustom = (props) => {
+const AppNavBarCustom = ({navColor, children}) => {
   const theme = useTheme(AppTheme);
   return (
     <ThemeProvider theme={theme}>
-      <AppNavBar color={props.navColor} position="relative">{props.children}</AppNavBar>
+      <AppNavBar color={navColor} position="relative">{children}</AppNavBar>
     </ThemeProvider>
   );
 };
+
+AppNavBarCustom.propTypes = {
+  navColor: PropTypes.string,
+  children: PropTypes.any
+}
 export default AppNavBarCustom;
