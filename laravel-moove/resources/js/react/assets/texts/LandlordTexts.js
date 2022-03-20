@@ -47,7 +47,7 @@ export var LandlordPropsTexts = {
 export var LandlordAddPropsTexts = {
     addModalTitle1: "Add a property",
     addModalTitle2: "Property Name:",
-    addModalTitle3: "Address: ",
+    addModalTitle3: "Postcode: ",
     addModalTitle4: "Occupied: ",
     addModalContent2: "Enter property name",
     addModalContent3: "Enter property postcode",
