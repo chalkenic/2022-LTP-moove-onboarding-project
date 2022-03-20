@@ -51,5 +51,7 @@ class VideoController extends Controller
 
     $video->save();
 
+    return view('tenant.tenant-upload-video');
+
     }
 }
