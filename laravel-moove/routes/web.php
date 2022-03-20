@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Landlord\LandlordController;
 use App\Http\Controllers\Landlord\PropertyController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
+
 
 // Auth routes
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
@@ -38,7 +40,7 @@ Route::post('/reset-password', [ResetPasswordController::class, 'store'])->middl
 
 // General routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::post('/get-video/{title}', [VideoController::class, 'index']);
+Route::post('/get-video', [VideoController::class, 'index']) ->name('get-video');
 Route::get('/get-video', function() {
     return view('tenant.tenant-get-video');
 });

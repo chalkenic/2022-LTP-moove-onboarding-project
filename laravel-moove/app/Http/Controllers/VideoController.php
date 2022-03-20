@@ -14,14 +14,18 @@ use Storage;
 class VideoController extends Controller
 {
 
-    public function index($title)
+    public function index(Request $request)
     {
+
+        $title = $request -> titleInput;
 
         $video = DB::table('videos')->where('title', $title)->first();
 
         $name = $video -> video;
 
-        return Storage::disk('my_files')->download($name);
+
+
+        return Storage::disk('my_files')->download($name, $title);
         
     }
 

@@ -91,7 +91,8 @@ export var navTextTenant = [
     name: "Video Upload",
     selected: false,
     link: "/tenant-upload-video",
-    
+  },
+  {
     key: "apply_tenancy",
     name: "Apply for Tenancy",
     selected: false,
