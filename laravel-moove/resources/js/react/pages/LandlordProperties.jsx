@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { useCallback, Grid, Typography } from "@mui/material";
 
 import LandlordHeader from "../components/headers/LandlordHeader";
 import PropertyCard from "../cards/PropertyCard";
@@ -28,11 +28,6 @@ const LandlordProperties = () => {
     };
 
     const handleAdd = () => {
-        // setProperty(property);
-        // let propUrl = `/tenants/${property.id}`;
-        // axios.get(propUrl).then((res) => {
-        //     setTenants(res.data.tenants);
-        // });
         setAdd(true);
     };
 
@@ -136,9 +131,7 @@ const LandlordProperties = () => {
                     add={add}
                     setAdd={setAdd}
                     onClose={handleClose}
-                    // property={property}
-                    // tenants={tenants}
-                    // setTenants={setTenants}
+                    setProperty={setProperty}
                 />
             )}
         </div>

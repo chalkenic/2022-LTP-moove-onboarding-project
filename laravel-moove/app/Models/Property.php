@@ -10,15 +10,11 @@ class Property extends Model
     use HasFactory;
 
     protected $fillable = [
-            'landlord_id',
+            'user_id',
             'name',
             'location',
             'status',
             'verified',
-    ];
-
-    protected $casts = [
-        'tenants' => 'array'
     ];
 
     public function tenancies() {

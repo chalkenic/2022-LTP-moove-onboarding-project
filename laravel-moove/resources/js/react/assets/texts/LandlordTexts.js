@@ -51,6 +51,8 @@ export var LandlordAddPropsTexts = {
     addModalTitle4: "Occupied: ",
     addModalContent2: "Enter property name",
     addModalContent3: "Enter property postcode",
-	AddModalButton: 'Create',
-	AddModalPostError: 'ERROR: Incorrect Postcode format entered'
+    AddModalButton: "Create",
+    AddModalNameError: "ERROR: Please enter a property name",
+    AddModalPostError: "ERROR: Incorrect Postcode format entered",
+    AddModalOccuError: "ERROR: Please confirm if property currently occupied",
 };

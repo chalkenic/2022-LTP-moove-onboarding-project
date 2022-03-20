@@ -17,6 +17,7 @@ import * as LandlordTexts from "../../assets/texts/LandlordTexts";
 import AppTheme from "../../assets/theme/theme";
 import PropTypes from "prop-types";
 import { Box } from "@mui/system";
+import axios from "axios";
 
 const useStyles = makeStyles(() => ({
     titleText: {
@@ -71,24 +72,52 @@ export function useIsMounted() {
     return isMounted;
 }
 
-const PropertyModal = (props) => {
+const PropertyAddModal = (props) => {
     const styles = useStyles();
 
     const [scroll, setScroll] = useState("paper");
-    const [propName, setPropName] = useState("");
+    const [propName, setPropName] = useState();
     const [propPostcode, setPropPostcode] = useState("");
-    const [occupied, setOccupied] = useState(false);
+    const [occupied, setOccupied] = useState();
+    const [nameError, setNameError] = useState();
     const [postError, setPostError] = useState();
+    const [occuError, setOccuError] = useState();
     const handleClose = () => {
         props.setAdd(false);
     };
 
     const validate = () => {
-        if (!validPostCode.test(propPostcode)) {
-            setPostError(true);
-        } else {
+        if (propName === null || propName === undefined) {
+            setNameError(true);
             setPostError(false);
+            setOccuError(false);
+        } else if (!validPostCode.test(propPostcode)) {
+            setNameError(false);
+            setPostError(true);
+            setOccuError(false);
+        } else if (occupied === null || occupied === undefined) {
+            setNameError(false);
+            setPostError(false);
+            setOccuError(true);
+        } else {
+            setNameError(false);
+            setPostError(false);
+            setOccuError(false);
+
             props.setAdd(false);
+            axios
+                .post("/properties", {
+                    name: propName,
+                    location: propPostcode,
+                    status: occupied,
+                })
+                .then((res) => {
+                    console.log(res);
+                    window.location.reload();
+                })
+                .catch((error) => {
+                    console.log(error.message);
+                });
         }
     };
 
@@ -249,13 +278,13 @@ const PropertyModal = (props) => {
                                             }
                                         >
                                             <FormControlLabel
-                                                value={true}
+                                                value="Occupied"
                                                 control={<Radio />}
                                                 label="Yes"
                                             />
                                             <FormControlLabel
                                                 defaultChecked="true"
-                                                value={false}
+                                                value="Vacant"
                                                 control={<Radio />}
                                                 label="No"
                                             />
@@ -297,6 +326,42 @@ const PropertyModal = (props) => {
                                 </DialogContent>
                             </>
                         )}
+                        {occuError && (
+                            <>
+                                <DialogContent
+                                    className={styles.dividerLight}
+                                />
+                                <DialogContent
+                                    align="center"
+                                    ref={descriptionElementRef}
+                                    component="div"
+                                    className={styles.headerText}
+                                >
+                                    {
+                                        LandlordTexts.LandlordAddPropsTexts
+                                            .AddModalOccuError
+                                    }
+                                </DialogContent>
+                            </>
+                        )}
+                        {nameError && (
+                            <>
+                                <DialogContent
+                                    className={styles.dividerLight}
+                                />
+                                <DialogContent
+                                    align="center"
+                                    ref={descriptionElementRef}
+                                    component="div"
+                                    className={styles.headerText}
+                                >
+                                    {
+                                        LandlordTexts.LandlordAddPropsTexts
+                                            .AddModalNameError
+                                    }
+                                </DialogContent>
+                            </>
+                        )}
                     </Grid>
                 </Grid>
             </Dialog>
@@ -304,16 +369,16 @@ const PropertyModal = (props) => {
     );
 };
 
-PropertyModal.propTypes = {
+PropertyAddModal.propTypes = {
     tenants: PropTypes.array,
     setTenants: PropTypes.any,
     add: PropTypes.bool,
     setAdd: PropTypes.any,
-    property: PropTypes.object,
+    setProperty: PropTypes.any,
 };
 
 export const validPostCode = new RegExp(
     "^([A-Za-z][A-Ha-hJ-Yj-y]?[0-9][A-Za-z0-9]? ?[0-9][A-Za-z]{2}|[Gg][Ii][Rr] ?0[Aa]{2})$"
 );
 
-export default PropertyModal;
+export default PropertyAddModal;
