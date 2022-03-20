@@ -13,8 +13,16 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\Tenant\ApplicationController;
 use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\Tenant\TenantAptController;
+use App\Http\Controllers\Tenant\TenantApplyController;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Landlord\LandlordController;
 use App\Http\Controllers\Landlord\LandlordSigningController;
+
+use App\Http\Controllers\Landlord\PropertyController;
 use Illuminate\Support\Facades\Route;
 
 // Auth routes
@@ -34,6 +42,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
+Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
+Route::get('/apply-tenancy', [TenantApplyController::class, 'index'])->name('tenant.apply-tenancy');
+
+// Landlord routes
+Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
 Route::get('/application', [ApplicationController::class, 'index'])->name('tenant.application');
 Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
 Route::post('/start-application', [ApplicationController::class, 'store']);
@@ -46,6 +59,10 @@ Route::get('/landlord-properties', function() {
     return view('landlord.landlord-properties');
 });
 Route::get('/landlord-sign-tenancy', [LandlordSigningController::class, 'index'])-> name('landlord.landlord-sign-tenancy');
+Route::get('/properties', [PropertyController::class, 'index'])-> name('landlord.landlord-properties');
+Route::post('/properties', [PropertyController::class, 'store']); 
+Route::get('/tenants/{id}', [PropertyController::class, 'tenants']);
+
 
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');

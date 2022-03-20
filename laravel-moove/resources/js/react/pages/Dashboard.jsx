@@ -8,7 +8,7 @@ const Dashboard = (props) => {
   // });
   return (
     <Box>
-      <div>{ window.test }{ window.name }</div>
+      <div>{ window.test }</div>
     </Box>
   );
 };
