@@ -58,4 +58,8 @@ class AdminApplicationController extends Controller
         
         return response()->noContent();
     }
+
+    public function delete(Request $request) {
+        
+    }
 }
