@@ -19,7 +19,7 @@ class HomeController extends Controller
                 return redirect()->route('landlord.home');
             } 
         } else {
-            return view('home');
+            return redirect()->route('login');
             }
         }
     }

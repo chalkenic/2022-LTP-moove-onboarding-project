@@ -14,12 +14,12 @@ class AuthTest extends TestCase
     /**
      * @test
      */
-    public function guest_sees_home_page()
+    public function guest_sees_login_page()
     {
-        $response = $this->get('/');
+        $response = $this->followingRedirects()->get('/');
 
         $response->assertStatus(200)
-            ->assertViewIs('home');
+            ->assertViewIs('auth.login');
     }
 
     /**
