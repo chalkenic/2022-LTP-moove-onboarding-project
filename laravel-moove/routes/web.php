@@ -12,7 +12,12 @@ use App\Http\Controllers\Admin\TenantListController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\Tenant\ApplicationController;
 use App\Http\Controllers\Tenant\TenantController;
-use App\Http\Controllers\Landlord\LandlordController;
+use App\Http\Controllers\Tenant\TenantAptController;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 
 // Auth routes
@@ -32,19 +37,16 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Tenant routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
-Route::get('/application', [ApplicationController::class, 'index'])->name('tenant.application');
-Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
-Route::post('/start-application', [ApplicationController::class, 'store']);
-Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
+Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
 
 // Landlord routes
-Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
-Route::get('/landlord-properties', function() {
-    return view('landlord.landlord-properties');
-});
+Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
 
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
 Route::put('/convert-user', [UserConvertController::class, 'update']);
 Route::get('/admin-tenants', [TenantListController::class, 'tenantList'])->name('admin.tenant-list');
+Route::get('/admin-tenant-application/{id}', function($id) {
+    return view('admin.admin-tenant-application', ['id' => $id]);
+});
