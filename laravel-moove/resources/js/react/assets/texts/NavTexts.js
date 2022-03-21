@@ -74,17 +74,33 @@ export var navTextTenant = [
     key: "page_applications",
     name: "Tenant 3",
     selected: false,
-    link: "/tenant-test",
+    link: "/test",
     type: "link",
   },
-  // {
-  //   id: 4,
-  //   key: "page_logout",
-  //   name: "Logout",
-  //   selected: false,
-  //   link: "",
-  //   type: "link",
-  // },
+  {
+    id: 4,
+    key: "book_appointment",
+    name: "Book Appointment",
+    selected: false,
+    link: "/book-appointment",
+    type: "link",
+  },
+  {
+    id: 5,
+    key: "apply_tenancy",
+    name: "Apply for Tenancy",
+    selected: false,
+    link: "/apply-tenancy",
+    type: "link",
+  },
+  {
+    id: 6,
+    key: "page_logout",
+    name: "Logout",
+    selected: false,
+    link: "/logout",
+    type: "link",
+  },
 ];
 
 export var navTextLandlord = [
@@ -101,7 +117,7 @@ export var navTextLandlord = [
     key: "page_properties",
     name: "Properties",
     selected: false,
-    link: "/landlord-properties",
+    link: "/properties",
     type: "link",
   },
   {
@@ -109,7 +125,7 @@ export var navTextLandlord = [
     key: "page_applications",
     name: "My Calendar",
     selected: false,
-    link: "/landlord-properties",
+    link: "/properties",
     type: "link",
   },
   {
@@ -117,7 +133,7 @@ export var navTextLandlord = [
     key: "page_messages",
     name: "Messages(*)",
     selected: false,
-    link: "/landlord-properties",
+    link: "/properties",
     type: "link",
   },
 ];
