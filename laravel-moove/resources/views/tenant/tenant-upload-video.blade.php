@@ -11,6 +11,7 @@
 <h2>Please ensure the video title is in the following format: "[first name]_[last name]"</h2>
 </div>
 <div>
+
 <label>Title</label>
 <input type="text" name="title" placeholder="Enter Title">
 </div><div>
