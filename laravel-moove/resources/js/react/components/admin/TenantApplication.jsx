@@ -37,8 +37,6 @@ const TenantApplication = ({data}) => {
     })
   }
 
-  
-
   return (
     <div>
       <p>{error ?? ''}</p>
@@ -54,6 +52,7 @@ const TenantApplication = ({data}) => {
   
       <Button onClick={handleApproval}>Approve</Button>
       <Button onClick={handleRejection}>Deny</Button>
+
       
       
       {filesOpen &&
@@ -70,8 +69,7 @@ const TenantApplication = ({data}) => {
             return (
             <tr key={key}>
               <td className="p-3">{file.filename}</td>
-              <td className="hover:underline"><a href={file.url}>View File</a>
-              </td>
+              <td className="hover:underline"><a href={file.url}>View File</a></td>
             </tr>
             )
           })}

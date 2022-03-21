@@ -10,19 +10,25 @@ use App\Models\Video;
 use Storage;
 
 
+
 class VideoController extends Controller
 {
 
-    public function index($title)
+    public function index(Request $request)
     {
 
-        
+        $title = $request -> titleInput;
+
         $video = DB::table('videos')->where('title', $title)->first();
 
-        return Storage::disk('my_files')->get($video->video);
+        $name = $video -> video;
+
+
+
+        return Storage::disk('my_files')->download($name, $title);
         
     }
-    
+
 
 
     public function uploadVideo(Request $request)
@@ -42,7 +48,10 @@ class VideoController extends Controller
 
         $video->video = $path;
     }
+
     $video->save();
+
+    return view('tenant.tenant-upload-video');
 
     }
 }
