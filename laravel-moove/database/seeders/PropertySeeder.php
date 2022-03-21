@@ -22,6 +22,7 @@ class PropertySeeder extends Seeder
             'name' => '26 Woodville Road',
             'location' => 'Living in da bay',
             'status' => 'occupied',
+            'verified' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
@@ -30,6 +31,7 @@ class PropertySeeder extends Seeder
             'name' => '63 Court Road',
             'location' => 'Butetown',
             'status' => 'occupied',
+            'verified' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
@@ -38,6 +40,7 @@ class PropertySeeder extends Seeder
             'name' => '69 Nice Avenue',
             'location' => 'Splott',
             'status' => 'occupied',
+            'verified' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
@@ -46,6 +49,7 @@ class PropertySeeder extends Seeder
             'name' => 'Abacwys',
             'location' => 'Heath',
             'status' => 'occupied',
+            'verified' => 0,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
     }
