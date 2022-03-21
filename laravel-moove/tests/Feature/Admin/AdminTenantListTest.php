@@ -37,4 +37,6 @@ class AdminTenantListTest extends TestCase
         $response = $this->get('/admin-tenants');
         $response->assertStatus(302);
     }
+
+
 }
