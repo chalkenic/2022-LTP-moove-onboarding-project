@@ -12,6 +12,7 @@ import Dashboard from './react/pages/Dashboard';
 import LandlordProperties from './react/pages/LandlordProperties';
 import Property from './react/components/landlord/Property';
 import PropertyCard from '../js/react/cards/PropertyCard';
+import CalendlyBooking from './react/components/forms/CalendlyComponent';
 
 const components = [
     {
@@ -50,6 +51,10 @@ const components = [
     {
         name: "PropertyCard",
         component: <PropertyCard/>
+    },
+    {
+        name:"CalendlyComponent",
+        component:<CalendlyBooking/>
     }
 
 

@@ -1,6 +1,6 @@
 @extends('layouts.head')
 @section('title')
-    <title>moove - tenant list</title>
+<title>Admin Tenant Application</title>
 @endsection
 @section('content')
     <div>
