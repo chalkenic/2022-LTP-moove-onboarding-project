@@ -3,20 +3,24 @@ import {
     Paper,
     Table,
     TableBody,
-    TableCell,
     TableContainer,
     TableHead,
     TableRow,
     Typography,
 } from "@mui/material";
 import PropTypes from "prop-types";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 
 import PropertiesHeader from "../components/headers/PropertiesHeader";
 import React, { Fragment, useState } from "react";
 
 import PropertyRow from "../components/tables/PropertyRow";
+import { ViewAgenda } from "@mui/icons-material";
+import styled from "@emotion/styled";
 
-const AdminProperties = ({ properties }) => {
+const AdminProperties = ({ properties, tenancies }) => {
+    console.log("2: ", properties);
+    console.log("2: ", tenancies);
     // Source all tenants relating to property on modal open.
 
     // const handleOpen = (property) => {
@@ -30,6 +34,25 @@ const AdminProperties = ({ properties }) => {
 
     // Reset states when closing modal.
 
+    // const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    //     [`&.${tableCellClasses.head}`]: {
+    //         backgroundColor: theme.palette.common.black,
+    //         color: theme.palette.common.white,
+    //     },
+    //     [`&.${tableCellClasses.body}`]: {
+    //         fontSize: 14,
+    //     },
+    // }));
+
+    // const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    //     "&:nth-of-type(odd)": {
+    //         backgroundColor: theme.palette.action.hover,
+    //     },
+    //     // hide last border
+    //     "&:last-child td, &:last-child th": {
+    //         border: 0,
+    //     },
+    // }));
 
     return (
         <Fragment>
@@ -38,8 +61,9 @@ const AdminProperties = ({ properties }) => {
                 <Table aria-label="collapsible table">
                     <TableHead>
                         <TableRow>
-                            <TableCell />
-                            <TableCell>ID</TableCell>
+                            <TableCell component="th" scope="row">
+                                ID
+                            </TableCell>
                             <TableCell align="right">Property</TableCell>
                             <TableCell align="right">landlord</TableCell>
                             <TableCell align="right">Location</TableCell>
@@ -47,15 +71,39 @@ const AdminProperties = ({ properties }) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {properties.map((property) => {
-                            <>
-                                <view>{console.log(property)}</view>
+                        {properties.map((row, index) => {
+                            return (
                                 <PropertyRow
-                                    key={property.id}
-                                    propertyData={property}
+                                    key={index}
+                                    property={row}
+                                    tenants={tenancies}
                                 />
-                                ;
-                            </>;
+
+                                // <TableRow
+                                //     key={index}
+                                //     sx={{
+                                //         "&:last-child td, &:last-child th": {
+                                //             border: 0,
+                                //         },
+                                //     }}
+                                // >
+                                //     <TableCell component="th" scope="row">
+                                //         {row.id}
+                                //     </TableCell>
+                                //     <TableCell align="right">
+                                //         {row.name}
+                                //     </TableCell>
+                                //     <TableCell align="right">
+                                //         {row.user_id}
+                                //     </TableCell>
+                                //     <TableCell align="right">
+                                //         {row.location}
+                                //     </TableCell>
+                                //     <TableCell align="right">
+                                //         {row.status}
+                                //     </TableCell>
+                                // </TableRow>
+                            );
                         })}
                     </TableBody>
                 </Table>
@@ -65,7 +113,18 @@ const AdminProperties = ({ properties }) => {
 };
 
 AdminProperties.propTypes = {
-    properties: PropTypes.any.isRequired,
+    properties: PropTypes.arrayOf(
+        PropTypes.shape({
+            created_at: PropTypes.string.isRequired,
+            id: PropTypes.number.isRequired,
+            user_id: PropTypes.number.isRequired,
+            name: PropTypes.string.isRequired,
+            location: PropTypes.string.isRequired,
+            status: PropTypes.string.isRequired,
+            updated_at: PropTypes.string,
+            verified: PropTypes.number.isRequired,
+        }).isRequired
+    ),
     // tenants: PropTypes.arrayOf(PropTypes.object),
 };
 

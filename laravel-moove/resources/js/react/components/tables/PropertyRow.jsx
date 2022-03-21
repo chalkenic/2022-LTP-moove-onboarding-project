@@ -13,10 +13,29 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Box } from "@mui/system";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { makeStyles } from "@mui/styles";
+import AppTheme from "../../assets/theme/theme";
 
-const PropertyRow = ({ propertyData }) => {
+const useStyles = makeStyles(() => ({
+    link: {
+        cursor: "pointer",
+        color: `${AppTheme.palette.admin.dark} !important`,
+        borderBottom: `1px solid ${AppTheme.palette.admin.dark} !important`,
+        "&:hover": {
+            borderBottom: `1px solid ${AppTheme.palette.admin.light} !important`,
+            color: `${AppTheme.palette.admin.light} !important`,
+        },
+    },
+}));
+
+const PropertyRow = ({ property, tenants }) => {
+    const styles = useStyles();
     const [open, setOpen] = useState(false);
-    console.log(propertyData);
+
+    const currentTenants = tenants.filter(
+        (tenants) => tenants.property_id === property.id
+    );
 
     return (
         <Fragment>
@@ -34,15 +53,12 @@ const PropertyRow = ({ propertyData }) => {
                         )}
                     </IconButton>
                 </TableCell>
-                <TableCell component="th" scope="row">
-                    {propertyData.id}
-                </TableCell>
-                <TableCell align="right">{propertyData.name}</TableCell>
-                <TableCell align="right">{propertyData.user_id}</TableCell>
-                <TableCell align="right">{propertyData.location}</TableCell>
-                <TableCell align="right">{propertyData.status}</TableCell>
+                <TableCell align="right">{property.name}</TableCell>
+                <TableCell align="right">{property.user_id}</TableCell>
+                <TableCell align="right">{property.location}</TableCell>
+                <TableCell align="right">{property.status}</TableCell>
             </TableRow>
-            {/* {property.status === "occupied" && (
+            {property.status === "occupied" && (
                 <TableRow>
                     <TableCell
                         style={{ paddingBottom: 0, paddingTop: 0 }}
@@ -51,32 +67,46 @@ const PropertyRow = ({ propertyData }) => {
                         <Collapse in={open} timeout="auto" unmountOnExit>
                             <Box sx={{ margin: 1 }}>
                                 <Typography
-                                    variant="h6"
+                                    variant="h5"
                                     gutterBottom
                                     component="div"
+                                    align="center"
                                 >
-                                    Details
+                                    Current Tenants
                                 </Typography>
                                 <Table size="small" aria-label="details">
                                     <TableHead>
                                         <TableRow>
                                             <TableCell>Name</TableCell>
-                                            <TableCell>Email</TableCell>
+                                            <TableCell align="right">
+                                                Email
+                                            </TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {tenants.map((tenant) => {
-                                            <TableRow key={tenant.id}>
-                                                <TableCell
-                                                    component="th"
-                                                    scope="row"
-                                                >
-                                                    {tenant.name}
-                                                </TableCell>
-                                                <TableCell align="right">
-                                                    {tenant.email}
-                                                </TableCell>
-                                            </TableRow>;
+                                        {currentTenants.map((tenant) => {
+                                            return (
+                                                <TableRow key={tenant.id}>
+                                                    <TableCell
+                                                        component="th"
+                                                        scope="row"
+                                                    >
+                                                        {tenant.name}
+                                                    </TableCell>
+                                                    <TableCell align="right">
+                                                        <a
+                                                            className={
+                                                                styles.link
+                                                            }
+                                                            onClick={() =>
+                                                                (window.location = `mailto:${tenant.email}`)
+                                                            }
+                                                        >
+                                                            {tenant.email}
+                                                        </a>
+                                                    </TableCell>
+                                                </TableRow>
+                                            );
                                         })}
                                     </TableBody>
                                 </Table>
@@ -84,13 +114,31 @@ const PropertyRow = ({ propertyData }) => {
                         </Collapse>
                     </TableCell>
                 </TableRow>
-            )} */}
+            )}
         </Fragment>
     );
 };
 
 PropertyRow.propTypes = {
-    propertyData: PropTypes.object.isRequired,
+    property: PropTypes.shape({
+        created_at: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        user_id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        location: PropTypes.string.isRequired,
+        status: PropTypes.string.isRequired,
+        updated_at: PropTypes.string,
+        verified: PropTypes.number.isRequired,
+    }),
+
+    tenants: PropTypes.arrayOf(
+        PropTypes.shape({
+            property_id: PropTypes.number.isRequired,
+            id: PropTypes.number.isRequired,
+            name: PropTypes.string.isRequired,
+            email: PropTypes.string.isRequired,
+        })
+    ),
     // tenants: PropTypes.arrayOf(PropTypes.object),
 };
 

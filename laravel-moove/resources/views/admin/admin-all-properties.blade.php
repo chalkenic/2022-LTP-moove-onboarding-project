@@ -4,10 +4,6 @@
 @endsection
 @section('content')
 <div>
-
-@auth
-@endauth
-@csrf
-<AdminProperties  properties="{{$properties}}"/>
+<AdminProperties  properties="{{$properties}}" tenancies="{{$tenancies}}"/>
 </div>
 @endsection

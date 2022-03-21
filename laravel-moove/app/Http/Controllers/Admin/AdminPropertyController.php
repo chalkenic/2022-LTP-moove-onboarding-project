@@ -21,9 +21,15 @@ class AdminPropertyController extends Controller
     public function index()
     {
 
-        $properties = json_encode(Property::all());
 
 
-        return view('admin.admin-all-properties', ['properties' => $properties]);
+
+    $properties = Property::get();
+
+        $tenancies = json_encode(Property::join('tenancies', 'tenancies.property_id', '=', 'properties.id')
+    ->join('users', 'tenancies.user_id', '=', 'users.id')->get(['tenancies.property_id','users.id', 'users.name', 'users.email']));
+
+
+        return view('admin.admin-all-properties', ['properties' => $properties, 'tenancies'=> $tenancies]);
     }
 }

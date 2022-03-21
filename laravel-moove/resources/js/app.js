@@ -51,7 +51,7 @@ const components = [
         name: "LandlordProperties",
         component: <LandlordProperties />,
     },
-    { name: "AdminProperties", component: <AdminProperties /> },
+    { name: "AdminProperties", component: <AdminProperties />, },
     {
         name: "Property",
         component: <Property />,
@@ -60,7 +60,7 @@ const components = [
         name: "PropertyCard",
         component: <PropertyCard />,
     },
-    { name: "PropertyRow", component: <PropertyRow /> },
+    { name: "PropertyRow", component: <PropertyRow />, },
     {
         name: "TenantList",
         component: <TenantList />,

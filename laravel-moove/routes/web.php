@@ -9,7 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserConvertController;
 use App\Http\Controllers\Admin\AdminPropertyController;
-use App\Http\Controllers\AdminApplicationController;
+use App\Http\Controllers\Admin\AdminApplicationController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\Tenant\ApplicationController;
 use App\Http\Controllers\Tenant\TenantController;

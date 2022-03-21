@@ -1,4 +1,4 @@
-import {  Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 import PropertiesHeader from "../components/headers/PropertiesHeader";
 import PropertyCard from "../cards/PropertyCard";
@@ -41,7 +41,7 @@ const LandlordProperties = () => {
 
     return (
         <div>
-            <PropertiesHeader role="landlord"/>
+            <PropertiesHeader role="landlord" />
 
             <Grid container justifyContent="center">
                 <Grid
