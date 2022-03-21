@@ -16,11 +16,11 @@ const useStyles = makeStyles(() => ({
     propertyVerified: {
         fontWeight: "600 !important",
         fontSize: 22,
-        color: 'green !important',
+        color: "green !important",
     },
 
     propertyUnverified: {
-        color: 'red !important'
+        color: "red !important",
     },
 
     dividerLight: {
@@ -58,7 +58,13 @@ const Property = ({ property }) => {
             <Grid item xs={12}>
                 <Typography className={styles.dividerLight} />
             </Grid>
-            <Grid item xs={12} md={12} align={"center"} sx={{paddingTop: '10px !important'}}>
+            <Grid
+                item
+                xs={12}
+                md={12}
+                align={"center"}
+                sx={{ paddingTop: "10px !important" }}
+            >
                 image goes here
             </Grid>
             <Grid item xs={12} md={12}>

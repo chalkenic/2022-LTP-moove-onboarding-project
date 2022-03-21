@@ -2,54 +2,30 @@
 // and promote separation of concerns.
 
 export var navTextAdmin = [
-  {
-    id: 1,
-    key: "page_home",
-    name: "admin 1",
-    selected: false,
-    link: "/",
-    type: "link",
-  },
-  {
-    id: 2,
-    key: "page_properties",
-    name: "admin 2",
-    selected: false,
-    link: "/",
-    type: "link",
-  },
-  {
-    id: 3,
-    key: "page_applications",
-    name: "admin 3",
-    selected: false,
-    link: "/test",
-    type: "link",
-  },
-  {
-    id: 4,
-    key: "page_viewings",
-    name: "admin 4",
-    selected: false,
-    link: "/",
-    type: "link",
-  },
-  {
-    id: 5,
-    key: "page_users",
-    name: "Convert Users",
-    selected: false,
-    link: "/convert-user",
-    type: "link",
-  },
-  {
-    id: 6,
-    key: "page_tenants",
-    name: "Tenant List",
-    selected: false,
-    link: "/admin-tenant-list",
-    type: "link",
-  },
+    {
+        id: 1,
+        key: "page_properties",
+        name: "Property List",
+        selected: false,
+        link: "/admin-all-properties",
+        type: "link",
+    },
+    {
+        id: 2,
+        key: "page_tenants",
+        name: "Tenant List",
+        selected: false,
+        link: "/admin-tenant-list",
+        type: "link",
+    },
+    {
+        id: 3,
+        key: "page_users",
+        name: "Convert Users",
+        selected: false,
+        link: "/convert-user",
+        type: "link",
+    },
 ];
 
 export var navTextTenant = [

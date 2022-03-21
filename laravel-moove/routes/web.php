@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserConvertController;
+use App\Http\Controllers\Admin\AdminPropertyController;
 use App\Http\Controllers\AdminApplicationController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\Tenant\ApplicationController;
@@ -20,7 +21,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Landlord\LandlordController;
-use App\Http\Controllers\Landlord\PropertyController;
+use App\Http\Controllers\Landlord\LandlordPropertyController;
+
 use Illuminate\Support\Facades\Route;
 
 // Auth routes
@@ -52,9 +54,9 @@ Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.up
 
 // Landlord routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
-Route::get('/properties', [PropertyController::class, 'index'])-> name('landlord.landlord-properties');
-Route::post('/properties', [PropertyController::class, 'store']); 
-Route::get('/tenants/{id}', [PropertyController::class, 'tenants']);
+Route::get('/properties', [LandlordPropertyController::class, 'index'])-> name('landlord.landlord-properties');
+Route::post('/properties', [LandlordPropertyController::class, 'store']); 
+Route::get('/tenants/{id}', [LandlordPropertyController::class, 'tenants']);
 
 
 // Admin routes
@@ -64,3 +66,4 @@ Route::put('/convert-user', [UserConvertController::class, 'update']);
 Route::get('/admin-tenant-list', [AdminApplicationController::class, 'index'])->name('admin-tenant-list');
 Route::get('/admin-tenant-application/{id}', [AdminApplicationController::class, 'show']);
 Route::put('/admin-change-application', [AdminApplicationController::class, 'update'])->name('admin-change-application');
+Route::get('/admin-all-properties', [AdminPropertyController::class, 'index'])->name('admin.all-properties');
