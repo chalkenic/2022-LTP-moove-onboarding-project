@@ -16,19 +16,22 @@ export default class ReactRenderer {
 
     renderAll () {
 
-        for (let componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
+        for (let componentIndex = 0; componentIndex < this.components.length; componentIndex += 1) {
 
             /*
              * Use this to render React components in divs using the id. Ex, <div id="MySimpleComponent"></div>
              * let container = document.getElementById(this.components[componentIndex].name);
              */
 
-            // Use this to render React components using the name as the tag. Ex, <MySimpleComponent></MySimpleComponent>
-            const containers = document.getElementsByTagName(this.components[componentIndex].name);
+            /**
+             * Use this to render React components using the name as the tag.
+             *Ex, <MySimpleComponent></MySimpleComponent>
+             *const containers = document.getElementsByTagName(this.components[componentIndex].name);
+             */
 
             if (containers && containers.length > 0) {
 
-                for (let i = containers.length - 1; i >= 0; i--) {
+                for (let i = containers.length - 1; i >= 0; i -= 1) {
 
                     const props = this.getPropsFromAttributes(containers[i]);
                     let element = this.components[componentIndex].component;
@@ -61,7 +64,7 @@ export default class ReactRenderer {
         const props = {};
         if (container.attributes.length > 0) {
 
-            for (let attributeIndex = 0; attributeIndex < container.attributes.length; attributeIndex++) {
+            for (let attributeIndex = 0; attributeIndex < container.attributes.length; attributeIndex += 1) {
 
                 const attribute = container.attributes[attributeIndex];
                 if (this.hasJsonStructure(attribute.value)) {

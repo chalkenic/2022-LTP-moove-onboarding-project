@@ -3,7 +3,7 @@
  * and promote separation of concerns.
  */
 
-export var navTextAdmin = [
+export const navTextAdmin = [
     {
         "id": 1,
         "key": "page_home",
@@ -54,7 +54,7 @@ export var navTextAdmin = [
     }
 ];
 
-export var navTextTenant = [
+export const navTextTenant = [
     {
         "id": 1,
         "key": "page_home",
@@ -105,7 +105,7 @@ export var navTextTenant = [
     }
 ];
 
-export var navTextLandlord = [
+export const navTextLandlord = [
     {
         "id": 1,
         "key": "page_home",

@@ -1,4 +1,4 @@
-export var DUMMY_PROPERTIES = [
+export const DUMMY_PROPERTIES = [
     {
         "id": "p1",
         "pName": "26 Woodville Road",
@@ -45,18 +45,18 @@ export var DUMMY_PROPERTIES = [
     }
 ];
 
-export var LandlordPropsLandingTitle = {
+export const LandlordPropsLandingTitle = {
     "title": "Your properties",
     "content": "Lorem Ipsum"
 };
 
-export var LandlordPropsTexts = {
+export const LandlordPropsTexts = {
     "propModalTitle1": "Address",
     "propModalTitle2": "Status",
     "propTenantTitle": "Current Tenants"
 };
 
-export var LandlordAddPropsTexts = {
+export const LandlordAddPropsTexts = {
     "addModalTitle1": "Add a property",
     "addModalTitle2": "Property Name:",
     "addModalTitle3": "Postcode: ",
