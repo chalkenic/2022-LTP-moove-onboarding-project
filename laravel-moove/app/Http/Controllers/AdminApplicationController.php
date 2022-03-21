@@ -10,7 +10,7 @@ class AdminApplicationController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['admin']);   
+        $this->middleware(['admin']);
     }
 
     public function index() {
@@ -34,7 +34,7 @@ class AdminApplicationController extends Controller
                 ],
                 'files' => $user->application->files,
                 'requestRoute' => route('admin-change-application'),
-                'redirectRoute' => route('admin-tenant-list')
+                'redirectRoute' => route('admin.tenant-list')
             ];
             return view('admin.admin-tenant-application', [
                 'data' => json_encode($data)
@@ -55,7 +55,7 @@ class AdminApplicationController extends Controller
         ]);
 
         session()->flash('status', $approved ? 'Application approved successfully.' : 'Application denied successfully.');
-        
+
         return response()->noContent();
     }
 }
