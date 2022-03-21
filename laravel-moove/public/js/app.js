@@ -13065,6 +13065,13 @@ var navTextAdmin = [{
   selected: false,
   link: "/convert-user",
   type: "link"
+}, {
+  id: 5,
+  key: "page_tenants",
+  name: "Tenants",
+  selected: false,
+  link: "/admin-tenants",
+  type: "link"
 }];
 var navTextTenant = [{
   id: 1,

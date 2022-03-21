@@ -42,6 +42,14 @@ export var navTextAdmin = [
     link: "/convert-user",
     type: "link",
   },
+    {
+        id: 5,
+        key: "page_tenants",
+        name: "Tenants",
+        selected: false,
+        link: "/admin-tenants",
+        type: "link",
+    },
 ];
 
 export var navTextTenant = [
