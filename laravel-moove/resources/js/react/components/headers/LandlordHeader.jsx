@@ -1,12 +1,11 @@
+import React from "react";
 import AppTheme from '../../assets/theme/theme';
 import { useTheme } from '@mui/system';
-import useStylesBase from '../../assets/theme/StylesBase';
-import { Card, CardContent, Grid, Typography } from '@mui/material';
+import {  Grid, Typography } from '@mui/material';
 import * as LandlordTexts from '../../assets/texts/LandlordTexts';
 
 const LandlordHeader = () => {
 	const theme = useTheme(AppTheme);
-	const classesBase = useStylesBase();
 
 	return (
 		<Grid item xs={12} justifyContent="space-evenly" alignItems="center" style={{ marginTop: 5 }}>

@@ -1,9 +1,14 @@
 @extends('layouts.head')
 @section('title')
-<title>Admin Tenant List</title>
+<title>moove - tenant application</title>
 @endsection
 @section('content')
 <div>
-<TenantApplication id={{$id}} />
+    @error('id')
+        {{$message}}
+    @enderror
+    @if(isset($data))
+        <TenantApplication data="{{$data}}" />
+    @endif
 </div>
 @endsection
