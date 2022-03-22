@@ -8,13 +8,13 @@ export default class ReactRenderer {
      * https://joeczubiak.com/laravel-plus-react/
      */
 
-    constructor (components) {
+    constructor(components) {
 
         this.components = components;
 
     }
 
-    renderAll () {
+    renderAll() {
 
         for (let componentIndex = 0; componentIndex < this.components.length; componentIndex += 1) {
 
@@ -25,9 +25,10 @@ export default class ReactRenderer {
 
             /**
              * Use this to render React components using the name as the tag.
-             *Ex, <MySimpleComponent></MySimpleComponent>
-             *const containers = document.getElementsByTagName(this.components[componentIndex].name);
+             * Ex, <MySimpleComponent></MySimpleComponent>
              */
+
+            const containers = document.getElementsByTagName(this.components[componentIndex].name);
 
             if (containers && containers.length > 0) {
 
@@ -59,7 +60,7 @@ export default class ReactRenderer {
     }
 
     // Turns the dom element's attributes into an object to use as props.
-    getPropsFromAttributes (container) {
+    getPropsFromAttributes(container) {
 
         const props = {};
         if (container.attributes.length > 0) {
@@ -85,7 +86,7 @@ export default class ReactRenderer {
 
     }
 
-    hasJsonStructure (str) {
+    hasJsonStructure(str) {
 
         if (typeof str !== "string") {
 
