@@ -1,4 +1,4 @@
-export var AdminPropsLandingTitle = {
-    title: "All properties",
-    content: "Lorem Ipsum",
+export const AdminPropsLandingTitle = {
+    "title": "All properties",
+    "content": "Lorem Ipsum"
 };
