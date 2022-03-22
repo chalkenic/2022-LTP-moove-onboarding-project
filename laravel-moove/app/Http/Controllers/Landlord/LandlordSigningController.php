@@ -21,4 +21,14 @@ class LandlordSigningController extends Controller
         return view('landlord.landlord-sign-tenancy');
     }
 
+
+    public function uploadSignature(Request $request)
+    {
+        $result = DB::Table('tenancies')->select('landlord_signature_blob')->where('id',Auth::id())->update([landlord_sgnature_blob, "test"]);
+        
+    return view('landlord.landlord-sign-tenancy');
+
+
+    }
+
 }
