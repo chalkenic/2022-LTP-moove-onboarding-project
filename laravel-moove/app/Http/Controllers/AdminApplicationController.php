@@ -60,6 +60,13 @@ class AdminApplicationController extends Controller
     }
 
     public function delete(Request $request) {
+        $userId = $request->input('id');
+
+        Application::where('user_id', $userId)->first()->delete();
+
+        session()->flash('status', 'Application Deleted Successfully');
+
+        return response()->noContent();
         
     }
 }

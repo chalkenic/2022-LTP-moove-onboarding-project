@@ -40,8 +40,8 @@ const TenantApplication = ({data}) => {
   const handleDelete = () => {
     setError(null)
 
-    axios.delete(data.requestRoute, {
-      id: data.tenant.applications.id,
+    axios.delete('admin-delete-application', {
+      id: data.tenant.id,
     }).then((res) => {
       window.location.href = data.redirectRoute
     }).catch((err) => {
