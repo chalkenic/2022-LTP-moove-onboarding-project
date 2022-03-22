@@ -10,7 +10,7 @@ use App\Models\Tenancy;
 use App\Models\User;
 use JavaScript;
 
-class PropertyController extends Controller
+class LandlordPropertyController extends Controller
 {
 
     public function __construct()
