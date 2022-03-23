@@ -24,7 +24,7 @@ before_script:
   - apt-get update -y
   - apt-get upgrade -y
   # install required packages
-  - apt-get install php8.0-gd -y
+  - apt-get install php-gd -y
   - apt-get install git-core -y
   - apt-get install zip unzip -y
   - apt-get install npm -y
