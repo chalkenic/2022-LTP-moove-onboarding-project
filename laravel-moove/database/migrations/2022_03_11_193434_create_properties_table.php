@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('name');
             $table->text('location');
             $table->text('status');
+            $table->tinyInteger('verified')-> default(0);
 
             $table->timestamps(); //created_at & updated_at
         });

@@ -1,55 +1,57 @@
-// File handles all texts shown within navigation bar to keep jsx component clean
-// and promote separation of concerns.
+/*
+ * File handles all texts shown within navigation bar to keep jsx component clean
+ * and promote separation of concerns.
+ */
 
-export var navTextAdmin = [
-  {
-    id: 1,
-    key: "page_home",
-    name: "admin 1",
-    selected: false,
-    link: "/",
-    type: "link",
-  },
-  {
-    id: 2,
-    key: "page_properties",
-    name: "admin 2",
-    selected: false,
-    link: "/",
-    type: "link",
-  },
-  {
-    id: 3,
-    key: "page_applications",
-    name: "admin 3",
-    selected: false,
-    link: "/test",
-    type: "link",
-  },
-  {
-    id: 4,
-    key: "page_viewings",
-    name: "admin 4",
-    selected: false,
-    link: "/",
-    type: "link",
-  },
-  {
-    id: 5,
-    key: "page_users",
-    name: "Convert Users",
-    selected: false,
-    link: "/convert-user",
-    type: "link",
-  },
-  {
-    id: 6,
-    key: "page_tenants",
-    name: "Tenant List",
-    selected: false,
-    link: "/admin-tenant-list",
-    type: "link",
-  },
+export const navTextAdmin = [
+    {
+        "id": 1,
+        "key": "page_home",
+        "name": "admin 1",
+        "selected": false,
+        "link": "/",
+        "type": "link"
+    },
+    {
+        "id": 2,
+        "key": "page_properties",
+        "name": "admin 2",
+        "selected": false,
+        "link": "/",
+        "type": "link"
+    },
+    {
+        "id": 3,
+        "key": "page_applications",
+        "name": "admin 3",
+        "selected": false,
+        "link": "/test",
+        "type": "link"
+    },
+    {
+        "id": 4,
+        "key": "page_viewings",
+        "name": "admin 4",
+        "selected": false,
+        "link": "/",
+        "type": "link"
+    },
+    {
+        "id": 5,
+        "key": "page_users",
+        "name": "Convert Users",
+        "selected": false,
+        "link": "/convert-user",
+        "type": "link"
+    },
+    {
+        "id": 6,
+        "key": "page_tenants",
+        "name": "Tenant List",
+        "selected": false,
+        "link": "/admin-tenant-list",
+        "type": "link"
+    }
 ];
 
 export var navTextTenant = [
@@ -93,6 +95,13 @@ export var navTextTenant = [
     link: "/tenancy-appl-progress",
   },{
     id:6,
+    key: "video_upload",
+    name: "Video Upload",
+    selected: false,
+    link: "/tenant-upload-video",
+  },
+  {
+    id:7,
     key: "apply_tenancy",
     name: "Apply for Tenancy",
     selected: false,
@@ -100,7 +109,7 @@ export var navTextTenant = [
     type: "link",
   },
   {
-    id: 7,
+    id: 8,
     key: "page_logout",
     name: "Logout",
     selected: false,
@@ -109,37 +118,37 @@ export var navTextTenant = [
   },
 ];
 
-export var navTextLandlord = [
-  {
-    id: 1,
-    key: "page_home",
-    name: "Dashboard",
-    selected: false,
-    link: "/landlord-home",
-    type: "link",
-  },
-  {
-    id: 2,
-    key: "page_properties",
-    name: "Properties",
-    selected: false,
-    link: "/properties",
-    type: "link",
-  },
-  {
-    id: 3,
-    key: "page_applications",
-    name: "My Calendar",
-    selected: false,
-    link: "/properties",
-    type: "link",
-  },
-  {
-    id: 4,
-    key: "page_messages",
-    name: "Messages(*)",
-    selected: false,
-    link: "/properties",
-    type: "link",
-  },
+export const navTextLandlord = [
+    {
+        "id": 1,
+        "key": "page_home",
+        "name": "Dashboard",
+        "selected": false,
+        "link": "/landlord-home",
+        "type": "link"
+    },
+    {
+        "id": 2,
+        "key": "page_properties",
+        "name": "Properties",
+        "selected": false,
+        "link": "/properties",
+        "type": "link"
+    },
+    {
+        "id": 3,
+        "key": "page_applications",
+        "name": "My Calendar",
+        "selected": false,
+        "link": "/properties",
+        "type": "link"
+    },
+    {
+        "id": 4,
+        "key": "page_messages",
+        "name": "Messages(*)",
+        "selected": false,
+        "link": "/properties",
+        "type": "link"
+    }
 ];

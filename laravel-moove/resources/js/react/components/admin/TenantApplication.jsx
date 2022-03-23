@@ -52,6 +52,8 @@ const TenantApplication = ({data}) => {
   
       <Button onClick={handleApproval}>Approve</Button>
       <Button onClick={handleRejection}>Deny</Button>
+
+      
       
       {filesOpen &&
       <div className="flex justify-left">

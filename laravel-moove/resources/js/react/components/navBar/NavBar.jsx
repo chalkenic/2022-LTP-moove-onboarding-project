@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { Box, Button, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import AppNavBar from "./AppNavBarCustom";
@@ -11,6 +12,7 @@ import NavBarHeader from "../headers/NavBarHeader";
 import mooveLogo from "../../assets/images/moove_logo_nobg.png";
 import AppTheme from "../../assets/theme/theme";
 import { makeStyles } from "@mui/styles";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -28,7 +30,6 @@ const useStyles = makeStyles(() => ({
 }));
 
 const NavBar = ({ text, currentPage }) => {
-    // const [currentPage, setCurrentPage] = useState({})
     const classes = useStyles();
     let navOptions = "";
 
@@ -70,9 +71,6 @@ const NavBar = ({ text, currentPage }) => {
         }
     }, [currentPage]);
 
-    const handleCloseNavMenu = (link) => {
-        navigate(link);
-    };
 
     return (
         //Custom App bar styling.
@@ -122,4 +120,14 @@ const NavBar = ({ text, currentPage }) => {
         </AppNavBar>
     );
 };
+
+NavBar.propTypes = {
+    text: PropTypes.string,
+    currentPage: PropTypes.object,
+
+
+
+}
+
+
 export default NavBar;
