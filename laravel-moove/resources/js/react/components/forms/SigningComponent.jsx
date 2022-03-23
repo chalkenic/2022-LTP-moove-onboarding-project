@@ -3,6 +3,7 @@ import Popup from "reactjs-popup";
 import SignaturePad from "react-signature-canvas";
 import { Button } from "@mui/material";
 import "../../../../css/signaturePadStyle.css";
+import axios from "axios";
 
 function SigningComponent() {
   const [imageURL, setImageURL] = useState(null);
@@ -10,6 +11,21 @@ function SigningComponent() {
   const clear = () => sigCanvas.current.clear();
   const save = () =>
     setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
+  const uploadToDb = () => {
+    axios
+    .post("/landlord-upload-signature", {
+        landlordSignature: imageURL,
+    })
+    .then((res) => {
+        console.log(res);
+        window.location.reload();
+    })
+    .catch((error) => {
+        console.log(error.message);
+    });
+
+  }
+
   return (
     <div className="App">
       <h1>Confirm Signature for Tenancy</h1>
@@ -44,7 +60,6 @@ function SigningComponent() {
       show an image and pass our imageURL state to it*/}
       {imageURL ? (
           <div style={{width: 300}}>
-            <form method="POST" action="{{ route('landlord.landlord-upload-signature') }}" enctype="multipart/form-data" >
           <h1>Your signature:</h1><br></br>
         <img
           src={imageURL}
@@ -56,10 +71,9 @@ function SigningComponent() {
             width: "250px"
           }}
         /><br></br>
-        <Button type="submit" variant="contained" color="primary">
+        <Button onClick={uploadToDb} variant="contained" color="primary">
         Next
       </Button>
-      </form>
         </div>
       ) : null}
     </div>
