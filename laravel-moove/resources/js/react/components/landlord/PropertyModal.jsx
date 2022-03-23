@@ -207,7 +207,7 @@ const PropertyModal = (props) => {
                         
                     </DialogContent>
 
-                    <Button href={"/landlord-sign-tenancy/"+props.property.id}s style={{margin: '0 auto', display: "flex"}}>Sign Tenancy</Button>
+                    <Button href={"/landlord-sign-tenancy/"+props.property.id} style={{margin: '0 auto', display: "flex"}}>Sign Tenancy</Button>
                     {/* 
                     <Typography
                         variant="body1"
