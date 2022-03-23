@@ -44,6 +44,7 @@ function SigningComponent() {
       show an image and pass our imageURL state to it*/}
       {imageURL ? (
           <div style={{width: 300}}>
+            <form method="POST" action="{{ route('landlord.landlord-upload-signature') }}" enctype="multipart/form-data" >
           <h1>Your signature:</h1><br></br>
         <img
           src={imageURL}
@@ -55,9 +56,10 @@ function SigningComponent() {
             width: "250px"
           }}
         /><br></br>
-        <Button  variant="contained" color="primary">
+        <Button type="submit" variant="contained" color="primary">
         Next
       </Button>
+      </form>
         </div>
       ) : null}
     </div>
