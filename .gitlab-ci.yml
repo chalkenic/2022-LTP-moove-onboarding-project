@@ -29,7 +29,7 @@ cache:
 # This is a basic example for a gem or script which doesn't use
 # services such as redis or postgres
 before_script:
-  - apt-get install git zip unzip
+  - apt-get install git-core php-zip
   # Install Composer and project dependencies.
   - cd laravel-moove && curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
