@@ -1,71 +1,110 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 export default class ReactRenderer {
 
-    // Thanks Joe Czubiak for this awesome React helper!
-    // https://joeczubiak.com/laravel-plus-react/
+    /*
+     * Thanks Joe Czubiak for this awesome React helper!
+     * https://joeczubiak.com/laravel-plus-react/
+     */
 
     constructor(components) {
+
         this.components = components;
+
     }
 
     renderAll() {
 
-        for (let componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
+        for (let componentIndex = 0; componentIndex < this.components.length; componentIndex += 1) {
 
-            // Use this to render React components in divs using the id. Ex, <div id="MySimpleComponent"></div>
-            // let container = document.getElementById(this.components[componentIndex].name);
+            /*
+             * Use this to render React components in divs using the id. Ex, <div id="MySimpleComponent"></div>
+             * let container = document.getElementById(this.components[componentIndex].name);
+             */
 
-            // Use this to render React components using the name as the tag. Ex, <MySimpleComponent></MySimpleComponent>
-            let containers = document.getElementsByTagName(this.components[componentIndex].name)
+            /**
+             * Use this to render React components using the name as the tag.
+             * Ex, <MySimpleComponent></MySimpleComponent>
+             */
+
+            const containers = document.getElementsByTagName(this.components[componentIndex].name);
 
             if (containers && containers.length > 0) {
 
-                for (let i = containers.length - 1; i >= 0; i--) {
-                    let props = this.getPropsFromAttributes(containers[i]);
+                for (let i = containers.length - 1; i >= 0; i -= 1) {
+
+                    const props = this.getPropsFromAttributes(containers[i]);
                     let element = this.components[componentIndex].component;
 
                     if (props !== null) {
+
                         element = React.cloneElement(
                             element,
                             props
-                        )
+                        );
+
                     }
 
-                    ReactDOM.render(element, containers[i]);
+                    ReactDOM.render(
+                        element,
+                        containers[i]
+                    );
+
                 }
+
             }
+
         }
+
     }
 
     // Turns the dom element's attributes into an object to use as props.
     getPropsFromAttributes(container) {
-        let props = {};
+
+        const props = {};
         if (container.attributes.length > 0) {
-            for (let attributeIndex = 0; attributeIndex < container.attributes.length; attributeIndex++) {
-                let attribute = container.attributes[attributeIndex];
+
+            for (let attributeIndex = 0; attributeIndex < container.attributes.length; attributeIndex += 1) {
+
+                const attribute = container.attributes[attributeIndex];
                 if (this.hasJsonStructure(attribute.value)) {
+
                     props[attribute.name] = JSON.parse(attribute.value);
+
                 } else {
+
                     props[attribute.name] = attribute.value;
+
                 }
+
             }
             return props;
+
         }
         return null;
+
     }
 
     hasJsonStructure(str) {
-        if (typeof str !== 'string')
+
+        if (typeof str !== "string") {
+
             return false;
-        try {
-            const result = JSON.parse(str);
-            const type = Object.prototype.toString.call(result);
-            return type === '[object Object]' || type === '[object Array]';
-        } catch (err) {
-            return false;
+
         }
+        try {
+
+            const result = JSON.parse(str),
+                type = Object.prototype.toString.call(result);
+            return type === "[object Object]" || type === "[object Array]";
+
+        } catch (err) {
+
+            return false;
+
+        }
+
     }
 
 }

@@ -1,8 +1,8 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import {createStyles, makeStyles} from "@mui/styles";
 
 const useSylesBase = makeStyles(() => createStyles({
-    landlordPropertiesHeader: {
-        position: 'relative'
+    "landlordPropertiesHeader": {
+        "position": "relative"
     }
 }));
 
