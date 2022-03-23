@@ -27,8 +27,10 @@ class LandlordSigningController extends Controller
     public function store(Request $request)
     {
         $signature = $request->landlordSignature;
+        $propertyId = $request->propertyId;
         dd($signature);
-        Tenancy::where('user_id', auth()->user()->id)
+        //Tenancy::where('user_id', auth()->user()->id)
+        Tenancy::where('property_id', $propertyId)
         ->update(['landlord_signature_blob' => $signature]);
 
     return view('landlord.landlord-sign-tenancy');
