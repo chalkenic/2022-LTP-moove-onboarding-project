@@ -51,7 +51,8 @@ before_script:
   # DB_DATABASE=project_name
   # DB_USERNAME=root
   # DB_PASSWORD=secret
-  - cp .env.example .env.testing
+  - cp .env.example .env
+  - cp .env.testing.example .env.testing
   # Run npm build
   # comment this out if you don't have a frontend build
   # you can change this to to your frontend building script like
