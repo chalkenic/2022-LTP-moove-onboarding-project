@@ -16,8 +16,8 @@ variables:
 
 cache:
   paths:
-    - vendor/
-    - node_modules/
+    - laravel-moove/vendor/
+    - laravel-moove/node_modules/
 
 before_script:
   # upgrade
