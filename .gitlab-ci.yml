@@ -35,14 +35,13 @@ cache:
 before_script:
   - apt-get update -y
   - apt-get upgrade -y
-  - apt-get install git-core -y
+  - apt-get install git-core php-zip -y
   # Install Composer and project dependencies.
   - cd laravel-moove && curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
   - echo "dependencies installed"
   # Install Node dependencies.
   # comment this out if you don't have a node dependency
-  - cd laravel-moove
   - npm install
   # Copy over testing configuration.
   # Don't forget to set the database config in .env.testing correctly
