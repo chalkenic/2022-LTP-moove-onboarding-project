@@ -14,7 +14,7 @@ import LandlordProperties from "./react/pages/LandlordProperties";
 import TenantList from "../js/react/components/admin/TenantList";
 import ContractCreation from "./react/components/landlord/contract/ContractCreation";
 import PropertyContract from "./react/pages/PropertyContract";
-import Property from "./react/components/landlord/Property";
+import Property from "./react/components/landlord/property/Property";
 import PropertyCard from "../js/react/cards/PropertyCard";
 import PropertyRow from "./react/components/tables/PropertyRow";
 import TenantApplication from "../js/react/components/admin/TenantApplication";
@@ -53,7 +53,7 @@ const components = [
         name: "LandlordProperties",
         component: <LandlordProperties />,
     },
-    { name: "AdminProperties", component: <AdminProperties />, },
+    { name: "AdminProperties", component: <AdminProperties /> },
     {
         name: "Property",
         component: <Property />,
@@ -62,7 +62,7 @@ const components = [
         name: "PropertyCard",
         component: <PropertyCard />,
     },
-    { name: "PropertyRow", component: <PropertyRow />, },
+    { name: "PropertyRow", component: <PropertyRow /> },
     {
         name: "TenantList",
         component: <TenantList />,

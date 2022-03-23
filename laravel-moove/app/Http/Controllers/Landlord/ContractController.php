@@ -17,19 +17,17 @@ class ContractController extends Controller
 
     public function index($id) {
 
-        if(Property::where('id')->exists()) {
-            $contract = Contract::where('property_id', $id);
+
+
+            $contract = Contract::where('property_id', $id)->get();
             $property = Property::where('id', $id)->get();
 
         return view('landlord.landlord-show-contract',                
             [
                 'property' => $property,
-                'contract' => $contract
+                'contract' => $contract,
             ]);
             
-            
-        }
-
 
         // if(Property::where('id')->exists()) {
 

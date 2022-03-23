@@ -1,122 +1,171 @@
-import React from "react";
+/* eslint-disable no-magic-numbers */
+/* eslint-disable no-undefined */
+/* eslint-disable max-lines */
+/* eslint-disable no-ternary */
+/* eslint-disable no-return-assign */
+/* eslint-disable sort-imports */
 import {
     Button,
     Dialog,
     DialogContent,
     DialogTitle,
-    Grid,
+    Grid
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import { useEffect, useRef, useState } from "react";
+import {makeStyles} from "@mui/styles";
+import React, {useEffect, useRef, useState} from "react";
 import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
 import AppTheme from "../../../assets/theme/theme";
 import PropTypes from "prop-types";
 import axios from "axios";
+import { blue, green, purple } from "@mui/material/colors";
+import styled from "@emotion/styled";
+
+const GreenButton = styled(Button)(() => ({
+    "color": "#000",
+    "backgroundColor": green[200],
+    "&:hover": {
+        "backgroundColor": green[500]
+    }
+}));
+
+const BlueButton = styled(Button)(() => ({
+    "color": "#000",
+    "backgroundColor": blue[200],
+    "&:hover": {
+        "backgroundColor": blue[500]
+    }
+}));
 
 const useStyles = makeStyles(() => ({
-    titleText: {
-        paddingBottom: "5 !important",
-        color: `${AppTheme.palette.landlord.dark} !important`,
+    "titleText": {
+        "paddingBottom": "5 !important",
+        "color": `${AppTheme.palette.landlord.dark} !important`
     },
 
-    headerText: {
-        fontWeight: "600 !important",
-        fontSize: 22,
-        color: `${AppTheme.palette.landlord.dark} !important`,
+    "headerText": {
+        "fontWeight": "600 !important",
+        "fontSize": 22,
+        "color": `${AppTheme.palette.landlord.dark} !important`
     },
 
-    infoText: {
-        fontSize: 22,
-        textAlign: "right !important",
+    "infoText": {
+        "fontSize": 22,
+        "textAlign": "right !important"
     },
 
-    tenantBox: {
-        border: "1px solid #000",
-        borderRadius: "2px",
-        padding: "10px",
+    "tenantBox": {
+        "border": "1px solid #000",
+        "borderRadius": "2px",
+        "padding": "10px"
     },
 
-    tenantText: {
-        padding: "10px",
+    "tenantText": {
+        "padding": "10px"
     },
 
-    divider: {
-        borderBottom: "2px solid black !important",
-        padding: "0 !important",
+    "divider": {
+        "borderBottom": "2px solid black !important",
+        "padding": "0 !important"
     },
-    dividerLight: {
-        borderBottom: "1px solid #808080 !important",
-        padding: "0 !important",
-        marginLeft: "5%",
-        marginRight: "5%",
-    },
+    "dividerLight": {
+        "borderBottom": "1px solid #808080 !important",
+        "padding": "0 !important",
+        "marginLeft": "5%",
+        "marginRight": "5%"
+    }
 }));
 
 export function useIsMounted() {
+
     const isMounted = useRef(false);
 
-    useEffect(() => {
-        isMounted.current = true;
-        return () => (isMounted.current = false);
-    }, []);
+    useEffect(
+        () => {
+
+            isMounted.current = true;
+            return () => isMounted.current = false;
+
+        },
+        []
+    );
 
     return isMounted;
+
 }
 
 const newContract = (property) => {};
 
 const PropertyModal = (props) => {
+
     const styles = useStyles();
-    const [property, setProperty] = useState(props.property);
-    const [contract, setContract] = useState(props.contract);
 
-    console.log(props.property);
-    console.log(props.contract);
-
-    const [scroll, setScroll] = useState("paper");
+    const [
+        scroll,
+        setScroll
+    ] = useState("paper");
     const handleClose = () => {
+
         props.setOpen(false);
+
     };
 
-    const openContract = (chosenProp, chosenCont) => {
-        // sanity check
-        console.log(chosenProp, " &&", chosenCont);
+    const openContract = (chosenProp) => {
+
+        handleClose();
+
         axios.get(`/contract/",${chosenProp.id}`);
 
-        // axios({
-        //     url: 'open-contract',
-        //     headers: {},
-        //     data: {property: props.property, contract: props.contract},
-        // }).then((res) =>{console.log('data: ', res.propData);})
-        // .catch((err) => {console.log(err.message);})
 
-        // let propUrl = `/contracts/${property.id}`;
-        // axios.get(propUrl);
-        // let propUrl = `/tenants/${property.id}`;
-        // axios.get(propUrl).then((res) => {
-        //     setTenants(res.data.tenants);
-        // });
-        // setOpen(true);
+        /*
+         * Axios({
+         *     url: 'open-contract',
+         *     headers: {},
+         *     data: {property: props.property, contract: props.contract},
+         * }).then((res) =>{console.log('data: ', res.propData);})
+         * .catch((err) => {console.log(err.message);})
+         */
+
+        /*
+         * Let propUrl = `/contracts/${property.id}`;
+         * axios.get(propUrl);
+         * let propUrl = `/tenants/${property.id}`;
+         * axios.get(propUrl).then((res) => {
+         *     setTenants(res.data.tenants);
+         * });
+         * setOpen(true);
+         */
+
     };
 
     const descriptionElementRef = useRef(null);
-    useEffect(() => {
-        if (props.open) {
-            setScroll(scroll);
+    useEffect(
+        () => {
 
-            const { current: descriptionElement } = descriptionElementRef;
-            if (descriptionElement !== null) {
-                descriptionElement.focus();
+            if (props.open) {
+
+                setScroll(scroll);
+
+                const {"current": descriptionElement} = descriptionElementRef;
+                if (descriptionElement !== null) {
+
+                    descriptionElement.focus();
+
+                }
+
             }
-        }
-    }, [props.open]);
 
-    useEffect(() => {
-        if (props.tenants !== undefined) {
+        },
+        [props.open]
+    );
+
+    useEffect(
+        () => {
+
             props.setContract(props.contract);
-        }
-    }, [props.contract]);
 
+        },
+        [props.contract]
+    );
 
     return (
         <div>
@@ -134,7 +183,8 @@ const PropertyModal = (props) => {
                             component="div"
                             align="center"
                             className={styles.titleText}
-                            sx={{ fontSize: "26px", fontWeight: "800" }}
+                            sx={{"fontSize": "26px",
+                                "fontWeight": "800"}}
                         >
                             {props.property.name}
                         </DialogTitle>
@@ -153,8 +203,8 @@ const PropertyModal = (props) => {
                                     className={styles.headerText}
                                 >
                                     {
-                                        LandlordTexts.LandlordPropsTexts
-                                            .propModalTitle1
+                                        LandlordTexts.LandlordPropsTexts.
+                                            propModalTitle1
                                     }
                                 </DialogContent>
                             </Grid>
@@ -179,8 +229,8 @@ const PropertyModal = (props) => {
                                     className={styles.headerText}
                                 >
                                     {
-                                        LandlordTexts.LandlordPropsTexts
-                                            .propModalTitle2
+                                        LandlordTexts.LandlordPropsTexts.
+                                            propModalTitle2
                                     }
                                 </DialogContent>
                             </Grid>
@@ -195,37 +245,42 @@ const PropertyModal = (props) => {
                             </Grid>
                         </Grid>
                         <DialogContent className={styles.dividerLight} />
+                        <Grid container >
+                            <Grid item xs={12} align="center" sx={{paddingTop: '20px'}}>
+                                {props.contract === null ||
+                                props.contract === undefined
+                                    ? <GreenButton variant="outlined">Create Contract</GreenButton>
+
+                                    : <BlueButton variant="contained"
+                                        onClick={() => openContract(
+                                            props.property,
+                                            props.contract
+                                        )
+                                        }
+                                    >
+                                        Open Contract
+                                    </BlueButton>
+                                }
+                            </Grid>
+                        </Grid>
                         <Grid container>
-                            <Grid item xs={9}>
+                            <Grid item xs={12}>
                                 <DialogContent
                                     id="scroll-dialog-description"
                                     ref={descriptionElementRef}
                                     component="div"
                                     className={styles.headerText}
-                                    sx={{ textAlign: "center" }}
+                                    sx={{"textAlign": "center"}}
                                 >
                                     {
-                                        LandlordTexts.LandlordPropsTexts
-                                            .propTenantTitle
+                                        LandlordTexts.LandlordPropsTexts.
+                                            propTenantTitle
                                     }
                                 </DialogContent>
                             </Grid>
-                            <Grid item xs={3}>
-                                {props.contract == undefined ||
-                                props.contract == null ? (
-                                    <Button>Create Contract</Button>
-                                ) : (
-                                    <Button onClick={() => openContract(props.property, props.contract)}>
-                                        Open Contract
-                                    </Button>
-                                )}
-                            </Grid>
-
-                            {props.tenants !== undefined && (
-                                <Grid item xs={12}>
-                                    {props.tenants.map((tenant, key) => {
-                                        return (
-                                            <Grid container key={key}>
+                            {props.tenants !== null &&
+                                        <Grid item xs={12}>
+                                            {props.tenants.map((tenant, key) => <Grid container key={key}>
                                                 <Grid item xs={2}>
                                                     <DialogContent
                                                         component="div"
@@ -247,27 +302,26 @@ const PropertyModal = (props) => {
                                                         {tenant.name}
                                                     </DialogContent>
                                                 </Grid>
-                                            </Grid>
-                                        );
-                                    })}
-                                </Grid>
-                            )}
+                                            </Grid>)}
+                                        </Grid>
+                            }
                         </Grid>
                     </DialogContent>
                 </Grid>
             </Dialog>
         </div>
     );
+
 };
 
 PropertyModal.propTypes = {
-    tenants: PropTypes.array,
-    setTenants: PropTypes.any,
-    open: PropTypes.bool,
-    setOpen: PropTypes.any,
-    setContract: PropTypes.any,
-    property: PropTypes.object,
-    contract: PropTypes.object,
+    "tenants": PropTypes.array,
+    "setTenants": PropTypes.any,
+    "open": PropTypes.bool,
+    "setOpen": PropTypes.any,
+    "setContract": PropTypes.any,
+    "property": PropTypes.object,
+    "contract": PropTypes.object
 };
 
 export default PropertyModal;

@@ -1,143 +1,202 @@
-import React from "react";
+/* eslint-disable max-lines */
+/* eslint-disable no-undefined */
+/* eslint-disable no-use-before-define */
+/* eslint-disable sort-imports */
+/* eslint-disable no-return-assign */
+/* eslint-disable max-statements */
+/* eslint-disable max-lines-per-function */
 import {
+    Button,
     Dialog,
     DialogContent,
     DialogTitle,
-    Grid,
-    TextField,
-    Button,
-    RadioGroup,
-    Radio,
     FormControlLabel,
+    Grid,
+    Radio,
+    RadioGroup,
+    TextField
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import { FormControlUnstyled } from "@mui/base";
-import { useEffect, useRef, useState } from "react";
+import {makeStyles} from "@mui/styles";
+import {FormControlUnstyled} from "@mui/base";
+import React, {useEffect, useRef, useState} from "react";
 import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
 import AppTheme from "../../../assets/theme/theme";
 import PropTypes from "prop-types";
-import { Box } from "@mui/system";
+import {Box} from "@mui/system";
 import axios from "axios";
 
 const useStyles = makeStyles(() => ({
-    titleText: {
-        paddingBottom: "5 !important",
-        color: `${AppTheme.palette.landlord.dark} !important`,
+    "titleText": {
+        "paddingBottom": "5 !important",
+        "color": `${AppTheme.palette.landlord.dark} !important`
     },
 
-    headerText: {
-        paddingTop: "8px !important",
-        fontWeight: "600 !important",
-        fontSize: 22,
-        color: `${AppTheme.palette.landlord.dark} !important`,
+    "headerText": {
+        "paddingTop": "8px !important",
+        "fontWeight": "600 !important",
+        "fontSize": 22,
+        "color": `${AppTheme.palette.landlord.dark} !important`
     },
 
-    infoText: {
-        fontSize: 22,
-        textAlign: "right !important",
+    "infoText": {
+        "fontSize": 22,
+        "textAlign": "right !important"
     },
 
-    tenantBox: {
-        border: "1px solid #000",
-        borderRadius: "2px",
-        padding: "10px",
+    "tenantBox": {
+        "border": "1px solid #000",
+        "borderRadius": "2px",
+        "padding": "10px"
     },
 
-    tenantText: {
-        padding: "10px",
+    "tenantText": {
+        "padding": "10px"
     },
 
-    divider: {
-        borderBottom: "2px solid black !important",
-        padding: "0 !important",
-        marginLeft: "5%",
-        marginRight: "5%",
+    "divider": {
+        "borderBottom": "2px solid black !important",
+        "padding": "0 !important",
+        "marginLeft": "5%",
+        "marginRight": "5%"
     },
-    dividerLight: {
-        borderBottom: "1px solid #808080 !important",
-        padding: "0 !important",
-        marginLeft: "5%",
-        marginRight: "5%",
-    },
+    "dividerLight": {
+        "borderBottom": "1px solid #808080 !important",
+        "padding": "0 !important",
+        "marginLeft": "5%",
+        "marginRight": "5%"
+    }
 }));
 
 export function useIsMounted() {
+
     const isMounted = useRef(false);
 
-    useEffect(() => {
-        isMounted.current = true;
-        return () => (isMounted.current = false);
-    }, []);
+    useEffect(
+        () => {
+
+            isMounted.current = true;
+            return () => isMounted.current = false;
+
+        },
+        []
+    );
 
     return isMounted;
+
 }
 
 const PropertyAddModal = (props) => {
+
     const styles = useStyles();
 
-    const [scroll, setScroll] = useState("paper");
-    const [propName, setPropName] = useState();
-    const [propPostcode, setPropPostcode] = useState("");
-    const [occupied, setOccupied] = useState();
-    const [nameError, setNameError] = useState();
-    const [postError, setPostError] = useState();
-    const [occuError, setOccuError] = useState();
+    const [
+        scroll,
+        setScroll
+    ] = useState("paper");
+    const [
+        propName,
+        setPropName
+    ] = useState();
+    const [
+        propPostcode,
+        setPropPostcode
+    ] = useState("");
+    const [
+        occupied,
+        setOccupied
+    ] = useState();
+    const [
+        nameError,
+        setNameError
+    ] = useState();
+    const [
+        postError,
+        setPostError
+    ] = useState();
+    const [
+        occuError,
+        setOccuError
+    ] = useState();
     const handleClose = () => {
+
         props.setAdd(false);
+
     };
 
     const validate = () => {
+
         if (propName === null || propName === undefined) {
+
             setNameError(true);
             setPostError(false);
             setOccuError(false);
+
         } else if (!validPostCode.test(propPostcode)) {
+
             setNameError(false);
             setPostError(true);
             setOccuError(false);
+
         } else if (occupied === null || occupied === undefined) {
+
             setNameError(false);
             setPostError(false);
             setOccuError(true);
+
         } else {
+
             setNameError(false);
             setPostError(false);
             setOccuError(false);
 
             props.setAdd(false);
-            axios
-                .post("/properties", {
-                    name: propName,
-                    location: propPostcode,
-                    status: occupied,
-                })
-                .then((res) => {
-                    console.log(res);
+            axios.
+                post(
+                    "/properties",
+                    {
+                        "name": propName,
+                        "location": propPostcode,
+                        "status": occupied
+                    }
+                ).
+                then(() => {
+
                     window.location.reload();
-                })
-                .catch((error) => {
-                    console.log(error.message);
+
                 });
+
         }
+
     };
 
     const descriptionElementRef = useRef(null);
-    useEffect(() => {
-        if (props.add) {
-            setScroll(scroll);
+    useEffect(
+        () => {
 
-            const { current: descriptionElement } = descriptionElementRef;
-            if (descriptionElement !== null) {
-                descriptionElement.focus();
+            if (props.add) {
+
+                setScroll(scroll);
+
+                const {"current": descriptionElement} = descriptionElementRef;
+                if (descriptionElement !== null) {
+
+                    descriptionElement.focus();
+
+                }
+
             }
-        }
-    }, [props.add]);
 
-    // useEffect(() => {
-    //     if (props.tenants !== undefined) {
-    //         props.setTenants(props.tenants);
-    //     }
-    // }, [props.tenants]);
+        },
+        [props.add]
+    );
+
+    /*
+     * UseEffect(() => {
+     *     if (props.tenants !== undefined) {
+     *         props.setTenants(props.tenants);
+     *     }
+     * }, [props.tenants]);
+     */
 
     return (
         <div>
@@ -155,7 +214,8 @@ const PropertyAddModal = (props) => {
                             component="div"
                             align="center"
                             className={styles.titleText}
-                            sx={{ fontSize: "26px", fontWeight: "800" }}
+                            sx={{"fontSize": "26px",
+                                "fontWeight": "800"}}
                         >
                             {LandlordTexts.LandlordAddPropsTexts.addModalTitle1}
                         </DialogTitle>
@@ -181,9 +241,9 @@ const PropertyAddModal = (props) => {
                                             className={styles.headerText}
                                         >
                                             {
-                                                LandlordTexts
-                                                    .LandlordAddPropsTexts
-                                                    .addModalTitle2
+                                                LandlordTexts.
+                                                    LandlordAddPropsTexts.
+                                                    addModalTitle2
                                             }
                                         </DialogContent>
                                     </Grid>
@@ -194,13 +254,12 @@ const PropertyAddModal = (props) => {
                                             required={true}
                                             id="prop-name"
                                             label={
-                                                LandlordTexts
-                                                    .LandlordAddPropsTexts
-                                                    .addModalContent2
+                                                LandlordTexts.
+                                                    LandlordAddPropsTexts.
+                                                    addModalContent2
                                             }
                                             className={styles.infoText}
-                                            onChange={(e) =>
-                                                setPropName(e.target.value)
+                                            onChange={(e) => setPropName(e.target.value)
                                             }
                                         ></TextField>
                                     </Grid>
@@ -209,7 +268,7 @@ const PropertyAddModal = (props) => {
                                 <Grid
                                     container
                                     justify="center"
-                                    sx={{ paddingTop: "10px" }}
+                                    sx={{"paddingTop": "10px"}}
                                 >
                                     <Grid item xs={6}>
                                         <DialogContent
@@ -220,9 +279,9 @@ const PropertyAddModal = (props) => {
                                             className={styles.headerText}
                                         >
                                             {
-                                                LandlordTexts
-                                                    .LandlordAddPropsTexts
-                                                    .addModalTitle3
+                                                LandlordTexts.
+                                                    LandlordAddPropsTexts.
+                                                    addModalTitle3
                                             }
                                         </DialogContent>
                                     </Grid>
@@ -233,13 +292,12 @@ const PropertyAddModal = (props) => {
                                             required={true}
                                             id="prop-postcode"
                                             label={
-                                                LandlordTexts
-                                                    .LandlordAddPropsTexts
-                                                    .addModalContent3
+                                                LandlordTexts.
+                                                    LandlordAddPropsTexts.
+                                                    addModalContent3
                                             }
                                             className={styles.infoText}
-                                            onChange={(e) =>
-                                                setPropPostcode(e.target.value)
+                                            onChange={(e) => setPropPostcode(e.target.value)
                                             }
                                         ></TextField>
                                     </Grid>
@@ -247,7 +305,7 @@ const PropertyAddModal = (props) => {
                                 <Grid
                                     container
                                     justify="center"
-                                    sx={{ paddingTop: "10px" }}
+                                    sx={{"paddingTop": "10px"}}
                                 >
                                     <Grid item xs={6}>
                                         <DialogContent
@@ -258,9 +316,9 @@ const PropertyAddModal = (props) => {
                                             className={styles.headerText}
                                         >
                                             {
-                                                LandlordTexts
-                                                    .LandlordAddPropsTexts
-                                                    .addModalTitle4
+                                                LandlordTexts.
+                                                    LandlordAddPropsTexts.
+                                                    addModalTitle4
                                             }
                                         </DialogContent>
                                     </Grid>
@@ -273,8 +331,7 @@ const PropertyAddModal = (props) => {
                                             id="prop-postcode"
                                             defaultValue={false}
                                             className={styles.infoText}
-                                            onChange={(e) =>
-                                                setOccupied(e.target.value)
+                                            onChange={(e) => setOccupied(e.target.value)
                                             }
                                         >
                                             <FormControlLabel
@@ -303,12 +360,12 @@ const PropertyAddModal = (props) => {
                                 size="large"
                             >
                                 {
-                                    LandlordTexts.LandlordAddPropsTexts
-                                        .AddModalButton
+                                    LandlordTexts.LandlordAddPropsTexts.
+                                        AddModalButton
                                 }
                             </Button>
                         </Box>
-                        {postError && postError !== undefined && (
+                        {postError && postError !== undefined &&
                             <>
                                 <DialogContent
                                     className={styles.dividerLight}
@@ -320,13 +377,13 @@ const PropertyAddModal = (props) => {
                                     className={styles.headerText}
                                 >
                                     {
-                                        LandlordTexts.LandlordAddPropsTexts
-                                            .AddModalPostError
+                                        LandlordTexts.LandlordAddPropsTexts.
+                                            AddModalPostError
                                     }
                                 </DialogContent>
                             </>
-                        )}
-                        {occuError && (
+                        }
+                        {occuError &&
                             <>
                                 <DialogContent
                                     className={styles.dividerLight}
@@ -338,13 +395,13 @@ const PropertyAddModal = (props) => {
                                     className={styles.headerText}
                                 >
                                     {
-                                        LandlordTexts.LandlordAddPropsTexts
-                                            .AddModalOccuError
+                                        LandlordTexts.LandlordAddPropsTexts.
+                                            AddModalOccuError
                                     }
                                 </DialogContent>
                             </>
-                        )}
-                        {nameError && (
+                        }
+                        {nameError &&
                             <>
                                 <DialogContent
                                     className={styles.dividerLight}
@@ -356,29 +413,28 @@ const PropertyAddModal = (props) => {
                                     className={styles.headerText}
                                 >
                                     {
-                                        LandlordTexts.LandlordAddPropsTexts
-                                            .AddModalNameError
+                                        LandlordTexts.LandlordAddPropsTexts.
+                                            AddModalNameError
                                     }
                                 </DialogContent>
                             </>
-                        )}
+                        }
                     </Grid>
                 </Grid>
             </Dialog>
         </div>
     );
+
 };
 
 PropertyAddModal.propTypes = {
-    tenants: PropTypes.array,
-    setTenants: PropTypes.any,
-    add: PropTypes.bool,
-    setAdd: PropTypes.any,
-    setProperty: PropTypes.any,
+    "tenants": PropTypes.array,
+    "setTenants": PropTypes.any,
+    "add": PropTypes.bool,
+    "setAdd": PropTypes.any,
+    "setProperty": PropTypes.any
 };
 
-export const validPostCode = new RegExp(
-    "^([A-Za-z][A-Ha-hJ-Yj-y]?[0-9][A-Za-z0-9]? ?[0-9][A-Za-z]{2}|[Gg][Ii][Rr] ?0[Aa]{2})$"
-);
+export const validPostCode = /^([A-Za-z][A-Ha-hJ-Yj-y]?[0-9][A-Za-z0-9]? ?[0-9][A-Za-z]{2}|[Gg][Ii][Rr] ?0[Aa]{2})$/;
 
 export default PropertyAddModal;

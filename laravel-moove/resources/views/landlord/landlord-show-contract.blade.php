@@ -1,7 +1,9 @@
 @extends('layouts.head')
 @section('title')
-<title>moove - tenant list</title>
+<title>moove - Property Contract</title>
 @endsection
 @section('content')
+<div>
 <PropertyContract></PropertyContract>
+</div>
 @endsection
