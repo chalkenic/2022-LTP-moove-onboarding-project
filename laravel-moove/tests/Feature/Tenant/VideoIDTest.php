@@ -32,7 +32,7 @@ class VideoIDTest extends TestCase
 
         Storage::fake('videos');
 
-        $file = UploadedFile::fake()->image('user.mp4');
+        $file = UploadedFile::fake()->create('user.mp4');
 
         $response = $this->post('/tenant-upload-video', ['title' => 'USER', 'video' => $file]);
 
