@@ -11,6 +11,7 @@ function SigningComponent() {
   const clear = () => sigCanvas.current.clear();
   const save = () =>
     setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
+
   const uploadToDb = () => {
     axios
     .post("/landlord-sign-tenancy", {

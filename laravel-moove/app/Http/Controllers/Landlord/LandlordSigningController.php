@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Landlord;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use JavaScript;
+use App\Models\Tenancy;
+use App\Http\Middleware\Authenticate;
 
 class LandlordSigningController extends Controller
 {
@@ -25,11 +27,10 @@ class LandlordSigningController extends Controller
     public function store(Request $request)
     {
         $signature = $request->landlordSignature;
-        Tenancy::where('user_id', Auth::id())
+        Tenancy::where('user_id', auth()->user()->id)
         ->update(['landlord_signature_blob' => $signature]);
 
     return view('landlord.landlord-sign-tenancy');
-
     }
 
 }
