@@ -28,7 +28,20 @@ class LandlordSignatureTest extends TestCase
         $response = $this->get('/landlord-sign-tenancy/1');
 
         $response->assertStatus(200)
-            ->assertViewIs('landlord.landlord-sign-tenancy')
-            ->assertSee('Open Signature Pad')
+            ->assertViewIs('landlord.landlord-sign-tenancy');
     }
-}
+    /**
+     * @test
+     */
+    public function landlord_can_see_signature_component()
+    {
+        $landlord = User::factory()->create(['role' => 'LANDLORD']);
+        $property = Property::factory()->create(['name'=> 'testProperty', 'user_id' => '1', 'location' => 'testLocation', 'status'=> 'occupied']);
+        Auth::login($landlord);
+
+        $response = $this->get('/landlord-sign-tenancy/1');
+
+        $response->assertStatus(200)
+            ->assertSee('SigningComponent');
+    }
+};
