@@ -52,5 +52,14 @@ class PropertySeeder extends Seeder
             'verified' => 0,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+
+                DB::table('properties')->insert([
+            'user_id'=> 8,
+            'name' => 'Not Ronans',
+            'location' => 'The bay',
+            'status' => 'vacant',
+            'verified' => 0,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 }

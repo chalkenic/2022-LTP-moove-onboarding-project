@@ -4,7 +4,7 @@ module.exports = {
         "es2021": true
     },
     "extends": [
-        "eslint:recommended",
+        "eslint:all",
         "plugin:react/recommended"
     ],
     "parserOptions": {
@@ -19,6 +19,26 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "max-len": [
+            "error",
+            {
+                "code": 120
+            }
+        ],
+        "no-magic-numbers": [
+            "error",
+            {
+                "ignore": [0, 1]
+            }
+        ],
+        "no-undef": "off",
+        "id-length": "off",
+        "class-methods-use-this": "off",
+        "sort-keys": "off",
+        "one-var": "off",
+        "sort-vars": "off",
+        "func-style": "off",
+        "space-before-function-paren": "off"
     },
     "settings": {
         "react": {

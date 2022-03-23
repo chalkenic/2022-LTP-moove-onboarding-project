@@ -1,6 +1,6 @@
-import { useCallback, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
-import LandlordHeader from "../components/headers/LandlordHeader";
+import PropertiesHeader from "../components/headers/PropertiesHeader";
 import PropertyCard from "../cards/PropertyCard";
 import Property from "../components/landlord/property/Property";
 import React, { useState } from "react";
@@ -8,7 +8,6 @@ import PropertyModal from "../components/landlord/property/PropertyModal";
 import PropertyAddModal from "../components/landlord/property/PropertyAddModal";
 import axios from "axios";
 import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp";
-import { Box } from "@mui/system";
 
 const LandlordProperties = () => {
     const properties = window.properties;
@@ -54,7 +53,7 @@ const LandlordProperties = () => {
 
     return (
         <div>
-            <LandlordHeader />
+            <PropertiesHeader role="landlord" />
 
             <Grid container justifyContent="center">
                 <Grid
