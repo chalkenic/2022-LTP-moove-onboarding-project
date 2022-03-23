@@ -35,7 +35,7 @@ cache:
 before_script:
   - apt-get update -y
   - apt-get upgrade -y
-  - apt-get install git-core php7.4
+  - apt-get install git-core
   # Install Composer and project dependencies.
   - cd laravel-moove && curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
