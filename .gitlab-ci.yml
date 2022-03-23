@@ -15,6 +15,7 @@ services:
   - mysql:latest
 
 variables:
+  GIT_STRATEGY: clone
   MYSQL_DATABASE: project_name
   MYSQL_ROOT_PASSWORD: secret
 
