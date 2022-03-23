@@ -38,7 +38,7 @@ before_script:
   - apt-get install git-core -y
   - apt-get install zip unzip -y
   - apt-get install npm -y
-  - apt-get install php7.4-sqlite3 -y
+  - apt-get install php-sqlite3 -y
   # Install Composer and project dependencies.
   - cd laravel-moove && curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
