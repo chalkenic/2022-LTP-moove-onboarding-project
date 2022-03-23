@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Landlord\LandlordController;
 use App\Http\Controllers\Landlord\PropertyController;
+use App\Http\Controllers\Landlord\ContractController;
 use Illuminate\Support\Facades\Route;
 
 // Auth routes
@@ -55,6 +56,7 @@ Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landl
 Route::get('/properties', [PropertyController::class, 'index'])-> name('landlord.landlord-properties');
 Route::post('/properties', [PropertyController::class, 'store']); 
 Route::get('/tenants/{id}', [PropertyController::class, 'tenants']);
+Route::get('/create-contract', [ContractController::class, 'index'])->name('landlord.landlord-create-contract');
 
 
 // Admin routes

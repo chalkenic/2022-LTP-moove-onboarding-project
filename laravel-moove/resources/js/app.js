@@ -15,6 +15,7 @@ import Property from './react/components/landlord/Property';
 import PropertyCard from '../js/react/cards/PropertyCard';
 import TenantList from '../js/react/components/admin/TenantList';
 import TenantApplication from '../js/react/components/admin/TenantApplication';
+import ContractCreation from './react/components/landlord/ContractCreation';
 
 const components = [
     {
@@ -66,6 +67,8 @@ const components = [
         name: "TenantApplication",
         component: <TenantApplication />
     },
+    { name: 'ContractCreation',
+component: <ContractCreation />}
 
 
 ]
