@@ -17,7 +17,6 @@ default:
 # Check out: http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 services:
   - mysql:latest
-  - keinos/sqlite3:latest
 
 variables:
   GIT_STRATEGY: clone
@@ -52,7 +51,7 @@ before_script:
   # DB_DATABASE=project_name
   # DB_USERNAME=root
   # DB_PASSWORD=secret
-  - cp .env.example .env
+  - cp .env.example .env.testing
   # Run npm build
   # comment this out if you don't have a frontend build
   # you can change this to to your frontend building script like
