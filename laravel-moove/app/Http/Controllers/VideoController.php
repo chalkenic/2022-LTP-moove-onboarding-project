@@ -38,7 +38,7 @@ class VideoController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|string|max:255',
-            'video' => 'required|file|mimetypes:video/mp4',
+            'video' => 'required|file|mimetypes:video/mp4|max:20000',
         ]);
 
     $video = new Video;
