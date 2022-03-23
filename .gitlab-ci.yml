@@ -69,4 +69,4 @@ before_script:
 test:
   script:
     # run laravel tests
-    - php vendor/bin/phpunit --coverage-text --colors=never
+    - php vendor/bin/phpunit --coverage-text --colors=never tests
