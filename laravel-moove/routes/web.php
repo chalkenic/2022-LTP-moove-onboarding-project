@@ -59,7 +59,7 @@ Route::get('/landlord-properties', function() {
     return view('landlord.landlord-properties');
 });
 Route::get('/landlord-sign-tenancy/{id}', [LandlordSigningController::class, 'index'])-> name('landlord.landlord-sign-tenancy');
-Route::post('/landlord-sign-tenancy/{id}', [LandlordSigningController::class, 'store']);
+Route::post('/landlord-sign-tenancy', [LandlordSigningController::class, 'store']);
 Route::get('/properties', [PropertyController::class, 'index'])-> name('landlord.landlord-properties');
 Route::post('/properties', [PropertyController::class, 'store']); 
 Route::get('/tenants/{id}', [PropertyController::class, 'tenants']);
