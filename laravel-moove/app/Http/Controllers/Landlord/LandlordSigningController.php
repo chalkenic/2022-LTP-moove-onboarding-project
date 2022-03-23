@@ -32,7 +32,7 @@ class LandlordSigningController extends Controller
         Tenancy::where('property_id', $propertyId)
         ->update(['landlord_signature_blob' => $signature]);
 
-    return view('landlord.landlord-sign-tenancy');
+        return redirect()->back();
     }
 
 }
