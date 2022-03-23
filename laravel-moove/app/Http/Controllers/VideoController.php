@@ -20,7 +20,7 @@ class VideoController extends Controller
             'title' => 'required|string|max:255',
         ]);
 
-        $title = $request -> titleInput;
+        $title = $request -> title;
 
         $video = DB::table('videos')->where('title', $title)->first();
 
