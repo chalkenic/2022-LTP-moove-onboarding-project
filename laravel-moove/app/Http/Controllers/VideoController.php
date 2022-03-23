@@ -16,6 +16,9 @@ class VideoController extends Controller
 
     public function index(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+        ]);
 
         $title = $request -> titleInput;
 
