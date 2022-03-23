@@ -13,8 +13,8 @@ import {
 import { makeStyles } from "@mui/styles";
 import { FormControlUnstyled } from "@mui/base";
 import { useEffect, useRef, useState } from "react";
-import * as LandlordTexts from "../../assets/texts/LandlordTexts";
-import AppTheme from "../../assets/theme/theme";
+import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
+import AppTheme from "../../../assets/theme/theme";
 import PropTypes from "prop-types";
 import { Box } from "@mui/system";
 import axios from "axios";

@@ -43,9 +43,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
 Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
 Route::get('/apply-tenancy', [TenantApplyController::class, 'index'])->name('tenant.apply-tenancy');
-
-// Landlord routes
-Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
 Route::get('/application', [ApplicationController::class, 'index'])->name('tenant.application');
 Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
 Route::post('/start-application', [ApplicationController::class, 'store']);
@@ -55,8 +52,12 @@ Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.up
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
 Route::get('/properties', [PropertyController::class, 'index'])-> name('landlord.landlord-properties');
 Route::post('/properties', [PropertyController::class, 'store']); 
-Route::get('/tenants/{id}', [PropertyController::class, 'tenants']);
-Route::get('/create-contract', [ContractController::class, 'index'])->name('landlord.landlord-create-contract');
+Route::get('/tenants/{id}', [PropertyController::class, 'show']);
+Route::get('/contract/{id}', [ContractController::class, 'index'])->name('landlord.landlord-show-contract');
+Route::get('/get-contract/{id}', [ContractController::class, 'show']);
+Route::get('/create-contract', [ContractController::class, 'create'])->name('landlord.landlord-create-contract');
+Route::post('/create-contract', [ContractController::class, 'store']);
+
 
 
 // Admin routes

@@ -48,7 +48,7 @@ class PropertyController extends Controller
         return back();
     }
 
-    public function tenants($id){
+    public function show($id){
         // COnfirm property exists within database.
         if(Property::where('id', $id)->exists()) { 
             

@@ -2,10 +2,10 @@ import { useCallback, Grid, Typography } from "@mui/material";
 
 import LandlordHeader from "../components/headers/LandlordHeader";
 import PropertyCard from "../cards/PropertyCard";
-import Property from "../components/landlord/Property";
+import Property from "../components/landlord/property/Property";
 import React, { useState } from "react";
-import PropertyModal from "../components/landlord/PropertyModal";
-import PropertyAddModal from "../components/landlord/PropertyAddModal";
+import PropertyModal from "../components/landlord/property/PropertyModal";
+import PropertyAddModal from "../components/landlord/property/PropertyAddModal";
 import axios from "axios";
 import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp";
 import { Box } from "@mui/system";
@@ -16,14 +16,25 @@ const LandlordProperties = () => {
     const [add, setAdd] = useState(false);
     const [property, setProperty] = useState({});
     const [tenants, setTenants] = useState([]);
+    const [contract, setContract] = useState({});
 
     // Source all tenants relating to property on modal open.
     const handleOpen = (property) => {
         setProperty(property);
         let propUrl = `/tenants/${property.id}`;
+        let contUrl = `/get-contract/${property.id}`;
         axios.get(propUrl).then((res) => {
             setTenants(res.data.tenants);
         });
+        axios.get(contUrl).then((res) => {
+            if (res.status == 200) {
+                console.log("found a contract!", console.log(res.data.contract));
+                setContract(res.data.contract);
+            } else {
+                setContract();
+            }
+        });
+
         setOpen(true);
     };
 
@@ -38,6 +49,7 @@ const LandlordProperties = () => {
         setAdd(false);
         setProperty();
         setTenants();
+        setContract();
     };
 
     return (
@@ -124,6 +136,8 @@ const LandlordProperties = () => {
                     property={property}
                     tenants={tenants}
                     setTenants={setTenants}
+                    contract={contract}
+                    setContract={setContract}
                 />
             )}
             {add && (

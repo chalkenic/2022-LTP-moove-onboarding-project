@@ -8,9 +8,10 @@ import {
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useEffect, useRef, useState } from "react";
-import * as LandlordTexts from "../../assets/texts/LandlordTexts";
-import AppTheme from "../../assets/theme/theme";
+import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
+import AppTheme from "../../../assets/theme/theme";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 const useStyles = makeStyles(() => ({
     titleText: {
@@ -42,8 +43,6 @@ const useStyles = makeStyles(() => ({
     divider: {
         borderBottom: "2px solid black !important",
         padding: "0 !important",
-        marginLeft: "5%",
-        marginRight: "5%",
     },
     dividerLight: {
         borderBottom: "1px solid #808080 !important",
@@ -64,20 +63,40 @@ export function useIsMounted() {
     return isMounted;
 }
 
-const openContract = () => {
-    // let propUrl = `/tenants/${property.id}`;
-    // axios.get(propUrl).then((res) => {
-    //     setTenants(res.data.tenants);
-    // });
-    // setOpen(true);
-};
+const newContract = (property) => {};
 
 const PropertyModal = (props) => {
     const styles = useStyles();
+    const [property, setProperty] = useState(props.property);
+    const [contract, setContract] = useState(props.contract);
+
+    console.log(props.property);
+    console.log(props.contract);
 
     const [scroll, setScroll] = useState("paper");
     const handleClose = () => {
         props.setOpen(false);
+    };
+
+    const openContract = (chosenProp, chosenCont) => {
+        // sanity check
+        console.log(chosenProp, " &&", chosenCont);
+        axios.get(`/contract/",${chosenProp.id}`);
+
+        // axios({
+        //     url: 'open-contract',
+        //     headers: {},
+        //     data: {property: props.property, contract: props.contract},
+        // }).then((res) =>{console.log('data: ', res.propData);})
+        // .catch((err) => {console.log(err.message);})
+
+        // let propUrl = `/contracts/${property.id}`;
+        // axios.get(propUrl);
+        // let propUrl = `/tenants/${property.id}`;
+        // axios.get(propUrl).then((res) => {
+        //     setTenants(res.data.tenants);
+        // });
+        // setOpen(true);
     };
 
     const descriptionElementRef = useRef(null);
@@ -94,9 +113,10 @@ const PropertyModal = (props) => {
 
     useEffect(() => {
         if (props.tenants !== undefined) {
-            props.setTenants(props.tenants);
+            props.setContract(props.contract);
         }
-    }, [props.tenants]);
+    }, [props.contract]);
+
 
     return (
         <div>
@@ -191,12 +211,14 @@ const PropertyModal = (props) => {
                                 </DialogContent>
                             </Grid>
                             <Grid item xs={3}>
-                                <Button
-                                    contained
-                                    onClick={() => openContract(props.property)}
-                                >
-                                    Contract
-                                </Button>
+                                {props.contract == undefined ||
+                                props.contract == null ? (
+                                    <Button>Create Contract</Button>
+                                ) : (
+                                    <Button onClick={() => openContract(props.property, props.contract)}>
+                                        Open Contract
+                                    </Button>
+                                )}
                             </Grid>
 
                             {props.tenants !== undefined && (
@@ -243,7 +265,9 @@ PropertyModal.propTypes = {
     setTenants: PropTypes.any,
     open: PropTypes.bool,
     setOpen: PropTypes.any,
+    setContract: PropTypes.any,
     property: PropTypes.object,
+    contract: PropTypes.object,
 };
 
 export default PropertyModal;
