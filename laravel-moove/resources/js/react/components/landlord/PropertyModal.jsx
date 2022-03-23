@@ -3,6 +3,7 @@ import {
     DialogContent,
     DialogTitle,
     Grid,
+    Button,
 } from "@mui/material";
 import { makeStyles, ThemeProvider } from "@mui/styles";
 import { useEffect, useRef, useState } from "react";
@@ -203,7 +204,10 @@ const PropertyModal = (props) => {
                                 </Grid>
                             )}
                         </Grid>
+                        
                     </DialogContent>
+
+                    <Button href={"/landlord-sign-tenancy/"+props.property.id}s style={{margin: '0 auto', display: "flex"}}>Sign Tenancy</Button>
                     {/* 
                     <Typography
                         variant="body1"
@@ -234,7 +238,9 @@ const PropertyModal = (props) => {
 				// </
                 Grid> */}
                 </Grid>
+                
             </Dialog>
+
         </div>
     );
 };
