@@ -16,6 +16,7 @@ function SigningComponent() {
     axios
     .post("/landlord-sign-tenancy", {
         landlordSignature: imageURL,
+        propertyId: window.property.id,
     })
     .then((res) => {
         console.log(res);
