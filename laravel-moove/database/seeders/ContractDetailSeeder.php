@@ -5,8 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
-class ContractSeeder extends Seeder
+class ContractDetailSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,13 +14,10 @@ class ContractSeeder extends Seeder
      */
     public function run()
     {
-
-        DB::table('contracts')->insert([
-            'property_id' => 1,
-            'user_id' => 7,
-            'landlord_signed' => 0,
-            'tenant_signed' => 0,
+        DB::table('contractDetails')->insert([
+            'contract_id'=> 1,
+            'section_header' => 'Lorem Ipsum',
+            'section_content' => 'some random lorem ipsum text that no-one knows what it means...',
         ]);
-        //
     }
 }

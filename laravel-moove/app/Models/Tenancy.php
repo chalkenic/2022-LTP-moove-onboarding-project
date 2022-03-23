@@ -18,6 +18,10 @@ class Tenancy extends Model
         return $this->hasOne(Property::class);
     }
 
+        public function contract() {
+        return $this->hasOne(Contract::class);
+    }
+
 
     public function users() {
         return $this->hasMany(User::class);

@@ -1,5 +1,11 @@
 import React from "react";
-import { Dialog, DialogContent, DialogTitle, Grid } from "@mui/material";
+import {
+    Button,
+    Dialog,
+    DialogContent,
+    DialogTitle,
+    Grid,
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useEffect, useRef, useState } from "react";
 import * as LandlordTexts from "../../assets/texts/LandlordTexts";
@@ -57,6 +63,14 @@ export function useIsMounted() {
 
     return isMounted;
 }
+
+const openContract = () => {
+    // let propUrl = `/tenants/${property.id}`;
+    // axios.get(propUrl).then((res) => {
+    //     setTenants(res.data.tenants);
+    // });
+    // setOpen(true);
+};
 
 const PropertyModal = (props) => {
     const styles = useStyles();
@@ -162,7 +176,7 @@ const PropertyModal = (props) => {
                         </Grid>
                         <DialogContent className={styles.dividerLight} />
                         <Grid container>
-                            <Grid item xs={12}>
+                            <Grid item xs={9}>
                                 <DialogContent
                                     id="scroll-dialog-description"
                                     ref={descriptionElementRef}
@@ -175,6 +189,14 @@ const PropertyModal = (props) => {
                                             .propTenantTitle
                                     }
                                 </DialogContent>
+                            </Grid>
+                            <Grid item xs={3}>
+                                <Button
+                                    contained
+                                    onClick={() => openContract(props.property)}
+                                >
+                                    Contract
+                                </Button>
                             </Grid>
 
                             {props.tenants !== undefined && (

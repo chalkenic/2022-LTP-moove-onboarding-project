@@ -63,13 +63,7 @@ class PropertyController extends Controller
                 200
             );
 
-        } else {
-            return response()->json([
-                'status'=>200,
-                'message'=>`no tenants found for `.$id,
-                            
-            ]);
-        }
+        } 
     }
 }
 
