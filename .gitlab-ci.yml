@@ -45,7 +45,7 @@ before_script:
   - echo "xdebug enabled"
   # Install Composer and project dependencies.
   - curl -sS https://getcomposer.org/installer | php
-  - php composer.phar install
+  - cd laravel-moove && php composer.phar install
   - echo "dependencies installed"
   # Install Node dependencies.
   # comment this out if you don't have a node dependency
