@@ -13,7 +13,7 @@ function SigningComponent() {
     setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
   const uploadToDb = () => {
     axios
-    .post("/landlord-upload-signature", {
+    .post("/landlord-sign-tenancy", {
         landlordSignature: imageURL,
     })
     .then((res) => {
