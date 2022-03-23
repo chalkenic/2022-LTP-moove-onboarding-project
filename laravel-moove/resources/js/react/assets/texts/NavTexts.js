@@ -130,14 +130,6 @@ export var navTextLandlord = [
   },
   {
     id: 4,
-    key: "page_landlord_sign",
-    name: "Sign Tenancy Document",
-    selected: false,
-    link: "/landlord-sign-tenancy ",
-    type: "link",
-  },
-  {
-    id: 5,
     key: "page_messages",
     name: "Messages(*)",
     selected: false,
