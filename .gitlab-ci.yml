@@ -17,7 +17,7 @@ default:
 # Check out: http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 services:
   - mysql:latest
-  - sqlite3:latest
+  - keinos/sqlite3:latest
 
 variables:
   GIT_STRATEGY: clone
