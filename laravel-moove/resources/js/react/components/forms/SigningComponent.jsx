@@ -30,7 +30,7 @@ function SigningComponent() {
   return (
     <div className="App">
       <h1>Confirm Signature for Tenancy</h1>
-      <h1>Property Name:</h1><br></br>
+      <h1>Property Name: {props.property.name}</h1><br></br>
       <Popup
         modal
         trigger={<Button variant="contained" color="primary">Open Signature Pad</Button>}

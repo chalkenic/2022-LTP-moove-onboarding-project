@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use JavaScript;
 use App\Models\Tenancy;
+use App\Models\Property;
 use App\Http\Middleware\Authenticate;
 
 class LandlordSigningController extends Controller
