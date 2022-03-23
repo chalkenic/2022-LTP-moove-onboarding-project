@@ -44,6 +44,7 @@ before_script:
   - php composer.phar install
   # Install Node dependencies.
   # comment this out if you don't have a node dependency
+  - cd laravel-moove
   - npm install
   # Copy over testing configuration.
   # Don't forget to set the database config in .env.testing correctly
