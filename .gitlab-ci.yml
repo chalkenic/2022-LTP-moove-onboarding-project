@@ -32,6 +32,13 @@ before_script:
   # install dependencies
   - php composer.phar install
   - npm install
+  # configure husky
+  - npm prepare
+  - cd ../.husky
+  # make pre-commit executable
+  - chmod -R 755 pre-commit
+  # return to laravel dir
+  - cd ../laravel-moove
   # create .env.testing from example file
   - cp .env.testing.example .env.testing
   # compile assets
@@ -41,3 +48,8 @@ test:
   script:
     # run laravel tests
     - php vendor/bin/phpunit --coverage-text --colors=never tests
+
+lint:
+  script:
+    # run eslint
+    - npm run lintJS
