@@ -19,7 +19,12 @@ cache:
     - laravel-moove/vendor/
     - laravel-moove/node_modules/
 
+stages:
+  - lint
+  - test
+
 lint:
+  stage: lint
   before_script:
     # upgrade
     - apt-get update -y
@@ -49,6 +54,7 @@ lint:
     - npm run lintJS
 
 test:
+  stage: test
   script:
     # run laravel tests
     - php vendor/bin/phpunit --coverage-text --colors=never tests
