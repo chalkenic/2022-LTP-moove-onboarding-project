@@ -113,7 +113,9 @@ const PropertyModal = (props) => {
 
         handleClose();
 
-        axios.get(`/contract/",${chosenProp.id}`);
+        // axios.get(`/contract/${chosenProp.id}`).then();
+
+        window.location.href = `/contract/${chosenProp.id}`;
 
 
         /*
