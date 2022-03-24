@@ -3,7 +3,7 @@
  * and promote separation of concerns.
  */
 
-export var navTextAdmin = [
+export const navTextAdmin = [
     {
         "id": 1,
         "key": "page_home",
