@@ -5,8 +5,7 @@
 @section('content')
 <div>
 
-@auth
-@endauth
-<LandlordProperties />
+<LandlordProperties/>
+
 </div>
 @endsection
