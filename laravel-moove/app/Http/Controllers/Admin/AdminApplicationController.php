@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Application;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminApplicationController extends Controller
 {
@@ -37,7 +39,8 @@ class AdminApplicationController extends Controller
                 'redirectRoute' => route('admin-tenant-list')
             ];
             return view('admin.admin-tenant-application', [
-                'data' => json_encode($data)
+                'data' => json_encode($data),
+                'id' => $id
             ]);
         } else {
             return view('admin.admin-tenant-application')->withErrors([
@@ -57,5 +60,14 @@ class AdminApplicationController extends Controller
         session()->flash('status', $approved ? 'Application approved successfully.' : 'Application denied successfully.');
         
         return response()->noContent();
+    }
+
+
+    public function destroy($id) {
+
+        DB::delete('delete from applications where user_id= ?', [$id]);
+        echo "record deleted successfully.<br>";
+
+        return redirect()->route('admin.home');
     }
 }

@@ -11,4 +11,6 @@
         <TenantApplication data="{{$data}}" />
     @endif
 </div>
+
+<a href='/admin-delete-application/{{$id}}'> Delete Application </a>
 @endsection

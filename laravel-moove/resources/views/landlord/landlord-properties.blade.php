@@ -5,9 +5,6 @@
 @section('content')
 <div>
 
-@auth
-@endauth
-@csrf
 <LandlordProperties/>
 
 </div>

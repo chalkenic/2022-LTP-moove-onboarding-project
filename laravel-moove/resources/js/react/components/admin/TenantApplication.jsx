@@ -37,6 +37,7 @@ const TenantApplication = ({data}) => {
     })
   }
 
+
   return (
     <div>
       <p>{error ?? ''}</p>
@@ -52,7 +53,6 @@ const TenantApplication = ({data}) => {
   
       <Button onClick={handleApproval}>Approve</Button>
       <Button onClick={handleRejection}>Deny</Button>
-      
       {filesOpen &&
       <div className="flex justify-left">
         <table className="min-w-full rounded-lg shadow-md border-1 border-sky-500">
