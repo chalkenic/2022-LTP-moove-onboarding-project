@@ -13,5 +13,9 @@ class Video extends Model
         'title', 'video'
     ];
 
+    public function user() {
+        return $this->hasOne(User::class);
+    }
+
     
 }

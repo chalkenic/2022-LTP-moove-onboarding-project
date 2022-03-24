@@ -65,4 +65,8 @@ class User extends Authenticatable
     public function tenancy() {
         return $this->hasOne(Tenancy::class);
     }
+
+    public function video() {
+        return $this->hasOne(Video::class);
+    }
 }
