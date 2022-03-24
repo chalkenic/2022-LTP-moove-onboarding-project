@@ -37,17 +37,6 @@ const TenantApplication = ({data}) => {
     })
   }
 
-  const handleDelete = () => {
-    setError(null)
-
-    axios.delete('admin-delete-application', {
-      id: data.tenant.id,
-    }).then((res) => {
-      window.location.href = data.redirectRoute
-    }).catch((err) => {
-      setError(err)
-    })
-  }
 
   return (
     <div>
@@ -64,7 +53,6 @@ const TenantApplication = ({data}) => {
   
       <Button onClick={handleApproval}>Approve</Button>
       <Button onClick={handleRejection}>Deny</Button>
-      <Button onClick={handleDelete}>Delete Application</Button>
       {filesOpen &&
       <div className="flex justify-left">
         <table className="min-w-full rounded-lg shadow-md border-1 border-sky-500">

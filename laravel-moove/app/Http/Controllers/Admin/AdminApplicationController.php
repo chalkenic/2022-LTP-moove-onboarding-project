@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Application;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminApplicationController extends Controller
 {
@@ -38,7 +39,8 @@ class AdminApplicationController extends Controller
                 'redirectRoute' => route('admin-tenant-list')
             ];
             return view('admin.admin-tenant-application', [
-                'data' => json_encode($data)
+                'data' => json_encode($data),
+                'id' => $id
             ]);
         } else {
             return view('admin.admin-tenant-application')->withErrors([
@@ -60,14 +62,12 @@ class AdminApplicationController extends Controller
         return response()->noContent();
     }
 
-    public function delete(Request $request) {
-        $userId = $request->input('id');
 
-        Application::where('user_id', $userId)->first()->delete();
+    public function destroy($id) {
 
-        session()->flash('status', 'Application Deleted Successfully');
+        DB::delete('delete from applications where user_id= ?', [$id]);
+        echo "record deleted successfully.<br>";
 
-        return response()->noContent();
-        
+        return redirect()->route('admin.home');
     }
 }
