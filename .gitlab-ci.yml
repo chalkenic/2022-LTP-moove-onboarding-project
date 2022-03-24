@@ -32,11 +32,6 @@ before_script:
   # install dependencies
   - php composer.phar install
   - npm install
-  # configure husky
-  - npm run prepare
-  - cd ../.husky
-  # make pre-commit executable
-  - chmod -R 755 pre-commit
   # return to laravel dir
   - cd ../laravel-moove
   # create .env.testing from example file
