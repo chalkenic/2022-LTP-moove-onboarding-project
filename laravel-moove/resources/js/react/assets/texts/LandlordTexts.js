@@ -68,3 +68,15 @@ export const LandlordAddPropsTexts = {
     "AddModalPostError": "ERROR: Incorrect Postcode format entered",
     "AddModalOccuError": "ERROR: Please confirm if property currently occupied"
 };
+
+export const LandlordShowContTexts = {
+    "contTitle": "Contract for ",
+    "contDesc1": "Lorem Ipsum",
+    "contDesc2": "Lorem Ipsum"
+};
+
+export const LandlordAddContTexts = {
+    "contTitle": "New contract: ",
+    "contDesc1": "Lorem Ipsum",
+    "contDesc2": "Lorem Ipsum"
+};

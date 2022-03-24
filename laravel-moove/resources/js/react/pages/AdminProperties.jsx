@@ -9,14 +9,14 @@ import {
     Typography
 } from "@mui/material";
 import PropTypes from "prop-types";
-import TableCell, {tableCellClasses} from "@mui/material/TableCell";
-
 import PropertiesHeader from "../components/headers/PropertiesHeader";
-import React, {Fragment, useState} from "react";
+import React, {Fragment} from "react";
+import TableCell from "@mui/material/TableCell";
+
+
+
 
 import PropertyRow from "../components/tables/PropertyRow";
-import {ViewAgenda} from "@mui/icons-material";
-import styled from "@emotion/styled";
 
 const AdminProperties = ({properties, tenancies}) => <Fragment>
     <PropertiesHeader role="admin" />

@@ -17,7 +17,7 @@ import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
 import AppTheme from "../../../assets/theme/theme";
 import PropTypes from "prop-types";
 import axios from "axios";
-import { blue, green, purple } from "@mui/material/colors";
+import {blue, green} from "@mui/material/colors";
 import styled from "@emotion/styled";
 
 const GreenButton = styled(Button)(() => ({
@@ -93,9 +93,10 @@ export function useIsMounted() {
 
 }
 
-const newContract = (property) => {};
-
 const PropertyModal = (props) => {
+
+    console.log(props.property);
+    console.log(props.contract);
 
     const styles = useStyles();
 
@@ -113,31 +114,30 @@ const PropertyModal = (props) => {
 
         handleClose();
 
-        // axios.get(`/contract/${chosenProp.id}`).then();
+        // Axios.get(`/contract/${chosenProp.id}`).then();
 
         window.location.href = `/contract/${chosenProp.id}`;
 
+    };
 
-        /*
-         * Axios({
-         *     url: 'open-contract',
-         *     headers: {},
-         *     data: {property: props.property, contract: props.contract},
-         * }).then((res) =>{console.log('data: ', res.propData);})
-         * .catch((err) => {console.log(err.message);})
-         */
+    const createContract = (newProp) => {
 
-        /*
-         * Let propUrl = `/contracts/${property.id}`;
-         * axios.get(propUrl);
-         * let propUrl = `/tenants/${property.id}`;
-         * axios.get(propUrl).then((res) => {
-         *     setTenants(res.data.tenants);
-         * });
-         * setOpen(true);
-         */
+        handleClose();
+
+        window.location.href = `/create-contract/${newProp.id}`;
 
     };
+
+    /*
+     *     Axios.
+     *         get(
+     *             "/create-contract",
+     *             property
+     *         ).
+     *         then(window.location.href = "/create-contract");
+     */
+
+    // };
 
     const descriptionElementRef = useRef(null);
     useEffect(
@@ -247,13 +247,25 @@ const PropertyModal = (props) => {
                             </Grid>
                         </Grid>
                         <DialogContent className={styles.dividerLight} />
-                        <Grid container >
-                            <Grid item xs={12} align="center" sx={{paddingTop: '20px'}}>
+                        <Grid container>
+                            <Grid
+                                item
+                                xs={12}
+                                align="center"
+                                sx={{"paddingTop": "20px"}}
+                            >
                                 {props.contract === null ||
                                 props.contract === undefined
-                                    ? <GreenButton variant="outlined">Create Contract</GreenButton>
+                                    ? <GreenButton
+                                        variant="outlined"
+                                        onClick={() => createContract(props.property)
+                                        }
+                                    >
+                                        Create Contract
+                                    </GreenButton>
 
-                                    : <BlueButton variant="contained"
+                                    : <BlueButton
+                                        variant="contained"
                                         onClick={() => openContract(
                                             props.property,
                                             props.contract
@@ -281,31 +293,27 @@ const PropertyModal = (props) => {
                                 </DialogContent>
                             </Grid>
                             {props.tenants !== null &&
-                                        <Grid item xs={12}>
-                                            {props.tenants.map((tenant, key) => <Grid container key={key}>
-                                                <Grid item xs={2}>
-                                                    <DialogContent
-                                                        component="div"
-                                                        id="scroll-dialog-description"
-                                                        className={
-                                                            styles.infoText
-                                                        }
-                                                    >
-                                                        {key + 1}
-                                                    </DialogContent>
-                                                </Grid>
-                                                <Grid item xs={10}>
-                                                    <DialogContent
-                                                        component="div"
-                                                        className={
-                                                            styles.infoText
-                                                        }
-                                                    >
-                                                        {tenant.name}
-                                                    </DialogContent>
-                                                </Grid>
-                                            </Grid>)}
+                                <Grid item xs={12}>
+                                    {props.tenants.map((tenant, key) => <Grid container key={key}>
+                                        <Grid item xs={2}>
+                                            <DialogContent
+                                                component="div"
+                                                id="scroll-dialog-description"
+                                                className={styles.infoText}
+                                            >
+                                                {key + 1}
+                                            </DialogContent>
                                         </Grid>
+                                        <Grid item xs={10}>
+                                            <DialogContent
+                                                component="div"
+                                                className={styles.infoText}
+                                            >
+                                                {tenant.name}
+                                            </DialogContent>
+                                        </Grid>
+                                    </Grid>)}
+                                </Grid>
                             }
                         </Grid>
                     </DialogContent>

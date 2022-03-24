@@ -4,6 +4,6 @@
 @endsection
 @section('content')
 <div>
-<PropertyContract></PropertyContract>
+<ContractShow property="{{$property}}" contract = "{{$contract}}"></ContractShow>
 </div>
 @endsection

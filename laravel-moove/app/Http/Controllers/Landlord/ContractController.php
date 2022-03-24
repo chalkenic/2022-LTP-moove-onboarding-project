@@ -15,7 +15,7 @@ class ContractController extends Controller
         $this->middleware(['landlord']);
     }
 
-    public function index($id) {
+    public function show($id) {
 
 
 
@@ -33,14 +33,13 @@ class ContractController extends Controller
 
         // $property = Property::where( 'id', $prop->id)->get();
         // return view('landlord.landlord-create-contract',                
-        //     [
-        //         'property' => $request->property
+        //     [swc?
         //     ]);
     
         // }
     }
 
-    public function show($id) {
+    public function open($id) {
         
 
         if(Contract::where('property_id', $id)->exists()) { 
@@ -60,6 +59,18 @@ class ContractController extends Controller
             );
     
         }
+    }
+
+    public function index($id) {
+
+        $property = Property::where('id', $id)->first();
+
+
+        return view('landlord.landlord-create-contract',                
+            [
+                'property' => $property,
+            ]);
+
     }
 
 }

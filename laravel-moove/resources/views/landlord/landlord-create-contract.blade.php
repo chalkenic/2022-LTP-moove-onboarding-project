@@ -4,7 +4,6 @@
 @endsection
 @section('content')
 <div>
-    {{session('status')}}
-    <ContractCreation property="{{$property}}" />
+    <ContractCreate property="{{$property}}" />
 </div>
 @endsection
