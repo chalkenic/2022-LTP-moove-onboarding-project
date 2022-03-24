@@ -13,6 +13,7 @@ import SigningComponent from './react/components/forms/SigningComponent';
 import Dashboard from './react/pages/Dashboard';
 import LandlordProperties from './react/pages/LandlordProperties';
 import Property from './react/components/landlord/Property';
+import PropertyRow from './react/components/tables/PropertyRow';
 import PropertyCard from '../js/react/cards/PropertyCard';
 import TenantList from '../js/react/components/admin/TenantList';
 import TenantApplication from '../js/react/components/admin/TenantApplication';
