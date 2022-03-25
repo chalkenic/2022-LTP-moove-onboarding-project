@@ -1,6 +1,7 @@
 require("./bootstrap");
 
 // React components
+import ContractRow from "./react/components/tables/ContractRow";
 import ReactRenderer from "./react/ReactRenderer";
 import React from "react";
 import NavBar from "./react/components/navBar/NavBar";
@@ -20,6 +21,8 @@ import PropertyCard from "../js/react/cards/PropertyCard";
 import PropertyRow from "./react/components/tables/PropertyRow";
 import TenantApplication from "../js/react/components/admin/TenantApplication";
 import AdminProperties from "./react/pages/AdminProperties";
+import ContractCard from "./react/cards/ContractCard";
+
 
 const components = [
     {
@@ -78,6 +81,7 @@ const components = [
     },
     { name: "ContractCreate", component: <ContractCreate /> },
     { name: "ContractShow", component: <ContractShow /> },
+    { name: "ContractCard", component: <ContractCard /> },
 ];
 
 new ReactRenderer(components).renderAll();

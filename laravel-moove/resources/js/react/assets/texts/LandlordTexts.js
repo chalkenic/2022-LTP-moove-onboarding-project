@@ -77,6 +77,6 @@ export const LandlordShowContTexts = {
 
 export const LandlordAddContTexts = {
     "contTitle": "New contract: ",
-    "contDesc1": "Lorem Ipsum",
-    "contDesc2": "Lorem Ipsum"
+    "contDesc1": "Use the boxes below to build your property's contract within the moove ecosystem.",
+    "contDesc2": "Make sure you have created a signature. If you haven't, please click "
 };

@@ -1,21 +1,24 @@
 /* eslint-disable sort-imports */
 /* eslint-disable no-ternary */
 import AppTheme from "../../assets/theme/theme";
-import React from "react";
-import {Grid, Typography} from "@mui/material";
+import React, {Fragment} from "react";
+import {Grid, Link, Typography} from "@mui/material";
 import PropTypes from "prop-types";
 import * as LandlordTexts from "../../assets/texts/LandlordTexts";
 import {useTheme} from "@mui/system";
 
-
 const ContractHeader = ({type, name}) => {
 
     const theme = useTheme(AppTheme);
-    console.log('in header: ', name);
+    console.log(
+        "in header: ",
+        name
+    );
 
     return (
         <Grid
             item
+            container
             xs={12}
             justifyContent="space-evenly"
             alignItems="center"
@@ -28,8 +31,23 @@ const ContractHeader = ({type, name}) => {
             >
                 {type === "create"
                     ? `${LandlordTexts.LandlordAddContTexts.contTitle} ${name}`
-                    : `${LandlordTexts.LandlordShowContTexts.contTitle} ${name}` }
+                    : `${LandlordTexts.LandlordShowContTexts.contTitle} ${name}`}
             </Typography>
+            <Grid item xs={12}>
+                {type === "create"
+                    ? <Fragment>
+                        <Typography>
+                            {LandlordTexts.LandlordAddContTexts.contDesc1}
+                        </Typography>
+                        <Typography>
+                            {LandlordTexts.LandlordAddContTexts.contDesc2}
+                            <a href="rgrdg" style={{"color": "red"}}>here</a>
+                        </Typography>
+                    </Fragment>
+
+                    : `${LandlordTexts.LandlordShowContTexts.contDesc1}`
+                }
+            </Grid>
         </Grid>
     );
 
