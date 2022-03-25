@@ -33,28 +33,8 @@ function SigningComponent() {
         propertyId: propertyId,
     })
     .then(() => {
-      console.log("2: "+ redirectUrl);
+      document.documentElement.innerHTML = response.data;
 
-        // Here the URL is passed into Axios get request, which is confirmed to be correct path
-        // it ends up redirecting the browser to:
-        // http://localhost/landlord-sign-tenancy/[object%20Object]
-        // as if any part of this was still an object instance
-
-        axios
-        .get(redirectUrl, {
-            id: propertyId,
-        }).then(response =>{
-          console.log("3: "+ JSON.stringify(response));
-          
-          document.documentElement.innerHTML = response.data;
-
-          // Even this console.log(response) includes
-          // responseURL: "http://localhost/landlord-sign-tenancy/2"
-          // inside the Chrome output
-        })
-        .catch(error => {
-          console.log(error.message);
-        });
     })
     .catch((error) => {
         console.log(error.message);
