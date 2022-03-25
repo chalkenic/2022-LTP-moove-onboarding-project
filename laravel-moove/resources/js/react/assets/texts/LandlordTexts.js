@@ -80,5 +80,14 @@ export const LandlordAddContTexts = {
     "contDesc1": "Use the boxes below to build your property's contract within the moove ecosystem.",
     "contDesc2": "Make sure you have created a signature. If you haven't, please click ",
     "contErr1": "No Title added - please add one for section",
-    "contErr2": "No Content added - please add content for section"
+    "contErr2": "No Content added - please add content for section",
+    "contPrevTitle": "Contract Preview",
+    "prevTitle": "RENTAL AGREEMENT",
+    "prevDisclaimer1": "THIS IS A LEGALLY BINDING CONTRACT.",
+    "prevDisclaimer2": "IF NOT UNDERSTOOD, CONSULT AN ATTORNEY.",
+    "prevAcknowledgementTitle": "ACKNOWLEDGEMENT: ",
+    "prevAcknowledgementContent": "Tenants hereby acknowledge that they have read, understand and agree to all parts of this document, and have received a copy. " ,
+
+    "prevLandSigTitle": "LANDLORD SIGNATURE",
+    "PrevTenSigTitle": "TENANT SIGNATURE",
 };

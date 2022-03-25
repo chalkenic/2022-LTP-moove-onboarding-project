@@ -1,5 +1,7 @@
+/* eslint-disable no-magic-numbers */
+/* eslint-disable no-undefined */
 import AppTheme from "../assets/theme/theme";
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 // Import { Grid, Card, CardActionArea } from "@mui/material";
 import PropTypes from "prop-types";
 import {FormControlUnstyled} from "@mui/base";
@@ -16,10 +18,11 @@ import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import {makeStyles} from "@mui/styles";
-import { Box } from "@mui/system";
+import {Box} from "@mui/system";
 
 const useStyles = makeStyles(() => ({
     "titleText": {
+        "fontFamily": "sans-serif",
         "paddingBottom": "5 !important",
         "color": `${AppTheme.palette.landlord.dark} !important`
     },
@@ -42,6 +45,7 @@ const useStyles = makeStyles(() => ({
 
 const ContractCard = (props) => {
 
+
     const styles = useStyles();
 
     const [
@@ -58,18 +62,18 @@ const ContractCard = (props) => {
         setError
     ] = useState();
 
-    const validate = () => {
+    const validate = (event) => {
 
-
-        if (title === null) {
+        if (title === null || title === undefined) {
 
             setError(LandlordTexts.LandlordAddContTexts.contErr1);
 
-        } else if (content === null) {
+        } else if (content === null || content === undefined) {
 
             setError(LandlordTexts.LandlordAddContTexts.contErr2);
 
         } else {
+
 
             props.setSections([
                 ...props.sections,
@@ -79,9 +83,23 @@ const ContractCard = (props) => {
                 }
             ]);
 
+            setTitle("");
+            setContent("");
+
+
         }
 
     };
+
+    useEffect(
+        () => {
+
+            document.getElementById("title").value = "";
+            document.getElementById("content").value = "";
+
+        },
+        [props.sections]
+    );
 
     return (
 
@@ -107,6 +125,8 @@ const ContractCard = (props) => {
                             <Grid item xs>
                                 <TextField
                                     fullWidth
+                                    id="title"
+                                    defaultValue={title}
                                     onChange={(e) => setTitle(e.target.value)}
                                     placeholder="Enter Section Title"
                                     InputProps={{
@@ -135,6 +155,8 @@ const ContractCard = (props) => {
                                 <TextField
                                     fullWidth
                                     multiline
+                                    id="content"
+                                    defaultValue={content}
                                     onChange={(e) => setContent(e.target.value)}
                                     placeholder="Enter section content"
                                     hiddenLabel
@@ -148,23 +170,6 @@ const ContractCard = (props) => {
                         </Grid>
                     </Toolbar>
                 </AppBar >
-            </FormControlUnstyled>
-            <Grid item xs={12}>
-                <Box textAlign="center" padding={(2, 2, 2, 2)}>
-                            <Grid item>
-                                <Button
-                                    variant="contained"
-                                    color="success"
-                                    onClick={validate}
-                                    size="large"
-                                >
-
-                                        Add Section
-
-                                </Button>
-
-                            </Grid>
-                </Box>
                 {error && error !== undefined &&
                             <>
                                 <Typography
@@ -172,18 +177,35 @@ const ContractCard = (props) => {
                                 />
                                 <Typography
                                     align="center"
-                                    ref={descriptionElementRef}
                                     component="div"
                                     className={styles.headerText}
                                 >
                                     {
-                                        LandlordTexts.LandlordAddPropsTexts.
-                                            AddModalPostError
+                                        error
                                     }
                                 </Typography>
                             </>
                 }
-            </Grid>
+                <Grid item xs={12}>
+                    <Box textAlign="center" padding={(2, 2, 2, 2)}>
+                        <Grid item>
+                            <Button
+                                variant="contained"
+                                color="success"
+                                size="large"
+                                onClick={validate}
+                            >
+
+                                        Add Section
+
+                            </Button>
+
+                        </Grid>
+                    </Box>
+
+                </Grid>
+            </FormControlUnstyled>
+
         </Paper>
     );
 

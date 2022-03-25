@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Facades\DB;
 use App\Models\Property;
 use App\Models\Contract;
+use App\Models\User;
 
 class ContractController extends Controller
 {
@@ -64,11 +65,14 @@ class ContractController extends Controller
     public function index($id) {
 
         $property = Property::where('id', $id)->first();
+        $landlord = User::where('id', $property->user_id)->first();
+
 
 
         return view('landlord.landlord-create-contract',                
             [
                 'property' => $property,
+                'landlord'=> $landlord,
             ]);
 
     }

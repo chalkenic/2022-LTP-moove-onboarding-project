@@ -4,6 +4,6 @@
 @endsection
 @section('content')
 <div>
-    <ContractCreate property="{{$property}}" />
+    <ContractCreate property="{{$property}}" landlord="{{$landlord}}" />
 </div>
 @endsection

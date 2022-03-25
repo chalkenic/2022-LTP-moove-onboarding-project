@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable sort-imports */
 /* eslint-disable no-ternary */
 import AppTheme from "../../assets/theme/theme";
@@ -22,8 +23,8 @@ const ContractHeader = ({type, name}) => {
             xs={12}
             justifyContent="space-evenly"
             alignItems="center"
-            sx={{ paddingBottom: 3}}
-            
+            sx={{"paddingBottom": 3}}
+
         >
             <Typography
                 color={theme.palette.text.dark}
@@ -33,9 +34,11 @@ const ContractHeader = ({type, name}) => {
             >
                 {type === "create"
                     ? `${LandlordTexts.LandlordAddContTexts.contTitle} ${name}`
-                    : `${LandlordTexts.LandlordShowContTexts.contTitle} ${name}`}
+                    : type === "show"
+                        ? `${LandlordTexts.LandlordShowContTexts.contTitle} ${name}`
+                        : `${LandlordTexts.LandlordShowContTexts.contTitle} ${name}`}
             </Typography>
-            <Grid item xs={12} sx={{paddingTop: 3}} align="center">
+            <Grid item xs={12} sx={{"paddingTop": 3}} align="center">
                 {type === "create"
                     ? <Fragment>
                         <Typography>
