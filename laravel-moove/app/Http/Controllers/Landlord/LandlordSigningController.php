@@ -8,6 +8,7 @@ use JavaScript;
 use App\Models\Tenancy;
 use App\Models\Property;
 use App\Http\Middleware\Authenticate;
+use Session;
 
 class LandlordSigningController extends Controller
 {
@@ -29,10 +30,12 @@ class LandlordSigningController extends Controller
         $signature = $request->landlordSignature;
         $propertyId = $request->propertyId;
         //Tenancy::where('user_id', auth()->user()->id)
-        Tenancy::where('property_id', $propertyId)
-        ->update(['landlord_signature_blob' => $signature]);
 
-        return redirect()->back();
+    
+            Tenancy::where('property_id', $propertyId)
+            ->update(['landlord_signature_blob' => $signature]);
+        
+        return redirect()->back()->withSuccess('IT WORKS!');
     }
 
 }
