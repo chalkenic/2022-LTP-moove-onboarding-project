@@ -39,7 +39,7 @@ function SigningComponent() {
       { showSuccess ? <div><Alert severity="success">Signature successfully added to tenancy!</Alert><br></br></div> : null }
       <h1>Confirm Signature for Tenancy</h1>
       <h1>Property Name: {window.property.name}</h1><br></br>
-      { !showSuccess ? 
+      { !showEdit ? 
       <div>
 <Popup
         modal
@@ -65,7 +65,7 @@ function SigningComponent() {
           </>
         )}
       </Popup>
-      </div> : null }
+      </div> : <Button variant="contained" color="primary">Edit Signature</Button> }
 
       <br />
       <br />
