@@ -33,7 +33,7 @@ function SigningComponent() {
         propertyId: propertyId,
     })
     .then(() => {
-      console.log("2: "+typeof redirectUrl);
+      console.log("2: "+ redirectUrl);
 
         // Here the URL is passed into Axios get request, which is confirmed to be correct path
         // it ends up redirecting the browser to:
@@ -44,14 +44,13 @@ function SigningComponent() {
         .get(redirectUrl, {
             id: propertyId,
         }).then(response =>{
-          console.log("3: "+typeof redirectUrl);
-
-          window.location.href = response;
+          console.log("3: "+ response.data);
+          
+          window.location.href = response.data;
 
           // Even this console.log(response) includes
           // responseURL: "http://localhost/landlord-sign-tenancy/2"
           // inside the Chrome output
-          console.log(response);
         })
         .catch(error => {
           console.log(error.message);
