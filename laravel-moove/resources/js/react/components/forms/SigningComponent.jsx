@@ -7,6 +7,8 @@ import axios from "axios";
 
 function SigningComponent() {
   const [imageURL, setImageURL] = useState(null);
+  const [showSuccess, setShowSuccess] = React.useState(false)
+  const postPost = () => setShowSuccess(true) // This function was named postPost because it happens post (preposition) the POST request, accept it
   const sigCanvas = useRef({});
   const clear = () => sigCanvas.current.clear();
 
@@ -21,7 +23,7 @@ function SigningComponent() {
         propertyId: propertyId,
     })
     .then(() => {
-      //document.getElementById("success-message").innerHTML
+      postPost();
     })
     .catch((error) => {
         console.log(error.message);
@@ -31,9 +33,7 @@ function SigningComponent() {
 
   return (
     <div className="App">
-        <div id="success-message">
-        <Alert severity="success">Signature successfully added to tenancy!</Alert>
-        </div>
+      { showSuccess ? <div><Alert severity="success">Signature successfully added to tenancy!</Alert><br></br></div> : null }
       <h1>Confirm Signature for Tenancy</h1>
       <h1>Property Name: {window.property.name}</h1><br></br>
       <Popup
