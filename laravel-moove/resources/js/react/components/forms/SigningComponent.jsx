@@ -9,9 +9,10 @@ function SigningComponent() {
   const [imageURL, setImageURL] = useState(null);
   const sigCanvas = useRef({});
   const clear = () => sigCanvas.current.clear();
+  const redirectUrl = "/landlord-sign-tenancy/"+(window.property.id.toString());
+  console.log(redirectUrl);
   const save = () =>
     setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
-
   const uploadToDb = () => {
     axios
     .post("/landlord-sign-tenancy", {
@@ -19,8 +20,16 @@ function SigningComponent() {
         propertyId: window.property.id,
     })
     .then((res) => {
+        axios
+        .get(redirectUrl, {
+            id: window.property.id,
+        }).then(response =>{
+          window.location.href = response;
+        })
+        .catch(error => {
+          console.log(error.message);
+        });
         console.log(res);
-        window.location.reload();
     })
     .catch((error) => {
         console.log(error.message);
