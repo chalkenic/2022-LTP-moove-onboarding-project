@@ -17,9 +17,9 @@ class LandlordSigningController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function index($id) {
+    public function index(Request $request) {
         JavaScript::put([
-            'property' => Property::where('id', $id)->first(),
+            'property' => Property::where('id', $request->id)->first(),
         ]);
         return view('landlord.landlord-sign-tenancy');
     }
