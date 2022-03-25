@@ -13,17 +13,16 @@ function SigningComponent() {
 
   // I literally use this value in the return of this component inside a h1 tag and it works
   // For example, if the currently accessed URL is /landlord-sign-tenancy/3, this value will be 3
-  const propertyId = window.property.id;
+  var propertyId = window.property.id;
 
   //Furthermore, this is an overkill way of making sure this object is becoming a String and
   //concatenating properly. I have tried normal ways of doing this dw
-  const redirectUrl = ['/landlord-sign-tenancy/', JSON.stringify(propertyId)].join('');
+  var redirectUrl = ['/landlord-sign-tenancy/', JSON.stringify(propertyId)].join('');
 
   //This outputs "/landlord-sign-tenancy/2" to the console, which is correct
   // Therefore, redirectUrl = "/landlord-sign-tenancy/2"
   console.log(redirectUrl);
-
-
+  console.log("1: "+typeof redirectUrl);
 
   const save = () =>
     setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
@@ -31,9 +30,10 @@ function SigningComponent() {
     axios
     .post("/landlord-sign-tenancy", {
         landlordSignature: imageURL,
-        propertyId: window.property.id,
+        propertyId: propertyId,
     })
     .then(() => {
+      console.log("2: "+typeof redirectUrl);
 
         // Here the URL is passed into Axios get request, which is confirmed to be correct path
         // it ends up redirecting the browser to:
@@ -42,8 +42,10 @@ function SigningComponent() {
 
         axios
         .get(redirectUrl, {
-            id: window.property.id,
+            id: propertyId,
         }).then(response =>{
+          console.log("3: "+typeof redirectUrl);
+
           window.location.href = response;
 
           // Even this console.log(response) includes
