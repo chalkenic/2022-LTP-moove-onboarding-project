@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import Popup from "reactjs-popup";
 import SignaturePad from "react-signature-canvas";
-import { Button } from "@mui/material";
+import { Button, Alert } from "@mui/material";
 import "../../../../css/signaturePadStyle.css";
 import axios from "axios";
 
@@ -12,9 +12,6 @@ function SigningComponent() {
 
   var propertyId = window.property.id;
 
-  console.log(redirectUrl);
-  console.log("1: "+typeof redirectUrl);
-
   const save = () =>
     setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
   const uploadToDb = () => {
@@ -24,8 +21,7 @@ function SigningComponent() {
         propertyId: propertyId,
     })
     .then(() => {
-      document.documentElement.innerHTML = response.data;
-
+      //document.getElementById("success-message").innerHTML
     })
     .catch((error) => {
         console.log(error.message);
@@ -35,6 +31,9 @@ function SigningComponent() {
 
   return (
     <div className="App">
+        <div id="success-message">
+        <Alert severity="success">Signature successfully added to tenancy!</Alert>
+        </div>
       <h1>Confirm Signature for Tenancy</h1>
       <h1>Property Name: {window.property.name}</h1><br></br>
       <Popup
