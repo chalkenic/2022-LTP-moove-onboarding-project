@@ -7,9 +7,10 @@ import axios from "axios";
 
 function SigningComponent() {
   const [imageURL, setImageURL] = useState(null);
+  const propertyId = window.property.id;
   const sigCanvas = useRef({});
   const clear = () => sigCanvas.current.clear();
-  const redirectUrl = "/landlord-sign-tenancy/"+(window.property.id.toString());
+  const redirectUrl = "/landlord-sign-tenancy/"+(propertyId.toString());
   console.log(redirectUrl);
   const save = () =>
     setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
