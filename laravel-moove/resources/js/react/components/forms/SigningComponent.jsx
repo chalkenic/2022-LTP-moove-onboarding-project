@@ -7,11 +7,24 @@ import axios from "axios";
 
 function SigningComponent() {
   const [imageURL, setImageURL] = useState(null);
-  const propertyId = window.property.id;
   const sigCanvas = useRef({});
   const clear = () => sigCanvas.current.clear();
-  const redirectUrl = "/landlord-sign-tenancy/"+(propertyId.toString());
+
+
+  // I literally use this value in the return of this component inside a h1 tag and it works
+  // For example, if the currently accessed URL is /landlord-sign-tenancy/3, this value will be 3
+  const propertyId = window.property.id;
+
+  //Furthermore, this is an overkill way of making sure this object is becoming a String and
+  //concatenating properly. I have tried normal ways of doing this dw
+  const redirectUrl = ['/landlord-sign-tenancy/', JSON.stringify(propertyId)].join('');
+
+  //This outputs "/landlord-sign-tenancy/2" to the console, which is correct
+  // Therefore, redirectUrl = "/landlord-sign-tenancy/2"
   console.log(redirectUrl);
+
+
+
   const save = () =>
     setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
   const uploadToDb = () => {
@@ -20,17 +33,27 @@ function SigningComponent() {
         landlordSignature: imageURL,
         propertyId: window.property.id,
     })
-    .then((res) => {
+    .then(() => {
+
+        // Here the URL is passed into Axios get request, which is confirmed to be correct path
+        // it ends up redirecting the browser to:
+        // http://localhost/landlord-sign-tenancy/[object%20Object]
+        // as if any part of this was still an object instance
+
         axios
         .get(redirectUrl, {
             id: window.property.id,
         }).then(response =>{
           window.location.href = response;
+
+          // Even this console.log(response) includes
+          // responseURL: "http://localhost/landlord-sign-tenancy/2"
+          // inside the Chrome output
+          console.log(response);
         })
         .catch(error => {
           console.log(error.message);
         });
-        console.log(res);
     })
     .catch((error) => {
         console.log(error.message);
