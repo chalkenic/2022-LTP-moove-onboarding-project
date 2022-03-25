@@ -44,9 +44,9 @@ function SigningComponent() {
         .get(redirectUrl, {
             id: propertyId,
         }).then(response =>{
-          console.log("3: "+ response.data);
+          console.log("3: "+ JSON.stringify(response));
           
-          window.location.href = response.data;
+          document.documentElement.innerHTML = response.data;
 
           // Even this console.log(response) includes
           // responseURL: "http://localhost/landlord-sign-tenancy/2"
