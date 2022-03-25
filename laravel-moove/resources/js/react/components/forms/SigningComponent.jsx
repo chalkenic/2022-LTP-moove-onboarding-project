@@ -10,17 +10,8 @@ function SigningComponent() {
   const sigCanvas = useRef({});
   const clear = () => sigCanvas.current.clear();
 
-
-  // I literally use this value in the return of this component inside a h1 tag and it works
-  // For example, if the currently accessed URL is /landlord-sign-tenancy/3, this value will be 3
   var propertyId = window.property.id;
 
-  //Furthermore, this is an overkill way of making sure this object is becoming a String and
-  //concatenating properly. I have tried normal ways of doing this dw
-  var redirectUrl = ['/landlord-sign-tenancy/', JSON.stringify(propertyId)].join('');
-
-  //This outputs "/landlord-sign-tenancy/2" to the console, which is correct
-  // Therefore, redirectUrl = "/landlord-sign-tenancy/2"
   console.log(redirectUrl);
   console.log("1: "+typeof redirectUrl);
 
