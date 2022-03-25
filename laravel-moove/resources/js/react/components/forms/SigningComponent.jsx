@@ -11,6 +11,8 @@ function SigningComponent() {
   const [showEdit, setShowEdit] = React.useState(false)
   const postPost = () => setShowSuccess(true) // This function was named postPost because it happens post (preposition) the POST request, accept it
   const enableEdit = () => setShowEdit(true)
+  const disableEdit = () => setShowEdit(false)
+
   const sigCanvas = useRef({});
   const clear = () => sigCanvas.current.clear();
 
@@ -65,7 +67,7 @@ function SigningComponent() {
           </>
         )}
       </Popup>
-      </div> : <Button variant="contained" color="primary">Edit Signature</Button> }
+      </div> : <Button variant="contained" color="primary" onClick={disableEdit}>Edit Signature</Button> }
 
       <br />
       <br />
@@ -82,7 +84,7 @@ function SigningComponent() {
             width: "250px"
           }}
         /><br></br>
-        { !showSuccess ? <div><Button onClick={uploadToDb} variant="contained" color="primary">
+        { !showEdit ? <div><Button onClick={uploadToDb} variant="contained" color="primary">
         Next
       </Button></div> : null }
         
