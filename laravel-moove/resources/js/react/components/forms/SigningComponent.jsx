@@ -8,7 +8,9 @@ import axios from "axios";
 function SigningComponent() {
   const [imageURL, setImageURL] = useState(null);
   const [showSuccess, setShowSuccess] = React.useState(false)
+  const [showEdit, setShowEdit] = React.useState(false)
   const postPost = () => setShowSuccess(true) // This function was named postPost because it happens post (preposition) the POST request, accept it
+  const enableEdit = () => setShowEdit(true)
   const sigCanvas = useRef({});
   const clear = () => sigCanvas.current.clear();
 
@@ -24,6 +26,7 @@ function SigningComponent() {
     })
     .then(() => {
       postPost();
+      enableEdit();
     })
     .catch((error) => {
         console.log(error.message);
@@ -36,7 +39,9 @@ function SigningComponent() {
       { showSuccess ? <div><Alert severity="success">Signature successfully added to tenancy!</Alert><br></br></div> : null }
       <h1>Confirm Signature for Tenancy</h1>
       <h1>Property Name: {window.property.name}</h1><br></br>
-      <Popup
+      { !showSuccess ? 
+      <div>
+<Popup
         modal
         trigger={<Button variant="contained" color="primary">Open Signature Pad</Button>}
         closeOnDocumentClick={false}
@@ -60,10 +65,10 @@ function SigningComponent() {
           </>
         )}
       </Popup>
+      </div> : null }
+
       <br />
       <br />
-      {/* if our we have a non-null image url we should 
-      show an image and pass our imageURL state to it*/}
       {imageURL ? (
           <div style={{width: 300}}>
           <h1>Your signature:</h1><br></br>
