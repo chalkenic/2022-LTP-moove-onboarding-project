@@ -77,9 +77,10 @@ function SigningComponent() {
             width: "250px"
           }}
         /><br></br>
-        <Button onClick={uploadToDb} variant="contained" color="primary">
+        { !showSuccess ? <div><Button onClick={uploadToDb} variant="contained" color="primary">
         Next
-      </Button>
+      </Button></div> : null }
+        
         </div>
       ) : null}
     </div>
