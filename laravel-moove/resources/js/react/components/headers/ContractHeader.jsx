@@ -22,6 +22,8 @@ const ContractHeader = ({type, name}) => {
             xs={12}
             justifyContent="space-evenly"
             alignItems="center"
+            sx={{ paddingBottom: 3}}
+            
         >
             <Typography
                 color={theme.palette.text.dark}
@@ -33,7 +35,7 @@ const ContractHeader = ({type, name}) => {
                     ? `${LandlordTexts.LandlordAddContTexts.contTitle} ${name}`
                     : `${LandlordTexts.LandlordShowContTexts.contTitle} ${name}`}
             </Typography>
-            <Grid item xs={12}>
+            <Grid item xs={12} sx={{paddingTop: 3}} align="center">
                 {type === "create"
                     ? <Fragment>
                         <Typography>

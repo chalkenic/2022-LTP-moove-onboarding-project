@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 /* eslint-disable max-lines */
 /* eslint-disable no-undefined */
 /* eslint-disable no-use-before-define */
@@ -189,14 +190,6 @@ const PropertyAddModal = (props) => {
         },
         [props.add]
     );
-
-    /*
-     * UseEffect(() => {
-     *     if (props.tenants !== undefined) {
-     *         props.setTenants(props.tenants);
-     *     }
-     * }, [props.tenants]);
-     */
 
     return (
         <div>
