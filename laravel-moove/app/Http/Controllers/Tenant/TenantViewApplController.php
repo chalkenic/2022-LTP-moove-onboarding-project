@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Tenant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Property;
+use App\Models\Tenancy;
+
 class TenantViewApplController extends Controller
 {
     public function __construct()
@@ -12,9 +15,10 @@ class TenantViewApplController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function index(Request $request) {
+    public function index() {
+        $ownPropertyId = Tenancy::select('property_id')->where('user_id',Auth::id())
         JavaScript::put([
-            'property' => Property::where('id', $request->id)->first(),
+            'property' => Property::where('id', $ownPropertyId)->first(),
         ]);
         return view('tenant.tenant-view-appl');
     }
