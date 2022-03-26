@@ -46,11 +46,12 @@ const TenancyApplicationProgress = () => {
       { !window.noTenancy ? 
 
       <div id="tenantTable">
-        <View style={{justifyContent: 'space-evenly'}}>
+
+      <View id = "tableHeader">
         <div>{window.property.name}</div>
-    <div>Status: <b>{window.property.status}</b></div>
-    <Button variant="outlined">View Property</Button>
-        </View>
+        <div>Status: <b>{window.property.status}</b></div>
+        <Button variant="outlined">View Property</Button>
+    </View>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
