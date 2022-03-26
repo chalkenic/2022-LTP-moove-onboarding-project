@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Tenant;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use JavaScript;
 use App\Models\Property;
 use App\Models\Tenancy;
 
@@ -16,7 +17,7 @@ class TenantViewApplController extends Controller
     }
 
     public function index() {
-        $ownPropertyId = Tenancy::select('property_id')->where('user_id',Auth::id())
+        $ownPropertyId = Tenancy::where('user_id',Auth::id())->first()->property_id
         JavaScript::put([
             'property' => Property::where('id', $ownPropertyId)->first(),
         ]);
