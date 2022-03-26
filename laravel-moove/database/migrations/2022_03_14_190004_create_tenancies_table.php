@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('property_id')->constrained()->onDelete('cascade');
-            $table->tinyInteger('is_active')->default(0);
+            $table->text('status')->default('Awaiting documents');
             $table->timestamps();
             
         });
