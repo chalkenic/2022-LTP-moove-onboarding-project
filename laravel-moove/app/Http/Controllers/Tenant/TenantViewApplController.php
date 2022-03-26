@@ -17,10 +17,19 @@ class TenantViewApplController extends Controller
     }
 
     public function index() {
-        $ownPropertyId = Tenancy::where('user_id',Auth::id())->first()->property_id
-        JavaScript::put([
-            'property' => Property::where('id', $ownPropertyId)->first(),
-        ]);
+        try{
+            $ownPropertyId = Tenancy::where('user_id',Auth::id())->first()->property_id;
+            JavaScript::put([
+                'property' => Property::where('id', $ownPropertyId)->first(),
+            ]);
+        }
+        catch (Exception $e){
+            JavaScript::put([
+                'noTenancy' => true,
+            ]);
+            return $e->getMessage();
+        }
+
         return view('tenant.tenant-view-appl');
     }
 
