@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('property_id')->constrained()->onDelete('cascade');
             
             // Replaces legacy is_active 
-            $table->text('status')->default(0);
+            $table->smallInteger('status')->default(0);
 
             // Status IDs
             // 0 - Awaiting tenancy documents
