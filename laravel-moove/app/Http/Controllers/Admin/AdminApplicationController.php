@@ -16,8 +16,7 @@ class AdminApplicationController extends Controller
     }
 
     public function index() {
-        // TODO: investigate paginating with React
-        $applicants = json_encode(User::whereRelation('application', 'is_approved', 0)->get());
+        $applicants = User::whereRelation('application', 'is_approved', 0)->paginate(1);
 
         return view('admin.admin-tenant-list', [
             'applicants' => $applicants
