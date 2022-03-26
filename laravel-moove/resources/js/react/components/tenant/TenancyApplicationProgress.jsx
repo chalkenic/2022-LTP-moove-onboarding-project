@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Paper, Alert,AlertTitle } from "@mui/material";
+import { Table, TableBody, TableContainer, tableCellClasses, TableHead, TableRow, TableCell, Paper, Alert,AlertTitle } from "@mui/material";
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -47,7 +47,6 @@ const TenancyApplicationProgress = () => {
 
       <div id="tenantTable">
   <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 10,width:'100%',backgroundColor:'white',padding:4,border:"1px solid grey",marginBottom:"4px"}}>
-    <h1>View my Application</h1>
     <div>"image" 80 May Street</div>
     <div>Status: <b>Requires additional forms</b></div>
     <div>View Property</div>
