@@ -23,11 +23,10 @@ class TenantViewApplController extends Controller
                 'property' => Property::where('id', $ownPropertyId)->first(),
             ]);
         }
-        catch (Exception $e){
+        catch (\Throwable $e){
             JavaScript::put([
                 'noTenancy' => true,
             ]);
-            return $e->getMessage();
         }
 
         return view('tenant.tenant-view-appl');
