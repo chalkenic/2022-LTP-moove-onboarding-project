@@ -12,7 +12,10 @@ class TenantViewApplController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function index() {
+    public function index(Request $request) {
+        JavaScript::put([
+            'property' => Property::where('id', $request->id)->first(),
+        ]);
         return view('tenant.tenant-view-appl');
     }
 
@@ -29,8 +32,7 @@ class TenantViewApplController extends Controller
         } else {
             return response()->json([
                 'status'=>200,
-                'message'=>`no housemates at property of ID `.$id,
-                            
+                'message'=>`no housemates at property of ID `.$id,            
             ]);
         }
     }
