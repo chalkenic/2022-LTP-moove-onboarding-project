@@ -53,6 +53,7 @@ const TenancyApplicationProgress = () => {
         <div>Status: <b>{window.property.status}</b></div>
         <Button variant="outlined">View Property</Button>
     </View>
+    <br></br>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
