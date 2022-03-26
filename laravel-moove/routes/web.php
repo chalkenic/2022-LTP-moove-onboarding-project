@@ -17,6 +17,9 @@ use App\Http\Controllers\Tenant\TenantAptController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\Tenant\TenantApplyController;
 use App\Http\Controllers\Landlord\LandlordController;
+use App\Http\Controllers\Landlord\LandlordSigningController;
+
+use App\Http\Controllers\Landlord\PropertyController;
 use App\Http\Controllers\Landlord\LandlordPropertyController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,11 +59,18 @@ Route::get('/application', [ApplicationController::class, 'index'])->name('tenan
 Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
 Route::post('/start-application', [ApplicationController::class, 'store']);
 Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
+Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
+
+// Landlord routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
+Route::get('/landlord-properties', function() {
+    return view('landlord.landlord-properties');
+});
+Route::get('/landlord-sign-tenancy/{id}', [LandlordSigningController::class, 'index'])-> name('landlord.landlord-sign-tenancy');
+Route::post('/landlord-sign-tenancy', [LandlordSigningController::class, 'store']);
 Route::get('/properties', [LandlordPropertyController::class, 'index'])-> name('landlord.landlord-properties');
 Route::post('/properties', [LandlordPropertyController::class, 'store']); 
 Route::get('/tenants/{id}', [LandlordPropertyController::class, 'tenants']);
-
 
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');

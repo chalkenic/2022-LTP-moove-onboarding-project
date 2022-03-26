@@ -10,7 +10,8 @@ class Tenancy extends Model
     use HasFactory;
 
     protected $fillable = [
-        'is_active'
+        'is_active',
+        'landlord_signature_blob'
     ];
 
 

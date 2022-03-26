@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('property_id')->constrained()->onDelete('cascade');
             $table->tinyInteger('is_active')->default(0);
+            $table->text('landlord_signature_blob')->nullable();
             $table->timestamps();
             
         });
