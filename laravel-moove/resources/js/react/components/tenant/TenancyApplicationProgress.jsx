@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import { Table, TableBody, TableContainer, tableCellClasses, TableHead, TableRow, TableCell, Paper, Alert,AlertTitle, Button } from "@mui/material";
+import { View } from 'react-native-web';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -47,7 +48,7 @@ const TenancyApplicationProgress = () => {
 
       <div id="tenantTable">
 
-      <View id = "tableHeader">
+      <View id = "tableHeader" style={{justifyContent: 'space-between', alignItems:'center',flexDirection:'row'}}>
         <div>{window.property.name}</div>
         <div>Status: <b>{window.property.status}</b></div>
         <Button variant="outlined">View Property</Button>
