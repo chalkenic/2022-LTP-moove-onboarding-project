@@ -16,16 +16,9 @@ use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\Tenant\TenantAptController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\Tenant\TenantApplyController;
-use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Landlord\LandlordController;
 use App\Http\Controllers\Landlord\LandlordPropertyController;
-
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Input;
 
 
 // Auth routes
