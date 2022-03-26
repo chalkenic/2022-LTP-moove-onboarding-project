@@ -74,7 +74,7 @@ Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home')
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
 Route::put('/convert-user', [UserConvertController::class, 'update']);
 Route::get('/admin-tenant-list', [AdminApplicationController::class, 'index'])->name('admin-tenant-list');
-Route::get('/admin-tenant-application/{id}', [AdminApplicationController::class, 'show']);
+Route::get('/admin-tenant-application/{user}', [AdminApplicationController::class, 'show']);
 Route::put('/admin-change-application', [AdminApplicationController::class, 'update'])->name('admin.change-application');
 Route::delete('/admin-delete-application/{application}', [AdminApplicationController::class, 'destroy'])->name('admin.delete-application');
 Route::get('/admin-all-properties', [AdminPropertyController::class, 'index'])->name('admin.all-properties');

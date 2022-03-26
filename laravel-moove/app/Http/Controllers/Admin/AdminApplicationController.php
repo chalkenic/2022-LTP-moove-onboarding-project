@@ -24,28 +24,25 @@ class AdminApplicationController extends Controller
         ]);
     }
 
-    public function show($id) {
-        if (Application::where('user_id', $id)->exists()) {
-            $user = User::where('id', $id)->first();
-
+    public function show(User $user) {
+        if ($user->application->exists()) {
             $data = [
                 'tenant' => [
-                    'id' => $id,
+                    'id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
                 ],
                 'files' => $user->application->files,
                 'requestRoute' => route('admin.change-application'),
-                'deleteRoute' => route('admin.delete-application', ['application' => $id]),
+                'deleteRoute' => route('admin.delete-application', ['application' => $user->application->id]),
                 'redirectRoute' => route('admin-tenant-list')
             ];
             return view('admin.admin-tenant-application', [
                 'data' => json_encode($data),
-                'id' => $id
             ]);
         } else {
             return view('admin.admin-tenant-application')->withErrors([
-                'id' => 'Oops! Something went wrong looking for a user with ID '.$id.'.'
+                'user' => 'Oops! Something went wrong looking for a user with ID '.$user->id.'.'
             ]);
         }
     }
