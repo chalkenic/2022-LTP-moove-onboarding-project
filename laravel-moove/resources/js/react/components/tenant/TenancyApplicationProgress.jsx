@@ -1,12 +1,7 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Paper, Alert } from "@mui/material";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -43,10 +38,14 @@ const rowData = [
     date: "19/20/2021",
   }
 ];
+console.log(window.noTenancy + " tenancy ");
 
 const TenancyApplicationProgress = () => {
   return (
     <div>
+      { !window.noTenancy ? 
+
+      <div id="tenantTable">
   <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 10,width:'100%',backgroundColor:'white',padding:4,border:"1px solid grey",marginBottom:"4px"}}>
     <div>"image" 80 May Street</div>
     <div>Status: <b>Requires additional forms</b></div>
@@ -76,6 +75,13 @@ const TenancyApplicationProgress = () => {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
+    : <div id="no-application-started">
+      <Alert severity="warning">
+        <AlertTitle>Notice</AlertTitle>
+        You have not yet started an application — <strong>moove out of here!</strong>
+      </Alert>
+    </div> }
     </div>
   );
 }
