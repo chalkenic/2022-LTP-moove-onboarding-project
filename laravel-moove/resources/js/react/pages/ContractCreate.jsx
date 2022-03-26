@@ -57,8 +57,8 @@ const ContractCreate = (props) => {
                 <ContractCard setSections = {setSections} sections = {sections}/>
                 <Grid container spacing={2}justifyContent="center">
                     <Grid item xs={12} >
-                        <Typography variant="h4" align="center" sx={{"paddingTop": "10px",
-                            "paddingBottom": "10px",
+                        <Typography variant="h4" align="center" sx={{"paddingTop": "15px",
+                            "paddingBottom": "15px",
                             "fontWeight": "600",
                             "textDecoration": "underline"}}>
                             {LandlordTexts.LandlordAddContTexts.contPrevTitle}
@@ -67,43 +67,67 @@ const ContractCreate = (props) => {
                     <Box className={styles.dividerLight} />
                     <Grid item xs={12} justifyContent="center">
                         {sections.length > 0
-                            ? <Paper variant="outlined" sx={{"paddingBottom": "20px"}}>
-                                <Typography variant="h4" textAlign="center" sx={{"fontWeight": 600,
-                                    "textDecoration": "underline"}}>
-                                    {LandlordTexts.LandlordAddContTexts.prevTitle}
-                                </Typography>
-                                <Grid item xs={12} justifyContent="center" paddingBottom = "20px">
-                                    <Typography variant = "center" style={{"display": "table",
-                                        "margin": "0 auto"}} align="center" >
-                                        {LandlordTexts.LandlordAddContTexts.prevDisclaimer1}
-                                    </Typography>
-                                    <Typography variant = "center" style={{"display": "table",
-                                        "margin": "0 auto"}} align="center" >
-                                        {LandlordTexts.LandlordAddContTexts.prevDisclaimer2}
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    { sections.map((section, index) => <div key = {index}>
-                                        <Typography variant="h4"align="center" >
-                                            {section.title}
+                            ? <Paper variant="outlined" sx={{"paddingBottom": "30px"}}>
+                                <Grid container justifyContent="center" paddingTop="30px">
+                                    <Grid item xs={12}>
+                                        <Typography variant="h4" textAlign="center" sx={{"fontWeight": 600,
+                                            "textDecoration": "underline"}}>
+                                            {LandlordTexts.LandlordAddContTexts.prevTitle}
                                         </Typography>
-                                        <Typography paragraph >
-                                            {section.content}
+                                        <Grid item xs={12} justifyContent="center" paddingBottom = "20px">
+                                            <Typography style={{"display": "table",
+                                                "margin": "0 auto"}} align="center" >
+                                                {LandlordTexts.LandlordAddContTexts.prevDisclaimer1}
+                                            </Typography>
+                                            <Typography style={{"display": "table",
+                                                "margin": "0 auto"}} align="center" >
+                                                {LandlordTexts.LandlordAddContTexts.prevDisclaimer2}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item xs={11}>
+                                        <Typography paragraph>
+                                            {"The tenants known as __________________ hereby agree to rent the dwelling located at: "}
+
                                         </Typography>
-                                    </div>)}
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <Typography paragraph>
-                                        <b>{LandlordTexts.LandlordAddContTexts.prevAcknowledgementTitle}</b>
-                                        {LandlordTexts.LandlordAddContTexts.prevAcknowledgementContent}
 
-                                    </Typography>
+                                        <Typography paragraph>
+                                            <b>{` ${props.property.name}.`}</b>
 
+                                        </Typography >
+
+                                        <Typography paragraph>
+                                            {"The premises are to be occupied by the above named tenants only. Tenant may not sublet premises."}
+
+                                        </Typography>
+
+
+                                    </Grid>
+                                    <Grid item xs={11}>
+                                        { sections.map((section, index) => <div key = {index}>
+                                            <Typography variant="h4"align="center" >
+                                                {section.header}
+                                            </Typography>
+                                            <Typography paragraph >
+                                                {section.title !== undefined && section.title.length > 0
+                                                    ? <><b>{section.title}: </b>{section.content}</>
+                                                    : section.content }
+                                            </Typography>
+                                        </div>)}
+                                    </Grid>
+                                    <Grid item xs={11}>
+                                        <Typography paragraph>
+                                            <b>{LandlordTexts.LandlordAddContTexts.prevAcknowledgementTitle}</b>
+                                            {LandlordTexts.LandlordAddContTexts.prevAcknowledgementContent}
+
+                                        </Typography>
+
+                                    </Grid>
                                 </Grid>
-                                <Grid container>
+                                <Grid container paddingLeft="10px" justify="center" style={{"maxWidth": "100%"}}>
                                     <Grid item xs={6}>
-                                        <Grid container flexDirection="column" paddingLeft="10px">
-                                            <Card >
+                                        <Grid container flexDirection="column" >
+                                            <Card align="center">
                                                 <Grid item xs={12}>
                                                     <CardContent >
                                                         <b>LANDLORD SIGNATURE</b>
@@ -124,7 +148,7 @@ const ContractCreate = (props) => {
                                     </Grid>
                                     <Grid item xs={6}>
                                         <Grid container flexDirection="column" padding="0 10px">
-                                            <Card >
+                                            <Card align="center">
                                                 <Grid item xs={12}>
                                                     <CardContent >
                                                         <b>TENANT SIGNATURE</b >

@@ -86,8 +86,8 @@ export const LandlordAddContTexts = {
     "prevDisclaimer1": "THIS IS A LEGALLY BINDING CONTRACT.",
     "prevDisclaimer2": "IF NOT UNDERSTOOD, CONSULT AN ATTORNEY.",
     "prevAcknowledgementTitle": "ACKNOWLEDGEMENT: ",
-    "prevAcknowledgementContent": "Tenants hereby acknowledge that they have read, understand and agree to all parts of this document, and have received a copy. " ,
+    "prevAcknowledgementContent": "Tenants hereby acknowledge that they have read, understand and agree to all parts of this document, and have received a copy herof. ",
 
     "prevLandSigTitle": "LANDLORD SIGNATURE",
-    "PrevTenSigTitle": "TENANT SIGNATURE",
+    "PrevTenSigTitle": "TENANT SIGNATURE"
 };

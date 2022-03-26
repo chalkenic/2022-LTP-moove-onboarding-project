@@ -1,3 +1,4 @@
+/* eslint-disable max-statements */
 /* eslint-disable no-magic-numbers */
 /* eslint-disable no-undefined */
 import AppTheme from "../assets/theme/theme";
@@ -49,12 +50,16 @@ const ContractCard = (props) => {
     const styles = useStyles();
 
     const [
-        title,
-        setTitle
+        header,
+        setHeader
     ] = useState();
     const [
         content,
         setContent
+    ] = useState();
+    const [
+        title,
+        setTitle
     ] = useState();
 
     const [
@@ -64,27 +69,36 @@ const ContractCard = (props) => {
 
     const validate = (event) => {
 
-        if (title === null || title === undefined) {
+        console.log(header);
+        console.log(title);
+        console.log(content);
 
-            setError(LandlordTexts.LandlordAddContTexts.contErr1);
-
-        } else if (content === null || content === undefined) {
+        if (content === null || content === undefined || content.length < 1) {
 
             setError(LandlordTexts.LandlordAddContTexts.contErr2);
 
         } else {
 
+            if (title === undefined) {
+
+                setTitle("");
+
+            }
+
 
             props.setSections([
                 ...props.sections,
                 {
+                    header,
                     title,
                     content
                 }
             ]);
 
+            setHeader("");
             setTitle("");
             setContent("");
+            setError(null);
 
 
         }
@@ -94,6 +108,7 @@ const ContractCard = (props) => {
     useEffect(
         () => {
 
+            document.getElementById("header").value = "";
             document.getElementById("title").value = "";
             document.getElementById("content").value = "";
 
@@ -118,17 +133,31 @@ const ContractCard = (props) => {
                     sx={{"borderBottom": "1px solid rgba(0, 0, 0, 0.12)"}}
                 >
                     <Toolbar>
-                        <Grid container spacing={2} alignItems="center">
+                        <Grid container spacing={2} alignItems="center" flexDirection="row">
                             <Grid item>
                                 <AddIcon color="inherit" sx={{"display": "block"}} />
                             </Grid>
-                            <Grid item xs>
+                            <Grid item xs = {7}>
+                                <TextField
+                                    fullWidth
+                                    id="header"
+                                    defaultValue={header}
+                                    onChange={(e) => setHeader(e.target.value)}
+                                    placeholder="Enter Header (optional)"
+                                    InputProps={{
+                                        "disableUnderline": true,
+                                        "sx": {"fontSize": "default"}
+                                    }}
+                                    variant="standard"
+                                />
+                            </Grid>
+                            <Grid item xs = {4}>
                                 <TextField
                                     fullWidth
                                     id="title"
                                     defaultValue={title}
                                     onChange={(e) => setTitle(e.target.value)}
-                                    placeholder="Enter Section Title"
+                                    placeholder="Enter Section Title (optional)"
                                     InputProps={{
                                         "disableUnderline": true,
                                         "sx": {"fontSize": "default"}
