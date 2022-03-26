@@ -25,7 +25,7 @@ class DeleteTenantApplicationTest extends TestCase
 
         Auth::login($admin);
 
-        $this->getJson('/admin-delete-application', [
+        $this->getJson('/admin.delete-application', [
             'id' => $tenant->id,
         ]);
 

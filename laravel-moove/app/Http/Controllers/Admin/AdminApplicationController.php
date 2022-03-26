@@ -35,7 +35,8 @@ class AdminApplicationController extends Controller
                     'email' => $user->email,
                 ],
                 'files' => $user->application->files,
-                'requestRoute' => route('admin-change-application'),
+                'requestRoute' => route('admin.change-application'),
+                'deleteRoute' => route('admin.delete-application', ['application' => $id]),
                 'redirectRoute' => route('admin-tenant-list')
             ];
             return view('admin.admin-tenant-application', [
@@ -63,11 +64,11 @@ class AdminApplicationController extends Controller
     }
 
 
-    public function destroy($id) {
+    public function destroy(Application $application) {
 
-        DB::delete('delete from applications where user_id= ?', [$id]);
-        echo "record deleted successfully.<br>";
+        $application->delete();
+        session()->flash('status', 'Deleted application');
 
-        return redirect()->route('admin.home');
+        return response()->noContent();
     }
 }

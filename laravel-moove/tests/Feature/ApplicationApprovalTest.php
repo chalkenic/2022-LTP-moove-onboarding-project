@@ -23,7 +23,7 @@ class ApplicationApprovalTest extends TestCase
 
         Auth::login($admin);
 
-        $this->putJson('/admin-change-application', [
+        $this->putJson('/admin.change-application', [
             'id' => $tenant->id,
             'approved' => true
         ]);
@@ -45,7 +45,7 @@ class ApplicationApprovalTest extends TestCase
 
         Auth::login($admin);
 
-        $this->putJson('/admin-change-application', [
+        $this->putJson('/admin.change-application', [
             'id' => $tenant->id,
             'approved' => false
         ]);
