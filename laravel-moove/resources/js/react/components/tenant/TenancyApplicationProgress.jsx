@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Table, TableBody, TableContainer, tableCellClasses, TableHead, TableRow, TableCell, Paper, Alert,AlertTitle } from "@mui/material";
+import { Table, TableBody, TableContainer, tableCellClasses, TableHead, TableRow, TableCell, Paper, Alert,AlertTitle, Button } from "@mui/material";
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -46,11 +46,11 @@ const TenancyApplicationProgress = () => {
       { !window.noTenancy ? 
 
       <div id="tenantTable">
-  <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 10,width:'100%',backgroundColor:'white',padding:4,border:"1px solid grey",marginBottom:"4px"}}>
-    <div>"image" 80 May Street</div>
-    <div>Status: <b>Requires additional forms</b></div>
-    <div>View Property</div>
-  </div>
+        <View style={{justifyContent: 'space-evenly'}}>
+        <div>{window.property.name}</div>
+    <div>Status: <b>{window.property.status}</b></div>
+    <Button variant="outlined">View Property</Button>
+        </View>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
