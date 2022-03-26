@@ -1,5 +1,5 @@
 import React from "react";
-import { Dialog, DialogContent, DialogTitle, Grid } from "@mui/material";
+import { Dialog, DialogContent, DialogTitle, Grid, Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useEffect, useRef, useState } from "react";
 import * as LandlordTexts from "../../assets/texts/LandlordTexts";
@@ -209,9 +209,43 @@ const PropertyModal = (props) => {
                                 </Grid>
                             )}
                         </Grid>
+                        
                     </DialogContent>
+
+                    <Button href={"/landlord-sign-tenancy/"+props.property.id} style={{margin: '0 auto', display: "flex"}}>Sign Tenancy</Button>
+                    {/* 
+                    <Typography
+                        variant="body1"
+                        align="center"
+                        sx={{ fontWeight: 700, marginTop: 2 }}
+                    ></Typography> */}
+
+                    {/* <Typography
+                        variant="body1"
+                        align="center"
+                        sx={{
+                            fontWeight: 700,
+                            marginInline: 4,
+                            marginTop: 2,
+                            marginBottom: 1,
+                        }}
+                    >
+                        {LandlordTexts.LandlordPropsTexts.propertyTenantTitle}
+                    </Typography> */}
+                    {/* < container direction={'column'}>
+					{tenants.map((tenant) => {
+						return (
+							<Grid item xs={6} align="center" key={tenant}>
+								{tenant}
+							</Grid>
+						);
+					})}
+				// </
+                Grid> */}
                 </Grid>
+                
             </Dialog>
+
         </div>
     );
 };
