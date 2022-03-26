@@ -17,9 +17,17 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('property_id')->constrained()->onDelete('cascade');
-            $table->text('status')->default('Awaiting documents');
-            $table->timestamps();
             
+            // Replaces legacy is_active 
+            $table->text('status')->default(0);
+
+            // Status IDs
+            // 0 - Awaiting tenancy documents
+            // 1 - Awaiting approval
+            // 2 - Application Approved
+            // 3 - Application Denied
+
+            $table->timestamps(); 
         });
     }
 
