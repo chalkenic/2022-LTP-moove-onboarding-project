@@ -23,6 +23,16 @@ class TenantViewApplController extends Controller
             $ownPropertyId = Tenancy::where('user_id',Auth::id())->first()->property_id;
             $tenantsContracts = Tenancy::where('property_id',$ownPropertyId)->get();
 
+            $tableData = [];
+            foreach ($tenantsContracts as $contract)
+            {
+                $tableData[] = [
+                    'id' => ,
+                    'name' => ,
+                    'status' => ,
+                    'date' => 
+                ];
+            }
             JavaScript::put([
                 'property' => Property::where('id', $ownPropertyId)->first(),
                 'tenants' => $tenantsContracts
