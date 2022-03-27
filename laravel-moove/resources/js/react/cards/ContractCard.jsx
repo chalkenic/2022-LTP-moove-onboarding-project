@@ -1,8 +1,9 @@
+/* eslint-disable sort-imports */
 /* eslint-disable max-statements */
 /* eslint-disable no-magic-numbers */
 /* eslint-disable no-undefined */
 import AppTheme from "../assets/theme/theme";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 // Import { Grid, Card, CardActionArea } from "@mui/material";
 import PropTypes from "prop-types";
 import {FormControlUnstyled} from "@mui/base";
@@ -13,11 +14,8 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import Tooltip from "@mui/material/Tooltip";
 import * as LandlordTexts from "../assets/texts/LandlordTexts";
-import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
-import RefreshIcon from "@mui/icons-material/Refresh";
 import {makeStyles} from "@mui/styles";
 import {Box} from "@mui/system";
 
@@ -44,7 +42,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-const ContractCard = (props) => {
+const ContractCard = ({sections, setSections}) => {
 
 
     const styles = useStyles();
@@ -67,7 +65,7 @@ const ContractCard = (props) => {
         setError
     ] = useState();
 
-    const validate = (event) => {
+    const validate = () => {
 
         if (value === null || value === undefined || value.length < 1) {
 
@@ -80,8 +78,8 @@ const ContractCard = (props) => {
                 setTitle("");
 
             }
-            props.setSections([
-                ...props.sections,
+            setSections([
+                ...sections,
                 {
                     header,
                     title,
@@ -106,7 +104,7 @@ const ContractCard = (props) => {
             document.getElementById("content").value = "";
 
         },
-        [props.sections]
+        [sections]
     );
 
     return (
@@ -233,6 +231,9 @@ const ContractCard = (props) => {
 
 };
 ContractCard.propTypes = {
+    "sections": PropTypes.any.isRequired,
+    "setSections": PropTypes.any.isRequired
+
 
 };
 

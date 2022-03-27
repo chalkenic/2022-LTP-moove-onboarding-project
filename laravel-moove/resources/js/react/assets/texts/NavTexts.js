@@ -5,86 +5,86 @@
 
 export const navTextAdmin = [
     {
-        id: 2,
-        key: "page_properties",
-        name: "properties List",
-        selected: false,
-        link: "/admin-all-properties",
-        type: "link",
+        "id": 2,
+        "key": "page_properties",
+        "name": "properties List",
+        "selected": false,
+        "link": "/admin-all-properties",
+        "type": "link"
     },
     {
-        id: 5,
-        key: "page_users",
-        name: "Convert Users",
-        selected: false,
-        link: "/convert-user",
-        type: "link",
+        "id": 5,
+        "key": "page_users",
+        "name": "Convert Users",
+        "selected": false,
+        "link": "/convert-user",
+        "type": "link"
     },
     {
-        id: 6,
-        key: "page_tenants",
-        name: "Tenant List",
-        selected: false,
-        link: "/admin-tenant-list",
-        type: "link",
-    },
+        "id": 6,
+        "key": "page_tenants",
+        "name": "Tenant List",
+        "selected": false,
+        "link": "/admin-tenant-list",
+        "type": "link"
+    }
 ];
 
 export const navTextTenant = [
-  {
-    id: 1,
-    key: "page_home",
-    name: "tenant 1",
-    selected: false,
-    link: "/tenant-test",
-    type: "link",
-  },
-  {
-    id: 2,
-    key: "page_properties",
-    name: "Tenant 2",
-    selected: false,
-    link: "/tenant-test",
-    type: "link",
-  },
-  {
-    id: 3,
-    key: "page_applications",
-    name: "Tenant 3",
-    selected: false,
-    link: "/test",
-    type: "link",
-  },
-  {
-    id: 4,
-    key: "book_appointment",
-    name: "Book Appointment",
-    selected: false,
-    link: "/book-appointment",
-    type: "link",
-  },
-  {
-    id: 5,
-    key: "video_upload",
-    name: "Video Upload",
-    selected: false,
-    link: "/tenant-upload-video",
-  },
-  {
-    key: "apply_tenancy",
-    name: "Apply for Tenancy",
-    selected: false,
-    link: "/apply-tenancy",
-    type: "link",
-  },
-  {
-    id: 6,
-    key: "page_logout",
-    name: "Logout",
-    selected: false,
-    link: "/logout",
-    type: "link",
-  },
+    {
+        "id": 1,
+        "key": "page_home",
+        "name": "tenant 1",
+        "selected": false,
+        "link": "/tenant-test",
+        "type": "link"
+    },
+    {
+        "id": 2,
+        "key": "page_properties",
+        "name": "Tenant 2",
+        "selected": false,
+        "link": "/tenant-test",
+        "type": "link"
+    },
+    {
+        "id": 3,
+        "key": "page_applications",
+        "name": "Tenant 3",
+        "selected": false,
+        "link": "/test",
+        "type": "link"
+    },
+    {
+        "id": 4,
+        "key": "book_appointment",
+        "name": "Book Appointment",
+        "selected": false,
+        "link": "/book-appointment",
+        "type": "link"
+    },
+    {
+        "id": 5,
+        "key": "video_upload",
+        "name": "Video Upload",
+        "selected": false,
+        "link": "/tenant-upload-video"
+    },
+    {
+        "key": "apply_tenancy",
+        "name": "Apply for Tenancy",
+        "selected": false,
+        "link": "/apply-tenancy",
+        "type": "link"
+    },
+    {
+        "id": 6,
+        "key": "page_logout",
+        "name": "Logout",
+        "selected": false,
+        "link": "/logout",
+        "type": "link"
+    }
 ];
 
 export const navTextLandlord = [

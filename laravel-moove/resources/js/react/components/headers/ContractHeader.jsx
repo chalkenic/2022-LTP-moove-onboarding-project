@@ -3,7 +3,7 @@
 /* eslint-disable no-ternary */
 import AppTheme from "../../assets/theme/theme";
 import React, {Fragment} from "react";
-import {Grid, Link, Typography} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 import PropTypes from "prop-types";
 import * as LandlordTexts from "../../assets/texts/LandlordTexts";
 import {useTheme} from "@mui/system";

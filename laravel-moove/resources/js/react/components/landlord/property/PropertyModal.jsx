@@ -18,7 +18,6 @@ import React, {useEffect, useRef, useState} from "react";
 import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
 import AppTheme from "../../../assets/theme/theme";
 import PropTypes from "prop-types";
-import axios from "axios";
 import {blue, green, red, yellow} from "@mui/material/colors";
 import styled from "@emotion/styled";
 

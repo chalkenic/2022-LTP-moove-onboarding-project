@@ -3,7 +3,7 @@
 /* eslint-disable sort-imports */
 /* eslint-disable no-magic-numbers */
 /* eslint-disable no-shadow */
-import {Alert, AlertTitle, Grid, Snackbar, Typography} from "@mui/material";
+import {Alert, Grid, Snackbar, Typography} from "@mui/material";
 
 import PropertiesHeader from "../components/headers/PropertiesHeader";
 import PropertyCard from "../cards/PropertyCard";

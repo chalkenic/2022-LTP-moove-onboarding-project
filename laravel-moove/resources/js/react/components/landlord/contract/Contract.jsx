@@ -1,12 +1,12 @@
+/* eslint-disable no-undefined */
+/* eslint-disable sort-imports */
 /* eslint-disable no-ternary */
 import React from "react";
 import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
 import {
     Box,
-    Button,
     Card,
     CardContent,
-    DialogContent,
     Grid,
     Paper,
     Typography
@@ -166,5 +166,32 @@ const Contract = ({sections, landlord, property}) => {
         </Grid>
     );
 
+};
+
+Contract.propTypes = {
+    "property": PropTypes.shape({
+        "created_at": PropTypes.string.isRequired,
+        "id": PropTypes.number.isRequired,
+        "user_id": PropTypes.number.isRequired,
+        "name": PropTypes.string.isRequired,
+        "location": PropTypes.string.isRequired,
+        "status": PropTypes.string.isRequired,
+        "updated_at": PropTypes.string,
+        "verified": PropTypes.number.isRequired
+    }),
+
+    "landlord": PropTypes.shape({
+        "id": PropTypes.number.isRequired,
+        "name": PropTypes.string.isRequired,
+        "role": PropTypes.string.isRequired
+
+    }),
+    "sections": PropTypes.shape({
+        "map": PropTypes.any,
+        "length": PropTypes.any,
+        "header": PropTypes.string,
+        "title": PropTypes.string,
+        "value": PropTypes.string.isRequired
+    })
 };
 export default Contract;
