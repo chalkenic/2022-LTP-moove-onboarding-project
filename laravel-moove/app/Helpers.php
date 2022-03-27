@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Helpers;
-
 class Helpers
 {
     public static function convert_status_id(int $id)
     {
-        switch($id)
+        
+        switch($id):
             case(1):
                 return '';
                 break;
@@ -16,5 +15,8 @@ class Helpers
             case(3):
                 return 'po';
                 break;
+            default:
+                return 'error';
+            endswitch;
     }
 }
