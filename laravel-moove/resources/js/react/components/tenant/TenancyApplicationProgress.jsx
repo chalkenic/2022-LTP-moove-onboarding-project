@@ -66,7 +66,7 @@ const TenancyApplicationProgress = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rowData.map((row) => (
+          {window.tenants.map((row) => (
             <StyledTableRow key={row.id}>
               <StyledTableCell component="th" scope="row">
                 {row.id}
