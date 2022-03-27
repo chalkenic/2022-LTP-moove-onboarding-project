@@ -40,7 +40,6 @@ class TenantViewApplController extends Controller
         catch (\Throwable $e){
             JavaScript::put([
                 'noTenancy' => true,
-                'errorMsg' => $e->getMessage()
             ]);
         }
 
