@@ -1,5 +1,11 @@
-if (! function_exists('convert_status_id')) {
-    function convert_status_id($id) {
+<?php
+
+namespace App\Helpers;
+
+class Helpers
+{
+    public static function convert_status_id(int $id)
+    {
         switch($id)
             case(1):
                 return '';
