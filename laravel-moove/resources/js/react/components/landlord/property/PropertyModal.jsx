@@ -114,9 +114,6 @@ export function useIsMounted() {
 
 const PropertyModal = (props) => {
 
-    console.log(props.property);
-    console.log(props.contract);
-
     const styles = useStyles();
 
     const [

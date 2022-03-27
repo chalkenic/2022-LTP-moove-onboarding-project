@@ -11,11 +11,6 @@ import {useTheme} from "@mui/system";
 const ContractHeader = ({type, name}) => {
 
     const theme = useTheme(AppTheme);
-    console.log(
-        "in header: ",
-        name
-    );
-
     return (
         <Grid
             item

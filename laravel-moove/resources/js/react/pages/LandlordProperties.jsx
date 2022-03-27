@@ -23,6 +23,7 @@ const LandlordProperties = () => {
 
     const handleSnackOpen = () => {
 
+
         setSnackUp(true);
 
     };
@@ -217,8 +218,9 @@ const LandlordProperties = () => {
                     setProperty={setProperty}
                 />
             }
-            <Snackbar open={snackUp} autoHideDuration={4000} onClose={handleSnackclose}>
-                <Alert onClose={handleSnackclose} severity="success" sx={{"width": "100%"}}>This is a success message!</Alert>
+            <Snackbar open={snackUp} autoHideDuration={4000} onClose={handleSnackclose} sx={{"width": 600,
+                "height": 200}}>
+                <Alert onClose={handleSnackclose} severity="success" sx={{"width": "100%"}}>A new contract has been created! </Alert>
             </Snackbar>
 
         </div>
