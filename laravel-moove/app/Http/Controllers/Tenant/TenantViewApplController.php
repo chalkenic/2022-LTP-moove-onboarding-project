@@ -22,13 +22,12 @@ class TenantViewApplController extends Controller
         try{
             $ownPropertyId = Tenancy::where('user_id',Auth::id())->first()->property_id;
             $tenantsContracts = Tenancy::where('property_id',$ownPropertyId)->get();
-
             $tableData = [];
             foreach ($tenantsContracts as $contract)
             {
                 $tableData[] = [
-                    'id' => ,
-                    'name' => ,
+                    'id' => $contract->id,
+                    'name' => $contract->,
                     'status' => ,
                     'date' => 
                 ];
