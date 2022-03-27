@@ -27,14 +27,14 @@ class TenantViewApplController extends Controller
             {
                 $tableData[] = [
                     'id' => $contract->id,
-                    'name' => User::where('id', $contract->user_id)->name,
-                    'status' => ,
-                    'date' => 
+                    'name' => User::where('id', $contract->user_id)->first()->name,
+                    'status' => $contract->status,
+                    'date' => $contract->created_at
                 ];
             }
             JavaScript::put([
                 'property' => Property::where('id', $ownPropertyId)->first(),
-                'tenants' => $tenantsContracts
+                'tenants' => $tableData
             ]);
         }
         catch (\Throwable $e){
