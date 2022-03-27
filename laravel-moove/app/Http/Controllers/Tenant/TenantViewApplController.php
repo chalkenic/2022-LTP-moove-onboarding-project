@@ -19,8 +19,10 @@ class TenantViewApplController extends Controller
     public function index() {
         try{
             $ownPropertyId = Tenancy::where('user_id',Auth::id())->first()->property_id;
+            $tenants = User::whereRelation('tenancy', 'property_id', $ownPropertyId)->get();
             JavaScript::put([
                 'property' => Property::where('id', $ownPropertyId)->first(),
+                'tenants' => $tenants;
             ]);
         }
         catch (\Throwable $e){
