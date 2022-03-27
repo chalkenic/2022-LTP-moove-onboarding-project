@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('contractDetails', function (Blueprint $table) {
             $table->id();
             $table->foreignId('contract_id')->constrained()->onDelete('cascade');
-            $table->text('section_header');
-            $table->text('section_content');
+            $table->text('header');
+            $table->text('title');
+            $table->text('content');
+            $table->text('accepted');
             $table->timestamps();
         });
     }

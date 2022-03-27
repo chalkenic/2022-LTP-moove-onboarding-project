@@ -1,3 +1,5 @@
+/* eslint-disable require-unicode-regexp */
+/* eslint-disable prefer-named-capture-group */
 /* eslint-disable no-magic-numbers */
 /* eslint-disable max-lines */
 /* eslint-disable no-undefined */

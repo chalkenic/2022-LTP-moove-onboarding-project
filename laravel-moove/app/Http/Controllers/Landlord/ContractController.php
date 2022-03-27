@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Landlord;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Facades\DB;
 use App\Models\Property;
 use App\Models\Contract;
 use App\Models\User;
+use App\Models\ContractDetail;
 
 class ContractController extends Controller
 {
@@ -28,16 +28,6 @@ class ContractController extends Controller
                 'property' => $property,
                 'contract' => $contract,
             ]);
-            
-
-        // if(Property::where('id')->exists()) {
-
-        // $property = Property::where( 'id', $prop->id)->get();
-        // return view('landlord.landlord-create-contract',                
-        //     [swc?
-        //     ]);
-    
-        // }
     }
 
     public function open($id) {
@@ -46,12 +36,6 @@ class ContractController extends Controller
         if(Contract::where('property_id', $id)->exists()) { 
 
         $contract = Contract::where('property_id', $id)->first();
-
-            // return response()->json([
-            //     'status'=>200,
-            //     'message'=>`contract exists! `.$contract,
-                            
-            // ]);
 
             return response()->json(
             [
@@ -74,6 +58,40 @@ class ContractController extends Controller
                 'property' => $property,
                 'landlord'=> $landlord,
             ]);
+
+    }
+
+    public function store(Request $request) {
+
+                $this->validate($request, [
+            'property_id'=> 'required', 
+        'sections'=> 'required']);
+
+        $propId = $request->property_id;
+        Contract::create([
+            
+            'property_id'=>$propId,
+            'landlord-signed'=> false,
+            'tenant-signed'=> false,
+            'user_id'=>$request->user()->id,
+        ]);
+
+        $contract = Contract::query()->latest()->first()->id;
+        $contract_details_insert_array = array();
+        foreach($request->sections as $key=>$val)
+        {
+            $contract_details_insert_array[]=array(
+                'contract_id' => $val[$contract], 
+                'header'=>$val[$request->sections->header], 
+                'title'=>$val[$request->sections->title], 
+                'content'=>$val[$request->sections->content],
+                'accepted'=>$val[false] );
+        }
+
+        ContractDetail::insert($contract_details_insert_array);
+
+        return back();
+
 
     }
 

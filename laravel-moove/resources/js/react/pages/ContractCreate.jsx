@@ -1,6 +1,8 @@
+/* eslint-disable object-shorthand */
 /* eslint-disable no-shadow */
 /* eslint-disable no-ternary */
 import {
+    Button,
     Card,
     CardContent,
     DialogContent,
@@ -10,11 +12,13 @@ import {
 } from "@mui/material";
 import {makeStyles} from "@mui/styles";
 import {Box} from "@mui/system";
+import axios from "axios";
 import React, {Fragment, useEffect, useState} from "react";
 import * as LandlordTexts from "../assets/texts/LandlordTexts";
 import AppTheme from "../assets/theme/theme";
 import ContractCard from "../cards/ContractCard";
 import ContractHeader from "../components/headers/ContractHeader";
+import Contract from "../components/landlord/contract/Contract";
 import ContractRow from "../components/tables/ContractRow";
 
 const useStyles = makeStyles(() => ({
@@ -43,141 +47,92 @@ const ContractCreate = (props) => {
 
     const styles = useStyles();
 
+    const property = props.property;
+
     const [
         sections,
         setSections
     ] = useState([]);
 
+    const handleCreate = () => {
+        console.log(property.id);
+
+        axios.post(
+            "/create-contract",
+            {
+                "property_id": property.id,
+                "sections": sections
+
+            }
+        );
+
+        /*
+         * Axios.
+         *     post(
+         *         "/properties",
+         *         {
+         *             "name": propName,
+         *             "location": propPostcode,
+         *             "status": occupied
+         *         }
+         *     ).
+         *     then(() => {
+         */
+
+        //         Window.location.reload();
+
+        //     });
+
+
+    };
+
+    const handleReset = () => {
+
+        setSections([]);
+
+    };
 
     return (
         <Fragment>
             <ContractHeader type="create" name={props.property.name} />
             <Box>
-
                 <ContractCard setSections = {setSections} sections = {sections}/>
-                <Grid container spacing={2}justifyContent="center">
-                    <Grid item xs={12} >
-                        <Typography variant="h4" align="center" sx={{"paddingTop": "15px",
-                            "paddingBottom": "15px",
-                            "fontWeight": "600",
-                            "textDecoration": "underline"}}>
-                            {LandlordTexts.LandlordAddContTexts.contPrevTitle}
-                        </Typography>
+                <Contract sections = {sections} landlord = {props.landlord} property={props.property} />
+            </Box>
+            {sections.length > 0
+                ? <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <Box textAlign="center" padding={(2, 2, 2, 2)}>
+                            <Button
+                                variant="contained"
+                                color="success"
+                                onClick={handleCreate}
+                                size="large"
+                            >
+                                {
+                                    LandlordTexts.LandlordAddContTexts.
+                                        prevAddContractBtn
+                                }
+                            </Button>
+                        </Box>
                     </Grid>
-                    <Box className={styles.dividerLight} />
-                    <Grid item xs={12} justifyContent="center">
-                        {sections.length > 0
-                            ? <Paper variant="outlined" sx={{"paddingBottom": "30px"}}>
-                                <Grid container justifyContent="center" paddingTop="30px">
-                                    <Grid item xs={12}>
-                                        <Typography variant="h4" textAlign="center" sx={{"fontWeight": 600,
-                                            "textDecoration": "underline"}}>
-                                            {LandlordTexts.LandlordAddContTexts.prevTitle}
-                                        </Typography>
-                                        <Grid item xs={12} justifyContent="center" paddingBottom = "20px">
-                                            <Typography style={{"display": "table",
-                                                "margin": "0 auto"}} align="center" >
-                                                {LandlordTexts.LandlordAddContTexts.prevDisclaimer1}
-                                            </Typography>
-                                            <Typography style={{"display": "table",
-                                                "margin": "0 auto"}} align="center" >
-                                                {LandlordTexts.LandlordAddContTexts.prevDisclaimer2}
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item xs={11}>
-                                        <Typography paragraph>
-                                            {"The tenants known as __________________ hereby agree to rent the dwelling located at: "}
-
-                                        </Typography>
-
-                                        <Typography paragraph>
-                                            <b>{` ${props.property.name}.`}</b>
-
-                                        </Typography >
-
-                                        <Typography paragraph>
-                                            {"The premises are to be occupied by the above named tenants only. Tenant may not sublet premises."}
-
-                                        </Typography>
-
-
-                                    </Grid>
-                                    <Grid item xs={11}>
-                                        { sections.map((section, index) => <div key = {index}>
-                                            <Typography variant="h4"align="center" >
-                                                {section.header}
-                                            </Typography>
-                                            <Typography paragraph >
-                                                {section.title !== undefined && section.title.length > 0
-                                                    ? <><b>{section.title}: </b>{section.content}</>
-                                                    : section.content }
-                                            </Typography>
-                                        </div>)}
-                                    </Grid>
-                                    <Grid item xs={11}>
-                                        <Typography paragraph>
-                                            <b>{LandlordTexts.LandlordAddContTexts.prevAcknowledgementTitle}</b>
-                                            {LandlordTexts.LandlordAddContTexts.prevAcknowledgementContent}
-
-                                        </Typography>
-
-                                    </Grid>
-                                </Grid>
-                                <Grid container paddingLeft="10px" justify="center" style={{"maxWidth": "100%"}}>
-                                    <Grid item xs={6}>
-                                        <Grid container flexDirection="column" >
-                                            <Card align="center">
-                                                <Grid item xs={12}>
-                                                    <CardContent >
-                                                        <b>LANDLORD SIGNATURE</b>
-                                                    </CardContent>
-                                                </Grid>
-
-                                                <CardContent className={styles.divider} />
-                                                <Grid item xs={12}>
-                                                    <CardContent>
-                                                        <Typography>
-                                                            {props.landlord.name.toUpperCase()}
-
-                                                        </Typography>
-                                                    </CardContent>
-                                                </Grid>
-                                            </Card>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <Grid container flexDirection="column" padding="0 10px">
-                                            <Card align="center">
-                                                <Grid item xs={12}>
-                                                    <CardContent >
-                                                        <b>TENANT SIGNATURE</b >
-                                                    </CardContent>
-                                                </Grid>
-
-                                                <CardContent className={styles.divider} />
-                                                <Grid item xs={12}>
-                                                    <CardContent>
-                                                        <Typography>
-                                                            ...
-
-                                                        </Typography>
-                                                    </CardContent>
-                                                </Grid>
-                                            </Card>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
-
-                            </Paper>
-                            : <Typography align="center">Contract and content will be added here after first section submission</Typography>}
-
-
+                    <Grid item xs={6}>
+                        <Box textAlign="center" padding={(2, 2, 2, 2)}>
+                            <Button
+                                variant="contained"
+                                color="warning"
+                                onClick={handleReset}
+                                size="large"
+                            >
+                                {
+                                    LandlordTexts.LandlordAddContTexts.
+                                        prevResetContractBtn
+                                }
+                            </Button>
+                        </Box>
                     </Grid>
                 </Grid>
-
-
-            </Box>
+                : <></>}
         </Fragment>
     );
 

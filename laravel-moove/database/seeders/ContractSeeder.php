@@ -18,7 +18,6 @@ class ContractSeeder extends Seeder
 
         DB::table('contracts')->insert([
             'property_id' => 1,
-            'user_id' => 7,
             'landlord_signed' => 0,
             'tenant_signed' => 0,
         ]);

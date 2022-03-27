@@ -69,10 +69,6 @@ const ContractCard = (props) => {
 
     const validate = (event) => {
 
-        console.log(header);
-        console.log(title);
-        console.log(content);
-
         if (content === null || content === undefined || content.length < 1) {
 
             setError(LandlordTexts.LandlordAddContTexts.contErr2);
@@ -84,8 +80,6 @@ const ContractCard = (props) => {
                 setTitle("");
 
             }
-
-
             props.setSections([
                 ...props.sections,
                 {
@@ -94,10 +88,9 @@ const ContractCard = (props) => {
                     content
                 }
             ]);
-
-            setHeader("");
-            setTitle("");
-            setContent("");
+            setHeader();
+            setContent();
+            setTitle();
             setError(null);
 
 

@@ -16,8 +16,10 @@ class ContractDetailSeeder extends Seeder
     {
         DB::table('contractDetails')->insert([
             'contract_id'=> 1,
-            'section_header' => 'Lorem Ipsum',
-            'section_content' => 'some random lorem ipsum text that no-one knows what it means...',
+            'header' => 'Lorem Ipsum',
+            'title' => '',
+            'content' => 'some random lorem ipsum text that no-one knows what it means...',
+            'accepted'=> 0,
         ]);
     }
 }

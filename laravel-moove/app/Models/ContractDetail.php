@@ -10,8 +10,15 @@ class ContractDetail extends Model
     use HasFactory;
 
         protected $fillable = [
-            'section_header',
-            'section_content',
+            'contract_id',
+
+            'content',
+            'accepted',         
+    ];
+
+    protected $optional = [
+            'header',
+            'title',
     ];
 
      public function contract() {

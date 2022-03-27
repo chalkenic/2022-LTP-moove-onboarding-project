@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();     
             $table->foreignId('property_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->tinyInteger('landlord_signed')->default(0);
             $table->tinyInteger('tenant_signed')->default(0);
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

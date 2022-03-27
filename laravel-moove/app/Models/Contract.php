@@ -13,11 +13,12 @@ class Contract extends Model
             'created_at',
             'landlord_signed',
             'tenant_signed',
+            'property_id'
     ];
 
 
-        public function property() {
-        return $this->belongsTo(Property::class);
+    public function property() {
+        return $this->hasOne(Property::class);
     }
 
             public function tenancy() {

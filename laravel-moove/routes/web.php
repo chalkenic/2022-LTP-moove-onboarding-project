@@ -47,7 +47,7 @@ Route::get('/get-video', function() {
     return view('tenant.tenant-get-video');
 });
 
-// Tenant routes
+// Tenant Routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
 Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
 Route::get('/tenant-upload-video', function() {
@@ -60,6 +60,8 @@ Route::get('/application', [ApplicationController::class, 'index'])->name('tenan
 Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
 Route::post('/start-application', [ApplicationController::class, 'store']);
 Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
+
+// Landlord Routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
 Route::get('/properties', [LandlordPropertyController::class, 'index'])-> name('landlord.landlord-properties');
 Route::post('/properties', [LandlordPropertyController::class, 'store']); 
@@ -71,7 +73,7 @@ Route::post('/create-contract', [ContractController::class, 'store']);
 
 
 
-// Admin routes
+// Admin Routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
 Route::put('/convert-user', [UserConvertController::class, 'update']);

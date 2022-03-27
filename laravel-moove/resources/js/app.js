@@ -22,6 +22,7 @@ import PropertyRow from "./react/components/tables/PropertyRow";
 import TenantApplication from "../js/react/components/admin/TenantApplication";
 import AdminProperties from "./react/pages/AdminProperties";
 import ContractCard from "./react/cards/ContractCard";
+import Contract from "./react/components/landlord/contract/Contract";
 
 
 const components = [
@@ -79,6 +80,7 @@ const components = [
         name: "TenantApplication",
         component: <TenantApplication />,
     },
+    { name: "Contract", component: <Contract /> },
     { name: "ContractCreate", component: <ContractCreate /> },
     { name: "ContractShow", component: <ContractShow /> },
     { name: "ContractCard", component: <ContractCard /> },
