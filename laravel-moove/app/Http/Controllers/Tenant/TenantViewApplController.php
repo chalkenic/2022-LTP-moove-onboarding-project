@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use JavaScript;
 use App\Models\User;
+use Helpers;
 
 use App\Models\Property;
 use App\Models\Tenancy;
