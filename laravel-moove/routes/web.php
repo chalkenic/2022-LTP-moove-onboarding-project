@@ -66,9 +66,9 @@ Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landl
 Route::get('/properties', [LandlordPropertyController::class, 'index'])-> name('landlord.landlord-properties');
 Route::post('/properties', [LandlordPropertyController::class, 'store']); 
 Route::get('/tenants/{id}', [LandlordPropertyController::class, 'show']);
-Route::get('/contract/{id}', [ContractController::class, 'show'])->name('landlord.landlord-show-contract');
+Route::get('/contract/{id}', [ContractController::class, 'index'])->name('landlord.landlord-contracts');
 Route::get('/get-contract/{id}', [ContractController::class, 'open']);
-Route::get('/create-contract/{id}', [ContractController::class, 'index'])->name('landlord.landlord-create-contract');
+// Route::get('/create-contract/{id}', [ContractController::class, 'index'])->name('landlord.landlord-create-contract');
 Route::post('/create-contract', [ContractController::class, 'store']);
 
 

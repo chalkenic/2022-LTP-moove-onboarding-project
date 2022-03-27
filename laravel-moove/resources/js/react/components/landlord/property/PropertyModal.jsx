@@ -143,7 +143,7 @@ const PropertyModal = (props) => {
 
         handleClose();
 
-        window.location.href = `/create-contract/${newProp.id}`;
+        window.location.href = `/contract/${newProp.id}`;
 
     };
 

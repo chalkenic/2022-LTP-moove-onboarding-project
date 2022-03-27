@@ -16,18 +16,38 @@ class ContractController extends Controller
         $this->middleware(['landlord']);
     }
 
-    public function show($id) {
+    public function index($id) {
 
-
+        if (Contract::where('property_id', $id)->exists()) {
 
             $contract = Contract::where('property_id', $id)->get();
             $property = Property::where('id', $id)->get();
 
-        return view('landlord.landlord-show-contract',                
+                    return view('landlord.landlord-contracts',                
             [
                 'property' => $property,
                 'contract' => $contract,
             ]);
+
+        } else {
+
+        $property = Property::where('id', $id)->first();
+        $landlord = User::where('id', $property->user_id)->first();
+
+
+
+        return view('landlord.landlord-contracts',                
+            [
+                'property' => $property,
+                'landlord'=> $landlord,
+            ]);
+
+        }
+
+
+
+
+
     }
 
     public function open($id) {
@@ -46,20 +66,11 @@ class ContractController extends Controller
         }
     }
 
-    public function index($id) {
-
-        $property = Property::where('id', $id)->first();
-        $landlord = User::where('id', $property->user_id)->first();
+    // public function index($id) {
 
 
 
-        return view('landlord.landlord-create-contract',                
-            [
-                'property' => $property,
-                'landlord'=> $landlord,
-            ]);
-
-    }
+    // }
 
     public function store(Request $request) {
 
