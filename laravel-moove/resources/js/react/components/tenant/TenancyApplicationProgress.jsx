@@ -24,7 +24,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-
+/*
 const rowData = [
   {
     id: '1',
@@ -40,7 +40,7 @@ const rowData = [
   }
 ];
 console.log(window.noTenancy + " tenancy ");
-console.log(window.tenants);
+console.log(window.tenants);*/
 
 const TenancyApplicationProgress = () => {
   return (
