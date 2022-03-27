@@ -3,13 +3,22 @@
 namespace Tests\Feature;
 
 use App\Models\User;
+use App\Notifications\ApplicationApproved;
+use App\Notifications\ApplicationRejected;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class ApplicationApprovalTest extends TestCase
 {
     use DatabaseMigrations;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        Notification::fake();
+    }
 
     /**
      * @test
@@ -31,6 +40,8 @@ class ApplicationApprovalTest extends TestCase
             1,
             $tenant->application->is_approved
         );
+
+        Notification::assertSentTo($tenant, ApplicationApproved::class);
     }
 
     /**
@@ -53,5 +64,7 @@ class ApplicationApprovalTest extends TestCase
             2,
             $tenant->application->is_approved
         );
+
+        Notification::assertSentTo($tenant, ApplicationRejected::class);
     }
 }

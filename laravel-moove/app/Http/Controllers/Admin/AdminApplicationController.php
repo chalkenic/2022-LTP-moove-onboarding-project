@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Application;
 use App\Models\User;
+use App\Notifications\ApplicationApproved;
+use App\Notifications\ApplicationRejected;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -47,12 +49,18 @@ class AdminApplicationController extends Controller
     }
 
     public function update(Request $request) {
-        $userId = $request->input('id');
+        $user = User::firstWhere('id', $request->input('id'));
         $approved = $request->boolean('approved');
 
-        Application::where('user_id', $userId)->first()->update([
+        $user->application->update([
             'is_approved' => $approved ? 1 : 2
         ]);
+
+        if ($approved) {
+            $user->notify(new ApplicationApproved($user));
+        } else {
+            $user->notify(new ApplicationRejected($user));
+        }
 
         session()->flash('status', $approved ? 'Application approved successfully.' : 'Application denied successfully.');
         
