@@ -1,3 +1,5 @@
+/* eslint-disable max-lines-per-function */
+/* eslint-disable max-statements */
 /* eslint-disable no-magic-numbers */
 /* eslint-disable no-undefined */
 /* eslint-disable max-lines */
@@ -17,7 +19,7 @@ import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
 import AppTheme from "../../../assets/theme/theme";
 import PropTypes from "prop-types";
 import axios from "axios";
-import {blue, green} from "@mui/material/colors";
+import {blue, green, red, yellow} from "@mui/material/colors";
 import styled from "@emotion/styled";
 
 const GreenButton = styled(Button)(() => ({
@@ -28,6 +30,14 @@ const GreenButton = styled(Button)(() => ({
     }
 }));
 
+const YellowButton = styled(Button)(() => ({
+    "color": "#000",
+    "backgroundColor": yellow[200],
+    "&:hover": {
+        "backgroundColor": yellow[500]
+    }
+}));
+
 const BlueButton = styled(Button)(() => ({
     "color": "#000",
     "backgroundColor": blue[200],
@@ -35,6 +45,15 @@ const BlueButton = styled(Button)(() => ({
         "backgroundColor": blue[500]
     }
 }));
+
+const RedButton = styled(Button)(() => ({
+    "color": "#000",
+    "backgroundColor": red[200],
+    "&:hover": {
+        "backgroundColor": red[500]
+    }
+}));
+
 
 const useStyles = makeStyles(() => ({
     "titleText": {
@@ -128,16 +147,6 @@ const PropertyModal = (props) => {
 
     };
 
-    /*
-     *     Axios.
-     *         get(
-     *             "/create-contract",
-     *             property
-     *         ).
-     *         then(window.location.href = "/create-contract");
-     */
-
-    // };
 
     const descriptionElementRef = useRef(null);
     useEffect(
@@ -264,16 +273,44 @@ const PropertyModal = (props) => {
                                         Create Contract
                                     </GreenButton>
 
-                                    : <BlueButton
-                                        variant="contained"
-                                        onClick={() => openContract(
-                                            props.property,
-                                            props.contract
-                                        )
-                                        }
-                                    >
+                                    : <Grid container flexDirection={"row"}>
+                                        <Grid item xs={4}>
+                                            <BlueButton
+                                                variant="contained"
+                                                onClick={() => openContract(
+                                                    props.property,
+                                                    props.contract
+                                                )
+                                                }
+                                            >
                                         Open Contract
-                                    </BlueButton>
+                                            </BlueButton>
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <YellowButton
+                                                variant="contained"
+                                                onClick={() => editContract(
+                                                    props.property,
+                                                    props.contract
+                                                )
+                                                }
+                                            >
+                                        Edit Contract
+                                            </YellowButton>
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <RedButton
+                                                variant="contained"
+                                                onClick={() => deleteContract(
+                                                    props.property,
+                                                    props.contract
+                                                )
+                                                }
+                                            >
+                                        Delete Contract
+                                            </RedButton>
+                                        </Grid>
+                                    </Grid>
                                 }
                             </Grid>
                         </Grid>
