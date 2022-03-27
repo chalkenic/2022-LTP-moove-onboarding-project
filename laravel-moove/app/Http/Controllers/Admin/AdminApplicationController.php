@@ -16,35 +16,32 @@ class AdminApplicationController extends Controller
     }
 
     public function index() {
-        // TODO: investigate paginating with React
-        $applicants = json_encode(User::whereRelation('application', 'is_approved', 0)->get());
+        $applicants = User::whereRelation('application', 'is_approved', 0)->paginate(1);
 
         return view('admin.admin-tenant-list', [
             'applicants' => $applicants
         ]);
     }
 
-    public function show($id) {
-        if (Application::where('user_id', $id)->exists()) {
-            $user = User::where('id', $id)->first();
-
+    public function show(User $user) {
+        if ($user->application->exists()) {
             $data = [
                 'tenant' => [
-                    'id' => $id,
+                    'id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
                 ],
                 'files' => $user->application->files,
-                'requestRoute' => route('admin-change-application'),
+                'requestRoute' => route('admin.change-application'),
+                'deleteRoute' => route('admin.delete-application', ['application' => $user->application->id]),
                 'redirectRoute' => route('admin-tenant-list')
             ];
             return view('admin.admin-tenant-application', [
                 'data' => json_encode($data),
-                'id' => $id
             ]);
         } else {
             return view('admin.admin-tenant-application')->withErrors([
-                'id' => 'Oops! Something went wrong looking for a user with ID '.$id.'.'
+                'user' => 'Oops! Something went wrong looking for a user with ID '.$user->id.'.'
             ]);
         }
     }
@@ -63,11 +60,11 @@ class AdminApplicationController extends Controller
     }
 
 
-    public function destroy($id) {
+    public function destroy(Application $application) {
 
-        DB::delete('delete from applications where user_id= ?', [$id]);
-        echo "record deleted successfully.<br>";
+        $application->delete();
+        session()->flash('status', 'Deleted application');
 
-        return redirect()->route('admin.home');
+        return response()->noContent();
     }
 }
