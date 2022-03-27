@@ -27,7 +27,7 @@ class TenantViewApplController extends Controller
             {
                 $tableData[] = [
                     'id' => $contract->id,
-                    'name' => $contract->,
+                    'name' => User::where('id', $contract->user_id)->name,
                     'status' => ,
                     'date' => 
                 ];
