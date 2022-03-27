@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use JavaScript;
 use App\Models\User;
-use Helpers;
+use App\Helpers;
 
 use App\Models\Property;
 use App\Models\Tenancy;
@@ -29,7 +29,7 @@ class TenantViewApplController extends Controller
                 $tableData[] = [
                     'id' => $contract->id,
                     'name' => User::where('id', $contract->user_id)->first()->name,
-                    'status' => convert_status_id($contract->status),
+                    'status' => Helpers::convert_status_id($contract->status),
                     'date' => $contract->created_at
                 ];
             }
@@ -41,6 +41,7 @@ class TenantViewApplController extends Controller
         catch (\Throwable $e){
             JavaScript::put([
                 'noTenancy' => true,
+                'error'=>$e->getMessage()
             ]);
         }
 
