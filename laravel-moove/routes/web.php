@@ -16,16 +16,13 @@ use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\Tenant\TenantAptController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\Tenant\TenantApplyController;
-use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Landlord\LandlordController;
-use App\Http\Controllers\Landlord\LandlordPropertyController;
 use App\Http\Controllers\Landlord\ContractController;
+use App\Http\Controllers\Landlord\LandlordSigningController;
+
+use App\Http\Controllers\Landlord\PropertyController;
+use App\Http\Controllers\Landlord\LandlordPropertyController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Input;
 
 
 // Auth routes
@@ -63,6 +60,11 @@ Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.up
 
 // Landlord Routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
+Route::get('/landlord-properties', function() {
+    return view('landlord.landlord-properties');
+});
+Route::get('/landlord-sign-tenancy/{id}', [LandlordSigningController::class, 'index'])-> name('landlord.landlord-sign-tenancy');
+Route::post('/landlord-sign-tenancy', [LandlordSigningController::class, 'store']);
 Route::get('/properties', [LandlordPropertyController::class, 'index'])-> name('landlord.landlord-properties');
 Route::post('/properties', [LandlordPropertyController::class, 'store']); 
 Route::get('/tenants/{id}', [LandlordPropertyController::class, 'show']);
@@ -78,6 +80,7 @@ Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home')
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
 Route::put('/convert-user', [UserConvertController::class, 'update']);
 Route::get('/admin-tenant-list', [AdminApplicationController::class, 'index'])->name('admin-tenant-list');
-Route::get('/admin-tenant-application/{id}', [AdminApplicationController::class, 'show']);
-Route::put('/admin-change-application', [AdminApplicationController::class, 'update'])->name('admin-change-application');
+Route::get('/admin-tenant-application/{user}', [AdminApplicationController::class, 'show']);
+Route::put('/admin-change-application', [AdminApplicationController::class, 'update'])->name('admin.change-application');
+Route::delete('/admin-delete-application/{application}', [AdminApplicationController::class, 'destroy'])->name('admin.delete-application');
 Route::get('/admin-all-properties', [AdminPropertyController::class, 'index'])->name('admin.all-properties');

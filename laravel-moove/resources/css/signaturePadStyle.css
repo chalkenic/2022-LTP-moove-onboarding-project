@@ -1,0 +1,18 @@
+.signatureCanvas {
+    border: 2px solid black;
+    width: 100%;
+    min-height: 500px;
+  }
+
+.buttonLayout{
+  display: flex;
+  border-left:2px solid black;
+  border-right:2px solid black;
+  border-bottom:2px solid black;
+  background-color: white;
+}
+
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}

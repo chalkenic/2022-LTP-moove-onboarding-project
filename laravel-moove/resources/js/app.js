@@ -12,6 +12,7 @@ import AppNavBar from "./react/components/navBar/AppNavBarCustom";
 import TenancyForm from "./react/components/forms/TenantCheckForm";
 import CalendlyBooking from "./react/components/forms/CalendlyComponent";
 import Dashboard from "./react/pages/Dashboard";
+import SigningComponent from './react/components/forms/SigningComponent';
 import LandlordProperties from "./react/pages/LandlordProperties";
 import TenantList from "../js/react/components/admin/TenantList";
 import ContractCreate from "./react/pages/ContractCreate";
@@ -84,6 +85,11 @@ const components = [
     { name: "ContractCreate", component: <ContractCreate /> },
     { name: "ContractShow", component: <ContractShow /> },
     { name: "ContractCard", component: <ContractCard /> },
+    {
+        name: "SigningComponent",
+        component: <SigningComponent/>
+    },
+
 ];
 
 new ReactRenderer(components).renderAll();

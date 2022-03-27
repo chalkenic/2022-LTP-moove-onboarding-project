@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Button } from "@mui/material";
 import PropTypes from "prop-types";
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
@@ -42,7 +42,7 @@ const Property = ({ property }) => {
                 paddingTop: "10px !important",
                 paddingBottom: "20px !important",
             }}
-        >
+            >
             <Grid item xs={12} md={12} align={"center"}>
                 <Typography
                     className={clsx(

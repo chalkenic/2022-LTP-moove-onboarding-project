@@ -19,25 +19,34 @@ cache:
     - laravel-moove/vendor/
     - laravel-moove/node_modules/
 
-before_script:
+lint:
+  before_script:
   # upgrade
   - apt-get update -y
   - apt-get upgrade -y
   # install required packages
   - apt-get install git-core -y
-  - apt-get install zip unzip -y
   - apt-get install npm -y
-  # install composer
-  - cd laravel-moove && curl -sS https://getcomposer.org/installer | php
-  # install dependencies
-  - php composer.phar install
-  - npm install
-  # create .env.testing from example file
-  - cp .env.testing.example .env.testing
-  # compile assets
-  - npm run dev
+  # install npm dependencies
+  - cd laravel-moove && npm install
+  script:
+    # run eslint
+    - npm run lintJS
 
 test:
+  before_script:
+    # upgrade
+    - apt-get update -y
+    - apt-get upgrade -y
+    # install required packages
+    - apt-get install git-core -y
+    - apt-get install zip unzip -y
+    # install composer
+    - cd laravel-moove && curl -sS https://getcomposer.org/installer | php
+    # install dependencies
+    - php composer.phar install
+    # create .env.testing from example file
+    - cp .env.testing.example .env.testing
   script:
     # run laravel tests
     - php vendor/bin/phpunit --coverage-text --colors=never tests
