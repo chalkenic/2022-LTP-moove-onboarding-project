@@ -19,6 +19,7 @@ import AddIcon from "@mui/icons-material/Add";
 import {makeStyles} from "@mui/styles";
 import {Box} from "@mui/system";
 
+
 const useStyles = makeStyles(() => ({
     "titleText": {
         "fontFamily": "sans-serif",
@@ -231,8 +232,8 @@ const ContractCard = ({sections, setSections}) => {
 
 };
 ContractCard.propTypes = {
-    "sections": PropTypes.any.isRequired,
-    "setSections": PropTypes.any.isRequired
+    "sections": PropTypes.any,
+    "setSections": PropTypes.any
 
 
 };

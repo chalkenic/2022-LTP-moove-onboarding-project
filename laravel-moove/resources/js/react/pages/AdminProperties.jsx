@@ -1,21 +1,16 @@
+/* eslint-disable sort-imports */
 import {
-    Grid,
     Paper,
     Table,
     TableBody,
     TableContainer,
     TableHead,
-    TableRow,
-    Typography
+    TableRow
 } from "@mui/material";
 import PropTypes from "prop-types";
 import PropertiesHeader from "../components/headers/PropertiesHeader";
 import React, {Fragment} from "react";
 import TableCell from "@mui/material/TableCell";
-
-
-
-
 import PropertyRow from "../components/tables/PropertyRow";
 
 const AdminProperties = ({properties, tenancies}) => <Fragment>
@@ -38,8 +33,7 @@ const AdminProperties = ({properties, tenancies}) => <Fragment>
                     key={index}
                     property={row}
                     tenants={tenancies}
-                />
-                )}
+                />)}
             </TableBody>
         </Table>
     </TableContainer>
@@ -54,7 +48,9 @@ AdminProperties.propTypes = {
         "status": PropTypes.string.isRequired,
         "updated_at": PropTypes.string,
         "verified": PropTypes.number.isRequired
-    }).isRequired)
+    }).isRequired),
+
+    "tenancies": PropTypes.any
     // Tenants: PropTypes.arrayOf(PropTypes.object),
 };
 

@@ -14,6 +14,7 @@ import * as LandlordTexts from "../assets/texts/LandlordTexts";
 import ContractCard from "../cards/ContractCard";
 import ContractHeader from "../components/headers/ContractHeader";
 import Contract from "../components/landlord/contract/Contract";
+import PropTypes from "prop-types";
 
 
 const ContractCreate = ({property, landlord}) => {

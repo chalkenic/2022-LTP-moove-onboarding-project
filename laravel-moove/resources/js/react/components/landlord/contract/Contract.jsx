@@ -12,7 +12,7 @@ import {
     Typography
 } from "@mui/material";
 import {makeStyles} from "@mui/styles";
-
+import PropTypes from "prop-types";
 import AppTheme from "../../../assets/theme/theme";
 
 const useStyles = makeStyles(() => ({
@@ -186,12 +186,12 @@ Contract.propTypes = {
         "role": PropTypes.string.isRequired
 
     }),
-    "sections": PropTypes.shape({
+    "sections": PropTypes.arrayOf(PropTypes.shape({
         "map": PropTypes.any,
         "length": PropTypes.any,
         "header": PropTypes.string,
         "title": PropTypes.string,
         "value": PropTypes.string.isRequired
-    })
+    }))
 };
 export default Contract;
