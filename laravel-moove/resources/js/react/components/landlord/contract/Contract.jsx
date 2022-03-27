@@ -98,8 +98,8 @@ const Contract = ({sections, landlord, property}) => {
                                         </Typography>
                                         <Typography paragraph >
                                             {section.title !== undefined && section.title.length > 0
-                                                ? <><b>{section.title}: </b>{section.content}</>
-                                                : section.content }
+                                                ? <><b>{section.title}: </b>{section.value}</>
+                                                : section.value }
                                         </Typography>
                                     </div>)}
                                 </Grid>

@@ -1,18 +1,37 @@
+/* eslint-disable max-statements */
+/* eslint-disable no-ternary */
 /* eslint-disable sort-imports */
 /* eslint-disable no-magic-numbers */
 /* eslint-disable no-shadow */
-import {Grid, Typography} from "@mui/material";
+import {Alert, AlertTitle, Grid, Snackbar, Typography} from "@mui/material";
 
 import PropertiesHeader from "../components/headers/PropertiesHeader";
 import PropertyCard from "../cards/PropertyCard";
 import Property from "../components/landlord/property/Property";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import PropertyModal from "../components/landlord/property/PropertyModal";
 import PropertyAddModal from "../components/landlord/property/PropertyAddModal";
 import axios from "axios";
 import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp";
 
 const LandlordProperties = () => {
+
+    const [
+        snackUp,
+        setSnackUp
+    ] = useState(false);
+
+    const handleSnackOpen = () => {
+
+        setSnackUp(true);
+
+    };
+
+    const handleSnackclose = () => {
+
+        setSnackUp(false);
+
+    };
 
     const {properties} = window;
     const [
@@ -83,8 +102,24 @@ const LandlordProperties = () => {
 
     };
 
+    useEffect(
+        () => {
+
+            if (window.parent.location.href.includes("contract")) {
+
+                handleSnackOpen();
+
+            }
+
+        },
+        []
+    );
+
+
     return (
         <div>
+
+
             <PropertiesHeader role="landlord" />
 
             <Grid container justifyContent="center">
@@ -182,6 +217,10 @@ const LandlordProperties = () => {
                     setProperty={setProperty}
                 />
             }
+            <Snackbar open={snackUp} autoHideDuration={4000} onClose={handleSnackclose}>
+                <Alert onClose={handleSnackclose} severity="success" sx={{"width": "100%"}}>This is a success message!</Alert>
+            </Snackbar>
+
         </div>
     );
 

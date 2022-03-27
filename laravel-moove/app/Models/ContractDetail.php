@@ -11,8 +11,7 @@ class ContractDetail extends Model
 
         protected $fillable = [
             'contract_id',
-
-            'content',
+            'value',
             'accepted',         
     ];
 

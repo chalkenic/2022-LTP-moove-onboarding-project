@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contractDetails', function (Blueprint $table) {
+        Schema::create('contract_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('contract_id')->constrained()->onDelete('cascade');
-            $table->text('header');
-            $table->text('title');
-            $table->text('content');
-            $table->text('accepted');
+            $table->string('header')->nullable();
+            $table->string('title')->nullable();
+            $table->string('value');
+            $table->string('accepted');
             $table->timestamps();
         });
     }

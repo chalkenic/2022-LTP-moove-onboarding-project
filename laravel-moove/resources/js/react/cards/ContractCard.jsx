@@ -54,8 +54,8 @@ const ContractCard = (props) => {
         setHeader
     ] = useState();
     const [
-        content,
-        setContent
+        value,
+        setValue
     ] = useState();
     const [
         title,
@@ -69,7 +69,7 @@ const ContractCard = (props) => {
 
     const validate = (event) => {
 
-        if (content === null || content === undefined || content.length < 1) {
+        if (value === null || value === undefined || value.length < 1) {
 
             setError(LandlordTexts.LandlordAddContTexts.contErr2);
 
@@ -85,11 +85,11 @@ const ContractCard = (props) => {
                 {
                     header,
                     title,
-                    content
+                    value
                 }
             ]);
             setHeader();
-            setContent();
+            setValue();
             setTitle();
             setError(null);
 
@@ -178,8 +178,8 @@ const ContractCard = (props) => {
                                     fullWidth
                                     multiline
                                     id="content"
-                                    defaultValue={content}
-                                    onChange={(e) => setContent(e.target.value)}
+                                    defaultValue={value}
+                                    onChange={(e) => setValue(e.target.value)}
                                     placeholder="Enter section content"
                                     hiddenLabel
                                     InputProps={{

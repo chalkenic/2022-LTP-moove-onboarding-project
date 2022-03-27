@@ -68,6 +68,7 @@ class ContractController extends Controller
         'sections'=> 'required']);
 
         $propId = $request->property_id;
+        $propName = $request->property_name;
         Contract::create([
             
             'property_id'=>$propId,
@@ -76,21 +77,22 @@ class ContractController extends Controller
             'user_id'=>$request->user()->id,
         ]);
 
-        $contract = Contract::query()->latest()->first()->id;
-        $contract_details_insert_array = array();
-        foreach($request->sections as $key=>$val)
-        {
-            $contract_details_insert_array[]=array(
-                'contract_id' => $val[$contract], 
-                'header'=>$val[$request->sections->header], 
-                'title'=>$val[$request->sections->title], 
-                'content'=>$val[$request->sections->content],
-                'accepted'=>$val[false] );
-        }
+        $sections = array($request->sections);
+        $contract_id= Contract::query()->latest()->first()->id;
+        $data = array();
 
-        ContractDetail::insert($contract_details_insert_array);
+        echo `${contract_id}`;
 
-        return back();
+        foreach($request->sections as $key =>$val) {
+            ContractDetail::create([
+                'contract_id' => $contract_id, 
+                'header' => $val['header'] ?? '',
+                'title' => $val['title'] ?? '',
+                'value' => $val['value'],
+                'accepted'=> 0
+            ]);
+
+        };
 
 
     }

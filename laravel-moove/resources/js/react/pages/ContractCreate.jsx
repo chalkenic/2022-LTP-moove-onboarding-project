@@ -47,7 +47,7 @@ const ContractCreate = (props) => {
 
     const styles = useStyles();
 
-    const property = props.property;
+    const {property} = props;
 
     const [
         sections,
@@ -55,34 +55,19 @@ const ContractCreate = (props) => {
     ] = useState([]);
 
     const handleCreate = () => {
-        console.log(property.id);
+
+        const contractSuccess = "contract";
+
 
         axios.post(
             "/create-contract",
             {
                 "property_id": property.id,
+                "property_name": property.name,
                 "sections": sections
 
             }
-        );
-
-        /*
-         * Axios.
-         *     post(
-         *         "/properties",
-         *         {
-         *             "name": propName,
-         *             "location": propPostcode,
-         *             "status": occupied
-         *         }
-         *     ).
-         *     then(() => {
-         */
-
-        //         Window.location.reload();
-
-        //     });
-
+        ).then(window.location.href = `/properties?success=${contractSuccess}`);
 
     };
 

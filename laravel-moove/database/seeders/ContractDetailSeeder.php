@@ -14,11 +14,11 @@ class ContractDetailSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('contractDetails')->insert([
+        DB::table('contract_details')->insert([
             'contract_id'=> 1,
             'header' => 'Lorem Ipsum',
             'title' => '',
-            'content' => 'some random lorem ipsum text that no-one knows what it means...',
+            'value' => 'some random lorem ipsum text that no-one knows what it means...',
             'accepted'=> 0,
         ]);
     }
