@@ -40,6 +40,7 @@ const rowData = [
   }
 ];
 console.log(window.noTenancy + " tenancy ");
+console.log(window.tenants);
 
 const TenancyApplicationProgress = () => {
   return (
