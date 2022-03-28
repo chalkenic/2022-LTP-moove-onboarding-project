@@ -22,7 +22,7 @@ const AdminProperties = ({properties, tenancies}) => <Fragment>
                     <TableCell component="th" scope="row" sx={{"fontWeight": 800}}>
                                 ID
                     </TableCell>
-                    <TableCell align="right" sx={{"fontWeight": 800}}>Property</TableCell>
+                    <TableCell align="right"sx={{"fontWeight": 800}}>Property</TableCell>
                     <TableCell align="right"sx={{"fontWeight": 800}}>landlord</TableCell>
                     <TableCell align="right"sx={{"fontWeight": 800}}>Location</TableCell>
                     <TableCell align="right"sx={{"fontWeight": 800}}>Status</TableCell>

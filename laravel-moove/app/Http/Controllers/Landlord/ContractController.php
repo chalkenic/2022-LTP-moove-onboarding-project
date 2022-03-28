@@ -41,62 +41,36 @@ class ContractController extends Controller
                 'property' => $property,
                 'landlord'=> $landlord,
             ]);
-
         }
-
-
-
-
-
     }
 
-    public function open($id) {
-        
+    public function show(Contract $contract) {      
 
-        if(Contract::where('property_id', $id)->exists()) { 
-
-        $contract = Contract::where('property_id', $id)->first();
-
-            return response()->json(
+        return response()->json(
             [
-                'contract' => $contract,
-                ],
-            );
-    
-        }
+            'contract' => $contract,
+            ],
+            $contract ? 200 : 404
+        );  
     }
-
-    // public function index($id) {
-
-
-
-    // }
 
     public function store(Request $request) {
 
-                $this->validate($request, [
+        $this->validate($request, [
             'property_id'=> 'required', 
-        'sections'=> 'required']);
+            'sections'=> 'required'
+        ]);
 
         $propId = $request->property_id;
         $propName = $request->property_name;
-        Contract::create([
-            
+        $contract = Contract::create([
             'property_id'=>$propId,
             'landlord-signed'=> false,
             'tenant-signed'=> false,
-            'user_id'=>$request->user()->id,
         ]);
 
-        $sections = array($request->sections);
-        $contract_id= Contract::query()->latest()->first()->id;
-        $data = array();
-
-        echo `${contract_id}`;
-
         foreach($request->sections as $key =>$val) {
-            ContractDetail::create([
-                'contract_id' => $contract_id, 
+            $contract->section()->create([
                 'header' => $val['header'] ?? '',
                 'title' => $val['title'] ?? '',
                 'value' => $val['value'],
@@ -104,8 +78,5 @@ class ContractController extends Controller
             ]);
 
         };
-
-
     }
-
 }

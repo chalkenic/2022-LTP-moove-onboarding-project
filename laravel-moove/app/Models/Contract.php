@@ -21,13 +21,12 @@ class Contract extends Model
         return $this->hasOne(Property::class);
     }
 
-            public function tenancy() {
+    public function tenancy() {
         return $this->hasMany(Tenancy::class);
-
 
     }
 
-        public function section() {
+    public function section() {
         return $this-> hasMany(ContractDetail::class);
     }
 }

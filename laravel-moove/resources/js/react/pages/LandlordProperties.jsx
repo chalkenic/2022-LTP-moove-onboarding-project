@@ -69,17 +69,10 @@ const LandlordProperties = () => {
         });
         axios.get(contUrl).then((res) => {
 
-            if (res.status === 200) {
+            setContract(res.data.contract);
 
-                setContract(res.data.contract);
-
-            } else {
-
-                setContract();
-
-            }
-
-        });
+        }).
+            catch(() => setContract(null));
 
         setOpen(true);
 

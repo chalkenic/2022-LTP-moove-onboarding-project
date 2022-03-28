@@ -16,9 +16,7 @@ import ContractHeader from "../components/headers/ContractHeader";
 import Contract from "../components/landlord/contract/Contract";
 import PropTypes from "prop-types";
 
-
 const ContractCreate = ({property, landlord}) => {
-
 
     const [
         sections,
@@ -28,7 +26,6 @@ const ContractCreate = ({property, landlord}) => {
     const handleCreate = () => {
 
         const contractSuccess = "contract";
-
 
         axios.post(
             "/create-contract",

@@ -9,16 +9,7 @@ class ContractDetail extends Model
 {
     use HasFactory;
 
-        protected $fillable = [
-            'contract_id',
-            'value',
-            'accepted',         
-    ];
-
-    protected $optional = [
-            'header',
-            'title',
-    ];
+    protected $guarded = [];
 
      public function contract() {
         return $this->hasOne(Contract::class);
