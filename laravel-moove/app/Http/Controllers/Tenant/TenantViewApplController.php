@@ -28,7 +28,7 @@ class TenantViewApplController extends Controller
                     'id' => $contract->id,
                     'name' => User::where('id', $contract->user_id)->first()->name,
                     'status' => $contract->status,
-                    'date' => $contract->created_at
+                    'date' => $contract->created_at->format('d/m/Y')
                 ];
             }
             JavaScript::put([
