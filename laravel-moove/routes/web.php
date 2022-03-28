@@ -50,15 +50,13 @@ Route::get('/tenant-upload-video', function() {
     return view('tenant.tenant-upload-video');
 });
 Route::post('/tenant-upload-video', [VideoController::class, 'uploadVideo'])->name('tenant.tenant-upload-video');
-
 Route::get('/apply-tenancy', [TenantApplyController::class, 'index'])->name('tenant.apply-tenancy');
-
-// Landlord routes
 Route::get('/landlord-home', [TenantController::class, 'index'])->name('landlord.home');
 Route::get('/application', [ApplicationController::class, 'index'])->name('tenant.application');
 Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
 Route::post('/start-application', [ApplicationController::class, 'store']);
 Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
+Route::delete('/tenant-upload/{file}', [FileController::class, 'destroy'])->name('tenant.delete-file');
 Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
 
 // Landlord routes

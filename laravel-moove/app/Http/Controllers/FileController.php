@@ -36,6 +36,16 @@ class FileController extends Controller
             ])
         );
 
-        return redirect('/application');
+        return redirect('/application')->with([
+            'success' => 'Successfully uploaded file ' . $filename
+        ]);
+    }
+
+    public function destroy(File $file) {
+        $file->delete();
+
+        return redirect('/application')->with([
+            'success' => 'File deleted successfully.'
+        ]);
     }
 }
