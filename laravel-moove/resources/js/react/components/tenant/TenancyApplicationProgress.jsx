@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { Table, TableBody, TableContainer, tableCellClasses, TableHead, TableRow, TableCell, Paper, Alert,AlertTitle, Button } from "@mui/material";
 import { View } from 'react-native-web';
-
+import { convertStatusId } from "../helpers/helper";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -24,23 +24,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-/*
-const rowData = [
-  {
-    id: '1',
-    name: 'Johnny Ive',
-    status: "Application Approved",
-    date: "20/20/2021",
-  },
-  {
-    id: '2',
-    name: 'Pippin Penner',
-    status: "Application Submitted",
-    date: "19/20/2021",
-  }
-];
-console.log(window.noTenancy + " tenancy ");
-console.log(window.tenants);*/
+
+window.tenants.forEach(function(tenantino) {
+  tenantino.status = convertStatusId(tenantino.status)
+  console.log(tenantino.status);
+});
+
 
 const TenancyApplicationProgress = () => {
   return (
