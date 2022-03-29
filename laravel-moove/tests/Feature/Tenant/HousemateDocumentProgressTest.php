@@ -3,6 +3,9 @@
 namespace Tests\Feature\Tenant;
 
 use App\Models\User;
+use App\Models\Property;
+use App\Models\Tenancy;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -26,6 +29,9 @@ class HousemateDocumentProgressTest extends TestCase
             ->assertViewIs('tenant.tenant-view-appl');
     }
 
+    /**
+     * @test
+     */
     public function tenant_can_see_data_loaded_into_page()
     {
     $tenant = User::factory()->create(['role' => 'TENANT']);
@@ -34,8 +40,9 @@ class HousemateDocumentProgressTest extends TestCase
 
     Auth::login($tenant);
     $response = $this->get('/tenancy-appl-progress');
+    $tenancywidget = '<TenancyApplicationProgress/>'
     $response->assertStatus(200)
         ->assertViewIs('tenant.tenant-view-appl')
-        ->assertSee('Awaiting approval')
+        ->assertSee(, $escaped = true);
     }
 }
