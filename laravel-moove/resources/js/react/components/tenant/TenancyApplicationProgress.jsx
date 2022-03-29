@@ -37,17 +37,16 @@ if (window.tenants){
 
 const TenancyApplicationProgress = () => {
   const [show, setShow] = useState(false);
-  var clicked_id = null;
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const [selectedTenantName, setSelectedTenantName] = useState("");
+  
   const onRowClick = event => {
-    const id = event.currentTarget.getAttribute("data-rowid");
-    clicked_id = id;
-    handleShow;
+    const tenantName = event.currentTarget.getAttribute("data-rowid");
+    setSelectedTenantName(tenantName);
+    handleShow();
   };
 
-  const tenantText = "tretard";
 
   return (
     <div>
@@ -73,7 +72,7 @@ const TenancyApplicationProgress = () => {
         </TableHead>
         <TableBody>
           {window.tenants.map((row) => (
-            <StyledTableRow key={row.id} data-rowid={row.id} onClick={onRowClick}>
+            <StyledTableRow key={row.id} data-rowid={row.name} onClick={onRowClick}>
               <StyledTableCell component="th" scope="row">
                 {row.id}
               </StyledTableCell>
@@ -93,7 +92,7 @@ const TenancyApplicationProgress = () => {
       </Alert>
     </div> }
 
-    <Modal onClose={handleClose} show={show} tenantName={clicked_id}>
+    <Modal onClose={handleClose} show={show} tenantName={tenantName}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
           deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non
           fuga omnis a sed impedit explicabo accusantium nihil doloremque
