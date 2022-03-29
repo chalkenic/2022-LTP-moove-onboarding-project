@@ -42,11 +42,14 @@ const TenancyApplicationProgress = () => {
   }; 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  onClick = event => {
+
+  const onClick = event => {
     const id = event.currentTarget.getAttribute("data-rowid");
     console.log(id);
     this.setState({ clicked_id: id });
   };
+
+  const tenantText = "tretard";
 
   return (
     <div>
@@ -92,7 +95,7 @@ const TenancyApplicationProgress = () => {
       </Alert>
     </div> }
 
-    <Modal onClose={handleClose} show={show} tenantName={}>
+    <Modal onClose={handleClose} show={show} tenantName={tenantText}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
           deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non
           fuga omnis a sed impedit explicabo accusantium nihil doloremque
