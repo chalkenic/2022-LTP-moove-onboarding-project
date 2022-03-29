@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { Table, TableBody, TableContainer, tableCellClasses, TableHead, TableRow, TableCell, Paper, Alert,AlertTitle, Button } from "@mui/material";
 import { View } from 'react-native-web';
-import { convertStatusId } from "../helpers/helper";
+import { convertStatusId, capitalizeFirstLetter } from "../helpers/helper";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -25,11 +25,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-window.tenants.forEach(function(tenantino) {
-  tenantino.status = convertStatusId(tenantino.status)
-  console.log(tenantino.status);
-});
-
+if (window.tenants){ 
+  window.tenants.forEach(function(tenantino) {
+    tenantino.status = convertStatusId(tenantino.status)
+    console.log(tenantino.status);
+  });
+}
 
 const TenancyApplicationProgress = () => {
   return (
@@ -40,7 +41,7 @@ const TenancyApplicationProgress = () => {
 
       <View id = "tableHeader" style={{justifyContent: 'space-between', alignItems:'center',flexDirection:'row'}}>
         <div>{window.property.name}</div>
-        <div>Status: <b>{window.property.status}</b></div>
+        <div>Status: <b>{capitalizeFirstLetter(window.property.status)}</b></div>
         <Button variant="outlined">View Property</Button>
     </View>
     <br></br>
