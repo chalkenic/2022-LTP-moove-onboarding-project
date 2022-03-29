@@ -1,18 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { styled } from '@mui/material/styles';
 import { Table, TableBody, TableContainer, tableCellClasses, TableHead, TableRow, TableCell, Paper, Alert,AlertTitle, Button } from "@mui/material";
 import { View } from 'react-native-web';
 import { convertStatusId, capitalizeFirstLetter } from "../helpers/helper";
 import Modal from ".//TenancyApplicationModal";
 
-state = {
-  show: false
-};
-showModal = e => {
-  this.setState({
-    show: !this.state.show
-  });
-};
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -43,6 +36,11 @@ if (window.tenants){
 }
 
 const TenancyApplicationProgress = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div>
       { !window.noTenancy ? 
@@ -67,7 +65,7 @@ const TenancyApplicationProgress = () => {
         </TableHead>
         <TableBody>
           {window.tenants.map((row) => (
-            <StyledTableRow key={row.id} onClick={e => { this.showModal(e); }}>
+            <StyledTableRow key={row.id} onClick={handleShow}>
               <StyledTableCell component="th" scope="row">
                 {row.id}
               </StyledTableCell>
@@ -87,7 +85,7 @@ const TenancyApplicationProgress = () => {
       </Alert>
     </div> }
 
-    <Modal onClose={this.showModal} show={this.state.show}>
+    <Modal onClose={handleClose} show={show}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
           deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non
           fuga omnis a sed impedit explicabo accusantium nihil doloremque
