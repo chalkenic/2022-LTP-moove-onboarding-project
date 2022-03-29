@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "../../../../css/tenantApplicationModal.css";
 
 export default class Modal extends React.Component {
+
+
   onClose = e => {
     this.props.onClose && this.props.onClose(e);
   };
@@ -24,5 +27,6 @@ export default class Modal extends React.Component {
 }
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
+  tenantName: PropTypes.string.isRequired,
   show: PropTypes.bool.isRequired
 };
