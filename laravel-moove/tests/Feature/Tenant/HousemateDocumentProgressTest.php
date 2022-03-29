@@ -33,12 +33,10 @@ class HousemateDocumentProgressTest extends TestCase
     $tenancyForTest = Tenancy::factory()->create(['property_id'=> '1', 'user_id' => '1', 'status' => '1', 'created_at' => Carbon::now()->format('Y-m-d H:i:s')]);
 
     Auth::login($tenant);
-        $response = $this->get('/properties');
-
-        $response->assertStatus(200)
-            ->assertViewIs('landlord.landlord-properties')
-            ->assertSee('real')
-            ->assertDontSee('fake');
+    $response = $this->get('/tenancy-appl-progress');
+    $response->assertStatus(200)
+        ->assertViewIs('tenant.tenant-view-appl')
+        ->assertSee('Awaiting approval')
     }
 
 
