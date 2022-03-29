@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-const PropertyRow = ({property, tenants}) => {
+const ContractRow = ({section, tenants}) => {
 
     const styles = useStyles();
     const [
@@ -43,7 +43,6 @@ const PropertyRow = ({property, tenants}) => {
         setOpen
     ] = useState(false);
 
-    const currentTenants = tenants.filter((tenants) => tenants.property_id === property.id);
 
     return (
         <Fragment>
@@ -55,11 +54,11 @@ const PropertyRow = ({property, tenants}) => {
                         size="small"
                     >
                         {open
-                            ? property.status === "occupied"
+                            ? section !== null && section !== undefined
                                 ? <KeyboardArrowUpIcon sx={{"color": "green"}}/>
                                 : <KeyboardArrowUpIcon sx={{"color": "red"}}/>
 
-                            : property.status === "occupied"
+                            : section !== null && section !== undefined
                                 ? <KeyboardArrowDownIcon sx={{"color": "green"}}/>
                                 : <KeyboardArrowDownIcon sx={{"color": "red"}}/>
                         }
@@ -128,25 +127,4 @@ const PropertyRow = ({property, tenants}) => {
 
 };
 
-PropertyRow.propTypes = {
-    "property": PropTypes.shape({
-        "created_at": PropTypes.string.isRequired,
-        "id": PropTypes.number.isRequired,
-        "user_id": PropTypes.number.isRequired,
-        "name": PropTypes.string.isRequired,
-        "location": PropTypes.string.isRequired,
-        "status": PropTypes.string.isRequired,
-        "updated_at": PropTypes.string,
-        "verified": PropTypes.number.isRequired
-    }),
-
-    "tenants": PropTypes.arrayOf(PropTypes.shape({
-        "property_id": PropTypes.number.isRequired,
-        "id": PropTypes.number.isRequired,
-        "name": PropTypes.string.isRequired,
-        "email": PropTypes.string.isRequired
-    }))
-    // Tenants: PropTypes.arrayOf(PropTypes.object),
-};
-
-export default PropertyRow;
+export default ContractRow;

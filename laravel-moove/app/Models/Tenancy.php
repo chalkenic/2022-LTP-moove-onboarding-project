@@ -11,11 +11,16 @@ class Tenancy extends Model
 
     protected $fillable = [
         'status'
+        'landlord_signature_blob'
     ];
 
 
     public function property() {
         return $this->hasOne(Property::class);
+    }
+
+        public function contract() {
+        return $this->hasOne(Contract::class);
     }
 
 

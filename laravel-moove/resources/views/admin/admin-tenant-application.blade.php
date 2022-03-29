@@ -4,13 +4,11 @@
 @endsection
 @section('content')
 <div>
-    @error('id')
+    @error('user')
         {{$message}}
     @enderror
     @if(isset($data))
         <TenantApplication data="{{$data}}" />
     @endif
 </div>
-
-<a href='/admin-delete-application/{{$id}}'> Delete Application </a>
 @endsection

@@ -7,10 +7,8 @@ const primaryColor = "#ffc618",
     ternaryColor = "#cb9900",
     primaryText = "#fcfcfc",
     secondaryText = "#1b1b00",
-
     // Link to black text within theme.
     darkText = "#000",
-
     // Tenant colours (also referenced above) that dictate how a tenant's dashboard will look.
     tenantColors = {
         "main": "#ffc618",
@@ -18,22 +16,32 @@ const primaryColor = "#ffc618",
         "dark": "#4c3f16",
         "darker": "#241e0b"
     },
-
     // Landlord colours that dictate how a Landlord's dashboard will look.
     landlordColors = {"main": "#0B41DC",
         "light": "#265bf4  ",
         "dark": "#041A58"},
-
     // Admin user colours that dictate how an Admin's dashboard will look.
     adminColors = {"main": "#7a0a43",
         "light": "#943a68",
         "dark": "#4b0629"},
-
     logoutColors = {"light": "#fff",
         "dark": "#000"},
-
     // Dictate custom theme using colours declared.
     AppTheme = createTheme({
+        "typography": {
+            "fontFamily": [
+                "-apple-system",
+                "BlinkMacSystemFont",
+                "Segoe UI",
+                "Roboto",
+                "Helvetica Neue",
+                "Arial",
+                "sans-serif",
+                "Apple Color Emoji",
+                "Segoe UI Emoji",
+                "Segoe UI Symbol"
+            ].join(",")
+        },
         "palette": {
             "text": {
                 "primary": primaryText,
