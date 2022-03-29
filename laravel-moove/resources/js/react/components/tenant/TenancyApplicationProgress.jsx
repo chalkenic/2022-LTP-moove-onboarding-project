@@ -27,6 +27,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+var tenantsClone = window.tenants;
 
 if (window.tenants){ 
   window.tenants.forEach(function(tenantino) {
@@ -40,10 +41,13 @@ const TenancyApplicationProgress = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [selectedTenantName, setSelectedTenantName] = useState("");
+  const [selectedTenantStatus, setSelectedTenantStatus] = useState("");
   
   const onRowClick = event => {
-    const tenantName = event.currentTarget.getAttribute("data-rowid");
+    const tenantName = event.currentTarget.getAttribute("data-tenantname");
+    const tenantStatus = event.currentTarget.getAttribute("data-tenantstatus");
     setSelectedTenantName(tenantName);
+    setSelectedTenantStatus(tenantStatus);
     handleShow();
   };
 
@@ -72,7 +76,7 @@ const TenancyApplicationProgress = () => {
         </TableHead>
         <TableBody>
           {window.tenants.map((row) => (
-            <StyledTableRow key={row.id} data-rowid={row.name} onClick={onRowClick}>
+            <StyledTableRow key={row.id} data-tenantname={row.name} data-tenantstatus={row.status} onClick={onRowClick}>
               <StyledTableCell component="th" scope="row">
                 {row.id}
               </StyledTableCell>
