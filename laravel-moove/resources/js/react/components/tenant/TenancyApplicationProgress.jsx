@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { styled } from '@mui/material/styles';
 import { Table, TableBody, TableContainer, tableCellClasses, TableHead, TableRow, TableCell, Paper, Alert,AlertTitle, Button } from "@mui/material";
 import { View } from 'react-native-web';
-import { convertStatusId, capitalizeFirstLetter } from "../helpers/helper";
+import { convertStatusId, capitalizeFirstLetter, descFromStatusId} from "../helpers/helper";
 import Modal from ".//TenancyApplicationModal";
 
 
