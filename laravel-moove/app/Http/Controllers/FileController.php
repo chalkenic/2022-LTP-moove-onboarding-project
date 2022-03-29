@@ -42,10 +42,15 @@ class FileController extends Controller
     }
 
     public function destroy(File $file) {
-        $file->delete();
-
-        return redirect('/application')->with([
-            'success' => 'File deleted successfully.'
-        ]);
+        if ($file->application != auth()->user()->application) {
+            return redirect('/application')->with([
+                'error' => 'That isn\'t your file to delete.'
+            ]);
+        } else {
+            $file->delete();
+            return redirect('/application')->with([
+                'success' => 'File deleted successfully.'
+            ]);
+        }
     }
 }
