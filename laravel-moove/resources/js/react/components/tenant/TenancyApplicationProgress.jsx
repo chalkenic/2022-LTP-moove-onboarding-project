@@ -4,6 +4,15 @@ import { Table, TableBody, TableContainer, tableCellClasses, TableHead, TableRow
 import { View } from 'react-native-web';
 import { convertStatusId, capitalizeFirstLetter } from "../helpers/helper";
 
+state = {
+  show: false
+};
+showModal = e => {
+  this.setState({
+    show: !this.state.show
+  });
+};
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -57,7 +66,7 @@ const TenancyApplicationProgress = () => {
         </TableHead>
         <TableBody>
           {window.tenants.map((row) => (
-            <StyledTableRow key={row.id}>
+            <StyledTableRow key={row.id} onClick={e => { this.showModal(e); }}>
               <StyledTableCell component="th" scope="row">
                 {row.id}
               </StyledTableCell>
