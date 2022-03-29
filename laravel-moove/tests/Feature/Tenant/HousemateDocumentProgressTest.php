@@ -26,5 +26,20 @@ class HousemateDocumentProgressTest extends TestCase
             ->assertViewIs('tenant.tenant-view-appl');
     }
 
+    public function tenant_can_see_data_loaded_into_page()
+    {
+    $tenant = User::factory()->create(['role' => 'TENANT']);
+    $propertyForTenancy = Property::factory()->create(['name'=> 'real', 'user_id' => '1', 'location' => 'testLocation', 'status'=> 'occupied']);
+    $tenancyForTest = Tenancy::factory()->create(['name'=> 'real', 'user_id' => '1', 'location' => 'testLocation', 'status'=> 'occupied']);
+    
+    Auth::login($tenant);
+        $response = $this->get('/properties');
+
+        $response->assertStatus(200)
+            ->assertViewIs('landlord.landlord-properties')
+            ->assertSee('real')
+            ->assertDontSee('fake');
+    }
+
 
 }
