@@ -29,15 +29,15 @@ export function convertStatusId(id) {
     }
 }
     
-export function descFromStatusId(id) {
-    switch (id) {
-    case 0:
+export function descFromStatusId(statusName) {
+    switch (statusName) {
+    case 'Awaiting tenancy documents':
         return "Moove is waiting for this tenant to upload their tenant documents. Once they have done this, their application will be under review in the 'awaiting approval' status.";
-    case 1:
+    case 'Awaiting approval':
         return "This applicant has uploaded the required documents, sit back and relax while Moove quickly process the application";
-    case 2:
+    case 'Application Approved':
         return "Congratulations, this applicant has had their application submitted, reviewed and accepted and is ready for tenancy to begin.";
-    case 3:
+    case 'Application Denied':
         return "Unfortunately, this tenant requires changes to their submission as their application for tenancy has been declined.";
     default:
         return "Error"
