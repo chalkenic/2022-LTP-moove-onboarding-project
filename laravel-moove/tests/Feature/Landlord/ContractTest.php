@@ -30,7 +30,8 @@ class ContractTest extends TestCase
         $response = $this->get('/contract/1');
         $response->assertStatus(200)
             ->assertViewIs('landlord.landlord-contracts')
-            ->assertSee('tester');
+            ->assertSee('tester')
+            ->assertDontSee('property_id');
     }
 
     /**
@@ -47,7 +48,7 @@ class ContractTest extends TestCase
         $response = $this->get('/contract/1');
         $response->assertStatus(200)
             ->assertViewIs('landlord.landlord-contracts')
-            ->assertDontSee('tester');
+            ->assertSee('property_id');
     }
 
 }

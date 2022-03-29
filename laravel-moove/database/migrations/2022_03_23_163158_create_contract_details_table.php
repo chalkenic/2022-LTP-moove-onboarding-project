@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('header')->nullable();
             $table->string('title')->nullable();
             $table->string('value');
-            $table->string('accepted');
+            $table->tinyInteger('accepted')->default(0);
             $table->timestamps();
         });
     }
