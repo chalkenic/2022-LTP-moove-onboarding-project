@@ -26,7 +26,7 @@ export function convertStatusId(id) {
         return "Application Approved";
     case 3:
         return "Application Denied";
-
+    default:
+        return "Error"
     }
-
 }
