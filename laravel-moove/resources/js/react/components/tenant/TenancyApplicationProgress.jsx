@@ -37,6 +37,7 @@ if (window.tenants){
 
 const TenancyApplicationProgress = () => {
   const [show, setShow] = useState(false);
+  const clicked_id = null;
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -65,7 +66,7 @@ const TenancyApplicationProgress = () => {
         </TableHead>
         <TableBody>
           {window.tenants.map((row) => (
-            <StyledTableRow key={row.id} onClick={handleShow}>
+            <StyledTableRow key={row.id} data-rowid={row.id} onClick={handleShow}>
               <StyledTableCell component="th" scope="row">
                 {row.id}
               </StyledTableCell>
@@ -85,7 +86,7 @@ const TenancyApplicationProgress = () => {
       </Alert>
     </div> }
 
-    <Modal onClose={handleClose} show={show}>
+    <Modal onClose={handleClose} show={show} tenantName={}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
           deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non
           fuga omnis a sed impedit explicabo accusantium nihil doloremque
