@@ -62,7 +62,7 @@ class AdminApplicationController extends Controller
             $user->notify(new ApplicationRejected($user));
         }
 
-        session()->flash('status', $approved ? 'Application approved successfully.' : 'Application denied successfully.');
+        session()->flash('success', $approved ? 'Application approved successfully.' : 'Application denied successfully.');
         
         return response()->noContent();
     }
@@ -71,7 +71,7 @@ class AdminApplicationController extends Controller
     public function destroy(Application $application) {
 
         $application->delete();
-        session()->flash('status', 'Deleted application');
+        session()->flash('success', 'Deleted application');
 
         return response()->noContent();
     }
