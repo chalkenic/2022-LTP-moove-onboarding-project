@@ -30,8 +30,10 @@ class HousemateDocumentProgressTest extends TestCase
     {
     $tenant = User::factory()->create(['role' => 'TENANT']);
     $propertyForTenancy = Property::factory()->create(['name'=> 'real', 'user_id' => '1', 'location' => 'testLocation', 'status'=> 'occupied']);
-    $tenancyForTest = Tenancy::factory()->create(['name'=> 'real', 'user_id' => '1', 'location' => 'testLocation', 'status'=> 'occupied']);
-    
+    $tenancyForTest = Tenancy::factory()->create(['property_id'=> '1', 'user_id' => '1', 'status' => '1', 'created_at' => Carbon::now()->format('Y-m-d H:i:s')]);
+
+
+
     Auth::login($tenant);
         $response = $this->get('/properties');
 
