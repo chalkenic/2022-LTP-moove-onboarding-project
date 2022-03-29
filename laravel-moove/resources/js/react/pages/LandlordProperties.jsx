@@ -108,8 +108,6 @@ const LandlordProperties = () => {
         },
         []
     );
-
-
     return (
         <div>
 

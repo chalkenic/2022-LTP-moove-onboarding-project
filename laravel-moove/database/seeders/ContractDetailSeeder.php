@@ -16,8 +16,53 @@ class ContractDetailSeeder extends Seeder
     {
         DB::table('contract_details')->insert([
             'contract_id'=> 1,
-            'header' => 'Lorem Ipsum',
+            'header' => 'Section 1',
+            'title' => 'Title 1',
+            'value' => 'some random lorem ipsum text that no-one knows what it means...',
+            'accepted'=> 0,
+        ]);
+
+                DB::table('contract_details')->insert([
+            'contract_id'=> 1,
+            'header' => '',
+            'title' => 'Title 2',
+            'value' => 'some random lorem ipsum text that no-one knows what it means...',
+            'accepted'=> 0,
+        ]);
+
+                DB::table('contract_details')->insert([
+            'contract_id'=> 1,
+            'header' => '',
             'title' => '',
+            'value' => 'some random lorem ipsum text that no-one knows what it means...',
+            'accepted'=> 0,
+        ]);
+                DB::table('contract_details')->insert([
+            'contract_id'=> 1,
+            'header' => '',
+            'title' => '',
+            'value' => 'some random lorem ipsum text that no-one knows what it means...',
+            'accepted'=> 0,
+        ]);
+                DB::table('contract_details')->insert([
+            'contract_id'=> 1,
+            'header' => '',
+            'title' => '',
+            'value' => 'some random lorem ipsum text that no-one knows what it means...',
+            'accepted'=> 0,
+        ]);
+                DB::table('contract_details')->insert([
+            'contract_id'=> 1,
+            'header' => 'Section 2',
+            'title' => 'Ttitle 1',
+            'value' => 'some random lorem ipsum text that no-one knows what it means...',
+            'accepted'=> 0,
+        ]);
+
+                        DB::table('contract_details')->insert([
+            'contract_id'=> 1,
+            'header' => '',
+            'title' => 'Title 2',
             'value' => 'some random lorem ipsum text that no-one knows what it means...',
             'accepted'=> 0,
         ]);

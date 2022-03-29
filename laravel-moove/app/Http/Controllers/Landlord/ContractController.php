@@ -20,13 +20,17 @@ class ContractController extends Controller
 
         if (Contract::where('property_id', $id)->exists()) {
 
-            $contract = Contract::where('property_id', $id)->get();
-            $property = Property::where('id', $id)->get();
+            $contract = Contract::where('property_id', $id)->first();
+            $property = Property::where('id', $id)->first();
+            $details = ContractDetail::where('contract_id', $contract->id)->get();
+            $landlord = User::where('id', $property->user_id)->first();
 
                     return view('landlord.landlord-contracts',                
             [
                 'property' => $property,
                 'contract' => $contract,
+                'details' => $details,
+                'landlord' => $landlord
             ]);
 
         } else {

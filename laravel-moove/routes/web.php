@@ -71,8 +71,9 @@ Route::get('/properties', [LandlordPropertyController::class, 'index'])-> name('
 Route::post('/properties', [LandlordPropertyController::class, 'store']); 
 Route::get('/tenants/{id}', [LandlordPropertyController::class, 'show']);
 Route::get('/contract/{id}', [ContractController::class, 'index'])->name('landlord.landlord-contracts');
+Route::post('/create-contract', [ContractController::class, 'store'])->name('landlord.landlord-contracts');
 Route::get('/get-contract/{contract}', [ContractController::class, 'show']);
-Route::post('/create-contract', [ContractController::class, 'store']);
+
 
 // Admin Routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');

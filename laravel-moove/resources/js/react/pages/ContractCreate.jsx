@@ -50,7 +50,7 @@ const ContractCreate = ({property, landlord}) => {
             <ContractHeader type="create" name={property.name} />
             <Box>
                 <ContractCard setSections = {setSections} sections = {sections}/>
-                <Contract sections = {sections} landlord = {landlord} property={property} />
+                <Contract sections = {sections} landlord = {landlord} property={property} type="create" />
             </Box>
             {sections.length > 0
                 ? <Grid container spacing={2}>
