@@ -38,6 +38,4 @@ class HousemateDocumentProgressTest extends TestCase
         ->assertViewIs('tenant.tenant-view-appl')
         ->assertSee('Awaiting approval')
     }
-
-
 }
