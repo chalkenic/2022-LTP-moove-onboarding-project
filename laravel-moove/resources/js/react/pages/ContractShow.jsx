@@ -1,31 +1,14 @@
 /* eslint-disable sort-imports */
-import React, {Fragment, useState} from "react";
-import {Box} from "@mui/system";
+import React, {Fragment} from "react";
 import ContractHeader from "../components/headers/ContractHeader";
 import PropTypes from "prop-types";
 import Contract from "../components/landlord/contract/Contract";
 
 // TEMPORARY PAGE.
-const ContractShow = ({property, contract, details, landlord}) => {
-
-    console.log(property);
-    console.log(contract);
-    console.log(details);
-
-    const [
-        sections,
-        setSections
-    ] = useState([]);
-
-    return (
-        <Fragment>
-            <ContractHeader type="show" name={property.name} />
-            <Contract sections = {details} landlord = {landlord} property={property} />
-        </Fragment>
-    );
-
-};
-
+const ContractShow = ({property, details, landlord}) => <Fragment>
+    <ContractHeader type="show" name={property.name} />
+    <Contract sections = {details} landlord = {landlord} property={property} />
+</Fragment>;
 ContractShow.propTypes = {
     "property": PropTypes.shape({
         "created_at": PropTypes.string.isRequired,
@@ -56,7 +39,7 @@ ContractShow.propTypes = {
 
     })),
 
-        "landlord": PropTypes.shape({
+    "landlord": PropTypes.shape({
         "id": PropTypes.number.isRequired,
         "name": PropTypes.string.isRequired,
         "role": PropTypes.string.isRequired
