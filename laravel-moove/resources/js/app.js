@@ -1,7 +1,6 @@
 require("./bootstrap");
 
-// React components
-import ContractRow from "./react/components/tables/ContractRow";
+// React componentsimport ReactRenderer from './react/ReactRenderer';
 import ReactRenderer from "./react/ReactRenderer";
 import React from "react";
 import NavBar from "./react/components/navBar/NavBar";
@@ -21,10 +20,10 @@ import Property from "./react/components/landlord/property/Property";
 import PropertyCard from "../js/react/cards/PropertyCard";
 import PropertyRow from "./react/components/tables/PropertyRow";
 import TenantApplication from "../js/react/components/admin/TenantApplication";
+import TenancyApplicationProgress from "../js/react/components/tenant/TenancyApplicationProgress";
 import AdminProperties from "./react/pages/AdminProperties";
 import ContractCard from "./react/cards/ContractCard";
 import Contract from "./react/components/landlord/contract/Contract";
-
 
 const components = [
     {
@@ -70,7 +69,11 @@ const components = [
     },
     {
         name: "PropertyCard",
-        component: <PropertyCard />,
+        component: <PropertyCard/>
+    },
+    {
+        name: "TenancyApplicationProgress",
+        component: <TenancyApplicationProgress/>
     },
     { name: "PropertyRow", component: <PropertyRow /> },
     {

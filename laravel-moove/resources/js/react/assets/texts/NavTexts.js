@@ -65,12 +65,20 @@ export const navTextTenant = [
     },
     {
         "id": 5,
+        "key": "view_tenancy_appl",
+        "name": "View Tenancy Application",
+        "selected": false,
+        "link": "/tenancy-appl-progress"
+    },
+    {
+        "id": 6,
         "key": "video_upload",
         "name": "Video Upload",
         "selected": false,
         "link": "/tenant-upload-video"
     },
     {
+        "id": 7,
         "key": "apply_tenancy",
         "name": "Apply for Tenancy",
         "selected": false,
@@ -78,7 +86,7 @@ export const navTextTenant = [
         "type": "link"
     },
     {
-        "id": 6,
+        "id": 8,
         "key": "page_logout",
         "name": "Logout",
         "selected": false,

@@ -14,6 +14,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\Tenant\ApplicationController;
 use App\Http\Controllers\Tenant\TenantController;
 use App\Http\Controllers\Tenant\TenantAptController;
+use App\Http\Controllers\Tenant\TenantViewApplController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\Tenant\TenantApplyController;
 use App\Http\Controllers\Landlord\LandlordController;
@@ -47,6 +48,7 @@ Route::get('/get-video', function() {
 // Tenant Routes
 Route::get('/tenant-home', [TenantController::class, 'index'])->name('tenant.home');
 Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
+Route::get('/tenancy-appl-progress', [TenantViewApplController::class, 'index'])->name('tenant.view-appl');
 Route::get('/tenant-upload-video', function() {
     return view('tenant.tenant-upload-video');
 });
