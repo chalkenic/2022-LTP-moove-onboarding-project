@@ -12,7 +12,7 @@ export default class Modal extends React.Component {
     }
     return (
       <div className="modal" id="modal">
-        <h2>Tenancy Applicant: {this.props.tenantName}</h2>
+        <h2><b>Tenancy Applicant: </b>{this.props.tenantName}</h2>
         <div className="content">{this.props.children}</div>
         <div className="actions">
           <button className="toggle-button" onClick={this.onClose}>

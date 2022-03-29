@@ -47,7 +47,7 @@ const TenancyApplicationProgress = () => {
     const tenantName = event.currentTarget.getAttribute("data-tenantname");
     const tenantStatus = event.currentTarget.getAttribute("data-tenantstatus");
     setSelectedTenantName(tenantName);
-    setSelectedTenantStatus(tenantStatus);
+    setSelectedTenantStatus(descFromStatusId(tenantStatus));
     handleShow();
   };
 
