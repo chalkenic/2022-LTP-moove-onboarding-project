@@ -1,12 +1,15 @@
+/* eslint-disable sort-imports */
+/* eslint-disable no-ternary */
 import React from "react";
 import AppTheme from "../../assets/theme/theme";
-import { useTheme } from "@mui/system";
-import { Grid, Typography } from "@mui/material";
+import {useTheme} from "@mui/system";
+import {Grid, Typography} from "@mui/material";
 import * as LandlordTexts from "../../assets/texts/LandlordTexts";
 import * as AdminTexts from "../../assets/texts/AdminTexts";
 import PropTypes from "prop-types";
 
-const PropetiesHeader = ({ role }) => {
+const PropetiesHeader = ({role}) => {
+
     const theme = useTheme(AppTheme);
 
     return (
@@ -18,7 +21,7 @@ const PropetiesHeader = ({ role }) => {
         >
             <Typography
                 color={theme.palette.text.dark}
-                sx={{ fontWeight: 800}}
+                sx={{"fontWeight": 800}}
                 textAlign="center"
                 variant="h4"
             >
@@ -28,10 +31,11 @@ const PropetiesHeader = ({ role }) => {
             </Typography>
         </Grid>
     );
+
 };
 
 PropetiesHeader.propTypes = {
-    role: PropTypes.string,
+    "role": PropTypes.string
 };
 
 export default PropetiesHeader;

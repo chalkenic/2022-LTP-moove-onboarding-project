@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tenancies', function (Blueprint $table) {
+        Schema::create('contract_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('property_id')->constrained()->onDelete('cascade');
-            $table->tinyInteger('is_active')->default(0);
-            $table->text('landlord_signature_blob')->nullable();
+            $table->foreignId('contract_id')->constrained()->onDelete('cascade');
+            $table->string('header')->nullable();
+            $table->string('title')->nullable();
+            $table->string('value');
+            $table->string('accepted');
             $table->timestamps();
-            
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tenancies');
+        Schema::dropIfExists('contract_details');
     }
 };

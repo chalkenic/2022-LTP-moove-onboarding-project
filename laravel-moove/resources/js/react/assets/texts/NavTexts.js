@@ -5,35 +5,11 @@
 
 export const navTextAdmin = [
     {
-        "id": 1,
-        "key": "page_home",
-        "name": "admin 1",
-        "selected": false,
-        "link": "/",
-        "type": "link"
-    },
-    {
         "id": 2,
         "key": "page_properties",
-        "name": "admin 2",
+        "name": "properties List",
         "selected": false,
-        "link": "/",
-        "type": "link"
-    },
-    {
-        "id": 3,
-        "key": "page_applications",
-        "name": "admin 3",
-        "selected": false,
-        "link": "/test",
-        "type": "link"
-    },
-    {
-        "id": 4,
-        "key": "page_viewings",
-        "name": "admin 4",
-        "selected": false,
-        "link": "/",
+        "link": "/admin-all-properties",
         "type": "link"
     },
     {

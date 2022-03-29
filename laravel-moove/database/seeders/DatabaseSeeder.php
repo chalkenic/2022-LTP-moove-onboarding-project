@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             FileSeeder::class,
             PropertySeeder::class,
             TenancySeeder::class,
+            ContractSeeder::class,
+            ContractDetailSeeder::class,
         ]);
     }
 }

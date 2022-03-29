@@ -10,12 +10,17 @@ class Tenancy extends Model
     use HasFactory;
 
     protected $fillable = [
-        'is_active'
+        'is_active',
+        'landlord_signature_blob'
     ];
 
 
     public function property() {
         return $this->hasOne(Property::class);
+    }
+
+        public function contract() {
+        return $this->hasOne(Contract::class);
     }
 
 

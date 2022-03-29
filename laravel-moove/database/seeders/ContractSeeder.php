@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ApplicationSeeder extends Seeder
+class ContractSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,16 +15,12 @@ class ApplicationSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('applications')->insert([
-            'user_id' => 1,
-        ]);
 
-        DB::table('applications')->insert([
-            'user_id' => 2,
+        DB::table('contracts')->insert([
+            'property_id' => 1,
+            'landlord_signed' => 0,
+            'tenant_signed' => 0,
         ]);
-
-        DB::table('applications')->insert([
-            'user_id'=> 3
-        ]);
+        //
     }
 }
