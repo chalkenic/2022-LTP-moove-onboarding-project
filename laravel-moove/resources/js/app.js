@@ -8,7 +8,7 @@ import NavBarHeader from './react/components/headers/NavBarHeader';
 import ButtonNavCustom from './react/components/buttons/ButtonNav';
 import AppNavBar from './react/components/navBar/AppNavBarCustom';
 import TenancyForm from './react/components/forms/TenantCheckForm';
-import CalendlyBooking from './react/components/forms/CalendlyComponent';
+import CalendlyBooking from './react/components/forms/CalendlyBooking';
 import SigningComponent from './react/components/forms/SigningComponent';
 import Dashboard from './react/pages/Dashboard';
 import LandlordProperties from './react/pages/LandlordProperties';
@@ -18,6 +18,7 @@ import PropertyCard from '../js/react/cards/PropertyCard';
 import TenantList from '../js/react/components/admin/TenantList';
 import TenantApplication from '../js/react/components/admin/TenantApplication';
 import AdminProperties from "./react/pages/AdminProperties";
+import ViewCalender from './react/components/landlord/ViewCalender';
 
 const components = [
     {
@@ -41,7 +42,7 @@ const components = [
         component: <TenancyForm />,
     },
     {
-        name: "CalendlyComponent",
+        name: "CalendlyBooking", 
         component: <CalendlyBooking />,
     },
     {
@@ -74,6 +75,10 @@ const components = [
         name: "SigningComponent",
         component: <SigningComponent/>
     },
+    {
+        name: "ViewCalender",
+        component: <ViewCalender />
+    }
 
 ];
 

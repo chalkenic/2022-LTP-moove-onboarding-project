@@ -1,10 +1,9 @@
 @extends('layouts.head')
 @section('title')
-<title>moove - book appointment</title>
+<title>moove - landlord</title>
 @endsection
 @section('content')
 <div>
-    <h1>Book an Appointment</h1>
-    <CalendlyBooking/>
+    <ViewCalender />
 </div>
 @endsection
