@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import "../../../../css/tenantApplicationModal.css";
 
 export default class Modal extends React.Component {
-
-
   onClose = e => {
     this.props.onClose && this.props.onClose(e);
   };
@@ -18,7 +16,7 @@ export default class Modal extends React.Component {
         <div className="content">{this.props.children}</div>
         <div className="actions">
           <button className="toggle-button" onClick={this.onClose}>
-            close
+            Close
           </button>
         </div>
       </div>
