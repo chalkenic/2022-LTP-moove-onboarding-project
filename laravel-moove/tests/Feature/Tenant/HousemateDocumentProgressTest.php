@@ -40,9 +40,9 @@ class HousemateDocumentProgressTest extends TestCase
 
     Auth::login($tenant);
     $response = $this->get('/tenancy-appl-progress');
-    $tenancywidget = '<TenancyApplicationProgress/>'
+    $tenancywidget = e('testLocation');
     $response->assertStatus(200)
         ->assertViewIs('tenant.tenant-view-appl')
-        ->assertSee(, $escaped = true);
+        ->assertSeeText(e($tenancywidget),false);
     }
 }
