@@ -37,10 +37,16 @@ if (window.tenants){
 
 const TenancyApplicationProgress = () => {
   const [show, setShow] = useState(false);
-  const clicked_id = null;
-
+  this.state = {
+    clicked_id: null
+  }; 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  onClick = event => {
+    const id = event.currentTarget.getAttribute("data-rowid");
+    console.log(id);
+    this.setState({ clicked_id: id });
+  };
 
   return (
     <div>
