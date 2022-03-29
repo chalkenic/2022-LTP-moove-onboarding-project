@@ -6,8 +6,8 @@ use App\Models\User;
 use App\Models\Property;
 use App\Models\Tenancy;
 use App\Models\Contract;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
@@ -51,4 +51,25 @@ class ContractTest extends TestCase
             ->assertSee('property_id');
     }
 
+     /**
+     * @test
+     */
+    public function contract_created_and_added_to_database()
+    {
+         $landlord = User::factory()->create(['name'=>'tester', 'role' => 'LANDLORD']);
+        $property = Property::factory()->create(['name'=> 'testProp', 'user_id' => '1', 'location' => 'testLocation', 'status'=> 'occupied']);
+        $contract = Contract::factory()->create([ 'property_id' => '1', 'landlord_signed' => 1, 'tenant_signed'=> 1, 'created_at'=>null, 'updated_at'=>null]);
+        Auth::login($landlord);
+
+
+        $this->assertDatabaseHas('contracts', [
+            
+                'id'=> 1,
+                'property_id'=> $property->id,
+                'landlord_signed'=> 1,
+                'tenant_signed'=> 1,
+                'created_at'=> null,
+                "updated_at"=> null            
+            ]);
+    }
 }

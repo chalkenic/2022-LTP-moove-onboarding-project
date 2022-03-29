@@ -20,4 +20,20 @@ class ContractFactory extends Factory
             'created_at'=> now(),
         ];
     }
+
+
+        /**
+     * Model's creation time should be unverified.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function unverified()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'created_at' => null,
+                'updated_at'=>null
+            ];
+        });
+    }
 }

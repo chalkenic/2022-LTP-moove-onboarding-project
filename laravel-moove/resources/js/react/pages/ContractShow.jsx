@@ -1,10 +1,12 @@
 /* eslint-disable sort-imports */
-import React, {Fragment} from "react";
-import ContractHeader from "../components/headers/ContractHeader";
-import PropTypes from "prop-types";
 import Contract from "../components/landlord/contract/Contract";
+import ContractHeader from "../components/headers/ContractHeader";
+import React, {Fragment} from "react";
 
-// TEMPORARY PAGE.
+import PropTypes from "prop-types";
+
+
+
 const ContractShow = ({property, details, landlord}) => <Fragment>
     <ContractHeader type="show" name={property.name} />
     <Contract sections = {details} landlord = {landlord} property={property} type="show" />
