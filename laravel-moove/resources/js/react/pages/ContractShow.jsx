@@ -7,7 +7,7 @@ import Contract from "../components/landlord/contract/Contract";
 // TEMPORARY PAGE.
 const ContractShow = ({property, details, landlord}) => <Fragment>
     <ContractHeader type="show" name={property.name} />
-    <Contract sections = {details} landlord = {landlord} property={property} />
+    <Contract sections = {details} landlord = {landlord} property={property} type="show" />
 </Fragment>;
 ContractShow.propTypes = {
     "property": PropTypes.shape({
