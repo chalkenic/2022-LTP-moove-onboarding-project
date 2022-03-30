@@ -23,7 +23,7 @@
 </div>
 @if($applicants->count() > 0)
     <div class="flex justify-center text-sm mt-3">
-        Showing {{ $applicants->count()}} of {{ $applicants->total() }}
+        Page {{ $applicants->currentPage()}} of {{ $applicants->lastPage() }}
     </div>
 @endif
 <div class="flex justify-center mt-2">
