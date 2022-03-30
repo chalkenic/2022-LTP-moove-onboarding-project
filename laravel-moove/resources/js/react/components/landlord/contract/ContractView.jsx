@@ -1,7 +1,8 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-undefined */
 /* eslint-disable sort-imports */
 /* eslint-disable no-ternary */
-import React, {Fragment} from "react";
+import React, {Fragment, useState} from "react";
 import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
 import {
     Box,
@@ -38,12 +39,45 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-const ContractView = ({sections, landlord, property, type}) => {
+const ContractView = ({sections, landlord, property, contract, type}) => {
 
     const styles = useStyles();
 
+    const [
+        accepted,
+        setAccepted
+    ] = useState(0);
+
+    for (let idx = 0; idx < sections.length; idx++) {
+
+        if (sections[idx].accepted !== 0) {
+
+            setAccepted(accepted + 1);
+
+        }
+
+    }
+
     return (
         <Grid container spacing={2}justifyContent="center">
+
+            <Grid container item xs = {12} textAlign="center" flexDirection={"row"} >
+                <Grid item xs={4}>
+                    {contract.tenant_signed === 0
+                        ? <b>{"Signed by tenant: FALSE"}</b>
+                        : <b>{"Signed by tenant: TRUE"}</b>}
+
+                </Grid>
+                <Grid item xs={4}>
+                    {contract.landlord_signed === 0
+                        ? <b>{"Signed by landlord: FALSE"}</b>
+                        : <b>{"Signed by landlord: TRUE"}</b>}
+
+                </Grid>
+                <Grid item xs={4}>
+                    <b> {`Sections accepted: ${accepted}/${sections.length}` }</b>
+                </Grid>
+            </Grid>
 
             <Box className={styles.dividerLight} />
             <Grid item xs={12} justifyContent="center">
@@ -202,8 +236,17 @@ ContractView.propTypes = {
         "length": PropTypes.any,
         "header": PropTypes.string,
         "title": PropTypes.string,
-        "value": PropTypes.string.isRequired
+        "value": PropTypes.string.isRequired,
+        "accepted": PropTypes.number.isRequired
     })),
+
+    "contract": PropTypes.shape({
+        "id": PropTypes.number.isRequired,
+        "property_id": PropTypes.number.isRequired,
+        "landlord_signed": PropTypes.number.isRequired,
+        "tenant_signed": PropTypes.number.isRequired
+
+    }),
 
     "type": PropTypes.string
 };

@@ -5,9 +5,9 @@ import React, {Fragment} from "react";
 
 import PropTypes from "prop-types";
 
-const ContractShow = ({property, details, landlord}) => <Fragment>
+const ContractShow = ({property, details, landlord, contract}) => <Fragment>
     <ContractHeader type="show" name={property.name} />
-    <ContractView sections = {details} landlord = {landlord} property={property} type="show" />
+    <ContractView sections = {details} landlord = {landlord} property={property} contract = {contract} type="show" />
 </Fragment>;
 ContractShow.propTypes = {
     "property": PropTypes.shape({
