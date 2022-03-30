@@ -69,8 +69,10 @@ Route::get('/landlord-sign-tenancy/{id}', [LandlordSigningController::class, 'in
 Route::post('/landlord-sign-tenancy', [LandlordSigningController::class, 'store']);
 Route::get('/properties', [LandlordPropertyController::class, 'index'])-> name('landlord.landlord-properties');
 Route::post('/properties', [LandlordPropertyController::class, 'store']); 
+
 Route::get('/tenants/{id}', [LandlordPropertyController::class, 'show']);
 Route::get('/contract/{id}', [ContractController::class, 'index'])->name('landlord.landlord-contracts');
+Route::post('/delete-contract/{id}', [ContractController::class, 'destroy'])-> name('landlord.landlord-properties');
 Route::post('/create-contract', [ContractController::class, 'store'])->name('landlord.landlord-contracts');
 Route::get('/get-contract/{id}', [ContractController::class, 'show']);
 

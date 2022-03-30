@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable max-lines-per-function */
 /* eslint-disable max-statements */
 /* eslint-disable no-magic-numbers */
@@ -129,8 +130,6 @@ const PropertyModal = (props) => {
 
         handleClose();
 
-        // Axios.get(`/contract/${chosenProp.id}`).then();
-
         window.location.href = `/contract/${chosenProp.id}`;
 
     };
@@ -140,6 +139,21 @@ const PropertyModal = (props) => {
         handleClose();
 
         window.location.href = `/contract/${newProp.id}`;
+
+    };
+
+    const deleteContract = (delPropCont) => {
+
+        if (confirm(`Delete contract for ${delPropCont.name}?`)) {
+
+            axios.post(`/delete-contract/${delPropCont.id}`).
+                then(() => {
+
+                    window.location.reload();
+
+                });
+
+        }
 
     };
 
@@ -297,10 +311,7 @@ const PropertyModal = (props) => {
                                         <Grid item xs={4}>
                                             <RedButton
                                                 variant="contained"
-                                                onClick={() => deleteContract(
-                                                    props.property,
-                                                    props.contract
-                                                )
+                                                onClick={() => deleteContract(props.property)
                                                 }
                                             >
                                         Delete Contract

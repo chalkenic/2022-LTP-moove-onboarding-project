@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\Tenancy;
 use App\Models\User;
+use App\models\Contract;
 use JavaScript;
 
 class LandlordPropertyController extends Controller
@@ -48,7 +49,7 @@ class LandlordPropertyController extends Controller
     }
 
     public function show($id){
-        // COnfirm property exists within database.
+        // Confirm property exists within database.
         if(Property::where('id', $id)->exists()) { 
             
             //Find all tenants that have tenancies associated with property.
@@ -64,6 +65,8 @@ class LandlordPropertyController extends Controller
 
         } 
     }
+
+
 }
 
 

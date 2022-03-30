@@ -58,8 +58,7 @@ class ContractController extends Controller
                     [
                         'contract' => $contract,
                     ],
-            );
-            
+            );       
         }
     }
 
@@ -87,5 +86,13 @@ class ContractController extends Controller
             ]);
 
         };
+    }
+
+        public function destroy($id){
+
+            $contract = Contract::where('property_id', $id)->delete();
+            session()->flash('status', 'Contract removed.');
+
+            return back();
     }
 }
