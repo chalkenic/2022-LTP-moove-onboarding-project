@@ -60,7 +60,8 @@
                     Reason: {{ auth()->user()->application->notes }}
                 </p>
                 @endif
-              <a class="text-sm hover:underline" href="#">Call to action</a>
+                <p class="text-sm">Upload the necessary documentation to automatically resubmit your application for approval.</p>
+              <a class="text-sm hover:underline" href="#">Add files</a>
            </div>
         </div>
       </div>

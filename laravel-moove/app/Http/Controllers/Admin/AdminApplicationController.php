@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Notifications\ApplicationApproved;
 use App\Notifications\ApplicationRejected;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Date;
 
 class AdminApplicationController extends Controller
 {
@@ -53,7 +53,9 @@ class AdminApplicationController extends Controller
         $approved = $request->boolean('approved');
 
         $user->application->update([
-            'is_approved' => $approved ? 1 : 2
+            'is_approved' => $approved ? 1 : 2,
+            'approved_at' => $approved ? Date::now() : null,
+            'rejected_at' => !$approved ? Date::now() : null,
         ]);
 
         if ($request->input('notes')) {
