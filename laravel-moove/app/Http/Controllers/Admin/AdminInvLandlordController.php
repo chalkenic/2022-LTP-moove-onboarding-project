@@ -15,12 +15,19 @@ class AdminInvLandlordController extends Controller
     }
 
     public function store(Request $request) {
-        $request->validate(['email' => 'required|email']);
-        
-        Password::sendResetLink((
-            $request->only('email')
-        ));
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'token' => 'required',
+        ]);
 
+        if ($request->hasFile('file')) {
+            $request->file->store('product', 'public');
+            $regToken = new LandlordRegisterToken([
+                //"name" => $request->get('name'),
+                //"file_path" => $request->file->hashName()
+            ]);
+            $regToken->save();
+        }
         return back()->with('status', 'Email containing a link to sign up as a landlord has been sent to the email specified.');
     }
 }
