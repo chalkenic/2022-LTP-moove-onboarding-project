@@ -18,12 +18,13 @@ class AdminInvLandlordController extends Controller
     public function store(Request $request) {
         $request->validate([
             'email' => 'required|string|max:255',
-            'token' => 'required',
         ]);
+
+        $randomToken = Str::random(32);
 
         LandlordRegisterToken::create([
             'email' => $request->email,
-            'token' => $request->token,
+            'token' => $randomToken,
         ]);
 
         return back()->with('status', 'Email containing a link to sign up as a landlord has been sent to the email specified.');
