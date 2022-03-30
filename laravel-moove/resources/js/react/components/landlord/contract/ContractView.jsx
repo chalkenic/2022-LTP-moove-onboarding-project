@@ -39,7 +39,7 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-const ContractView = ({sections, landlord, property, contract, type}) => {
+const ContractView = ({sections, landlord, property, contract}) => {
 
     const styles = useStyles();
 
