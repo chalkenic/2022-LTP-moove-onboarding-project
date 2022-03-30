@@ -23,7 +23,8 @@ import TenantApplication from "../js/react/components/admin/TenantApplication";
 import TenancyApplicationProgress from "../js/react/components/tenant/TenancyApplicationProgress";
 import AdminProperties from "./react/pages/AdminProperties";
 import ContractCard from "./react/cards/ContractCard";
-import Contract from "./react/components/landlord/contract/Contract";
+import ContractCreation from "./react/components/landlord/contract/ContractCreation";
+import ContractView from "./react/components/landlord/contract/ContractView";
 
 const components = [
     {
@@ -69,11 +70,11 @@ const components = [
     },
     {
         name: "PropertyCard",
-        component: <PropertyCard/>
+        component: <PropertyCard />,
     },
     {
         name: "TenancyApplicationProgress",
-        component: <TenancyApplicationProgress/>
+        component: <TenancyApplicationProgress />,
     },
     { name: "PropertyRow", component: <PropertyRow /> },
     {
@@ -84,15 +85,15 @@ const components = [
         name: "TenantApplication",
         component: <TenantApplication />,
     },
-    { name: "Contract", component: <Contract /> },
+    { name: "ContractCreation", component: <ContractCreation /> },
+    { name: "ContractView", component: <ContractView /> },
     { name: "ContractCreate", component: <ContractCreate /> },
     { name: "ContractShow", component: <ContractShow /> },
     { name: "ContractCard", component: <ContractCard /> },
     {
         name: "SigningComponent",
-        component: <SigningComponent/>
+        component: <SigningComponent />,
     },
-
 ];
 
 new ReactRenderer(components).renderAll();

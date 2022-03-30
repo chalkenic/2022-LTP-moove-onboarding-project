@@ -1,15 +1,13 @@
 /* eslint-disable sort-imports */
-import Contract from "../components/landlord/contract/Contract";
+import ContractView from "../components/landlord/contract/ContractView";
 import ContractHeader from "../components/headers/ContractHeader";
 import React, {Fragment} from "react";
 
 import PropTypes from "prop-types";
 
-
-
 const ContractShow = ({property, details, landlord}) => <Fragment>
     <ContractHeader type="show" name={property.name} />
-    <Contract sections = {details} landlord = {landlord} property={property} type="show" />
+    <ContractView sections = {details} landlord = {landlord} property={property} type="show" />
 </Fragment>;
 ContractShow.propTypes = {
     "property": PropTypes.shape({
