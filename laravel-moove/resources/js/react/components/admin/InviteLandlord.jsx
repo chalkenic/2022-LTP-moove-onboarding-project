@@ -9,8 +9,7 @@ const createLandlordInv = () => {
         email: document.getElementById('emailField').value,
     })
     .then(() => {
-      postPost();
-      enableEdit();
+        console.log("send");
     })
     .catch((error) => {
         console.log(error.message);
