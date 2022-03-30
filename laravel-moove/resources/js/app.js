@@ -25,6 +25,7 @@ import AdminProperties from "./react/pages/AdminProperties";
 import ContractCard from "./react/cards/ContractCard";
 import ContractCreation from "./react/components/landlord/contract/ContractCreation";
 import ContractView from "./react/components/landlord/contract/ContractView";
+import ContractTitle from "./react/components/landlord/contract/ContractTitle";
 
 const components = [
     {
@@ -90,6 +91,8 @@ const components = [
     { name: "ContractCreate", component: <ContractCreate /> },
     { name: "ContractShow", component: <ContractShow /> },
     { name: "ContractCard", component: <ContractCard /> },
+    { name: "ContractTitle", component: <ContractTitle /> },
+
     {
         name: "SigningComponent",
         component: <SigningComponent />,

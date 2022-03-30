@@ -10,7 +10,7 @@ import CircleIcon from "@mui/icons-material/Circle";
 const CircleIconCustom = ({statusColor}) => <Fragment>
     {statusColor === 0
         ? <CircleIcon style={{"color": "red"}}></CircleIcon>
-        : <CircleIcon style={{"color": "green "}}></CircleIcon>
+        : <CircleIcon style={{"color": "#1CE815"}}></CircleIcon>
     }
 </Fragment>;
 CircleIconCustom.propTypes = {

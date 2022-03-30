@@ -2,7 +2,7 @@
 /* eslint-disable no-undefined */
 /* eslint-disable sort-imports */
 /* eslint-disable no-ternary */
-import React, {Fragment, useState} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
 import {
     Box,
@@ -16,6 +16,7 @@ import {makeStyles} from "@mui/styles";
 import PropTypes from "prop-types";
 import AppTheme from "../../../assets/theme/theme";
 import CircleIconCustom from "../../icons/CircleIconCustom";
+import ContractTitle from "./ContractTitle";
 
 const useStyles = makeStyles(() => ({
     "titleText": {
@@ -48,15 +49,46 @@ const ContractView = ({sections, landlord, property, contract}) => {
         setAccepted
     ] = useState(0);
 
-    for (let idx = 0; idx < sections.length; idx++) {
+    const [
+        headerCount,
+        setheaderCount
+    ] = useState(0);
 
-        if (sections[idx].accepted !== 0) {
+    const [
+        isShown,
+        setIsShown
+    ] = useState(false);
 
-            setAccepted(accepted + 1);
+    // Use effect checks how many sections have been approved by tenants.
+    useEffect(
+        () => {
 
-        }
+            let count = 0;
 
-    }
+            for (let index = 0; index < sections.length; index++) {
+
+                if (sections[index].header !== undefined && sections[index].header.length > 0) {
+
+                    count++;
+
+                }
+
+            }
+            setheaderCount(count);
+
+            for (let acc = 0; acc < sections.length; acc++) {
+
+                if (sections[acc].accepted === 1) {
+
+                    setAccepted(accepted + 1);
+
+                }
+
+            }
+
+        },
+        []
+    );
 
     return (
         <Grid container spacing={2}justifyContent="center">
@@ -75,7 +107,7 @@ const ContractView = ({sections, landlord, property, contract}) => {
 
                 </Grid>
                 <Grid item xs={4}>
-                    <b> {`Sections accepted: ${accepted}/${sections.length}` }</b>
+                    <b> {`Sections accepted: ${accepted}/${headerCount}` }</b>
                 </Grid>
             </Grid>
 
@@ -85,43 +117,8 @@ const ContractView = ({sections, landlord, property, contract}) => {
                     ? <>
                         <Paper variant="outlined" sx={{"paddingBottom": "30px"}}>
                             <Grid container justifyContent="center" paddingTop="30px">
-                                <Grid item xs={11}>
-                                    <Typography variant="h4" textAlign="center" sx={{"fontWeight": 600,
-                                        "textDecoration": "underline"}}>
-                                        {LandlordTexts.LandlordAddContTexts.prevTitle}
-                                    </Typography>
-                                </Grid>
 
-                                <Grid>
-                                    <Grid item xs={11} justifyContent="center" paddingBottom = "20px">
-                                        <Typography style={{"display": "table",
-                                            "margin": "0 auto"}} align="center" >
-                                            {LandlordTexts.LandlordAddContTexts.prevDisclaimer1}
-                                        </Typography>
-                                        <Typography style={{"display": "table",
-                                            "margin": "0 auto"}} align="center" >
-                                            {LandlordTexts.LandlordAddContTexts.prevDisclaimer2}
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                                <Grid item xs={11}>
-                                    <Typography paragraph>
-                                        {"The tenants known as __________________ hereby agree to rent the dwelling located at: "}
-
-                                    </Typography>
-
-                                    <Typography paragraph>
-                                        <b>{` ${property.name}.`}</b>
-
-                                    </Typography >
-
-                                    <Typography paragraph>
-                                        {"The premises are to be occupied by the above named tenants only. Tenant may not sublet premises."}
-
-                                    </Typography>
-
-
-                                </Grid>
+                                <ContractTitle property={property}/>
 
                                 <Grid item xs={11}>
                                     { sections.map((section, index) => <div key = {index}>
@@ -132,8 +129,19 @@ const ContractView = ({sections, landlord, property, contract}) => {
                                                         {section.header}
                                                     </Typography>
                                                 </Grid>
-                                                <Grid item xs={1} alignContent={"right"}>
-                                                    <CircleIconCustom statusColor={section.accepted}/>
+                                                <Grid item xs={1} alignContent={"right"} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
+
+                                                    <CircleIconCustom statusColor={section.accepted} />
+                                                    {isShown &&
+                                                        <>
+                                                            {section.accepted === 0
+                                                                ? <Typography position="absolute" variant="caption" sx={{"paddingTop": "4px",
+                                                                    "paddingLeft": "0.1%"}}>Declined</Typography>
+                                                                : <Typography position="absolute" variant="caption" sx={{"paddingTop": "4px",
+                                                                    "paddingLeft": "0.1%"}}>Approved</Typography>}
+                                                        </>
+                                                    }
+
                                                 </Grid>
                                             </Grid>
 
