@@ -61,7 +61,7 @@
                 </p>
                 @endif
                 <p class="text-sm">Upload the necessary documentation to automatically resubmit your application for approval.</p>
-              <a class="text-sm hover:underline" href="#">Add files</a>
+              <a class="text-sm hover:underline" href="{{route('tenant.application')}}">Add files</a>
            </div>
         </div>
       </div>
