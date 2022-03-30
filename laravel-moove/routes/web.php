@@ -38,8 +38,8 @@ Route::get('/forgot-password', [ForgottenPasswordController::class, 'index'])->n
 Route::post('/forgot-password', [ForgottenPasswordController::class, 'store'])->name('password.email');
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'index'])->name('password.reset');
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->middleware('guest')->name('password.update');
-Route::get('/landlord-register/{token}', [LandlordRegisterController::class, 'index'])->name('landlord.register');
-Route::post('/landlord-register', [LandlordRegisterController::class, 'store']);
+Route::get('/landlord-invite/{token}', [LandlordRegisterController::class, 'index'])->name('landlord.register');
+Route::post('/landlord-invite', [LandlordRegisterController::class, 'store']);
 
 // General routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -88,3 +88,4 @@ Route::put('/admin-change-application', [AdminApplicationController::class, 'upd
 Route::delete('/admin-delete-application/{application}', [AdminApplicationController::class, 'destroy'])->name('admin.delete-application');
 Route::get('/admin-all-properties', [AdminPropertyController::class, 'index'])->name('admin.all-properties');
 Route::get('/admin-invite-landlord', [AdminInvLandlordController::class, 'index'])->name('admin.invite-landlord');
+Route::put('/admin-invite-landlord', [AdminInvLandlordController::class, 'store']);
