@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\LandlordRegisterToken;
+use App\Notifications\MailLandlordInvitation;
 
 class AdminInvLandlordController extends Controller
 {
@@ -13,6 +14,12 @@ class AdminInvLandlordController extends Controller
 
     public function index() {
         return view('admin.admin-invite-landlord');
+    }
+
+
+    public function sendLandlordInviteNotification($token)
+    {
+        $this->notify(new MailLandlordInvitation($token));
     }
 
     public function store(Request $request) {
@@ -27,6 +34,7 @@ class AdminInvLandlordController extends Controller
             'token' => $randomToken,
         ]);
 
+        sendLandlordInviteNotification($randomToken);
         return back()->with('status', 'Email containing a link to sign up as a landlord has been sent to the email specified.');
     }
 }
