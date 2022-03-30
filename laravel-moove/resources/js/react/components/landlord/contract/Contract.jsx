@@ -37,20 +37,24 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-const Contract = ({sections, landlord, property}) => {
+const Contract = ({sections, landlord, property, type}) => {
 
     const styles = useStyles();
 
     return (
         <Grid container spacing={2}justifyContent="center">
-            <Grid item xs={12} >
-                <Typography variant="h4" align="center" sx={{"paddingTop": "15px",
-                    "paddingBottom": "15px",
-                    "fontWeight": "600",
-                    "textDecoration": "underline"}}>
-                    {LandlordTexts.LandlordAddContTexts.contPrevTitle}
-                </Typography>
-            </Grid>
+
+            {type === "create"
+                ? <Grid item xs={12} >
+                    <Typography variant="h4" align="center" sx={{"paddingTop": "15px",
+                        "paddingBottom": "15px",
+                        "fontWeight": "600",
+                        "textDecoration": "underline"}}>
+                        {LandlordTexts.LandlordAddContTexts.contPrevTitle}
+                    </Typography>
+                </Grid>
+                : <></>}
+
             <Box className={styles.dividerLight} />
             <Grid item xs={12} justifyContent="center">
                 {sections.length > 0
@@ -192,6 +196,8 @@ Contract.propTypes = {
         "header": PropTypes.string,
         "title": PropTypes.string,
         "value": PropTypes.string.isRequired
-    }))
+    })),
+
+    "type": PropTypes.string
 };
 export default Contract;

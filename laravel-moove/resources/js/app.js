@@ -1,11 +1,11 @@
 require("./bootstrap");
 
-// React componentsimport ContractRow from "./react/components/tables/ContractRow";
 import ReactRenderer from "./react/ReactRenderer";
 import React from "react";
 import NavBar from "./react/components/navBar/NavBar";
 import NavBarHeader from "./react/components/headers/NavBarHeader";
 import ContractHeader from "./react/components/headers/ContractHeader";
+import ContractRow from "./react/components/tables/ContractRow";
 import ButtonNavCustom from "./react/components/buttons/ButtonNav";
 import AppNavBar from "./react/components/navBar/AppNavBarCustom";
 import TenancyForm from "./react/components/forms/TenantCheckForm";
@@ -22,6 +22,7 @@ import Property from "./react/components/landlord/property/Property";
 import PropertyCard from "../js/react/cards/PropertyCard";
 import PropertyRow from "./react/components/tables/PropertyRow";
 import TenantApplication from "../js/react/components/admin/TenantApplication";
+import TenancyApplicationProgress from "../js/react/components/tenant/TenancyApplicationProgress";
 import AdminProperties from "./react/pages/AdminProperties";
 import Contract from "./react/components/landlord/contract/Contract";
 
@@ -69,7 +70,11 @@ const components = [
     },
     {
         name: "PropertyCard",
-        component: <PropertyCard />,
+        component: <PropertyCard/>
+    },
+    {
+        name: "TenancyApplicationProgress",
+        component: <TenancyApplicationProgress/>
     },
     { name: "PropertyRow", component: <PropertyRow /> },
     {
@@ -88,6 +93,7 @@ const components = [
     { name: "ContractCreate", component: <ContractCreate /> },
     { name: "ContractShow", component: <ContractShow /> },
     { name: "ContractCard", component: <ContractCard /> },
+    { name: "ContractRow", component: <ContractRow /> },
     {
         name: "SigningComponent",
         component: <SigningComponent/>

@@ -45,7 +45,7 @@ const ContractHeader = ({type, name}) => {
                         </Typography>
                     </Fragment>
 
-                    : `${LandlordTexts.LandlordShowContTexts.contDesc1}`
+                    : <></>
                 }
             </Grid>
         </Grid>
