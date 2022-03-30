@@ -28,6 +28,9 @@ return new class extends Migration
     {
         Schema::table('applications', function (Blueprint $table) {
             $table->dropColumn('rejected_at');
+        });
+
+        Schema::table('applications', function (Blueprint $table) {
             $table->dropColumn('approved_at');
         });
     }
