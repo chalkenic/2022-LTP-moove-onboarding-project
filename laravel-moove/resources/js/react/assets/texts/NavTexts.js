@@ -31,7 +31,6 @@ export const navTextAdmin = [
 ];
 
 export const navTextTenant = [
-
     {
         "id": 1,
         "key": "book_appointment",
@@ -61,8 +60,16 @@ export const navTextTenant = [
         "selected": false,
         "link": "/apply-tenancy",
         "type": "link"
-    }
+    },
 
+    {
+        "id": 5,
+        "key": "my_property",
+        "name": "My property",
+        "selected": false,
+        "link": "/tenant-property",
+        "type": "link"
+    }
 ];
 
 export const navTextLandlord = [

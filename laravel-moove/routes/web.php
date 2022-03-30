@@ -17,6 +17,7 @@ use App\Http\Controllers\Tenant\TenantAptController;
 use App\Http\Controllers\Tenant\TenantViewApplController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\Tenant\TenantApplyController;
+use App\Http\Controllers\Tenant\TenantPropertyController;
 use App\Http\Controllers\Landlord\LandlordController;
 use App\Http\Controllers\Landlord\ContractController;
 use App\Http\Controllers\Landlord\LandlordSigningController;
@@ -59,6 +60,7 @@ Route::get('/application', [ApplicationController::class, 'index'])->name('tenan
 Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
 Route::post('/start-application', [ApplicationController::class, 'store']);
 Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
+Route::get('/tenant-property', [TenantPropertyController::class, 'index'])->name('tenant.tenant-property');
 
 // Landlord Routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');

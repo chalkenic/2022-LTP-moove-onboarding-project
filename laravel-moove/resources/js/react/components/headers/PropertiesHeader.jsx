@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable sort-imports */
 /* eslint-disable no-ternary */
 import React from "react";
@@ -8,7 +9,7 @@ import * as LandlordTexts from "../../assets/texts/LandlordTexts";
 import * as AdminTexts from "../../assets/texts/AdminTexts";
 import PropTypes from "prop-types";
 
-const PropetiesHeader = ({role}) => {
+const PropetiesHeader = ({role, name}) => {
 
     const theme = useTheme(AppTheme);
 
@@ -27,7 +28,9 @@ const PropetiesHeader = ({role}) => {
             >
                 {role === "landlord"
                     ? LandlordTexts.LandlordPropsLandingTitle.title
-                    : AdminTexts.AdminPropsLandingTitle.title}
+                    : role === "admin"
+                        ? AdminTexts.AdminPropsLandingTitle.title
+                        : name}
             </Typography>
         </Grid>
     );
@@ -35,7 +38,8 @@ const PropetiesHeader = ({role}) => {
 };
 
 PropetiesHeader.propTypes = {
-    "role": PropTypes.string
+    "role": PropTypes.string,
+    "name": PropTypes.string
 };
 
 export default PropetiesHeader;

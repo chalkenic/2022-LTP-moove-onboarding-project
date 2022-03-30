@@ -26,6 +26,10 @@ import ContractCard from "./react/cards/ContractCard";
 import ContractCreation from "./react/components/landlord/contract/ContractCreation";
 import ContractView from "./react/components/landlord/contract/ContractView";
 import ContractTitle from "./react/components/landlord/contract/ContractTitle";
+import TenantProperty from "./react/pages/TenantProperty";
+import RedButtonCustom from "./react/components/buttons/RedButtonCustom";
+import GreenButtonCustom from "./react/components/buttons/GreenButtonCustom";
+import BlueButtonCustom from "./react/components/buttons/BlueButtonCustom";
 
 const components = [
     {
@@ -44,6 +48,21 @@ const components = [
         name: "ButtonNavCustom",
         component: <ButtonNavCustom />,
     },
+
+    {
+        name: "GreenButtonCustom",
+        component: <GreenButtonCustom />,
+    },
+    {
+        name: "RedButtonCustom",
+        component: <RedButtonCustom />,
+    },
+
+    {
+        name: "BlueButtonCustom",
+        component: <BlueButtonCustom />,
+    },
+
     {
         name: "AppNavBar",
         component: <AppNavBar />,
@@ -81,6 +100,10 @@ const components = [
     {
         name: "TenantList",
         component: <TenantList />,
+    },
+    {
+        name: "TenantProperty",
+        component: <TenantProperty />,
     },
     {
         name: "TenantApplication",
