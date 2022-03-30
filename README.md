@@ -19,8 +19,11 @@ Take moove from a place where students can read reviews, to a platform where the
 Our platform provides the following features:
 
 - Prospective tenants can submit an application to be able to rent on the moove platform
+- Tenants can upload supporting evidence (PDFs, Images) to support their application
+- Tenants can upload a video for identity verification purposes
 - moove staff can screen and approve/reject applicants
 - Landlords can signup and add their properties to the platform
+- Tenants can request to view a property
 - Landlords can generate custom tenancy agreements
 - Tenants can sign tenancy agreements
 
@@ -35,6 +38,7 @@ Our platform provides the following features:
 ## Automated Testing
 
 - Automated backend feature testing with PHPUnit
+- Run backend tests with `sail test` after setting up dev environment (detailed below)
 
 
 ## Setup of development environment
@@ -59,8 +63,18 @@ You will need [Docker Desktop](https://www.docker.com/products/docker-desktop/) 
 4. Your docker environment is set up! Almost there. Now you'll need to open Docker Desktop, and open a CLI window into the MySQL container. In here, create a database called `laravel_moove`
 5. Migrate and seed this database by coming back to your WSL terminal and running `./vendor/bin/sail artisan migrate:fresh --seed`. (Note: You can configure a bash alias to avoid typing the whole path to the sail command, read more [here](https://laravel.com/docs/9.x/sail#configuring-a-bash-alias))
 6. Almost there! Now run `cp .env.example .env` to get an .env file
-7. Finally, run `./vendor/bin/sail artisan key:generate` to set up an encryption key for the application.
+7. Finally, run `./vendor/bin/sail artisan key:generate` to set up an encryption key for the application
+8. You are done! Visit `http://localhost` in a browser to view the application
 
 ### React/Tailwind
 
-This project uses React/Tailwind on the frontend. Configuring these is as simple as running `npm install` from the `laravel-moove` directory.
+This project uses some React/Tailwind on the frontend. Configuring these is as simple as running `npm install` from the `laravel-moove` directory, followed by `npm run dev` to compile the frontend assets, or `npm run watch` to watch for changes and recompile when they occur.
+
+
+## Useful information
+
+Laravel is an MVC framework. The business logic of our solution joins real world entities (tenant, landlord, property, tenancy, etc.) together with relationships that make sense. Our solution features a mix of Blade/React frontend - React components were used in areas where reactivity and (virtual) DOM manipulation were desired. The beauty of our approach (or rather, MVC in general) is that the underlying backend logic can work with whatever frontend you choose to put on top of it, with a small amount of tweaking. Whether that's expanding the React offering to be sitewide, or removing it entirely and sticking with the less technically demanding Blade templates. Or, scrapping the UI all together and rewriting it in a completely different manner. The models and controllers in our system will work the same, and provide the same value.
+
+- [Laravel Documentation](https://laravel.com/docs/9.x/sail)
+- [Tailwind Documentation](https://v2.tailwindcss.com/docs)
+- [React documentation](https://reactjs.org/)
