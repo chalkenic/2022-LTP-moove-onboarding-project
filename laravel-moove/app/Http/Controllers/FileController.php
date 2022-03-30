@@ -36,6 +36,10 @@ class FileController extends Controller
             ])
         );
 
+        auth()->user()->application->update([
+            'notes' => null
+        ]);
+
         return redirect('/application')->with([
             'success' => 'Successfully uploaded file ' . $filename
         ]);

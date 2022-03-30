@@ -40,7 +40,7 @@
            <div>
               <p class="font-bold">Great news!</p>
               <p class="text-sm">Your application has been approved and you are ready to get mooving!</p>
-              <a class="hover:underline" href="#">Call to action</a>
+              <a class="text-sm hover:underline" href="#">Call to action</a>
            </div>
         </div>
       </div>
@@ -54,8 +54,13 @@
            </div>
            <div>
               <p class="font-bold">Sorry!</p>
-              <p class="text-sm">Your application was not successful. Click below to see what we need from you.</p>
-              <a class="hover:underline" href="#">Call to action</a>
+              <p class="text-sm">Your application was not successful.</p>
+              @if(isset(auth()->user()->application->notes))
+                <p class="text-sm">
+                    Reason: {{ auth()->user()->application->notes }}
+                </p>
+                @endif
+              <a class="text-sm hover:underline" href="#">Call to action</a>
            </div>
         </div>
       </div>

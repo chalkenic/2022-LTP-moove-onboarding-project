@@ -56,6 +56,12 @@ class AdminApplicationController extends Controller
             'is_approved' => $approved ? 1 : 2
         ]);
 
+        if ($request->input('notes')) {
+            $user->application->update([
+                'notes' => $request->input('notes')
+            ]);
+        }
+
         if ($approved) {
             $user->notify(new ApplicationApproved($user));
         } else {
