@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserConvertController;
 use App\Http\Controllers\Admin\AdminInvLandlordController;
+use App\Http\Controllers\Auth\LandlordRegisterController;
 use App\Http\Controllers\AdminApplicationController;
 use App\Http\Controllers\Admin\AdminPropertyController;
 use App\Http\Controllers\FileController;
@@ -37,7 +38,8 @@ Route::get('/forgot-password', [ForgottenPasswordController::class, 'index'])->n
 Route::post('/forgot-password', [ForgottenPasswordController::class, 'store'])->name('password.email');
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'index'])->name('password.reset');
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->middleware('guest')->name('password.update');
-
+Route::get('/landlord-register/{token}', [LandlordRegisterController::class, 'index'])->name('landlord.register');
+Route::post('/landlord-register', [LandlordRegisterController::class, 'store']);
 
 // General routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
