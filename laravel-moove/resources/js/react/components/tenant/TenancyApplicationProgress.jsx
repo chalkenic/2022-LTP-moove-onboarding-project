@@ -42,7 +42,11 @@ const TenancyApplicationProgress = () => {
   const handleShow = () => setShow(true);
   const [selectedTenantName, setSelectedTenantName] = useState("");
   const [selectedTenantStatus, setSelectedTenantStatus] = useState("");
-  
+  const [showError, setShowError] = React.useState(false);
+
+  const hasPropertyImage = ((window.property.image).length > 0);
+  const hasPropertyUrl = ((window.property.moove_url).length > 0);
+
   const onRowClick = event => {
     const tenantName = event.currentTarget.getAttribute("data-tenantname");
     const tenantStatus = event.currentTarget.getAttribute("data-tenantstatus");
@@ -51,17 +55,35 @@ const TenancyApplicationProgress = () => {
     handleShow();
   };
 
+  const onSuccessClick = event=> {
+    window.open(window.property.moove_url, '_blank').focus();
+  }
+  const onFailClick = event=> {
+    setShowError(true);
+  }
 
   return (
     <div>
+       { showError ? <div><Alert severity="warning">No property URL associated, listing may have been removed from moove</Alert><br></br></div> : null }
+
       { !window.noTenancy ? 
 
       <div id="tenantTable">
 
       <View id = "tableHeader" style={{justifyContent: 'space-between', alignItems:'center',flexDirection:'row'}}>
-        <div>{window.property.name}</div>
+        <div style={{display:'flex'}}>{ hasPropertyImage ?
+        <div>
+          <img src={window.property.image} style={{borderRadius: 50 + '%'}} height={50} width={40} alt="property image"></img>
+        </div>
+        : <div>
+          <img src="https://cdn.pixabay.com/photo/2013/07/13/12/10/building-159338_960_720.png" style={{borderRadius: 50 + '%',marginRight:20+"px"}} height={50} width={40} alt="property image"></img>
+          </div>
+        }<p style={{marginTop:3+"px"}}>{window.property.name}</p></div>
         <div>Status: <b>{capitalizeFirstLetter(window.property.status)}</b></div>
-        <Button variant="outlined">View Property</Button>
+        {
+        hasPropertyUrl ? <Button onClick={onSuccessClick} variant="outlined">View Property</Button>
+        : <Button onClick={onFailClick} variant="outlined">View Property</Button>
+        }
     </View>
     <br></br>
     <TableContainer component={Paper}>

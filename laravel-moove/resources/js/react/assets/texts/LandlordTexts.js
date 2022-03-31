@@ -1,5 +1,5 @@
 export const LandlordPropsLandingTitle = {
-    "title": "Your properties",
+    "title": "Your Properties",
     "content": "Lorem Ipsum"
 };
 

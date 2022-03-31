@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserConvertController;
 use App\Http\Controllers\Admin\AdminPropertyController;
+use App\Http\Controllers\Admin\AdminInvLandlordController;
 use App\Http\Controllers\Admin\AdminApplicationController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\Tenant\ApplicationController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\Tenant\TenantContractController;
 use App\Http\Controllers\Landlord\LandlordController;
 use App\Http\Controllers\Landlord\LandlordContractController;
 use App\Http\Controllers\Landlord\LandlordSigningController;
+use App\Http\Controllers\Auth\LandlordRegisterController;
 use App\Http\Controllers\Landlord\PropertyController;
 use App\Http\Controllers\Landlord\LandlordPropertyController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +39,9 @@ Route::get('/forgot-password', [ForgottenPasswordController::class, 'index'])->n
 Route::post('/forgot-password', [ForgottenPasswordController::class, 'store'])->name('password.email');
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'index'])->name('password.reset');
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->middleware('guest')->name('password.update');
+Route::get('/landlord-invite/{token}', [LandlordRegisterController::class, 'index'])->name('landlord.register');
+Route::post('/landlord-invite', [LandlordRegisterController::class, 'store'])->name('landlord.register-submit');
+
 
 
 // General routes
@@ -94,3 +99,5 @@ Route::get('/admin-tenant-application/{user}', [AdminApplicationController::clas
 Route::put('/admin-change-application', [AdminApplicationController::class, 'update'])->name('admin.change-application');
 Route::delete('/admin-delete-application/{application}', [AdminApplicationController::class, 'destroy'])->name('admin.delete-application');
 Route::get('/admin-all-properties', [AdminPropertyController::class, 'index'])->name('admin.all-properties');
+Route::get('/admin-invite-landlord', [AdminInvLandlordController::class, 'index'])->name('admin.invite-landlord');
+Route::post('/admin-invite-landlord', [AdminInvLandlordController::class, 'store']);
