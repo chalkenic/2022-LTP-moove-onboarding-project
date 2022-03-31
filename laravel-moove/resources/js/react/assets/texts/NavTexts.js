@@ -112,4 +112,4 @@ export const navTextHome = [
     "/admin-home",
     "/landlord-home",
     "/tenant-home"
-]
+];
