@@ -14,6 +14,7 @@ import Dashboard from "./react/pages/Dashboard";
 import SigningComponent from './react/components/forms/SigningComponent';
 import LandlordProperties from "./react/pages/LandlordProperties";
 import TenantList from "../js/react/components/admin/TenantList";
+import InviteLandlordComponent from '../js/react/components/admin/InviteLandlord';
 import ContractCreate from "./react/pages/ContractCreate";
 import ContractShow from "./react/pages/ContractShow";
 import Property from "./react/components/landlord/property/Property";
@@ -129,7 +130,11 @@ const components = [
     {
         name: "ViewCalender",
         component: <ViewCalender />
-    }
+    },
+    {
+        name:"InviteLandlordComponent",
+        component:<InviteLandlordComponent/>,
+    },
 
 ];
 
