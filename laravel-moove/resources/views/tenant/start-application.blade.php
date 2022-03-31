@@ -3,11 +3,15 @@
 <title>moove - tenant home</title>
 @endsection
 @section('content')
+<h1 class="font-medium leading-tight text-3xl mt-0 mb-2">
+    {{ auth()->user()->name }}'s application
+</h1>
 <div>
-    Start an application!
-</div>
-<div>
-    Any data collection fields go here, pushing the button below creates the Application and ties it to the tenant, before redirecting to the 'show' view where supporting files can be uploaded.
+    We need to get some information from you before you can rent with us.
+    Start your application by clicking below. Afterwards we'll need you
+    to upload some supporting evidence for your application. Don't worry -
+    it's all completely secure, and your documents won't be shared with
+    anyone outside of moove.
 </div>
 <div>
     <form action="{{route('tenant.start-application')}}" method="post">

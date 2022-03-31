@@ -43,7 +43,7 @@ class ApplicationRejected extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Moove Application Denied')
+                    ->subject('Moove Application Rejected')
                     ->greeting('Hey, ' . $this->user->name)
                     ->line('We\'re sorry, your application to rent with moove has ' .
                             'not been approved on this occasion.')
