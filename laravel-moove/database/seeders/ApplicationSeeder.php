@@ -18,13 +18,5 @@ class ApplicationSeeder extends Seeder
         DB::table('applications')->insert([
             'user_id' => 1,
         ]);
-
-        DB::table('applications')->insert([
-            'user_id' => 2,
-        ]);
-
-        DB::table('applications')->insert([
-            'user_id'=> 3
-        ]);
     }
 }
