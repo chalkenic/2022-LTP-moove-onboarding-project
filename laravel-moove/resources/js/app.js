@@ -15,7 +15,6 @@ import LandlordProperties from "./react/pages/LandlordProperties";
 import TenantList from "../js/react/components/admin/TenantList";
 import InviteLandlordComponent from '../js/react/components/admin/InviteLandlord';
 import ContractCreate from "./react/pages/ContractCreate";
-import ContractCard from "./react/cards/ContractCard";
 import ContractShow from "./react/pages/ContractShow";
 import Property from "./react/components/landlord/property/Property";
 import PropertyCard from "../js/react/cards/PropertyCard";
