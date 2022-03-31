@@ -71,7 +71,6 @@ Route::get('/tenants/{id}', [LandlordPropertyController::class, 'tenants']);
 
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
-Route::get('/admin-spider', [AdminController::class, 'spider'])->name('admin.spider'); // test url remove this
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
 Route::put('/convert-user', [UserConvertController::class, 'update']);
 Route::get('/admin-tenant-list', [AdminApplicationController::class, 'index'])->name('admin-tenant-list');
