@@ -18,6 +18,7 @@ import GreenButtonCustom from "../components/buttons/GreenButtonCustom";
 const TenantProperty = ({property, tenants, contract}) => {
 
     console.log(contract);
+    const hasPropertyImage = ((property.image).length > 0);
 
     const openContract = (propId) => {
         
@@ -60,8 +61,7 @@ const TenantProperty = ({property, tenants, contract}) => {
 
                 <Box style={{"position": "relative"}} display="flex">
 
-                    <Card style={{"align": "right",
-                        "borderRadius": "50%"}} sx={{"width": {"md": "400px",
+                    <Card style={{"align": "right"}} sx={{"width": {"md": "400px",
                         "sm": "350px",
                         "xs": "150px"},
                     "height": {"md": "350px",
@@ -81,13 +81,14 @@ const TenantProperty = ({property, tenants, contract}) => {
                         >
 
                             <Grid item xs={3}>
-                                <Box
-                                    component="img"
-                                    sx={{"height": {"sx": "10px",
-                                        "sm": "76%"}}}
-                                    alt="moove logo"
-                                    src={mooveLogo}
-                                />
+                            { hasPropertyImage ?
+                    <div>
+                    <img src={property.image} style={{borderRadius: 20 + '%',marginTop:20}} height={300} width={300} alt="property image"></img>
+                    </div>
+                : <div>
+                    <img src="https://cdn.pixabay.com/photo/2013/07/13/12/10/building-159338_960_720.png" style={{borderRadius: 20 + '%',marginTop:20}} height={300} width={300} alt="property image"></img>
+                    </div>
+                }
                             </Grid>
                         </Grid>
                     </Card>
