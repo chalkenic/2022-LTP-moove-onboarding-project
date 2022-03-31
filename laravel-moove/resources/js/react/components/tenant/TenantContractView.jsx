@@ -1,22 +1,20 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-undefined */
-/* eslint-disable sort-imports */
-/* eslint-disable no-ternary */
 import React, {Fragment, useEffect, useState} from "react";
-import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
+import * as TenantTexts from "../../assets/texts/TenantTexts"
 import {
     Box,
     Card,
     CardContent,
+    FormControlLabel,
     Grid,
     Paper,
+    Radio,
+    RadioGroup,
     Typography
 } from "@mui/material";
 import {makeStyles} from "@mui/styles";
 import PropTypes from "prop-types";
-import AppTheme from "../../../assets/theme/theme";
-import CircleIconCustom from "../../icons/CircleIconCustom";
-import ContractTitle from "./ContractTitle";
+import AppTheme from "../../assets/theme/theme";
+import ContractTitle from "../landlord/contract/ContractTitle";
 
 const useStyles = makeStyles(() => ({
     "titleText": {
@@ -40,9 +38,9 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-const ContractView = ({sections, landlord, property, contract}) => {
+const TenantContractView = ({ data })=> {
 
-    const styles = useStyles();
+     const styles = useStyles();
 
     const [
         accepted,
@@ -59,15 +57,20 @@ const ContractView = ({sections, landlord, property, contract}) => {
         setIsShown
     ] = useState(false);
 
+    const [sections,
+        setSections
+    ] = useState(data.details);
+
     // Use effect checks how many sections have been approved by tenants.
     useEffect(
         () => {
 
             let count = 0;
+            let acceptCount = 0;
 
-            for (let index = 0; index < sections.length; index++) {
+            for (let index = 0; index < data.details.length; index++) {
 
-                if (sections[index].header !== undefined && sections[index].header.length > 0) {
+                if (data.details[index].header !== undefined && data.details[index].header.length > 0) {
 
                     count++;
 
@@ -78,16 +81,19 @@ const ContractView = ({sections, landlord, property, contract}) => {
 
             for (let acc = 0; acc < sections.length; acc++) {
 
-                if (sections[acc].accepted === 1) {
+                if (sections[acc].accepted === "1") {
 
-                    setAccepted(accepted + 1);
+
+                   acceptCount++;
 
                 }
 
             }
 
+            setAccepted(acceptCount);
+
         },
-        []
+        [sections]
     );
 
     return (
@@ -95,13 +101,13 @@ const ContractView = ({sections, landlord, property, contract}) => {
 
             <Grid container item xs = {12} textAlign="center" flexDirection={"row"} >
                 <Grid item xs={4}>
-                    {contract.tenant_signed === 0
-                        ? <b>{"Signed by tenant: FALSE"}</b>
-                        : <b>{"Signed by tenant: TRUE"}</b>}
+                    {data.contract.tenant_signed === 0
+                        ? <b>{"Signed by tenants: FALSE"}</b>
+                        : <b>{"Signed by tenants: TRUE"}</b>}
 
                 </Grid>
                 <Grid item xs={4}>
-                    {contract.landlord_signed === 0
+                    {data.contract.landlord_signed === 0
                         ? <b>{"Signed by landlord: FALSE"}</b>
                         : <b>{"Signed by landlord: TRUE"}</b>}
 
@@ -118,7 +124,7 @@ const ContractView = ({sections, landlord, property, contract}) => {
                         <Paper variant="outlined" sx={{"paddingBottom": "30px"}}>
                             <Grid container justifyContent="center" paddingTop="30px">
 
-                                <ContractTitle property={property}/>
+                                <ContractTitle property={data.property}/>
 
                                 <Grid item xs={11}>
                                     { sections.map((section, index) => <div key = {index}>
@@ -129,18 +135,30 @@ const ContractView = ({sections, landlord, property, contract}) => {
                                                         {section.header}
                                                     </Typography>
                                                 </Grid>
-                                                <Grid item xs={1} alignContent={"right"} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
+                                                <Grid item xs={1} alignContent={"right"}>
 
-                                                    <CircleIconCustom statusColor={section.accepted} />
-                                                    {isShown &&
-                                                        <>
-                                                            {section.accepted === 0
-                                                                ? <Typography position="absolute" variant="caption" sx={{"paddingTop": "4px",
-                                                                    "paddingLeft": "0.1%"}}>Declined</Typography>
-                                                                : <Typography position="absolute" variant="caption" sx={{"paddingTop": "4px",
-                                                                    "paddingLeft": "0.1%"}}>Approved</Typography>}
-                                                        </>
-                                                    }
+                                        <RadioGroup
+                                            row
+                                            name="row-radio-occupied"
+                                            required={true}
+                                            id="prop-postcode"
+                                            className={styles.infoText}
+                                            onChange={(e) => {section.accepted = e.target.value;
+                                            setSections([...sections])}
+                                            }
+                                        >
+                                            <FormControlLabel
+                                                value={1}
+                                                control={<Radio />}
+                                                label="Approve"
+                                            />
+                                            <FormControlLabel
+                                                defaultChecked="true"
+                                                value={0}
+                                                control={<Radio />}
+                                                label="Deny"
+                                            />
+                                        </RadioGroup>
 
                                                 </Grid>
                                             </Grid>
@@ -158,8 +176,8 @@ const ContractView = ({sections, landlord, property, contract}) => {
                                 </Grid>
                                 <Grid item xs={11}>
                                     <Typography paragraph>
-                                        <b>{LandlordTexts.LandlordAddContTexts.prevAcknowledgementTitle}</b>
-                                        {LandlordTexts.LandlordAddContTexts.prevAcknowledgementContent}
+                                        <b>{TenantTexts.TenantContTexts.acknowledgementTitle}</b>
+                                        {TenantTexts.TenantContTexts.acknowledgementContent}
 
                                     </Typography>
 
@@ -171,7 +189,7 @@ const ContractView = ({sections, landlord, property, contract}) => {
                                         <Card align="center">
                                             <Grid item xs={12}>
                                                 <CardContent >
-                                                    <b>{LandlordTexts.LandlordAddContTexts.prevLandSigTitle}</b>
+                                                    <b>{TenantTexts.TenantContTexts.landSigTitle}</b>
                                                 </CardContent>
                                             </Grid>
 
@@ -179,7 +197,7 @@ const ContractView = ({sections, landlord, property, contract}) => {
                                             <Grid item xs={12}>
                                                 <CardContent>
                                                     <Typography>
-                                                        {landlord.name.toUpperCase()}
+                                                        {data.landlord.name.toUpperCase()}
 
                                                     </Typography>
                                                 </CardContent>
@@ -192,7 +210,7 @@ const ContractView = ({sections, landlord, property, contract}) => {
                                         <Card align="center">
                                             <Grid item xs={12}>
                                                 <CardContent >
-                                                    <b>{LandlordTexts.LandlordAddContTexts.PrevTenSigTitle}</b >
+                                                    <b>{TenantTexts.TenantContTexts.tenSigTitle}</b >
                                                 </CardContent>
                                             </Grid>
 
@@ -212,7 +230,8 @@ const ContractView = ({sections, landlord, property, contract}) => {
                         </Paper>
 
                     </>
-                    : <Typography align="center">{LandlordTexts.LandlordAddContTexts.prevNoContentMsg}</Typography>}
+                    : <Typography align="center">{TenantTexts.TenantContTexts.noContentMsg}</Typography>
+                    }
 
 
             </Grid>
@@ -221,41 +240,4 @@ const ContractView = ({sections, landlord, property, contract}) => {
 
 };
 
-ContractView.propTypes = {
-    "property": PropTypes.shape({
-        "created_at": PropTypes.string.isRequired,
-        "id": PropTypes.number.isRequired,
-        "user_id": PropTypes.number.isRequired,
-        "name": PropTypes.string.isRequired,
-        "location": PropTypes.string.isRequired,
-        "status": PropTypes.string.isRequired,
-        "updated_at": PropTypes.string,
-        "verified": PropTypes.number.isRequired
-    }),
-
-    "landlord": PropTypes.shape({
-        "id": PropTypes.number.isRequired,
-        "name": PropTypes.string.isRequired,
-        "role": PropTypes.string.isRequired
-
-    }),
-    "sections": PropTypes.arrayOf(PropTypes.shape({
-        "map": PropTypes.any,
-        "length": PropTypes.any,
-        "header": PropTypes.string,
-        "title": PropTypes.string,
-        "value": PropTypes.string.isRequired,
-        "accepted": PropTypes.number.isRequired
-    })),
-
-    "contract": PropTypes.shape({
-        "id": PropTypes.number.isRequired,
-        "property_id": PropTypes.number.isRequired,
-        "landlord_signed": PropTypes.number.isRequired,
-        "tenant_signed": PropTypes.number.isRequired
-
-    }),
-
-    "type": PropTypes.string
-};
-export default ContractView;
+export default TenantContractView;

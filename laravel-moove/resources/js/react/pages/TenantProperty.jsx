@@ -15,7 +15,15 @@ import mooveLogo from "../assets/images/moove_logo_nobg.png";
 import GreenButtonCustom from "../components/buttons/GreenButtonCustom";
 
 
-const TenantProperty = ({property, tenants}) => <Fragment>
+const TenantProperty = ({property, tenants}) => {
+
+    const openContract = (propId) => {
+
+        window.location.href = `/tenant-contract/${propId}`;
+
+    };
+ return (
+<Fragment>
     <Paper>
         <Grid container spacing={2} justifyContent="space-between">
             <Grid item xs={12}>
@@ -83,15 +91,16 @@ const TenantProperty = ({property, tenants}) => <Fragment>
                 </Box>
             </Grid>
             <Grid container flexDirection="column" paddingLeft="25px" alignItems="center" paddingBottom="3%">
-                <Grid item xs={12}><GreenButtonCustom>View Contract</GreenButtonCustom></Grid>
+                <Grid item xs={12}><GreenButtonCustom onClick={() => window.location.href = `/property-contract/${property.id}`}>View Contract</GreenButtonCustom></Grid>
             </Grid>
 
         </Grid>
     </Paper>
-</Fragment>;
+</Fragment>
 
+ );
 
-TenantProperty.propTypes = {
+ TenantProperty.propTypes = {
     "property": PropTypes.shape({
         "created_at": PropTypes.string.isRequired,
         "id": PropTypes.number.isRequired,
@@ -106,4 +115,9 @@ TenantProperty.propTypes = {
     "tenants": PropTypes.array
 
 };
+
+ }
+
+
+
 export default TenantProperty;

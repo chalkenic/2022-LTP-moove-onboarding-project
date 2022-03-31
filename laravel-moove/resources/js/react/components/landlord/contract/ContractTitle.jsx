@@ -44,7 +44,7 @@ const ContractTitle = ({property}) => <>
 
 ContractTitle.propTypes = {
     "property": PropTypes.shape({
-        "created_at": PropTypes.string.isRequired,
+        "created_at": PropTypes.string,
         "id": PropTypes.number.isRequired,
         "user_id": PropTypes.number.isRequired,
         "name": PropTypes.string.isRequired,

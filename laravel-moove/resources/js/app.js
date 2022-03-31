@@ -24,12 +24,13 @@ import TenancyApplicationProgress from "../js/react/components/tenant/TenancyApp
 import AdminProperties from "./react/pages/AdminProperties";
 import ContractCard from "./react/cards/ContractCard";
 import ContractCreation from "./react/components/landlord/contract/ContractCreation";
-import ContractView from "./react/components/landlord/contract/ContractView";
+import LandlordContractView from "./react/components/landlord/contract/LandlordContractView";
 import ContractTitle from "./react/components/landlord/contract/ContractTitle";
 import TenantProperty from "./react/pages/TenantProperty";
 import RedButtonCustom from "./react/components/buttons/RedButtonCustom";
 import GreenButtonCustom from "./react/components/buttons/GreenButtonCustom";
 import BlueButtonCustom from "./react/components/buttons/BlueButtonCustom";
+import TenantContractView from "./react/components/tenant/TenantContractView";
 
 const components = [
     {
@@ -105,12 +106,16 @@ const components = [
         name: "TenantProperty",
         component: <TenantProperty />,
     },
+        {
+        name: "TenantContractView",
+        component: <TenantContractView />,
+    },
     {
         name: "TenantApplication",
         component: <TenantApplication />,
     },
     { name: "ContractCreation", component: <ContractCreation /> },
-    { name: "ContractView", component: <ContractView /> },
+    { name: "LandlordContractView", component: <LandlordContractView /> },
     { name: "ContractCreate", component: <ContractCreate /> },
     { name: "ContractShow", component: <ContractShow /> },
     { name: "ContractCard", component: <ContractCard /> },

@@ -18,10 +18,10 @@ use App\Http\Controllers\Tenant\TenantViewApplController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\Tenant\TenantApplyController;
 use App\Http\Controllers\Tenant\TenantPropertyController;
+use App\Http\Controllers\Tenant\TenantContractController;
 use App\Http\Controllers\Landlord\LandlordController;
 use App\Http\Controllers\Landlord\LandlordContractController;
 use App\Http\Controllers\Landlord\LandlordSigningController;
-
 use App\Http\Controllers\Landlord\PropertyController;
 use App\Http\Controllers\Landlord\LandlordPropertyController;
 use Illuminate\Support\Facades\Route;
@@ -61,6 +61,8 @@ Route::get('/start-application', [ApplicationController::class, 'create'])->name
 Route::post('/start-application', [ApplicationController::class, 'store']);
 Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
 Route::get('/tenant-property', [TenantPropertyController::class, 'index'])->name('tenant.tenant-property');
+Route::get('/property-contract/{property}', [TenantContractController::class, 'index'])->name('tenant.tenant-contract');
+Route::put('/update-contract', [TenantContractController::class, 'update'])->name('tenant.update-contract');
 
 // Landlord Routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
