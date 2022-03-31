@@ -5,7 +5,7 @@
 
 export const navTextAdmin = [
     {
-        "id": 2,
+        "id": 1,
         "key": "page_properties",
         "name": "properties List",
         "selected": false,
@@ -13,7 +13,7 @@ export const navTextAdmin = [
         "type": "link"
     },
     {
-        "id": 5,
+        "id": 2,
         "key": "page_users",
         "name": "Convert Users",
         "selected": false,
@@ -21,11 +21,19 @@ export const navTextAdmin = [
         "type": "link"
     },
     {
-        "id": 6,
+        "id": 3,
         "key": "page_tenants",
         "name": "Tenant List",
         "selected": false,
         "link": "/admin-tenant-list",
+        "type": "link"
+    },
+    {
+        "id": 4,
+        "key": "invite_landlord",
+        "name": "Invite Landlord",
+        "selected": false,
+        "link": "/admin-invite-landlord",
         "type": "link"
     }
 ];
