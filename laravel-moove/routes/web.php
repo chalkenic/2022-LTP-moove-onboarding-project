@@ -65,12 +65,13 @@ Route::post('/start-application', [ApplicationController::class, 'store']);
 Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
 Route::get('/properties', [LandlordPropertyController::class, 'index'])-> name('landlord.landlord-properties');
-Route::post('/properties', [LandlordPropertyController::class, 'store']); 
+Route::post('/properties', [LandlordPropertyController::class, 'store']);
 Route::get('/tenants/{id}', [LandlordPropertyController::class, 'tenants']);
 
 
 // Admin routes
 Route::get('/admin-home', [AdminController::class, 'index'])->name('admin.home');
+Route::get('/admin-spider', [AdminController::class, 'spider'])->name('admin.spider'); // test url remove this
 Route::get('/convert-user', [UserConvertController::class, 'index'])->name('admin.convert-user');
 Route::put('/convert-user', [UserConvertController::class, 'update']);
 Route::get('/admin-tenant-list', [AdminApplicationController::class, 'index'])->name('admin-tenant-list');
