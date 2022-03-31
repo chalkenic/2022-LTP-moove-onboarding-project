@@ -64,7 +64,7 @@ const TenancyApplicationProgress = () => {
 
   return (
     <div>
-       { showError ? <div><Alert severity="error"></Alert><br></br></div> : null }
+       { showError ? <div><Alert severity="warning">No property URL associated, listing may have been removed from moove</Alert><br></br></div> : null }
 
       { !window.noTenancy ? 
 
@@ -76,9 +76,9 @@ const TenancyApplicationProgress = () => {
           <img src={window.property.image} style={{borderRadius: 50 + '%'}} height={50} width={40} alt="property image"></img>
         </div>
         : <div>
-          <img src="https://cdn.pixabay.com/photo/2013/07/13/12/10/building-159338_960_720.png" style={{borderRadius: 50 + '%'}} height={50} width={40} alt="property image"></img>
+          <img src="https://cdn.pixabay.com/photo/2013/07/13/12/10/building-159338_960_720.png" style={{borderRadius: 50 + '%',marginRight:20+"px"}} height={50} width={40} alt="property image"></img>
           </div>
-        }<p>{window.property.name}</p></div>
+        }<p style={{marginTop:3+"px"}}>{window.property.name}</p></div>
         <div>Status: <b>{capitalizeFirstLetter(window.property.status)}</b></div>
         {
         hasPropertyUrl ? <Button onClick={onSuccessClick} variant="outlined">View Property</Button>
