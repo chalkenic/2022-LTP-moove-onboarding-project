@@ -17,10 +17,11 @@ use App\Http\Controllers\Tenant\TenantAptController;
 use App\Http\Controllers\Tenant\TenantViewApplController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\Tenant\TenantApplyController;
+use App\Http\Controllers\Tenant\TenantPropertyController;
+use App\Http\Controllers\Tenant\TenantContractController;
 use App\Http\Controllers\Landlord\LandlordController;
-use App\Http\Controllers\Landlord\ContractController;
+use App\Http\Controllers\Landlord\LandlordContractController;
 use App\Http\Controllers\Landlord\LandlordSigningController;
-
 use App\Http\Controllers\Landlord\PropertyController;
 use App\Http\Controllers\Landlord\LandlordPropertyController;
 use Illuminate\Support\Facades\Route;
@@ -58,14 +59,15 @@ Route::get('/application', [ApplicationController::class, 'index'])->name('tenan
 Route::get('/start-application', [ApplicationController::class, 'create'])->name('tenant.start-application');
 Route::post('/start-application', [ApplicationController::class, 'store']);
 Route::post('/tenant-upload', [FileController::class, 'store'])->name('tenant.upload');
+Route::get('/tenant-property', [TenantPropertyController::class, 'index'])->name('tenant.tenant-property');
+Route::get('/property-contract/{property}', [TenantContractController::class, 'index'])->name('tenant.tenant-contract');
+Route::put('/update-contract', [TenantContractController::class, 'update'])->name('tenant.update-contract');
 Route::delete('/tenant-upload/{file}', [FileController::class, 'destroy'])->name('tenant.delete-file');
 Route::get('/book-appointment', [TenantAptController::class, 'index'])->name('tenant.bookapt');
 
 // Landlord Routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
-Route::get('/landlord-properties', function() {
-    return view('landlord.landlord-properties');
-});
+Route::get('/landlord-properties', [LandlordPropertyController::class, 'index'])->name('landlord.landlord-properties');
 Route::get('/landlord-sign-tenancy/{id}', [LandlordSigningController::class, 'index'])-> name('landlord.landlord-sign-tenancy');
 Route::post('/landlord-sign-tenancy', [LandlordSigningController::class, 'store']);
 Route::get('/properties', [LandlordPropertyController::class, 'index'])-> name('landlord.landlord-properties');
@@ -77,10 +79,10 @@ Route::get('/landlord-calender', function() {
 
 
 Route::get('/tenants/{id}', [LandlordPropertyController::class, 'show']);
-Route::get('/contract/{id}', [ContractController::class, 'index'])->name('landlord.landlord-contracts');
-Route::post('/delete-contract/{id}', [ContractController::class, 'destroy'])-> name('landlord.landlord-properties');
-Route::post('/create-contract', [ContractController::class, 'store'])->name('landlord.landlord-contracts');
-Route::get('/get-contract/{id}', [ContractController::class, 'show']);
+Route::get('/contract/{id}', [LandlordContractController::class, 'index'])->name('landlord.landlord-contracts');
+Route::post('/delete-contract/{id}', [LandlordContractController::class, 'destroy'])-> name('landlord.landlord-properties');
+Route::post('/create-contract', [LandlordContractController::class, 'store'])->name('landlord.landlord-contracts');
+Route::get('/get-contract/{id}', [LandlordContractController::class, 'show']);
 
 
 // Admin Routes

@@ -14,7 +14,7 @@ import PropertyAddModal from "../components/landlord/property/PropertyAddModal";
 import axios from "axios";
 import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp";
 
-const LandlordProperties = () => {
+const LandlordProperties = ({properties}) => {
 
     const [
         snackUp,
@@ -34,7 +34,6 @@ const LandlordProperties = () => {
 
     };
 
-    const {properties} = window;
     const [
         open,
         setOpen

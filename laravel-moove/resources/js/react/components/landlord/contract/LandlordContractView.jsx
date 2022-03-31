@@ -40,7 +40,7 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-const ContractView = ({sections, landlord, property, contract}) => {
+const LandlordContractView = ({sections, landlord, property, contract}) => {
 
     const styles = useStyles();
 
@@ -64,6 +64,7 @@ const ContractView = ({sections, landlord, property, contract}) => {
         () => {
 
             let count = 0;
+            let acceptCount = 0;
 
             for (let index = 0; index < sections.length; index++) {
 
@@ -79,13 +80,15 @@ const ContractView = ({sections, landlord, property, contract}) => {
             for (let acc = 0; acc < sections.length; acc++) {
 
                 if (sections[acc].accepted === 1) {
+                    acceptCount++;
 
-                    setAccepted(accepted + 1);
+                    
 
                 }
 
             }
-
+            setAccepted(acceptCount);
+            setheaderCount(count);
         },
         []
     );
@@ -221,7 +224,7 @@ const ContractView = ({sections, landlord, property, contract}) => {
 
 };
 
-ContractView.propTypes = {
+LandlordContractView.propTypes = {
     "property": PropTypes.shape({
         "created_at": PropTypes.string.isRequired,
         "id": PropTypes.number.isRequired,
@@ -258,4 +261,4 @@ ContractView.propTypes = {
 
     "type": PropTypes.string
 };
-export default ContractView;
+export default LandlordContractView;

@@ -9,7 +9,7 @@ use App\Models\Contract;
 use App\Models\User;
 use App\Models\ContractDetail;
 
-class ContractController extends Controller
+class LandlordContractController extends Controller
 {
     public function __construct()
     {
