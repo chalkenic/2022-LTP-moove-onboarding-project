@@ -10,6 +10,7 @@ class LandlordRegisterToken extends Model
     use HasFactory;
 
     protected $fillable = [
-        'email', 'token'
+        'email',
+        'token',
     ];
 }
