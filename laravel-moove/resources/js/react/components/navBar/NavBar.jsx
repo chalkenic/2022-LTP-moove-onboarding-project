@@ -11,7 +11,8 @@ import ButtonNavCustom from "../buttons/ButtonNav";
 import {
     navTextAdmin,
     navTextLandlord,
-    navTextTenant
+    navTextTenant,
+    navTextHome
 } from "../../assets/texts/NavTexts";
 import NavBarHeader from "../headers/NavBarHeader";
 import mooveLogo from "../../assets/images/moove_logo_nobg.png";
@@ -36,19 +37,22 @@ const useStyles = makeStyles(() => ({
 
 const NavBar = ({text, currentPage}) => {
 
+    let homeLink = "";
     const classes = useStyles();
     let navOptions = "";
 
     if (text === "ADMIN") {
-
+        homeLink = navTextHome[0];
         navOptions = navTextAdmin;
 
     } else if (text === "LANDLORD") {
 
+        homeLink = navTextHome[1];
         navOptions = navTextLandlord;
 
     } else {
 
+        homeLink = navTextHome[2];
         navOptions = navTextTenant;
 
     }
@@ -58,6 +62,12 @@ const NavBar = ({text, currentPage}) => {
         pages,
         setPages
     ] = useState(navOptions);
+
+    const handleHome = () => {
+        console.log(homeLink)
+
+        window.location.href = homeLink;
+    }
 
     // Source current page from parent, assign true value to state within navbar.
     useEffect(
@@ -103,13 +113,16 @@ const NavBar = ({text, currentPage}) => {
                 justifyContent={"space-between"}
             >
                 {/* Moove image. */}
-                <Box sx={{"display": "flex"}}>
+                
+                <Box sx={{"display": "flex"}} style={{"cursor": "pointer"}} onClick = {handleHome}>
+
                     <img
                         alt="moove logo"
                         style={{"height": "40px"}}
                         src={mooveLogo}
                     />
                 </Box>
+               
                 {/* Navigation header */}
                 <Box sx={{"display": "flex"}}>
                     <NavBarHeader colorName={text} />

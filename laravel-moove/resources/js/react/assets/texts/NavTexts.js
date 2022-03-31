@@ -106,3 +106,10 @@ export const navTextLandlord = [
         "type": "link"
     }
 ];
+
+export const navTextHome = [
+
+    "/admin-home",
+    "/landlord-home",
+    "/tenant-home"
+]
