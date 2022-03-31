@@ -7,7 +7,7 @@ import React from 'react';
 
 const createLandlordInv = () => {
     axios
-    .post("/landlord-sign-tenancy", {
+    .post("/admin-invite-landlord", {
         email: document.getElementById("emailField").value,
     })
     .then(() => {
