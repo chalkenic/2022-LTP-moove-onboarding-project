@@ -130,7 +130,7 @@ const Contract = ({sections, landlord, property, type}) => {
                                             <Grid item xs={12}>
                                                 <CardContent>
                                                     <Typography>
-                                                        {landlord.name.toUpperCase()}
+                                                        <img src= {property.landlord_signature_blob} />
 
                                                     </Typography>
                                                 </CardContent>
