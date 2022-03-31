@@ -88,4 +88,4 @@ Route::put('/admin-change-application', [AdminApplicationController::class, 'upd
 Route::delete('/admin-delete-application/{application}', [AdminApplicationController::class, 'destroy'])->name('admin.delete-application');
 Route::get('/admin-all-properties', [AdminPropertyController::class, 'index'])->name('admin.all-properties');
 Route::get('/admin-invite-landlord', [AdminInvLandlordController::class, 'index'])->name('admin.invite-landlord');
-Route::put('/admin-invite-landlord', [AdminInvLandlordController::class, 'store']);
+Route::post('/admin-invite-landlord', [AdminInvLandlordController::class, 'store']);
