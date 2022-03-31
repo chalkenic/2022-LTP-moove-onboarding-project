@@ -267,7 +267,7 @@ const TenantContractView = ({ data })=> {
                                             <Grid item xs={12}>
                                                 <CardContent>
                                                     <Typography>
-                                                        {data.landlord.name.toUpperCase()}
+                                                         <img src= {data.property.landlord_signature_blob} />
 
                                                     </Typography>
                                                 </CardContent>

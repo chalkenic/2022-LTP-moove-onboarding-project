@@ -42,6 +42,14 @@ export const navTextAdmin = [
 export const navTextTenant = [
     {
         "id": 1,
+        "key": "my_property",
+        "name": "My property",
+        "selected": false,
+        "link": "/tenant-property",
+        "type": "link"
+    },
+    {
+        "id": 2,
         "key": "book_appointment",
         "name": "Book Appointment",
         "selected": false,
@@ -49,34 +57,25 @@ export const navTextTenant = [
         "type": "link"
     },
     {
-        "id": 2,
+        "id": 3,
         "key": "view_tenancy_appl",
         "name": "View Tenancy Application",
         "selected": false,
         "link": "/tenancy-appl-progress"
     },
     {
-        "id": 3,
+        "id": 4,
         "key": "video_upload",
-        "name": "Video Upload",
+        "name": "ID Upload",
         "selected": false,
         "link": "/tenant-upload-video"
     },
     {
-        "id": 4,
+        "id": 5,
         "key": "apply_tenancy",
         "name": "Apply for Tenancy",
         "selected": false,
         "link": "/apply-tenancy",
-        "type": "link"
-    },
-
-    {
-        "id": 5,
-        "key": "my_property",
-        "name": "My property",
-        "selected": false,
-        "link": "/tenant-property",
         "type": "link"
     }
 ];
