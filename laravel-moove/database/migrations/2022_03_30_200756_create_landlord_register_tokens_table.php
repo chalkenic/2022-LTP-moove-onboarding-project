@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('landlord_register_tokens', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
