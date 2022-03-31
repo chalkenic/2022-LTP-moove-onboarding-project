@@ -7,6 +7,7 @@ use App\Models\Application;
 use App\Models\User;
 use App\Notifications\ApplicationApproved;
 use App\Notifications\ApplicationRejected;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 
@@ -32,6 +33,8 @@ class AdminApplicationController extends Controller
                     'id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
+                    'rejected_at' => isset($user->application->rejected_at) ? Carbon::createFromTimeString($user->application->rejected_at)->diffForHumans() : null,
+                    'updated_at' => isset($user->application->updated_at) ? Carbon::createFromTimeString($user->application->updated_at)->diffForHumans() : null,
                 ],
                 'files' => $user->application->files,
                 'requestRoute' => route('admin.change-application'),

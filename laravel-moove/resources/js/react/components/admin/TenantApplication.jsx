@@ -63,13 +63,14 @@ const TenantApplication = ({ data }) => {
   return (
     <div>
       <p>{error ?? ''}</p>
-
       <h1 className="font-medium leading-tight text-3xl mt-0 mb-2">
         Viewing Application
       </h1>
 
       <h4>{data.tenant.name}</h4>
       <h4>{data.tenant.email}</h4>
+      {data.tenant.rejected_at && <h4 className="font-sm">Previously rejected {data.tenant.rejected_at}</h4>}
+      {data.tenant.updated_at && <h4 className="font-sm">Application updated {data.tenant.updated_at}</h4>}
 
       {
         data.files.length > 0 &&
@@ -84,8 +85,8 @@ const TenantApplication = ({ data }) => {
 
       {aboutToReject &&
         <div className="p-4 border border-solid border-gray-300">
-          <p className="mb-4 flex">You're about to deny {data.tenant.name}'s application.
-            Please provide some notes below so they know why their application was denied.
+          <p className="mb-4 flex">You're about to reject {data.tenant.name}'s application.
+            Please provide some notes below so they know why their application was rejected.
           </p>
           <input
             placeholder="Reason for rejection"
