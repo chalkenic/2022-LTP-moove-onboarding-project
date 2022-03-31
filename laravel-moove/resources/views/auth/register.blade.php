@@ -8,6 +8,7 @@
         @csrf
         <div class="flex flex-col items-center justify-center">
             <div class="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
+                <p class="flex justify-center mb-4"><img src="{{asset('/images/moove_logo_nobg.png')}}"></p>
                 <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Create a moove account</p>
                 <p tabindex="0" class="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500">By signing up, you agree to our <a href="#" class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer">privacy policy</a>
                 and <a href="#" class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer">terms and conditions.</a></p>

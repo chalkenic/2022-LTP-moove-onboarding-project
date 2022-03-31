@@ -4,8 +4,8 @@
 /* eslint-disable no-magic-numbers */
 /* eslint-disable sort-imports */
 /* eslint-disable no-undef */
-import {Box, Button, Grid} from "@mui/material";
-import React, {useEffect, useState} from "react";
+import { Box, Button, Grid } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import AppNavBar from "./AppNavBarCustom";
 import ButtonNavCustom from "../buttons/ButtonNav";
 import {
@@ -17,7 +17,7 @@ import {
 import NavBarHeader from "../headers/NavBarHeader";
 import mooveLogo from "../../assets/images/moove_logo_nobg.png";
 import AppTheme from "../../assets/theme/theme";
-import {makeStyles} from "@mui/styles";
+import { makeStyles } from "@mui/styles";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-const NavBar = ({text, currentPage}) => {
+const NavBar = ({ text, currentPage }) => {
 
     let homeLink = "";
     const classes = useStyles();
@@ -124,12 +124,16 @@ const NavBar = ({text, currentPage}) => {
                 </Box>
                
                 {/* Navigation header */}
-                <Box sx={{"display": "flex"}}>
+                <Box sx={{ "display": "flex" }}>
                     <NavBarHeader colorName={text} />
                 </Box>
                 {/* Navigation buttons */}
-                <Box sx={{"display": {"xs": "none",
-                    "md": "flex"}}}>
+                <Box sx={{
+                    "display": {
+                        "xs": "none",
+                        "md": "flex"
+                    }
+                }}>
                     {pages.map((page, key) => <div key={key}>
                         <a href={page.link}>
                             <ButtonNavCustom
