@@ -45,9 +45,9 @@ class PropertiesListTest extends TestCase
         $property2 = Property::factory()->create(['name'=> 'prop2', 'user_id' => '2', 'status'=> 'occupied']);
         $property3 = Property::factory()->create(['name'=> 'prop3', 'user_id' => '2', ]);
 
-        $tenancy1 = Tenancy::factory()->create(['property_id'=> '1','user_id' => '3', 'is_active'=> '1' ]);
-        $tenancy2 = Tenancy::factory()->create(['property_id'=> '1','user_id' => '3', 'is_active'=> '1' ]);
-        $tenancy3 = Tenancy::factory()->create(['property_id'=> '1','user_id' => '3', 'is_active'=> '1' ]);
+        $tenancy1 = Tenancy::factory()->create(['property_id'=> '1','user_id' => '3', 'status'=> '1' ]);
+        $tenancy2 = Tenancy::factory()->create(['property_id'=> '1','user_id' => '3', 'status'=> '1' ]);
+        $tenancy3 = Tenancy::factory()->create(['property_id'=> '1','user_id' => '3', 'status'=> '1' ]);
 
         Auth::login($admin);
 
