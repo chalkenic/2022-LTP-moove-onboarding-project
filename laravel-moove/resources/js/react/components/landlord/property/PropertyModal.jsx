@@ -24,6 +24,7 @@ import styled from "@emotion/styled";
 import RedButtonCustom from "../../buttons/RedButtonCustom";
 import GreenButtonCustom from "../../buttons/GreenButtonCustom";
 import BlueButtonCustom from "../../buttons/BlueButtonCustom";
+import YellowButtonCustom from "../../buttons/YellowButtonCustom";
 
 const useStyles = makeStyles(() => ({
     "titleText": {
@@ -126,6 +127,11 @@ const PropertyModal = (props) => {
         }
 
     };
+
+    const openSignature = (propertyId) => {
+
+        window.location.href = `/landlord-sign-tenancy/${propertyId}`;
+    }
 
 
     const descriptionElementRef = useRef(null);
@@ -244,6 +250,16 @@ const PropertyModal = (props) => {
                                 align="center"
                                 sx={{"paddingTop": "20px"}}
                             >
+                            <Grid item xs={4}>
+                                <YellowButtonCustom
+                                    variant="contained"
+                                    onClick={() => openSignature(props.property.id)}
+                                    
+                                    >
+                                 Signature
+                                </YellowButtonCustom>
+                            </Grid>
+                            <br></br>
                                 {props.contract === null ||
                                 props.contract === undefined
                                     ? <GreenButtonCustom

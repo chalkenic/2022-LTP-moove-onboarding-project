@@ -32,6 +32,7 @@ import RedButtonCustom from "./react/components/buttons/RedButtonCustom";
 import GreenButtonCustom from "./react/components/buttons/GreenButtonCustom";
 import BlueButtonCustom from "./react/components/buttons/BlueButtonCustom";
 import TenantContractView from "./react/components/tenant/TenantContractView";
+import YellowButtonCustom from "./react/components/buttons/YellowButtonCustom";
 
 const components = [
     {
@@ -64,7 +65,10 @@ const components = [
         name: "BlueButtonCustom",
         component: <BlueButtonCustom />,
     },
-
+    {
+        name: "YellowButtonCustom",
+        component: <YellowButtonCustom />,
+    },
     {
         name: "AppNavBar",
         component: <AppNavBar />,
