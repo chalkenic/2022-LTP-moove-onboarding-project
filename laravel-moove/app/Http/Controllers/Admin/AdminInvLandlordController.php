@@ -6,6 +6,7 @@ use App\Models\LandlordRegisterToken;
 use App\Notifications\MailLandlordInvitation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 class AdminInvLandlordController extends Controller
 {
@@ -19,11 +20,6 @@ class AdminInvLandlordController extends Controller
     }
 
 
-    public function sendLandlordInviteNotification($token)
-    {
-        $this->notify(new MailLandlordInvitation($token));
-    }
-
     public function store(Request $request) {
         $this->validate($request, [
             'email' => 'required|string|max:255',
@@ -36,7 +32,11 @@ class AdminInvLandlordController extends Controller
             'token' => $randomToken,
         ]);
 
-        sendLandlordInviteNotification($randomToken);
+        (new User)->forceFill([
+            'name' => 'Landlord',
+            'email' => $request->email,
+        ])->notify(new MailLandlordInvitation($randomToken));
+
         return back()->with('status', 'Email containing a link to sign up as a landlord has been sent to the email specified.');
     }
 }
