@@ -72,10 +72,10 @@ const Property = ({property}) => {
             >
                 { hasPropertyImage ?
                     <div>
-                    <img src={property.image} style={{borderRadius: 50 + '%'}} height={50} width={40} alt="property image"></img>
+                    <img src={property.image} style={{borderRadius: 50 + '%',marginTop:20}} height={100} width={80} alt="property image"></img>
                     </div>
                 : <div>
-                    <img src="https://cdn.pixabay.com/photo/2013/07/13/12/10/building-159338_960_720.png" style={{borderRadius: 50 + '%',marginRight:20+"px"}} height={50} width={40} alt="property image"></img>
+                    <img src="https://cdn.pixabay.com/photo/2013/07/13/12/10/building-159338_960_720.png" style={{borderRadius: 50 + '%',marginTop:20}} height={100} width={80} alt="property image"></img>
                     </div>
                 }
             </Grid>
