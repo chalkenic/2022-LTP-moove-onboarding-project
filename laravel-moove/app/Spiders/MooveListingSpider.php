@@ -11,6 +11,7 @@ use RoachPHP\Http\Response;
 use RoachPHP\Spider\BasicSpider;
 use RoachPHP\Spider\ParseResult;
 use Symfony\Component\DomCrawler\Crawler;
+use App\Spiders\Processors\MoovePropertiesInterface;
 
 class MooveListingSpider extends BasicSpider
 {
@@ -27,7 +28,7 @@ class MooveListingSpider extends BasicSpider
     ];
 
     public array $itemProcessors = [
-        //
+        MoovePropertiesInterface::class
     ];
 
     public array $extensions = [
@@ -54,25 +55,26 @@ class MooveListingSpider extends BasicSpider
             $uri = "https://app.moove.to/properties?page=".$i;
 
             $request = new Request('GET', $uri, [$this, 'parsePropertyPage']);
-            error_log('Processing property page ' . $i);
+            //error_log('Processing property page ' . $i);
 
-            yield ParseResult::fromValue($request->withMeta('page', $i));
+            yield ParseResult::fromValue($request);
         }
     }
 
     public function parsePropertyPage(Response $response): Generator
     {
-        $properties = $response->filter('.property-card')
-            ->each(function (Crawler $crawler) {
-                error_log('Got a property!');
-                return $this->item([
-                    'link' => $crawler->attr('href'),
-                    'address' => $crawler->filter('.property-name h2')->first(),
-                    'image' => $crawler->filter('.property-image')->first()->attr('src')
-                ]);
-            });
-
-        yield $this->item($properties);
+        yield $this->item(
+            $response->filter('.property-card')
+                ->each(function (Crawler $crawler) {
+                    //error_log('Got a property!');
+                    $address = $crawler->filter('.property-name h2')->first()->innerText();
+                    return [
+                        'link' => $crawler->attr('href'),
+                        'address' => substr($address, 0, strpos($address, ',')),
+                        'image' => $crawler->filter('.property-image')->first()->attr('src')
+                    ];
+                })
+        );
     }
 
 

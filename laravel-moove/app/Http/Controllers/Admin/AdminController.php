@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use RoachPHP\Roach;
 use App\Spiders\MooveListingSpider;
+use App\Models\Property;
 
 class AdminController extends Controller
 {
@@ -17,6 +18,9 @@ class AdminController extends Controller
     }
 
     public function spider() {
-        dd(Roach::startSpider(MooveListingSpider::class));
+        Roach::startSpider(MooveListingSpider::class);
+
+        echo 'Moove scrape complete';
+        dd(Property::all());
     }
 }
