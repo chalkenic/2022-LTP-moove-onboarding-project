@@ -19,10 +19,19 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "max-lines-per-function": [
+            "warn",
+            {
+                "max": 200,
+                "skipBlankLines": true,
+                "skipComments": true,
+                "IIFEs": true
+            }
+        ],
         "max-len": [
             "error",
             {
-                "code": 120
+                "code": 200
             }
         ],
         "no-magic-numbers": [

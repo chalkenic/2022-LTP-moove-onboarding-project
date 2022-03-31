@@ -17,10 +17,18 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('property_id')->constrained()->onDelete('cascade');
-            $table->tinyInteger('is_active')->default(0);
             $table->text('landlord_signature_blob')->nullable();
-            $table->timestamps();
             
+            // Replaces legacy is_active 
+            $table->smallInteger('status')->default(0);
+
+            // Status IDs
+            // 0 - Awaiting tenancy documents
+            // 1 - Awaiting approval
+            // 2 - Application Approved
+            // 3 - Application Denied
+
+            $table->timestamps(); 
         });
     }
 

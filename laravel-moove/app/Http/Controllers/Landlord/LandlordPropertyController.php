@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Landlord;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Facades\DB;
 use App\Models\Property;
 use App\Models\Tenancy;
 use App\Models\User;
+use App\models\Contract;
 use JavaScript;
 
 class LandlordPropertyController extends Controller
@@ -48,8 +48,8 @@ class LandlordPropertyController extends Controller
         return back();
     }
 
-    public function tenants($id){
-        // COnfirm property exists within database.
+    public function show($id){
+        // Confirm property exists within database.
         if(Property::where('id', $id)->exists()) { 
             
             //Find all tenants that have tenancies associated with property.
@@ -63,14 +63,10 @@ class LandlordPropertyController extends Controller
                 200
             );
 
-        } else {
-            return response()->json([
-                'status'=>200,
-                'message'=>`no tenants found for `.$id,
-                            
-            ]);
-        }
+        } 
     }
+
+
 }
 
 
