@@ -15,7 +15,7 @@
     <NavBar text="{{auth()->user()->role}}"/>
     </div>
     @endauth
-    <div class="h-screen bg-gradient-to-tl from-purple-200 to-indigo-900 w-full py-16 px-4">
+    <div class="h-screen bg-gradient-to-tl from-blue-200 to-indigo-900 w-full py-16 px-4">
         <div class="flex justify-center">
             <div class="w-8/12 bg-white p-6 rounded-lg">
             @yield('content')
