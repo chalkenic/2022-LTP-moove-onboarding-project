@@ -9,7 +9,7 @@ import ContractHeader from "./react/components/headers/ContractHeader";
 import ButtonNavCustom from "./react/components/buttons/ButtonNav";
 import AppNavBar from "./react/components/navBar/AppNavBarCustom";
 import TenancyForm from "./react/components/forms/TenantCheckForm";
-import CalendlyBooking from "./react/components/forms/CalendlyComponent";
+import CalendlyBooking from "./react/components/forms/CalendlyBooking";
 import Dashboard from "./react/pages/Dashboard";
 import SigningComponent from './react/components/forms/SigningComponent';
 import LandlordProperties from "./react/pages/LandlordProperties";
@@ -22,6 +22,7 @@ import PropertyRow from "./react/components/tables/PropertyRow";
 import TenantApplication from "../js/react/components/admin/TenantApplication";
 import TenancyApplicationProgress from "../js/react/components/tenant/TenancyApplicationProgress";
 import AdminProperties from "./react/pages/AdminProperties";
+import ViewCalender from './react/components/landlord/ViewCalender';
 import ContractCard from "./react/cards/ContractCard";
 import ContractCreation from "./react/components/landlord/contract/ContractCreation";
 import ContractView from "./react/components/landlord/contract/ContractView";
@@ -53,7 +54,7 @@ const components = [
         component: <TenancyForm />,
     },
     {
-        name: "CalendlyComponent",
+        name: "CalendlyBooking", 
         component: <CalendlyBooking />,
     },
     {
@@ -97,6 +98,11 @@ const components = [
         name: "SigningComponent",
         component: <SigningComponent />,
     },
+    {
+        name: "ViewCalender",
+        component: <ViewCalender />
+    }
+
 ];
 
 new ReactRenderer(components).renderAll();
