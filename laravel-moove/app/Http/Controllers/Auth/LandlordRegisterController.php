@@ -32,7 +32,6 @@ class LandlordRegisterController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        print("hi");
         auth()->attempt($request->only('email', 'password'));
         return redirect()->route('landlord.home');
     }
