@@ -61,14 +61,14 @@ const TenancyApplicationProgress = () => {
       <div id="tenantTable">
 
       <View id = "tableHeader" style={{justifyContent: 'space-between', alignItems:'center',flexDirection:'row'}}>
-        <div>{ hasPropertyImage ?
+        <div style={{display:'flex'}}>{ hasPropertyImage ?
         <div>
-          <img src={window.property.image} alt="property image"></img>
+          <img src={window.property.image} style={{borderRadius: 50 + '%'}} height={50} width={40} alt="property image"></img>
         </div>
         : <div>
-          
+          <img src="https://cdn.pixabay.com/photo/2013/07/13/12/10/building-159338_960_720.png" style={{borderRadius: 50 + '%'}} height={50} width={40} alt="property image"></img>
           </div>
-        }{window.property.name}</div>
+        }<p>{window.property.name}</p></div>
         <div>Status: <b>{capitalizeFirstLetter(window.property.status)}</b></div>
         
         <Button variant="outlined">View Property</Button>
