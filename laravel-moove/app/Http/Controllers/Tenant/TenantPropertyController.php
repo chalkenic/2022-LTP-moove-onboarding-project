@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\Tenancy;
 use App\Models\User;
-use App\models\Contract;
+use App\Models\Contract;
 use JavaScript;
 
 class TenantPropertyController extends Controller
@@ -23,6 +23,9 @@ class TenantPropertyController extends Controller
         $property = Property::whereRelation('tenancies', 'user_id',  auth()->user()->id)->first();
         $tenants = User::whereRelation('tenancy', 'property_id', $property->id)->get();
 
+            $contract = Contract::where('property_id', $property->id)->first();
+        
+
         
 
 
@@ -31,6 +34,7 @@ class TenantPropertyController extends Controller
 
                 'property' => $property,
                 'tenants'=> $tenants,
+                'contract' => $contract
         ]);
     }
 }

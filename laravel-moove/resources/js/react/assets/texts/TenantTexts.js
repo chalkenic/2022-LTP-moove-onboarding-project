@@ -4,4 +4,5 @@ export const TenantContTexts = {
     "tenSigTitle": "TENANT SIGNATURE",
     "acknowledgementTitle": "ACKNOWLEDGEMENT: ",
     "acknowledgementContent": "Tenants hereby acknowledge that they have read, understand and agree to all parts of this document, and have received a copy hereof. ",
+    "buttonAccept": "Save Changes"
 }

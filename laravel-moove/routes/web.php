@@ -66,9 +66,7 @@ Route::put('/update-contract', [TenantContractController::class, 'update'])->nam
 
 // Landlord Routes
 Route::get('/landlord-home', [LandlordController::class, 'index'])-> name('landlord.home');
-Route::get('/landlord-properties', function() {
-    return view('landlord.landlord-properties');
-});
+Route::get('/landlord-properties', [LandlordPropertyController::class, 'index'])->name('landlord.landlord-properties');
 Route::get('/landlord-sign-tenancy/{id}', [LandlordSigningController::class, 'index'])-> name('landlord.landlord-sign-tenancy');
 Route::post('/landlord-sign-tenancy', [LandlordSigningController::class, 'store']);
 Route::get('/properties', [LandlordPropertyController::class, 'index'])-> name('landlord.landlord-properties');

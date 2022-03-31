@@ -64,6 +64,7 @@ const LandlordContractView = ({sections, landlord, property, contract}) => {
         () => {
 
             let count = 0;
+            let acceptCount = 0;
 
             for (let index = 0; index < sections.length; index++) {
 
@@ -79,13 +80,15 @@ const LandlordContractView = ({sections, landlord, property, contract}) => {
             for (let acc = 0; acc < sections.length; acc++) {
 
                 if (sections[acc].accepted === 1) {
+                    acceptCount++;
 
-                    setAccepted(accepted + 1);
+                    
 
                 }
 
             }
-
+            setAccepted(acceptCount);
+            setheaderCount(count);
         },
         []
     );

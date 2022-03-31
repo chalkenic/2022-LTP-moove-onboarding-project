@@ -47,7 +47,32 @@ class TenantContractController extends Controller
             
     }
 
-    public function update(Contract $contract) {
+    public function update(Request $request) {
+
+        $this->validate($request, [
+            'id'=> 'required', 
+            'sections'=> 'required'
+        ]);
+
+        $contract = Contract::where('property_id', $request->input('id'))->first();
+        
+
+        foreach($request->sections as $key =>$val) {
+
+                $details = ContractDetail::where('id', $val['id'])->first();
+
+                if ($details->exists()) {
+                    $details->update(['accepted' => $val['accepted']]);
+            
+            };
+
+        };
 
     }
+
+
+
+
+
+    
 }

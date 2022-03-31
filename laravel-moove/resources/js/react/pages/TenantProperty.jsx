@@ -15,9 +15,12 @@ import mooveLogo from "../assets/images/moove_logo_nobg.png";
 import GreenButtonCustom from "../components/buttons/GreenButtonCustom";
 
 
-const TenantProperty = ({property, tenants}) => {
+const TenantProperty = ({property, tenants, contract}) => {
+
+    console.log(contract);
 
     const openContract = (propId) => {
+        
 
         window.location.href = `/tenant-contract/${propId}`;
 
@@ -90,9 +93,14 @@ const TenantProperty = ({property, tenants}) => {
                     </Card>
                 </Box>
             </Grid>
-            <Grid container flexDirection="column" paddingLeft="25px" alignItems="center" paddingBottom="3%">
-                <Grid item xs={12}><GreenButtonCustom onClick={() => window.location.href = `/property-contract/${property.id}`}>View Contract</GreenButtonCustom></Grid>
-            </Grid>
+            {contract !== "" 
+                ?   <Grid container flexDirection="column" paddingLeft="25px" alignItems="center" paddingBottom="3%">
+                        <Grid item xs={12}><GreenButtonCustom onClick={() => window.location.href = `/property-contract/${property.id}`}>View Contract</GreenButtonCustom></Grid>
+                    </Grid> 
+                : <Grid container flexDirection="column" paddingLeft="25px" alignItems="center" paddingBottom="3%">
+                    <Grid item xs={12}><Typography>No Contract has been created! Maybe speak to your landlord?</Typography></Grid>
+                </Grid> }
+
 
         </Grid>
     </Paper>

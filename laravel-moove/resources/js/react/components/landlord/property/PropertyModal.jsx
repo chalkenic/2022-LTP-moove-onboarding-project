@@ -119,7 +119,7 @@ const PropertyModal = (props) => {
             axios.post(`/delete-contract/${delPropCont.id}`).
                 then(() => {
 
-                    window.location.reload();
+                    window.location.href="/landlord-properties";
 
                 });
 
@@ -210,6 +210,7 @@ const PropertyModal = (props) => {
                             </Grid>
                         </Grid>
                         <DialogContent className={styles.dividerLight} />
+                        
 
                         <Grid container>
                             <Grid item xs={5}>

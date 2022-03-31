@@ -2,6 +2,7 @@ import React, {Fragment, useEffect, useState} from "react";
 import * as TenantTexts from "../../assets/texts/TenantTexts"
 import {
     Box,
+    Button,
     Card,
     CardContent,
     FormControlLabel,
@@ -15,6 +16,9 @@ import {makeStyles} from "@mui/styles";
 import PropTypes from "prop-types";
 import AppTheme from "../../assets/theme/theme";
 import ContractTitle from "../landlord/contract/ContractTitle";
+import axios from "axios";
+import DoneIcon from '@mui/icons-material/Done';
+import CloseIcon from '@mui/icons-material/Close';
 
 const useStyles = makeStyles(() => ({
     "titleText": {
@@ -40,7 +44,29 @@ const useStyles = makeStyles(() => ({
 
 const TenantContractView = ({ data })=> {
 
+    const getBackgroundColor = (section) => {
+    let color;
+    if (section.accepted == 1) {
+        color = '#dcedc8';
+    } else {
+        color = 'white';
+    }
+    return color;
+};
+
+    const getContractBackground = (bool) => {
+    let color;
+    if (bool == true) {
+        color = "#c8e6c9";
+    } else {
+        color = 'white';
+    }
+    return color;
+};
+
      const styles = useStyles();
+
+     const [ complete, setComplete] = useState(false);
 
     const [
         accepted,
@@ -61,40 +87,80 @@ const TenantContractView = ({ data })=> {
         setSections
     ] = useState(data.details);
 
+    const handleUpdate = () => {
+        
+        axios.put(data.requestRoute, {
+            id: data.contract.id,
+            sections: sections
+        }).then((res) => {
+            window.location.href = data.redirectRoute
+        }).catch((err) => {
+            console.log(err)
+        });
+
+    }
     // Use effect checks how many sections have been approved by tenants.
     useEffect(
         () => {
 
             let count = 0;
             let acceptCount = 0;
-
             for (let index = 0; index < data.details.length; index++) {
-
                 if (data.details[index].header !== undefined && data.details[index].header.length > 0) {
 
                     count++;
-
                 }
-
             }
             setheaderCount(count);
-
             for (let acc = 0; acc < sections.length; acc++) {
-
                 if (sections[acc].accepted === "1") {
-
-
                    acceptCount++;
-
                 }
-
             }
 
             setAccepted(acceptCount);
+        },
+        [setSections]
+    );
+
+    useEffect(
+        () => {
+
+            let headerCount = 0;
+            let acceptCount = 0;
+            for (let index = 0; index < data.details.length; index++) {
+
+                if (data.details[index].header !== undefined && sections[index].header.length > 0) {
+
+                    headerCount++;
+
+                }
+
+            }
+            
+
+            // Increment label for sections accepted by data parsed into component.
+            for (let acc = 0; acc < sections.length; acc++) {
+                if (sections[acc].accepted === 1) {
+
+                    acceptCount++;
+
+                    
+                    
+                }
+            }
+            setheaderCount(headerCount);
+            setAccepted(acceptCount);
+
+            if (headerCount === acceptCount) {
+                setComplete(true);
+            }
+
 
         },
-        [sections]
+        []
     );
+
 
     return (
         <Grid container spacing={2}justifyContent="center">
@@ -118,26 +184,27 @@ const TenantContractView = ({ data })=> {
             </Grid>
 
             <Box className={styles.dividerLight} />
-            <Grid item xs={12} justifyContent="center">
+            <Grid item xs={12} justifyContent="center" >
                 {sections.length > 0
                     ? <>
-                        <Paper variant="outlined" sx={{"paddingBottom": "30px"}}>
+                        <Paper variant="outlined" sx={{"paddingBottom": "30px"}} style={{"backgroundColor": getContractBackground(complete)}}>
                             <Grid container justifyContent="center" paddingTop="30px">
 
                                 <ContractTitle property={data.property}/>
 
                                 <Grid item xs={11}>
                                     { sections.map((section, index) => <div key = {index}>
+                                        <Grid container style={{"backgroundColor": getBackgroundColor(section) }}>
                                         {section.header !== undefined && section.header.length > 0
-                                            ? <Grid container flexDirection="row">
+                                            ? <Grid container flexDirection="row" style={{"backgroundColor": getContractBackground(complete)}}>
                                                 <Grid item xs={11}>
                                                     <Typography variant="h4"align="center" >
                                                         {section.header}
                                                     </Typography>
                                                 </Grid>
-                                                <Grid item xs={1} alignContent={"right"}>
+                                            <Grid item xs={1} alignContent={"right"} style={{"backgroundColor": getContractBackground(complete)}}>
 
-                                        <RadioGroup
+                                        {section.accepted === 0 ? <RadioGroup
                                             row
                                             name="row-radio-occupied"
                                             required={true}
@@ -150,15 +217,16 @@ const TenantContractView = ({ data })=> {
                                             <FormControlLabel
                                                 value={1}
                                                 control={<Radio />}
-                                                label="Approve"
+                                                label={<DoneIcon></DoneIcon>}
                                             />
                                             <FormControlLabel
-                                                defaultChecked="true"
+                                                
                                                 value={0}
                                                 control={<Radio />}
-                                                label="Deny"
+                                                label={<CloseIcon></CloseIcon>}
                                             />
-                                        </RadioGroup>
+                                        </RadioGroup> : < Grid item xs={1} style={{"backgroundColor": getContractBackground(complete)}}/>}
+                                        
 
                                                 </Grid>
                                             </Grid>
@@ -166,15 +234,17 @@ const TenantContractView = ({ data })=> {
 
                                             : <></>}
 
-
-                                        <Typography paragraph >
+                                        <Grid container style={{"backgroundColor": getContractBackground(complete)}}>
+                                        <Typography paragraph  >
                                             {section.title !== undefined && section.title.length > 0
                                                 ? <><b>{section.title}: </b>{section.value}</>
                                                 : section.value }
                                         </Typography>
+                                        </Grid>
+                                        </Grid>
                                     </div>)}
                                 </Grid>
-                                <Grid item xs={11}>
+                                <Grid item xs={11 }>
                                     <Typography paragraph>
                                         <b>{TenantTexts.TenantContTexts.acknowledgementTitle}</b>
                                         {TenantTexts.TenantContTexts.acknowledgementContent}
@@ -183,7 +253,7 @@ const TenantContractView = ({ data })=> {
 
                                 </Grid>
                             </Grid>
-                            <Grid container paddingLeft="10px" justify="center" style={{"maxWidth": "100%"}}>
+                            <Grid container paddingLeft="10px" justify="center" style={{"maxWidth": "100%"}} style={{"backgroundColor": getContractBackground(complete)}}>
                                 <Grid item xs={6}>
                                     <Grid container flexDirection="column" >
                                         <Card align="center">
@@ -228,6 +298,24 @@ const TenantContractView = ({ data })=> {
                                 </Grid>
                             </Grid>
                         </Paper>
+
+                        <Grid container spacing={2}>
+                    <Grid item xs={12} >
+                        <Box textAlign="center" padding={(2, 2, 2, 2)}>
+                            <Button
+                                variant="contained"
+                                color="success"
+                                onClick={handleUpdate}
+                                size="large"
+                            >
+                                {
+                                    TenantTexts.TenantContTexts.
+                                        buttonAccept
+                                }
+                            </Button>
+                        </Box>
+                    </Grid>
+                    </Grid>
 
                     </>
                     : <Typography align="center">{TenantTexts.TenantContTexts.noContentMsg}</Typography>
