@@ -61,6 +61,15 @@ const TenancyApplicationProgress = () => {
       <View id = "tableHeader" style={{justifyContent: 'space-between', alignItems:'center',flexDirection:'row'}}>
         <div>{window.property.name}</div>
         <div>Status: <b>{capitalizeFirstLetter(window.property.status)}</b></div>
+        { !window.property.image ?
+        <div>
+          test:
+          <b>{capitalizeFirstLetter(window.property.image)}</b>
+        </div>
+        : <div>
+          <h1>hhh</h1>
+          </div>
+        }
         <Button variant="outlined">View Property</Button>
     </View>
     <br></br>
