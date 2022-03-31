@@ -43,6 +43,8 @@ const TenancyApplicationProgress = () => {
   const [selectedTenantName, setSelectedTenantName] = useState("");
   const [selectedTenantStatus, setSelectedTenantStatus] = useState("");
   
+  const hasPropertyImage = ((window.property.image).length > 0);
+
   const onRowClick = event => {
     const tenantName = event.currentTarget.getAttribute("data-tenantname");
     const tenantStatus = event.currentTarget.getAttribute("data-tenantstatus");
@@ -59,17 +61,16 @@ const TenancyApplicationProgress = () => {
       <div id="tenantTable">
 
       <View id = "tableHeader" style={{justifyContent: 'space-between', alignItems:'center',flexDirection:'row'}}>
-        <div>{window.property.name}</div>
-        <div>Status: <b>{capitalizeFirstLetter(window.property.status)}</b></div>
-        { !window.property.image ?
+        <div>{ hasPropertyImage ?
         <div>
-          test:
-          <b>{capitalizeFirstLetter(window.property.image)}</b>
+          <img src={window.property.image} alt="property image"></img>
         </div>
         : <div>
-          <h1>hhh</h1>
+          
           </div>
-        }
+        }{window.property.name}</div>
+        <div>Status: <b>{capitalizeFirstLetter(window.property.status)}</b></div>
+        
         <Button variant="outlined">View Property</Button>
     </View>
     <br></br>
