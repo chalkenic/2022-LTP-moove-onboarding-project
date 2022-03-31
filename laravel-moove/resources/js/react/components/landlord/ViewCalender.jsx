@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { InlineWidget } from 'react-calendly';
 import axios from 'axios';
+import { Button } from "@mui/material";
 
 
 
@@ -58,6 +59,7 @@ export default function ViewCalender() {
                                 ))}
                             </tbody>
                         </table>
+                        <Button onClick={() => window.location.href='https://calendly.com/app/scheduled_events/user/me'}>Calendly Dashboard</Button>
                         </div>
                     </div>
                 </div>
