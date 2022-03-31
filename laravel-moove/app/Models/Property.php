@@ -15,6 +15,8 @@ class Property extends Model
             'location',
             'status',
             'verified',
+            'moove_url',
+            'image',
     ];
 
     public function tenancies() {

@@ -19,7 +19,7 @@ class PropertySeeder extends Seeder
     {
         DB::table('properties')->insert([
             'user_id'=> 7,
-            'name' => '26 Woodville Road',
+            'name' => '30 Llanbleddian Gardens',
             'location' => 'Living in da bay',
             'status' => 'occupied',
             'verified' => 1,
