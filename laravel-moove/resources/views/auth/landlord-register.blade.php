@@ -4,7 +4,7 @@
 @endsection('title')
 @section('content')
 <div class="h-screen bg-gradient-to-tl from-yellow-200 to-indigo-900 w-full py-16 px-4">
-    <form action="{{route('register')}}" method="post">
+    <form action="{{route('landlord.register-submit')}}" method="post">
         @csrf
         <div class="flex flex-col items-center justify-center">
             <div class="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
