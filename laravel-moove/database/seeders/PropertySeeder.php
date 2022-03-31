@@ -18,8 +18,8 @@ class PropertySeeder extends Seeder
     public function run()
     {
         DB::table('properties')->insert([
-            'user_id'=> 7,
-            'name' => '30 Llanbleddian Gardens',
+            'user_id'=> 13,
+            'name' => '26 Woodville Road',
             'location' => 'Living in da bay',
             'status' => 'occupied',
             'verified' => 1,
@@ -27,7 +27,7 @@ class PropertySeeder extends Seeder
         ]);
 
         DB::table('properties')->insert([
-            'user_id'=> 7,
+            'user_id'=> 13,
             'name' => '63 Court Road',
             'location' => 'Butetown',
             'status' => 'occupied',
@@ -36,7 +36,7 @@ class PropertySeeder extends Seeder
         ]);
 
         DB::table('properties')->insert([
-            'user_id'=> 7,
+            'user_id'=> 13,
             'name' => '69 Nice Avenue',
             'location' => 'Splott',
             'status' => 'occupied',
@@ -45,7 +45,7 @@ class PropertySeeder extends Seeder
         ]);
 
         DB::table('properties')->insert([
-            'user_id'=> 7,
+            'user_id'=> 13,
             'name' => 'Abacwys',
             'location' => 'Heath',
             'status' => 'occupied',
@@ -54,7 +54,7 @@ class PropertySeeder extends Seeder
         ]);
 
                 DB::table('properties')->insert([
-            'user_id'=> 8,
+            'user_id'=> 14,
             'name' => 'Not Ronans',
             'location' => 'The bay',
             'status' => 'vacant',

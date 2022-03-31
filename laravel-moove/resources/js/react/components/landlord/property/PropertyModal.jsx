@@ -21,32 +21,9 @@ import AppTheme from "../../../assets/theme/theme";
 import PropTypes from "prop-types";
 import {blue, green, red} from "@mui/material/colors";
 import styled from "@emotion/styled";
-
-const GreenButton = styled(Button)(() => ({
-    "color": "#000",
-    "backgroundColor": green[200],
-    "&:hover": {
-        "backgroundColor": green[500]
-    }
-}));
-
-
-const BlueButton = styled(Button)(() => ({
-    "color": "#000",
-    "backgroundColor": blue[200],
-    "&:hover": {
-        "backgroundColor": blue[500]
-    }
-}));
-
-const RedButton = styled(Button)(() => ({
-    "color": "#000",
-    "backgroundColor": red[200],
-    "&:hover": {
-        "backgroundColor": red[500]
-    }
-}));
-
+import RedButtonCustom from "../../buttons/RedButtonCustom";
+import GreenButtonCustom from "../../buttons/GreenButtonCustom";
+import BlueButtonCustom from "../../buttons/BlueButtonCustom";
 
 const useStyles = makeStyles(() => ({
     "titleText": {
@@ -142,7 +119,7 @@ const PropertyModal = (props) => {
             axios.post(`/delete-contract/${delPropCont.id}`).
                 then(() => {
 
-                    window.location.reload();
+                    window.location.href="/landlord-properties";
 
                 });
 
@@ -233,6 +210,7 @@ const PropertyModal = (props) => {
                             </Grid>
                         </Grid>
                         <DialogContent className={styles.dividerLight} />
+                        
 
                         <Grid container>
                             <Grid item xs={5}>
@@ -268,17 +246,17 @@ const PropertyModal = (props) => {
                             >
                                 {props.contract === null ||
                                 props.contract === undefined
-                                    ? <GreenButton
+                                    ? <GreenButtonCustom
                                         variant="outlined"
                                         onClick={() => createContract(props.property)
                                         }
                                     >
                                         Create Contract
-                                    </GreenButton>
+                                    </GreenButtonCustom>
 
                                     : <Grid container flexDirection={"row"}>
                                         <Grid item xs={6}>
-                                            <BlueButton
+                                            <BlueButtonCustom
                                                 variant="contained"
                                                 onClick={() => openContract(
                                                     props.property,
@@ -287,16 +265,16 @@ const PropertyModal = (props) => {
                                                 }
                                             >
                                         Open Contract
-                                            </BlueButton>
+                                            </BlueButtonCustom>
                                         </Grid>
                                         <Grid item xs={6}>
-                                            <RedButton
+                                            <RedButtonCustom
                                                 variant="contained"
                                                 onClick={() => deleteContract(props.property)
                                                 }
                                             >
                                         Delete Contract
-                                            </RedButton>
+                                            </RedButtonCustom>
                                         </Grid>
                                     </Grid>
                                 }

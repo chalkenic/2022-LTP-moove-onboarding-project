@@ -5,7 +5,7 @@
 @section('content')
 <div>
 
-<LandlordProperties  properties="{{$properties}}"/>
+<TenantProperty property="{{$property}}" tenants="{{$tenants}}" contract="{{$contract}}"/>
 
 </div>
 @endsection

@@ -20,14 +20,13 @@ class LandlordPropertyController extends Controller
 
 
     public function index()
+    
     {
-        JavaScript::put([
-            'properties' => Property::where('user_id', auth()->user()->id)->get(),
+    
+        
+        $properties = Property::where('user_id', auth()->user()->id)->get();
 
-        ]);
-
-
-        return view('landlord.landlord-properties');
+        return view('landlord.landlord-properties', ['properties' => $properties]);
     }
 
     public function store(Request $request) {

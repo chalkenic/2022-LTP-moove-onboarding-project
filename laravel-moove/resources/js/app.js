@@ -14,6 +14,7 @@ import Dashboard from "./react/pages/Dashboard";
 import SigningComponent from './react/components/forms/SigningComponent';
 import LandlordProperties from "./react/pages/LandlordProperties";
 import TenantList from "../js/react/components/admin/TenantList";
+import InviteLandlordComponent from '../js/react/components/admin/InviteLandlord';
 import ContractCreate from "./react/pages/ContractCreate";
 import ContractShow from "./react/pages/ContractShow";
 import Property from "./react/components/landlord/property/Property";
@@ -25,8 +26,13 @@ import AdminProperties from "./react/pages/AdminProperties";
 import ViewCalender from './react/components/landlord/ViewCalender';
 import ContractCard from "./react/cards/ContractCard";
 import ContractCreation from "./react/components/landlord/contract/ContractCreation";
-import ContractView from "./react/components/landlord/contract/ContractView";
+import LandlordContractView from "./react/components/landlord/contract/LandlordContractView";
 import ContractTitle from "./react/components/landlord/contract/ContractTitle";
+import TenantProperty from "./react/pages/TenantProperty";
+import RedButtonCustom from "./react/components/buttons/RedButtonCustom";
+import GreenButtonCustom from "./react/components/buttons/GreenButtonCustom";
+import BlueButtonCustom from "./react/components/buttons/BlueButtonCustom";
+import TenantContractView from "./react/components/tenant/TenantContractView";
 
 const components = [
     {
@@ -45,6 +51,21 @@ const components = [
         name: "ButtonNavCustom",
         component: <ButtonNavCustom />,
     },
+
+    {
+        name: "GreenButtonCustom",
+        component: <GreenButtonCustom />,
+    },
+    {
+        name: "RedButtonCustom",
+        component: <RedButtonCustom />,
+    },
+
+    {
+        name: "BlueButtonCustom",
+        component: <BlueButtonCustom />,
+    },
+
     {
         name: "AppNavBar",
         component: <AppNavBar />,
@@ -84,11 +105,19 @@ const components = [
         component: <TenantList />,
     },
     {
+        name: "TenantProperty",
+        component: <TenantProperty />,
+    },
+        {
+        name: "TenantContractView",
+        component: <TenantContractView />,
+    },
+    {
         name: "TenantApplication",
         component: <TenantApplication />,
     },
     { name: "ContractCreation", component: <ContractCreation /> },
-    { name: "ContractView", component: <ContractView /> },
+    { name: "LandlordContractView", component: <LandlordContractView /> },
     { name: "ContractCreate", component: <ContractCreate /> },
     { name: "ContractShow", component: <ContractShow /> },
     { name: "ContractCard", component: <ContractCard /> },
@@ -101,7 +130,11 @@ const components = [
     {
         name: "ViewCalender",
         component: <ViewCalender />
-    }
+    },
+    {
+        name:"InviteLandlordComponent",
+        component:<InviteLandlordComponent/>,
+    },
 
 ];
 
