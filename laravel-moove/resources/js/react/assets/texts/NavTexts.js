@@ -127,5 +127,5 @@ export const navTextLandlord = [
         "selected": false,
         "link": "/properties",
         "type": "link"
-    },
+    }
 ];
