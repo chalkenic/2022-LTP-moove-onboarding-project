@@ -13,7 +13,7 @@ import React, {Fragment, useState} from "react";
 import * as LandlordTexts from "../assets/texts/LandlordTexts";
 import ContractCard from "../cards/ContractCard";
 import ContractHeader from "../components/headers/ContractHeader";
-import Contract from "../components/landlord/contract/Contract";
+import ContractCreation from "../components/landlord/contract/ContractCreation";
 import PropTypes from "prop-types";
 
 const ContractCreate = ({property, landlord}) => {
@@ -50,7 +50,7 @@ const ContractCreate = ({property, landlord}) => {
             <ContractHeader type="create" name={property.name} />
             <Box>
                 <ContractCard setSections = {setSections} sections = {sections}/>
-                <Contract sections = {sections} landlord = {landlord} property={property} type="create" />
+                <ContractCreation sections = {sections} landlord = {landlord} property={property} type="create" />
             </Box>
             {sections.length > 0
                 ? <Grid container spacing={2}>
