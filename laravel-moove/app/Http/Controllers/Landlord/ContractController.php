@@ -48,14 +48,18 @@ class ContractController extends Controller
         }
     }
 
-    public function show(Contract $contract) {      
+    public function show($id) {      
 
-        return response()->json(
-            [
-            'contract' => $contract,
-            ],
-            $contract ? 200 : 404
-        );  
+        if(Contract::where('property_id', $id)->exists()) { 
+
+                $contract = Contract::where('property_id', $id)->first();
+
+                    return response()->json(
+                    [
+                        'contract' => $contract,
+                    ],
+            );       
+        }
     }
 
     public function store(Request $request) {
@@ -82,5 +86,13 @@ class ContractController extends Controller
             ]);
 
         };
+    }
+
+        public function destroy($id){
+
+            $contract = Contract::where('property_id', $id)->delete();
+            session()->flash('status', 'Contract removed.');
+
+            return back();
     }
 }
