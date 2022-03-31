@@ -42,8 +42,10 @@ const TenancyApplicationProgress = () => {
   const handleShow = () => setShow(true);
   const [selectedTenantName, setSelectedTenantName] = useState("");
   const [selectedTenantStatus, setSelectedTenantStatus] = useState("");
-  
+  const [showError, setShowError] = React.useState(false);
+
   const hasPropertyImage = ((window.property.image).length > 0);
+  const hasPropertyUrl = ((window.property.moove_url).length > 0);
 
   const onRowClick = event => {
     const tenantName = event.currentTarget.getAttribute("data-tenantname");
@@ -53,9 +55,17 @@ const TenancyApplicationProgress = () => {
     handleShow();
   };
 
+  const onSuccessClick = event=> {
+    window.open(window.property.moove_url, '_blank').focus();
+  }
+  const onFailClick = event=> {
+    setShowError(true);
+  }
 
   return (
     <div>
+       { showError ? <div><Alert severity="error"></Alert><br></br></div> : null }
+
       { !window.noTenancy ? 
 
       <div id="tenantTable">
@@ -70,8 +80,10 @@ const TenancyApplicationProgress = () => {
           </div>
         }<p>{window.property.name}</p></div>
         <div>Status: <b>{capitalizeFirstLetter(window.property.status)}</b></div>
-        
-        <Button variant="outlined">View Property</Button>
+        {
+        hasPropertyUrl ? <Button onClick={onSuccessClick} variant="outlined">View Property</Button>
+        : <Button onClick={onFailClick} variant="outlined">View Property</Button>
+        }
     </View>
     <br></br>
     <TableContainer component={Paper}>
