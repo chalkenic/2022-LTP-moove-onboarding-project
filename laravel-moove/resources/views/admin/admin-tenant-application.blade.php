@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div>
-    @error('id')
+    @error('user')
         {{$message}}
     @enderror
     @if(isset($data))
