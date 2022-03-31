@@ -34,7 +34,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Property = ({property}) => {
-
+    const hasPropertyImage = ((property.image).length > 0);
     const styles = useStyles();
 
     return (
@@ -70,7 +70,14 @@ const Property = ({property}) => {
                 align={"center"}
                 sx={{"paddingTop": "10px !important"}}
             >
-                image goes here
+                { hasPropertyImage ?
+                    <div>
+                    <img src={property.image} style={{borderRadius: 50 + '%',marginTop:20}} height={100} width={80} alt="property image"></img>
+                    </div>
+                : <div>
+                    <img src="https://cdn.pixabay.com/photo/2013/07/13/12/10/building-159338_960_720.png" style={{borderRadius: 50 + '%',marginTop:20}} height={100} width={80} alt="property image"></img>
+                    </div>
+                }
             </Grid>
             <Grid item xs={12} md={12}>
                 <Typography
