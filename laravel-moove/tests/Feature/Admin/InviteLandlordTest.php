@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Landlord;
+namespace Tests\Feature\Admin;
 
 use App\Models\User;
 use App\Models\Property;
