@@ -9,7 +9,7 @@ import ContractHeader from "./react/components/headers/ContractHeader";
 import ButtonNavCustom from "./react/components/buttons/ButtonNav";
 import AppNavBar from "./react/components/navBar/AppNavBarCustom";
 import TenancyForm from "./react/components/forms/TenantCheckForm";
-import CalendlyBooking from "./react/components/forms/CalendlyComponent";
+import CalendlyBooking from "./react/components/forms/CalendlyBooking";
 import Dashboard from "./react/pages/Dashboard";
 import SigningComponent from './react/components/forms/SigningComponent';
 import LandlordProperties from "./react/pages/LandlordProperties";

@@ -117,7 +117,7 @@ export const navTextLandlord = [
         "key": "page_applications",
         "name": "My Calendar",
         "selected": false,
-        "link": "/properties",
+        "link": "/landlord-calender",
         "type": "link"
     },
     {
@@ -127,5 +127,5 @@ export const navTextLandlord = [
         "selected": false,
         "link": "/properties",
         "type": "link"
-    }
+    },
 ];
