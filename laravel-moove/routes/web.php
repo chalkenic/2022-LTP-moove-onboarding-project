@@ -70,6 +70,11 @@ Route::get('/landlord-sign-tenancy/{id}', [LandlordSigningController::class, 'in
 Route::post('/landlord-sign-tenancy', [LandlordSigningController::class, 'store']);
 Route::get('/properties', [LandlordPropertyController::class, 'index'])-> name('landlord.landlord-properties');
 Route::post('/properties', [LandlordPropertyController::class, 'store']); 
+Route::get('/tenants/{id}', [LandlordPropertyController::class, 'tenants']);
+Route::get('/landlord-calender', function() {
+    return view('landlord.landlord-calender');
+});
+
 
 Route::get('/tenants/{id}', [LandlordPropertyController::class, 'show']);
 Route::get('/contract/{id}', [ContractController::class, 'index'])->name('landlord.landlord-contracts');
