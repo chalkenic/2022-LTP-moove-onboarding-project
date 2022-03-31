@@ -73,7 +73,7 @@ class AdminApplicationController extends Controller
             $user->notify(new ApplicationRejected($user));
         }
 
-        session()->flash('success', $approved ? 'Application approved successfully.' : 'Application denied successfully.');
+        session()->flash('success', $approved ? 'Application approved successfully.' : 'Application rejected successfully.');
         
         return response()->noContent();
     }
