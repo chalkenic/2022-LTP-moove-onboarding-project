@@ -45,10 +45,10 @@ class MailLandlordInvitation extends Notification
         $url = url('/landlord-invite/'.$this->token);
 
         return (new MailMessage)
-                    ->subject('Reset your moove password')
+                    ->subject('Welcome to moove, landlord!')
                     ->greeting('Hey moove Landlord!')
-                    ->line('You have received a Moove landlord invite!')
-                    ->line('Click the button below to use Moove as a landlord!')
+                    ->line('You have received a moove landlord invite!')
+                    ->line('Click the button below to use moove as a landlord!')
                     ->action('Sign up as Landlord', $url)
                     ->line('Thanks for helping people move with moove!');
     }
