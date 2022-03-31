@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable max-lines-per-function */
 /* eslint-disable max-statements */
 /* eslint-disable no-magic-numbers */
@@ -18,7 +19,7 @@ import React, {useEffect, useRef, useState} from "react";
 import * as LandlordTexts from "../../../assets/texts/LandlordTexts";
 import AppTheme from "../../../assets/theme/theme";
 import PropTypes from "prop-types";
-import {blue, green, red, yellow} from "@mui/material/colors";
+import {blue, green, red} from "@mui/material/colors";
 import styled from "@emotion/styled";
 
 const GreenButton = styled(Button)(() => ({
@@ -29,13 +30,6 @@ const GreenButton = styled(Button)(() => ({
     }
 }));
 
-const YellowButton = styled(Button)(() => ({
-    "color": "#000",
-    "backgroundColor": yellow[200],
-    "&:hover": {
-        "backgroundColor": yellow[500]
-    }
-}));
 
 const BlueButton = styled(Button)(() => ({
     "color": "#000",
@@ -129,8 +123,6 @@ const PropertyModal = (props) => {
 
         handleClose();
 
-        // Axios.get(`/contract/${chosenProp.id}`).then();
-
         window.location.href = `/contract/${chosenProp.id}`;
 
     };
@@ -140,6 +132,21 @@ const PropertyModal = (props) => {
         handleClose();
 
         window.location.href = `/contract/${newProp.id}`;
+
+    };
+
+    const deleteContract = (delPropCont) => {
+
+        if (confirm(`Delete contract for ${delPropCont.name}?`)) {
+
+            axios.post(`/delete-contract/${delPropCont.id}`).
+                then(() => {
+
+                    window.location.reload();
+
+                });
+
+        }
 
     };
 
@@ -270,7 +277,7 @@ const PropertyModal = (props) => {
                                     </GreenButton>
 
                                     : <Grid container flexDirection={"row"}>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={6}>
                                             <BlueButton
                                                 variant="contained"
                                                 onClick={() => openContract(
@@ -282,25 +289,10 @@ const PropertyModal = (props) => {
                                         Open Contract
                                             </BlueButton>
                                         </Grid>
-                                        <Grid item xs={4}>
-                                            <YellowButton
-                                                variant="contained"
-                                                onClick={() => editContract(
-                                                    props.property,
-                                                    props.contract
-                                                )
-                                                }
-                                            >
-                                        Edit Contract
-                                            </YellowButton>
-                                        </Grid>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={6}>
                                             <RedButton
                                                 variant="contained"
-                                                onClick={() => deleteContract(
-                                                    props.property,
-                                                    props.contract
-                                                )
+                                                onClick={() => deleteContract(props.property)
                                                 }
                                             >
                                         Delete Contract

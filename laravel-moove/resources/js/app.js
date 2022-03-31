@@ -5,7 +5,6 @@ import React from "react";
 import NavBar from "./react/components/navBar/NavBar";
 import NavBarHeader from "./react/components/headers/NavBarHeader";
 import ContractHeader from "./react/components/headers/ContractHeader";
-import ContractRow from "./react/components/tables/ContractRow";
 import ButtonNavCustom from "./react/components/buttons/ButtonNav";
 import AppNavBar from "./react/components/navBar/AppNavBarCustom";
 import TenancyForm from "./react/components/forms/TenantCheckForm";
@@ -24,7 +23,10 @@ import PropertyRow from "./react/components/tables/PropertyRow";
 import TenantApplication from "../js/react/components/admin/TenantApplication";
 import TenancyApplicationProgress from "../js/react/components/tenant/TenancyApplicationProgress";
 import AdminProperties from "./react/pages/AdminProperties";
-import Contract from "./react/components/landlord/contract/Contract";
+import ContractCard from "./react/cards/ContractCard";
+import ContractCreation from "./react/components/landlord/contract/ContractCreation";
+import ContractView from "./react/components/landlord/contract/ContractView";
+import ContractTitle from "./react/components/landlord/contract/ContractTitle";
 
 const components = [
     {
@@ -70,11 +72,11 @@ const components = [
     },
     {
         name: "PropertyCard",
-        component: <PropertyCard/>
+        component: <PropertyCard />,
     },
     {
         name: "TenancyApplicationProgress",
-        component: <TenancyApplicationProgress/>
+        component: <TenancyApplicationProgress />,
     },
     { name: "PropertyRow", component: <PropertyRow /> },
     {
@@ -89,16 +91,17 @@ const components = [
         name:"InviteLandlordComponent",
         component:<InviteLandlordComponent/>,
     },
-    { name: "Contract", component: <Contract /> },
+    { name: "ContractCreation", component: <ContractCreation /> },
+    { name: "ContractView", component: <ContractView /> },
     { name: "ContractCreate", component: <ContractCreate /> },
     { name: "ContractShow", component: <ContractShow /> },
     { name: "ContractCard", component: <ContractCard /> },
-    { name: "ContractRow", component: <ContractRow /> },
+    { name: "ContractTitle", component: <ContractTitle /> },
+
     {
         name: "SigningComponent",
-        component: <SigningComponent/>
+        component: <SigningComponent />,
     },
-
 ];
 
 new ReactRenderer(components).renderAll();

@@ -5,7 +5,9 @@ import axios from 'axios'
 const TenantApplication = ({ data }) => {
 
   const [filesOpen, setFilesOpen] = useState(false);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
+  const [aboutToReject, setAboutToReject] = useState(false);
+  const [reason, setReason] = useState("");
 
   const filesButtonClick = () => {
     setFilesOpen(!filesOpen)
@@ -32,7 +34,8 @@ const TenantApplication = ({ data }) => {
 
       axios.put(data.requestRoute, {
         id: data.tenant.id,
-        approved: false
+        approved: false,
+        notes: reason
       }).then((res) => {
         window.location.href = data.redirectRoute
       }).catch((err) => {
@@ -53,17 +56,21 @@ const TenantApplication = ({ data }) => {
     }
   }
 
+  const handleReasonChange = (e) => {
+    setReason(e.target.value);
+  }
 
   return (
     <div>
       <p>{error ?? ''}</p>
-
       <h1 className="font-medium leading-tight text-3xl mt-0 mb-2">
         Viewing Application
       </h1>
 
       <h4>{data.tenant.name}</h4>
       <h4>{data.tenant.email}</h4>
+      {data.tenant.rejected_at && <h4 className="font-sm">Previously rejected {data.tenant.rejected_at}</h4>}
+      {data.tenant.updated_at && <h4 className="font-sm">Application updated {data.tenant.updated_at}</h4>}
 
       {
         data.files.length > 0 &&
@@ -73,9 +80,38 @@ const TenantApplication = ({ data }) => {
       }
 
       <Button onClick={handleApproval}>Approve</Button>
-      <Button onClick={handleRejection}>Deny</Button>
+      <Button onClick={() => setAboutToReject(!aboutToReject)}>Reject</Button>
       <Button onClick={handleDelete}>Delete</Button>
-      {filesOpen &&
+
+      {aboutToReject &&
+        <div className="p-4 border border-solid border-gray-300">
+          <p className="mb-4 flex">You're about to reject {data.tenant.name}'s application.
+            Please provide some notes below so they know why their application was rejected.
+          </p>
+          <input
+            placeholder="Reason for rejection"
+            type="text"
+            className="
+              form-control
+              block
+              w-1/3
+              px-3
+              py-1.5
+              bg-white bg-clip-padding
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              mb-4
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+              "
+            onChange={handleReasonChange}></input>
+
+          <Button onClick={handleRejection}>Submit</Button>
+        </div>}
+
+      {
+        filesOpen &&
         <div className="flex justify-left">
           <table className="min-w-full rounded-lg shadow-md border-1 border-sky-500">
             <thead>
@@ -95,7 +131,8 @@ const TenantApplication = ({ data }) => {
               })}
             </tbody>
           </table>
-        </div>}
+        </div>
+      }
 
       {
         data.files.length === 0 &&
@@ -103,7 +140,7 @@ const TenantApplication = ({ data }) => {
           This tenant hasn't uploaded any files yet.
         </div>
       }
-    </div>
+    </div >
   );
 };
 

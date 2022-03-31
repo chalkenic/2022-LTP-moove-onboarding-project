@@ -16,6 +16,12 @@ class ApplicationController extends Controller
      * Show the application
      */
     public function index(Request $request) {
+        // If the user hasn't started an application,
+        // and got here by mistake
+        if (!auth()->user()->application) {
+            return redirect('/');
+        }
+        
         // Get the files that are associated with
         // this application
         $files = auth()->user()->application->files;
