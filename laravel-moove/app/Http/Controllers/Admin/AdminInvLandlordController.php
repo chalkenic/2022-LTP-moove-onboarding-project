@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\LandlordRegisterToken;
 use App\Notifications\MailLandlordInvitation;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdminInvLandlordController extends Controller
 {
@@ -23,7 +25,7 @@ class AdminInvLandlordController extends Controller
     }
 
     public function store(Request $request) {
-        $request->validate([
+        $this->validate($request, [
             'email' => 'required|string|max:255',
         ]);
 
