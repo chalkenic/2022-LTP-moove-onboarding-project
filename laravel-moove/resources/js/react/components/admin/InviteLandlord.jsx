@@ -40,4 +40,4 @@ const InviteLandlordComponent = ({}) => {
     )
 }
 
-export default InviteLandlordComponent;s
+export default InviteLandlordComponent;
