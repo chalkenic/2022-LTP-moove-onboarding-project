@@ -119,13 +119,5 @@ export const navTextLandlord = [
         "selected": false,
         "link": "/properties",
         "type": "link"
-    },
-    {
-        "id": 4,
-        "key": "page_messages",
-        "name": "Messages(*)",
-        "selected": false,
-        "link": "/properties",
-        "type": "link"
     }
 ];
