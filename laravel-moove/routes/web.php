@@ -39,7 +39,7 @@ Route::post('/forgot-password', [ForgottenPasswordController::class, 'store'])->
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'index'])->name('password.reset');
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->middleware('guest')->name('password.update');
 Route::get('/landlord-invite/{token}', [LandlordRegisterController::class, 'index'])->name('landlord.register');
-Route::post('/landlord-invite', [LandlordRegisterController::class, 'store']);
+Route::post('/landlord-invite', [LandlordRegisterController::class, 'store'])->name('landlord.register-submit');
 
 // General routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
