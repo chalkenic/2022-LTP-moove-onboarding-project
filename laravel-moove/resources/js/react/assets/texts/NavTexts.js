@@ -69,7 +69,7 @@ export const navTextTenant = [
         "name": "ID Upload",
         "selected": false,
         "link": "/tenant-upload-video"
-    },
+    }
 ];
 
 export const navTextLandlord = [
