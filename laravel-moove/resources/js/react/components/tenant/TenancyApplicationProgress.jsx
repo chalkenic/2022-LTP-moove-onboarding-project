@@ -73,12 +73,12 @@ const TenancyApplicationProgress = () => {
       <View id = "tableHeader" style={{justifyContent: 'space-between', alignItems:'center',flexDirection:'row'}}>
         <div style={{display:'flex'}}>{ hasPropertyImage ?
         <div>
-          <img src={window.property.image} style={{borderRadius: 50 + '%'}} height={50} width={40} alt="property image"></img>
+          <img src={window.property.image} style={{borderRadius: 50 + '%',marginRight:20+"px"}} height={50} width={40} alt="property image"></img>
         </div>
         : <div>
           <img src="https://cdn.pixabay.com/photo/2013/07/13/12/10/building-159338_960_720.png" style={{borderRadius: 50 + '%',marginRight:20+"px"}} height={50} width={40} alt="property image"></img>
           </div>
-        }<p style={{marginTop:3+"px"}}>{window.property.name}</p></div>
+        }<p style={{marginTop:6+"px"}}>{window.property.name}</p></div>
         <div>Status: <b>{capitalizeFirstLetter(window.property.status)}</b></div>
         {
         hasPropertyUrl ? <Button onClick={onSuccessClick} variant="outlined">View Property</Button>

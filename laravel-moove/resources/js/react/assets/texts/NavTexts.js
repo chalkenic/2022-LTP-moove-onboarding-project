@@ -70,14 +70,6 @@ export const navTextTenant = [
         "selected": false,
         "link": "/tenant-upload-video"
     },
-    {
-        "id": 5,
-        "key": "apply_tenancy",
-        "name": "Apply for Tenancy",
-        "selected": false,
-        "link": "/apply-tenancy",
-        "type": "link"
-    }
 ];
 
 export const navTextLandlord = [
